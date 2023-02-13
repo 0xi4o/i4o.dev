@@ -1,34 +1,37 @@
-# Welcome to Remix!
 
-- [Remix Docs](https://remix.run/docs)
+# i4o.dev
 
-## Deployment
+- Framework: [Remix](https://remix.run/)
+- Database: [Planetscale](https://planetscale.com/)
+- ORM: [Prisma](https://prisma.io/)
+- Components: [Catalyst UI](https://catalyst.i4o.dev/)
+- Styling: [TailwindCSS](https://tailwindcss.com/)
+- Deployment: [Vercel](https://vercel.com/)
 
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
+## Run Locally
 
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
+Clone the project
 
-```sh
-npm i -g vercel
-vercel
+```bash
+  git clone https://github.com/i4o-dev/i4o.dev
+  cd i4o.dev
+  pnpm install
+  pnpm dev
 ```
 
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
 
-## Development
+## Roadmap
 
-To run your Remix app locally, make sure your project's local dependencies are installed:
+- [ ]  Gotta put some items here
 
-```sh
-npm install
-```
 
-Afterwards, start the Remix development server like so:
+## License
 
-```sh
-npm run dev
-```
+(Inspired by [leerob](https://github.com/leerob/leerob.io/blob/main/LICENSE.txt)'s license)
 
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
+- You are free to use this code as inspiration or use it directly.
+- Any content (blog posts, personal info, page copy, images, etc) are the property of the author and must not be copied or derived to form other content.
+- Crediting the author is appreciated.
 
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
+No confusing license. Be kind and help others learn.
+

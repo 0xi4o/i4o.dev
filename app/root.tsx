@@ -17,14 +17,53 @@ import styles from './styles/main.css'
 import cuiStyles from '@i4o-oss/catalystui/main.css'
 
 export const links: LinksFunction = () => [
+	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+	{ rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+	{
+		rel: 'stylesheet',
+		href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
+	},
 	{ rel: 'stylesheet', href: styles },
 	{ rel: 'stylesheet', href: cuiStyles },
+	{ rel: 'manifest', href: '/site.webmanifest' },
+	{
+		rel: 'apple-touch-icon',
+		sizes: '180x180',
+		href: '/apple-touch-icon.png',
+	},
+	{
+		rel: 'icon',
+		type: 'image/png',
+		sizes: '32x32',
+		href: '/favicon-32x32.png',
+	},
+	{
+		rel: 'icon',
+		type: 'image/png',
+		sizes: '16x16',
+		href: '/favicon-16x16.png',
+	},
+	{ rel: 'mask-icon', href: '/safari-pinned-tab.svg' },
 ]
 
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
-	title: 'New Remix App',
 	viewport: 'width=device-width,initial-scale=1',
+	'msapplication-TileColor': '#2b5797',
+	'og:site': 'https://i4o.dev',
+	'og:url': 'https://i4o.dev',
+	'og:title': 'Ilango',
+	'og:description': '',
+	'og:image': '',
+	'theme-color': '#ffffff',
+	title: 'Ilango',
+	'twitter:card': 'summary_large_image',
+	'twitter:site': '@i4o_dev',
+	'twitter:url': 'https://i4o.dev/',
+	'twitter:creator': '@i4o_dev',
+	'twitter:title': 'Ilango',
+	'twitter:description': '',
+	'twitter:image': '',
 })
 
 export type LoaderData = {

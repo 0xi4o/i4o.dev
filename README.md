@@ -22,7 +22,12 @@ Clone the project
 
 ## Roadmap
 
-- [ ]  Gotta put some items here
+- [ ]  Add projects, resume, now, uses pages
+- [ ]  Add about page
+- [ ]  Import blog posts from Ghost
+- [ ]  Add subscribe component (maybe?)
+- [ ]  RSS
+- [ ]  Sitemap and other SEO stuff
 
 
 ## License

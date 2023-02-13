@@ -10,13 +10,9 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react'
-import {
-	getThemeSession,
-	ThemeBody,
-	ThemeHead,
-	ThemeProvider,
-	useTheme,
-} from './utils/theme-provider'
+import Navbar from './components/navbar'
+import { Theme, ThemeHead, ThemeProvider, useTheme } from './utils/theme'
+import { getThemeSession } from './utils/theme.server'
 import styles from './styles/main.css'
 import cuiStyles from '@i4o-oss/catalystui/main.css'
 
@@ -31,13 +27,22 @@ export const meta: MetaFunction = () => ({
 	viewport: 'width=device-width,initial-scale=1',
 })
 
-export async function loader({ request }: LoaderArgs) {
+export type LoaderData = {
+	theme: Theme | null
+}
+
+export const loader = async ({ request }: LoaderArgs) => {
 	const themeSession = await getThemeSession(request)
-	return json({ theme: themeSession.getTheme() })
+
+	const data: LoaderData = {
+		theme: themeSession.getTheme(),
+	}
+
+	return json(data)
 }
 
 function Document({ children }: { children: ReactNode }) {
-	const data = useLoaderData<typeof loader>()
+	const data = useLoaderData<LoaderData>()
 	const [theme] = useTheme()
 
 	return (
@@ -49,7 +54,6 @@ function Document({ children }: { children: ReactNode }) {
 			</head>
 			<body className='h-full w-full bg-white dark:bg-[#040303]'>
 				{children}
-				<ThemeBody ssrTheme={Boolean(data.theme)} />
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
@@ -58,13 +62,21 @@ function Document({ children }: { children: ReactNode }) {
 	)
 }
 
-export default function App() {
-	const data = useLoaderData<typeof loader>()
+function App() {
+	return (
+		<Document>
+			<Navbar />
+			<Outlet />
+		</Document>
+	)
+}
+
+export default function AppWithProviders() {
+	const data = useLoaderData<LoaderData>()
+
 	return (
 		<ThemeProvider specifiedTheme={data.theme}>
-			<Document>
-				<Outlet />
-			</Document>
+			<App />
 		</ThemeProvider>
 	)
 }

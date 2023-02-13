@@ -10,9 +10,9 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react'
-import Navbar from './components/navbar'
 import { Theme, ThemeHead, ThemeProvider, useTheme } from './utils/theme'
 import { getThemeSession } from './utils/theme.server'
+import Layout from './components/layout'
 import styles from './styles/main.css'
 import cuiStyles from '@i4o-oss/catalystui/main.css'
 
@@ -91,7 +91,7 @@ function Document({ children }: { children: ReactNode }) {
 				<Links />
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
-			<body className='h-full w-full bg-white dark:bg-[#040303]'>
+			<body className='h-full w-full bg-zinc-50 dark:bg-[#040303]'>
 				{children}
 				<ScrollRestoration />
 				<Scripts />
@@ -104,8 +104,9 @@ function Document({ children }: { children: ReactNode }) {
 function App() {
 	return (
 		<Document>
-			<Navbar />
-			<Outlet />
+			<Layout>
+				<Outlet />
+			</Layout>
 		</Document>
 	)
 }

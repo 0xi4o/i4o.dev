@@ -17,10 +17,10 @@ function Layout(props: Props) {
 			<div className='relative'>
 				<Navbar />
 				<main className='flex items-center justify-center'>
-					<div className='mx-auto max-w-7xl lg:px-8'>
-						<div className='relative px-4 sm:px-8 lg:px-12'>
-							<div className='prose mx-auto max-w-2xl dark:prose-invert lg:max-w-5xl'>
-								<div className='max-w-2xl'>
+					<div className='mx-auto w-full max-w-7xl lg:px-8'>
+						<div className='relative w-full px-4 sm:px-8 lg:px-12'>
+							<div className='prose mx-auto flex w-full max-w-2xl justify-center dark:prose-invert lg:max-w-5xl'>
+								<div className='w-full max-w-2xl'>
 									{props.children}
 								</div>
 							</div>

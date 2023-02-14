@@ -5,7 +5,3 @@
 body {
 	overflow-x: hidden;
 }
-
-.prose a {
-	@apply font-semibold text-brand-500 no-underline;
-}

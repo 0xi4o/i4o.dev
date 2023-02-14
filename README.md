@@ -1,12 +1,11 @@
-
 # i4o.dev
 
-- Framework: [Remix](https://remix.run/)
-- Database: [Planetscale](https://planetscale.com/)
-- ORM: [Prisma](https://prisma.io/)
-- Components: [Catalyst UI](https://catalyst.i4o.dev/)
-- Styling: [TailwindCSS](https://tailwindcss.com/)
-- Deployment: [Vercel](https://vercel.com/)
+-   Framework: [Remix](https://remix.run/)
+-   Database: [Planetscale](https://planetscale.com/)
+-   ORM: [Prisma](https://prisma.io/)
+-   Components: [Catalyst UI](https://catalyst.i4o.dev/)
+-   Styling: [TailwindCSS](https://tailwindcss.com/)
+-   Deployment: [Vercel](https://vercel.com/)
 
 ## Run Locally
 
@@ -19,25 +18,23 @@ Clone the project
   pnpm dev
 ```
 
-
 ## Roadmap
 
-- [x]  Add about page
-- [x]  Add projects, now, uses pages
-- [ ]  Add resume page
-- [ ]  Import blog posts from Ghost
-- [ ]  Add subscribe component (maybe?)
-- [ ]  RSS
-- [ ]  Sitemap and other SEO stuff
-
+-   [x] Add about page
+-   [x] Add projects, now, uses pages
+-   [ ] Update home page
+-   [ ] Add resume page
+-   [ ] Import blog posts from Ghost
+-   [ ] Add subscribe component (maybe?)
+-   [ ] RSS
+-   [ ] Sitemap and other SEO stuff
 
 ## License
 
 (Inspired by [leerob](https://github.com/leerob/leerob.io/blob/main/LICENSE.txt)'s license)
 
-- You are free to use this code as inspiration or use it directly.
-- Any content (blog posts, personal info, page copy, images, etc) are the property of the author and must not be copied or derived to form other content.
-- Crediting the author is appreciated.
+-   You are free to use this code as inspiration or use it directly.
+-   Any and all content (blog posts, personal info, page copy, images, etc) are the property of the author and must not be copied or derived to form other content.
+-   Crediting the author is appreciated but not required.
 
 No confusing license. Be kind and help others learn.
-

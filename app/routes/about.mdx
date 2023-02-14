@@ -1,16 +1,49 @@
-import { Link } from '@remix-run/react'
+import { Anchor, Card, Link } from '~/components'
+import {
+	ArrowTopRightIcon,
+	GitHubLogoIcon,
+	TwitterLogoIcon,
+} from '@radix-ui/react-icons'
 
 # About Me 
 
 I'm Ilango. I'm a Full Stack Engineer from Bangalore, India.
 
-Over the past 7 years, I've been building modern web applications for SaaS startups. My main programming language is JavaScript/TypeScript but I've been learning Rust as well. I've also dabbled in Go, Lua, and Python. I write articles regularly here and on [Hashnode](https://ilango.hashnode.dev/), about the things I'm learning and the projects I'm working on.
+I'm currently working as a Senior Full Stack Engineer at Creable. 
 
-I'm currently working as a Senior Full Stack Engineer at Creable. In my free time, I work on <Link to='/projects'>side projects</Link>.
+---
+
+In my free time, I work on <Link to='/projects'>side projects</Link>.
+
+My main programming language is JavaScript/TypeScript but I've been learning Rust as well. I've also dabbled in Go, Lua, and Python. I write articles regularly here and on <Anchor href='https://ilango.hashnode.dev/'>Hashnode</Anchor>, about the things I'm learning and the projects I'm working on.
 
 When not working on side projects, I read and occasionally play video games. Check out what I'm reading and playing right <Link to='/now'>now</Link>. You can also check out the <Link to='/uses'>tools and devices</Link> I use to get my work done.
 
-Since you're here, I'd appreciate it if you checked out some of my articles. And if you happen to like what you read, I'd appreciate it even more if you subscribed to my website. It's totally free, and you'll be the first to know when I publish new stuff here.
+Since you're here, I'd appreciate it if you checked out some of my <Link to='/blog'>articles</Link>. And if you happen to like what you read, let me know :)
+
+{
+<div className='h-16 grid grid-cols-2 gap-4'>
+<Card>
+<a className='w-full h-full flex items-center justify-between no-underline' href='https://twitter.com/i4o_dev' target='_blank' rel='noreferrer noopener'>
+    <span className='inline-flex items-center gap-2'>
+        <TwitterLogoIcon className='w-4 h-4' />
+        Twitter
+    </span> 
+    <ArrowTopRightIcon />
+</a>
+</Card>
+
+<Card>
+<a className='w-full h-full flex items-center justify-between no-underline' href='https://Github.com/i4o-dev' target='_blank' rel='noreferrer noopener'>
+    <span className='inline-flex items-center gap-2'>
+        <GitHubLogoIcon className='w-4 h-4' />
+        Github
+    </span> 
+    <ArrowTopRightIcon />
+</a>
+</Card>
+</div>
+}
 
 Cheers!
 

@@ -20,7 +20,9 @@ function Layout(props: Props) {
 					<div className='mx-auto max-w-7xl lg:px-8'>
 						<div className='relative px-4 sm:px-8 lg:px-12'>
 							<div className='prose mx-auto max-w-2xl dark:prose-invert lg:max-w-5xl'>
-								{props.children}
+								<div className='max-w-2xl'>
+									{props.children}
+								</div>
 							</div>
 						</div>
 					</div>

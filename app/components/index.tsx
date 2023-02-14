@@ -1,4 +1,5 @@
 export { default as Anchor } from './anchor'
+export { default as Bleed } from './bleed'
 export { default as Card } from './card'
 export { default as Footer } from './footer'
 export { default as Layout } from './layout'

@@ -22,8 +22,8 @@ Clone the project
 
 ## Roadmap
 
+- [x]  Add about page
 - [ ]  Add projects, resume, now, uses pages
-- [ ]  Add about page
 - [ ]  Import blog posts from Ghost
 - [ ]  Add subscribe component (maybe?)
 - [ ]  RSS

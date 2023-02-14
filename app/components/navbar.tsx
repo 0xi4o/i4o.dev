@@ -18,7 +18,7 @@ function Navbar() {
 	}
 
 	return (
-		<header className='mb-8 flex h-24 w-screen flex-wrap items-center justify-center px-4 py-4 sm:px-6 lg:px-8'>
+		<header className='flex h-24 w-screen flex-wrap items-center justify-center px-4 py-4 sm:px-6 lg:px-8'>
 			<div className='flex w-full max-w-5xl items-center justify-between'>
 				<div className='relative flex flex-grow basis-0 items-center'>
 					<Link aria-label='Home page' to='/'>

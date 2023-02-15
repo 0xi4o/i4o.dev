@@ -1,6 +1,6 @@
 export interface GetBlogMdxItemsParams {
 	dir?: string
-	filter?: 'latest' | 'all'
+	filter?: 'latest' | 'featured' | 'latest,featured' | 'all'
 	count?: number
 	grouped?: 'year' | 'none'
 }

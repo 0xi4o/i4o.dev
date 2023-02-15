@@ -11,6 +11,7 @@ const readFile = promisify(fs.readFile)
 async function getBlogMdxItems({
 	dir = BLOG_POSTS_DIR,
 	filter = 'all',
+	count = 3,
 	grouped = 'none',
 }: GetBlogMdxItemsParams) {
 	const files = await readdir(dir, { withFileTypes: true })
@@ -30,12 +31,21 @@ async function getBlogMdxItems({
 
 		return {
 			title: content.data.title,
+			description: content.data.description,
 			date,
+			slug: content.data.slug,
+			draft: content.data.draft,
 		}
 	})
 
+	const onlyPublished = posts.filter((post) => !post.draft)
+
+	const sortedPosts = onlyPublished.sort(
+		(a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+	)
+
 	if (grouped === 'year') {
-		const articlesGroupedByYear = posts.reduce(
+		const articlesGroupedByYear = onlyPublished.reduce(
 			(groups: PostGroup, post: Post) => {
 				const year = post.date.toString().split('-')[0]
 				if (!groups[year]) {
@@ -64,10 +74,15 @@ async function getBlogMdxItems({
 	}
 
 	if (filter === 'latest') {
-		// filter posts
+		// latest posts
+		return sortedPosts.slice(0, count)
+	} else if (filter === 'featured') {
+		// featured posts
+	} else if (filter === 'latest,featured') {
+		// latest and featured posts
 	}
 
-	return posts
+	return sortedPosts
 }
 
 export { getBlogMdxItems }

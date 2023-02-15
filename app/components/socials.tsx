@@ -16,11 +16,11 @@ function Socials() {
 						target='_blank'
 						rel='noreferrer noopener'
 					>
-						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600'>
+						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500'>
 							<TwitterLogoIcon className='h-5 w-5' />
 							Follow me on Twitter
 						</span>
-						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600' />
+						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500' />
 					</a>
 					<a
 						className='transition-color flex items-center justify-between gap-2 no-underline duration-200'
@@ -28,11 +28,11 @@ function Socials() {
 						target='_blank'
 						rel='noreferrer noopener'
 					>
-						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600'>
+						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500'>
 							<GitHubLogoIcon className='h-5 w-5' />
 							Check out my Github profile
 						</span>
-						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600' />
+						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500' />
 					</a>
 					<a
 						className='transition-color flex items-center justify-between gap-2 no-underline duration-200'
@@ -40,7 +40,7 @@ function Socials() {
 						target='_blank'
 						rel='noreferrer noopener'
 					>
-						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600'>
+						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500'>
 							<svg
 								className='h-4 w-4'
 								role='img'
@@ -53,7 +53,7 @@ function Socials() {
 							</svg>
 							View my Polywork timeline
 						</span>
-						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600' />
+						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500' />
 					</a>
 					<a
 						className='transition-color flex items-center justify-between gap-2 no-underline duration-200'
@@ -61,7 +61,7 @@ function Socials() {
 						target='_blank'
 						rel='noreferrer noopener'
 					>
-						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600'>
+						<span className='inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500'>
 							<svg
 								className='h-4 w-4'
 								role='img'
@@ -74,7 +74,7 @@ function Socials() {
 							</svg>
 							Subscribe to my Substack
 						</span>
-						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-600' />
+						<ArrowRightIcon className='text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 hover:dark:text-zinc-500' />
 					</a>
 				</div>
 			</div>

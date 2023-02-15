@@ -39,13 +39,14 @@ export default function Index() {
 								<Link
 									className='no-underline'
 									to={`/blog/${post.slug}`}
+									key={`latest${index}`}
 								>
 									<div className='flex flex-col gap-2'>
 										<div
 											className='flex items-end justify-start gap-2 text-left'
 											key={`post${index}`}
 										>
-											<h3 className='m-0 font-serif text-base font-medium leading-6'>
+											<h3 className='m-0 font-serif text-base font-semibold leading-6'>
 												{post.title}
 											</h3>
 											<span className='text-sm italic leading-6'>
@@ -55,7 +56,7 @@ export default function Index() {
 												)}
 											</span>
 										</div>
-										<p className='m-0'>
+										<p className='m-0 font-light'>
 											{post.description}
 										</p>
 									</div>
@@ -70,13 +71,14 @@ export default function Index() {
 								<Link
 									className='no-underline'
 									to={`/blog/${post.slug}`}
+									key={`featured{index}`}
 								>
 									<div className='flex flex-col gap-2'>
 										<div
 											className='flex items-end justify-start gap-2 text-left'
 											key={`post${index}`}
 										>
-											<h3 className='m-0 font-serif text-base font-medium leading-6'>
+											<h3 className='m-0 font-serif text-base font-semibold leading-6'>
 												{post.title}
 											</h3>
 											<span className='text-sm italic leading-6'>
@@ -86,7 +88,7 @@ export default function Index() {
 												)}
 											</span>
 										</div>
-										<p className='m-0'>
+										<p className='m-0 font-light'>
 											{post.description}
 										</p>
 									</div>

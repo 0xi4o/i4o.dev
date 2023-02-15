@@ -23,9 +23,9 @@ Clone the project
 -   [x] Add about page
 -   [x] Add projects, now, uses pages
 -   [ ] Update home page
+-   [ ] Add blog and blog post page
 -   [ ] Add resume page
 -   [ ] Import blog posts from Ghost
--   [ ] Add subscribe component (maybe?)
 -   [ ] RSS
 -   [ ] Sitemap and other SEO stuff
 

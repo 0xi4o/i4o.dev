@@ -19,7 +19,7 @@ export default function Index() {
 			<Bleed>
 				<div>
 					<h1 className='font-serif text-3xl'>
-						Fullstack Engineer. Blogger. Indiehacker.
+						Fullstack Engineer. Maker. Blogger.
 					</h1>
 					<p>
 						Hey, I'm Ilango. I'm a software engineer based in

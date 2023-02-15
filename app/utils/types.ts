@@ -7,8 +7,11 @@ export interface GetBlogMdxItemsParams {
 
 export interface Post {
 	title: string
+	description: string
 	date: Date
 	slug?: string
+	draft?: boolean
+	featured?: boolean
 }
 
 export interface PostGroup {

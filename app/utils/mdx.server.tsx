@@ -31,10 +31,11 @@ async function getBlogMdxItems({
 
 		return {
 			title: content.data.title,
-			description: content.data.description,
+			description: content.data.excerpt,
 			date,
 			slug: content.data.slug,
 			draft: content.data.draft,
+			featured: content.data.featured,
 		}
 	})
 
@@ -80,6 +81,12 @@ async function getBlogMdxItems({
 		// featured posts
 	} else if (filter === 'latest,featured') {
 		// latest and featured posts
+		const latest = sortedPosts.slice(0, count)
+		const featured = sortedPosts.filter((post) => post.featured)
+		return {
+			featured,
+			latest,
+		}
 	}
 
 	return sortedPosts

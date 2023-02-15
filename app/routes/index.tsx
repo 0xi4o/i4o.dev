@@ -6,13 +6,14 @@ import { getBlogMdxItems } from '~/utils/mdx.server'
 import type { Post } from '~/utils/types'
 
 export async function loader() {
-	const posts = await getBlogMdxItems({ filter: 'latest' })
+	const posts = await getBlogMdxItems({ filter: 'latest,featured' })
 	return json({ posts })
 }
 
 export default function Index() {
 	const data = useLoaderData<typeof loader>()
 	const { posts } = data
+	const { latest, featured } = posts
 
 	return (
 		<>
@@ -29,28 +30,67 @@ export default function Index() {
 					</p>
 				</div>
 			</Bleed>
-			<div className='mt-24 -ml-44 grid w-[64rem] grid-cols-5 gap-4'>
-				<div className='col-span-3'>
-					<div className='mb-4 flex flex-col items-start gap-8'>
+			<div className='mt-16 -ml-44 grid w-[64rem] grid-cols-5 gap-16'>
+				<div className='col-span-3 flex flex-col gap-16'>
+					<div className='flex flex-col items-start gap-8'>
 						<h2 className='m-0'>Latest Posts</h2>
-						<div className='flex flex-col items-start gap-6'>
-							{posts.map((post: Post, index: number) => (
-								<div
-									className='flex items-end justify-start gap-2 text-left'
-									key={`post${index}`}
+						<div className='flex flex-col items-start gap-8'>
+							{latest.map((post: Post, index: number) => (
+								<Link
+									className='no-underline'
+									to={`/blog/${post.slug}`}
 								>
-									<Link
-										className='no-underline'
-										to={`/blog/${post.slug}`}
-									>
-										<h3 className='m-0 font-serif text-base font-medium leading-6'>
-											{post.title}
-										</h3>
-									</Link>
-									<span className='text-sm italic leading-6'>
-										{format(new Date(post.date), 'MMM dd')}
-									</span>
-								</div>
+									<div className='flex flex-col gap-2'>
+										<div
+											className='flex items-end justify-start gap-2 text-left'
+											key={`post${index}`}
+										>
+											<h3 className='m-0 font-serif text-base font-medium leading-6'>
+												{post.title}
+											</h3>
+											<span className='text-sm italic leading-6'>
+												{format(
+													new Date(post.date),
+													'MMM dd'
+												)}
+											</span>
+										</div>
+										<p className='m-0'>
+											{post.description}
+										</p>
+									</div>
+								</Link>
+							))}
+						</div>
+					</div>
+					<div className='flex flex-col items-start gap-8'>
+						<h2 className='m-0'>Featured Posts</h2>
+						<div className='flex flex-col items-start gap-8'>
+							{featured.map((post: Post, index: number) => (
+								<Link
+									className='no-underline'
+									to={`/blog/${post.slug}`}
+								>
+									<div className='flex flex-col gap-2'>
+										<div
+											className='flex items-end justify-start gap-2 text-left'
+											key={`post${index}`}
+										>
+											<h3 className='m-0 font-serif text-base font-medium leading-6'>
+												{post.title}
+											</h3>
+											<span className='text-sm italic leading-6'>
+												{format(
+													new Date(post.date),
+													'MMM dd'
+												)}
+											</span>
+										</div>
+										<p className='m-0'>
+											{post.description}
+										</p>
+									</div>
+								</Link>
 							))}
 						</div>
 					</div>

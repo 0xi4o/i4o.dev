@@ -29,10 +29,10 @@ export default function Index() {
 					</p>
 				</div>
 			</Bleed>
-			<div className='mt-32 -ml-44 grid w-[64rem] grid-cols-5 gap-4'>
+			<div className='mt-24 -ml-44 grid w-[64rem] grid-cols-5 gap-4'>
 				<div className='col-span-3'>
 					<div className='mb-4 flex flex-col items-start gap-8'>
-						<h2 className='m-0 font-serif'>Latest Posts</h2>
+						<h2 className='m-0'>Latest Posts</h2>
 						<div className='flex flex-col items-start gap-6'>
 							{posts.map((post: Post, index: number) => (
 								<div
@@ -43,7 +43,7 @@ export default function Index() {
 										className='no-underline'
 										to={`/blog/${post.slug}`}
 									>
-										<h3 className='m-0 text-base font-medium leading-6'>
+										<h3 className='m-0 font-serif text-base font-medium leading-6'>
 											{post.title}
 										</h3>
 									</Link>

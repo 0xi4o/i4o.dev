@@ -1,0 +1,121 @@
+---
+title: Diving deeper into Remix Stacks
+slug: diving-deeper-into-remix-stacks
+date_published: 2022-06-27T08:39:38.000Z
+date_updated: 2022-06-27T08:39:38.000Z
+tags: Build In Public, Web Development, Remix
+excerpt: I recently updated my Remix Stack, called Synthwave Stack. Here are some of the choices I made and why I made them.
+---
+
+As I covered in an [earlier article](__GHOST_URL__/exploring-remix-stacks/), Remix Stacks provides as an easy way to start new projects. They're essentially starter code for web projects. Naturally, I set out to create a custom stack that has all the components that I need for a new project and all the boilerplate code written ahead of time.
+
+This includes setting up:
+
+1. Prettier with my go-to config
+2. ESLint
+3. `tsconfig` for TypeScript
+4. Pre-commit hooks with Husky, which runs prettier and eslint.
+5. Basic Prisma setup
+
+I called it Synthwave Stack, named after one of my favorite sub-genres. You can check it out here:
+[
+
+GitHub - ilangorajagopal/synthwave-stack: Remix Stack for deploying to Vercel with remix-auth, Planetscale, Radix UI, TailwindCSS, formatting, linting etc. Written in Typescript.
+
+Remix Stack for deploying to Vercel with remix-auth, Planetscale, Radix UI, TailwindCSS, formatting, linting etc. Written in Typescript. - GitHub - ilangorajagopal/synthwave-stack: Remix Stack for ...
+
+![](https://github.com/fluidicon.png)GitHubilangorajagopal
+
+![](https://repository-images.githubusercontent.com/490372710/413f7bbb-d572-4db4-9eb1-5c42fd3603ad)
+](https://github.com/ilangorajagopal/synthwave-stack)
+Once I had this ready, I built a project with this stack. I decided to rewrite my writing app, [Aurelius](https://aurelius.ink), in Remix. It's originally written in [Next.js](https://nextjs.org/). While I was creating the stack I had to make some changes to my tech stack. One of the first ones to go was [Chakra UI](https://chakra-ui.com/).
+
+### Tailwind CSS, please take me back!
+
+Chakra UI is a fantastic component library. In the first version of Synthwave Stack, I replaced Tailwind with Chakra UI, because I was using it at the time with Next.js and I loved using it.
+
+But setting up Chakra UI in Remix has a lot of steps. While they had a setup guide on their website with code for doing it, a lot of the code was like a black box and I didn't understand why they were required. I'd have to spend more time understanding the moving parts.
+
+So I decided to move back to Tailwind. But I didn't want to build components from scratch again. So I started looking for headless components. Naturally, I began with [Headless UI](https://headlessui.dev/) because it's from Tailwind Labs. It had first-class TailwindCSS support but the list of components was short.
+
+I'd also heard about [Radix UI primitives](https://www.radix-ui.com/) and loved what they were doing with `a11y` and keyboard navigation. The components are unstyled and support any styling solution. The people who made Radix also have their styling solution called Stitches, a CSS-in-JS solution. I'm not a big fan of CSS-in-JS. Chakra UI provided a nice enough abstraction that I didn't have to write CSS in my JSX code.
+
+I also didn't want to learn another technology, so I opted for Tailwind. Having them work together was not straight forward as I thought it would be. For example, Radix exposes data attributes to keep track of components' states. There's no way for Tailwind to target those attributes, yet.
+
+*Note: With v3.1, Tailwind lets us use arbitrary variants to it's possible to target data attributes. But even then, typing out arbitrary variants for all the components seemed tedious.*
+
+I'd have to roll out my plugin to get around this but fortunately, I found a plugin that did exactly that.
+[
+
+GitHub - ecklf/tailwindcss-radix: Utilities and variants for styling Radix state
+
+Utilities and variants for styling Radix state. Contribute to ecklf/tailwindcss-radix development by creating an account on GitHub.
+
+![](https://github.com/fluidicon.png)GitHubecklf
+
+![](https://opengraph.githubassets.com/fa15cd3c3b321b5ac86b3d0c017650d1eeb896ff0df3e56799edb5e995cbcb92/ecklf/tailwindcss-radix)
+](https://github.com/ecklf/tailwindcss-radix)
+Now I can target Radix components' states and style them how I want them. The plugin sets default variants for different states and we can customize the prefix for the variants! Check out the above repository to learn more.
+
+Now that my UI issues are sorted, I wanted a few more things in my stack. 
+
+### Authentication
+
+Moving to Remix, I knew I had to do something about authentication and authorization. [Next-Auth](https://next-auth.js.org/) makes it so much easier to roll out auth for Next.js apps. I thought it would be hard to replicate in Remix but there's an amazing project called Remix-Auth built by a community member!
+[
+
+GitHub - sergiodxa/remix-auth: Simple Authentication for Remix
+
+Simple Authentication for Remix. Contribute to sergiodxa/remix-auth development by creating an account on GitHub.
+
+![](https://github.com/fluidicon.png)GitHubsergiodxa
+
+![](https://opengraph.githubassets.com/084fc0731b383bdbfe6fd551d1d414375a2bee62e8df780070de6530e0c2267b/sergiodxa/remix-auth)
+](https://github.com/sergiodxa/remix-auth/)
+Remix-Auth is heavily inspired by Passport.js, the defacto auth library for javascript. It was written from the ground up to work with Remix and has support for strategies, like Passport. Here's a list of all currently available Remix auth strategies built by the community:
+[
+
+Community Strategies · Discussion #111 · sergiodxa/remix-auth
+
+This discussion is to keep a list of any strategy built by the community. Reply below with the strategies you built! OAuth2Strategy FormStrategy GitHubStrategy
+
+![](https://github.com/fluidicon.png)GitHubsergiodxa
+
+![](https://opengraph.githubassets.com/c49aed9e131efb2cf945c3d9f6f3f910aff5a38ca5589e31e391d73097d625ee/sergiodxa/remix-auth/discussions/111)
+](https://github.com/sergiodxa/remix-auth/discussions/111)
+Using these, I built Google, Twitter, and Magic links auth for my stack.
+
+### Other moving parts
+
+With the two main parts taken care of, I went ahead and added a few more things to my stack that would drastically reduce boilerplate code and would save me time from building them for each of my projects.
+
+1. Transactional emails with SendGrid
+2. Relational database with Planetscale 
+3. Upload API with S3
+4. Health check API route
+5. Pre-built, themed, and composable Radix UI components styled with Tailwind
+
+For now, I'm happy with the state of my Remix Stack. All of the above-mentioned technologies were included in my stack by necessity as I was working on Aurelius. 
+
+After I pushed the new changes to Synthwave Stack, I thought about what else I wanted to include that would reduce boilerplate and set up work even more. Here's the list I came up with:
+
+- [Fly.io](http://Fly.io) deployments (and moving off of Vercel)
+- Error logging with Sentry
+- Analytics (Amplitude?)
+- Docs using MDX
+- Blog (Aurelius 👀 or any headless CMS)
+- Increase upload size (currently 5MB)
+- Stripe integration
+- Cron jobs
+- Unit testing with Vitest and Testing Library
+- MSW
+
+I'm not going to build them right away, because I don't need them right now. I'm starting a new project soon where I might need some of these, so when the time comes, I'll build it and add them to my stack.
+
+### Why am I going to such lengths?
+
+Because I want to focus on building projects and not get caught up in doing the tedious setup work that goes along with any new project. I want to run one command, and start off building the project. 
+
+I'm doing that with Remix because I love this framework, its principles, and the community behind it. But it doesn't have to be Remix. Remix is a means to an end, the end being building cool shit. It could be replaced by Next.js, Gatsby, Astro, whatever. 
+
+If you're doing side projects, set up a starter with all the things you need for a project. But don't spend too much time on it because it might end up being a project on its own. Add things as and when it's necessary and optimize for building your projects.

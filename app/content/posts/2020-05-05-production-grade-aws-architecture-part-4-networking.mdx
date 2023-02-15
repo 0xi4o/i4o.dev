@@ -1,0 +1,46 @@
+---
+title: "Production-grade AWS architecture [Part 4]: Networking"
+slug: production-grade-aws-architecture-part-4-networking
+date_published: 2020-05-05T09:30:00.000Z
+date_updated: 2021-10-10T14:12:16.000Z
+tags: AWS
+excerpt: Networking in AWS spans multiple services. Each has its own set of features that provides an incredible level of flexibility for your needs.
+---
+
+Networking in AWS is such a huge topic that cannot be explained in one blog post. I'm also not going to cover every service under it's roof. Networking in AWS spans multiple services. Each has its own set of features that provides an incredible level of flexibility for your needs. This flexibility exists to support any requirements that you might have.
+
+There is a problem with this flexibility though. It's easy to make mistakes by misconfiguring your network. These mistakes will cause things to not work or lead to security and compliance issues. Knowing this, AWS puts forth what's called a [Shared Responsibility Model](*https://aws.amazon.com/compliance/shared-responsibility-model/*). The responsibility of security and compliance of your web applications and services is shared between AWS and you. AWS takes care of security "of" the cloud — data centers, hardware, software, networking. You take care of security "in" the cloud — data, encryption, operating systems, firewalls etc.
+
+*### *Regions and Availability Zones
+
+Amazon Web Services is built on top of a global network of datacenters. These datacenters are segmented on two levels — regions and availability zones. Regions are geographic locations where a cluster of datacenters are located. There are 24 regions as of this writing. Availability zones (AZ) are physically isolated datacenters in the same region. There are usually 2 or 3 AZs per region with a global total of 76. AZs within a region are connected by low-latency network connections. [This global infrastructure](*https://aws.amazon.com/about-aws/global-infrastructure/*) is the backbone that provides scalability, reliability and performance.
+
+*### *Why are these details important?
+
+Depending on your use-case, you might want to run your services in multiple AZs and even multiple regions. By being available on multiple regions and AZs, you can provide higher availability for your customers. This could also be for handling failovers. Or for reducing latency by being available close to your customers' physical location. So when you're starting on AWS, you'll have to pick region(s) based on your requirements.
+
+You should also know that new services will be made available only to a few regions first. For example, EC2 is available in all regions because it's one of the oldest. AWS Comprehend is not available everywhere because it's relatively new. It's a good idea to check if the service you want to use is available in the region your deploying. Check out the [region table](*https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/*) to see which services are available in the regions you want.
+
+*### *Networking services on AWS
+
+The following are the networking services available on AWS:
+
+*1. *Virtual Private Cloud (VPC)
+*2. *Elastic Load Balancer (ELB)
+*3. *Route53 (DNS)
+*4. *API Gateway
+*5. *CloudFront (CDN)
+*6. *DirectConnect
+*7. *PrivateLink
+
+Please note that each of these services has a lot of functionality to cover every use case under the sun. I won't be explaining all of these services in this post (or any future post with one or two exceptions). AWS documentation is pretty good for explaining what these services are. For most use cases, you'll be using 1 through 5.
+
+*### *A note on VPCs
+
+VPCs are such an important part of your infrastructure. A VPC is a logically isolated network that is built on top of the AWS global network. Each VPC is self-contained and unless configured to do so, cannot communicate with the public internet. VPCs give you a lot of controls to configure a network for your needs. Internet Gateways, NAT, ingress and egress controls, access control lists and more. A lot of compute services on AWS — EC2, Lambda and ELB — heavily relies on VPCs to function.
+
+For this reason, AWS automatically creates a VPC in every region when you create your account. That said, you should never use the default VPC in a production environment. This is because, the default VPC is set up to allow you to quickly provision resources. They are not designed with a production environment in mind.
+
+When setting up your production infrastructure, you should setup and configure a separate VPC. In fact, you should setup a VPC for each of your development environments — dev, staging and production. How you setup your VPC depends on your requirements but there are a couple of architectures that can get you started.
+
+We will go in-depth into these architectures in the next post.

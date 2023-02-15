@@ -1,0 +1,57 @@
+---
+title: "Production-grade AWS architecture [Part 2]: First Steps"
+slug: production-grade-aws-architecture-part-2-first-steps
+date_published: 2020-04-23T09:08:00.000Z
+date_updated: 2021-10-10T14:09:23.000Z
+tags: AWS
+excerpt: In this article, I'll walk you through the first steps that I did after creating the AWS account. Some of these steps may seem unnecessary but they are good practices to follow when using AWS.
+---
+
+In [part 1](*https://ilango.xyz/production-grade-aws-setup-for-startups-part-1-services/*), I listed the AWS services that are essential for any software application. In this article, I'll walk you through the first steps that I did after creating the AWS account. Some of these steps may seem unnecessary but they are good practices to follow when using AWS.
+
+*## *Never use the root account
+
+After signing up to AWS, you're taken to the AWS web console. By default, the account you're is the the root account. The root account on AWS has the permissions to do anything. Anyone with the root account credentials has unrestricted access to all AWS resources. Which is why you should never use it, except for two things: setting up an IAM user with administrative access and allow access to billing. (There are also other tasks that require a root account but they're not important right now).
+
+"If I have a small team or if it's only me, can I still use the root account?"
+
+Sure. But I would advice against it. It usually leads to credential sharing, which causes two problems. IAM offers fine-grained access controls and policies which will be hard to enforce if credentials are shared. The other problem is the lack of attribution when everyone uses the root account. It'll be harder down the line to attribute any changes made to your AWS resources.
+
+So it's crucial that no one gets unauthorized access to the root account, which brings us to the next step.
+
+*## *Set up multi-factor authentication
+
+For an extra layer of protection, setup multi-factor authentication for your root account. Setting this up is fairly straightforward. You'll need a mobile device with an authenticator app that can generate short-lived unique 6 digit codes. I use [Authy](*https://authy.com/*) for this purpose.
+
+There's one more step before the root account is secure.
+
+*## *Delete the root account's access keys
+
+AWS allows programmatic access via software development kits and the command line. Your programs can access AWS using access keys. By default, AWS creates one for every user, IAM or root. By deleting the root access key, you ensure that there's no programmatic access for the root account.
+
+*## *Create an IAM user with administrator access
+
+Create an IAM user, setup multi-factor authentication and assign them administrator access. All the following actions on AWS should happen from the administrator account. You can also create an IAM group with administrator access and add people to it. But do this sparingly. Admin accounts can still access all the AWS resources.
+
+Even with admin access, administrators cannot access the billing dashboard. Unless the root account allows it. From your root account, you have to enable IAM access to billing in your account settings.
+
+*## *Use IAM groups to assign permissions to users
+
+IAM groups are groups of users who have a common set of access policies attached to them. For example, you might want different permissions for devops team and the frontend team. When attaching policies to IAM groups use the [least privilege principle](*https://en.wikipedia.org/wiki/Principle_of_least_privilege*).
+
+*## *Configure a strong password policy for IAM users
+
+Your accounts are only as strong as your passwords. IAM allows you to set password policies with controls like minimum length, expiry etc.
+
+---
+
+These are the first things I did when I signed up for AWS. When you're starting out, these steps may seem like overkill or unnecessary. But they help you avoid a lot of headaches later on in your journey. If you've noticed, I'm just showing what I did and not the how (that comes in later posts, where I go in-depth on certain topics).
+
+There are plenty of resources on the internet showing you how to do these. Hopefully this article gave you the idea of what to do and you can figure out the how. Here are some other things that I also did:
+
+*1. *Setup a SNS topic to receive billing notifications
+*2. *Create a CloudWatch alarm and use the newly created SNS topic to notify subscribers.
+*3. *Host your DNS on Route53. (Or buy the domain from there)
+*4. *Host a static website on S3 and distribute it via CloudFront CDN.
+*5. *(Optional) Enable access logs for CloudFront and S3
+*6. *(Optional) Setup AWS Config to get historical data of actions taken on your AWS resources.

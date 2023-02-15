@@ -1,0 +1,111 @@
+---
+title: All the things you can do with Javascript optional chaining
+slug: all-the-things-you-can-do-with-javascript-optional-chaining
+date_published: 2021-08-28T02:45:00.000Z
+date_updated: 2021-10-10T14:23:16.000Z
+tags: JavaScript
+excerpt: In this article, I talk about optional chaining and all the things that we can do with it apart from reading nested object properties.
+---
+
+A common problem when working with objects in Javascript is making sure nested properties are valid and available, not `undefined` or `null`. This usually occurs when reading a JSON response from a REST endpoint.
+
+For example:
+
+```json
+{
+   _id: Object.ID(''),
+   name: 'Quellcrist'
+   accounts: {
+      google: {
+         email: "quell@example.com",
+         profile: {
+            avatar: "https://example.com/avatar/img_1.png",
+            url: "https://example.com/quell"
+         }
+      }
+   }
+}
+```
+
+All the fields are defined properly here, but if they're not, we have to handle those errors properly to prevent crashes. Historically we've done this:
+
+```js
+const avatar = response && response.accounts && response.accounts.google && response.accounts.google.profile && response.accounts.profile.avatar
+
+// Do something with the avatar
+...
+```
+
+The deeper the properties are nested, the harder it is to write expressions like this. Not to mention, it is a pain to read and easy to get wrong.
+
+*## *Enter Optional Chaining
+
+Optional chaining is a new feature in Javascript that solves this issue. It is easily one of my most loved new features. It is supported by the [latest versions of all modern browsers](*https://www.caniuse.com/?search=optional%20chaining*). Older ones may need a polyfill.
+
+Here's how to use optional chaining:
+
+```js
+// From our previous example snippet
+
+const avatar = response?.accounts?.google?.profile?.avatar;
+```
+
+See how simple and convenient that was? All we have to do when chaining properties is to use `?.`, instead of `.`. It's so much easier to read this than a string of `AND` conditions.
+
+*## *Not just for addressing object properties though
+
+Optional chaining can be used in a few other circumstances as well:
+
+*### *Accessing array items
+
+Let's say we want to make sure the array exists before we read from an index:
+
+```js
+const arrayItem = arr?.[10];
+```
+
+*### *Calling functions or nested methods
+
+When we're unsure if the function or method exists before calling it:
+
+```js
+const user = new User();
+
+user.setUsername?.('quell');
+```
+
+*### *Addressing dynamic property names
+
+When we're using an expression to derive names of properties in objects:
+
+```js
+const word = 'onomatopoeia';
+const meaning = dictionary?.[word];
+```
+
+*### *Usage with the null coalescing operator (`??`)
+
+We can combine optional chaining with the null coalescing operator:
+
+```js
+// If user.gender is available, assign the value to gender. If not, set it to 'Not Selected'
+
+const gender = user?.gender ?? 'Not Selected';
+```
+
+*## *What we can't do with it
+
+We can't use optional chaining for assignment:
+
+```js
+// This is not valid
+const user?.dateOfBirth = '05 Nov 2001';
+```
+
+---
+
+Optional chaining is easily one of the most needed features in Javascript. Having used the old way before optional chaining, I can honestly say that it's saving me so much time and headache.
+
+Are you using optional chaining in your code? Any interesting uses apart from the ones mentioned above? Let me know in the comments.
+
+Cheers.

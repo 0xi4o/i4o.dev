@@ -1,0 +1,102 @@
+---
+title: Learning by building Breakable Toys
+slug: learning-by-building-breakable-toys
+date_published: 2021-09-15T23:00:00.000Z
+date_updated: 2021-10-10T14:27:25.000Z
+tags: Software Engineering
+excerpt: Building breakable toys is one of the best way I know, to learn a new programming language or technology. In this article I write about the features of a breakable toy.
+---
+
+*## *What is a breakable toy?
+
+When learning a new programming language or a new framework, it's easy to get into tutorial hell. We've coded the sample project in the tutorial (to-do lists) but we don't know where to go from there. There are plenty of project ideas we could google and attempt to build but they're not as interesting as we'd like them to be.
+
+The term breakable toy comes from an amazing book called [Apprenticeship Patterns](*https://www.oreilly.com/library/view/apprenticeship-patterns/9780596806842/*). A breakable toy is something you build to reinforce the things you learn. It is a small project but there are some conditions. I've tried to formalize the conditions here for building such projects.
+
+*## *Why breakable toys
+
+Whether you're already working as a developer or would like to be one, the work environment is often not designed for learning. This is because it does not allow for failure.
+
+*> *Yet failure is often the best way to learn anything. Only by attempting to do bold things, failing, learning from the failure, and trying again do we grow into the kind of people who can succeed when faced with difficult problems.
+>
+> — Apprenticeship Patterns
+
+Breakable toys by definition "break", and have a feedback loop built into them. We are certain to fail along the way but that's fine because we're learning.
+
+*## *Features of a breakable toy
+
+*### *Build for yourself
+
+No one is likely to use the to-do list we built with the tutorial. Even we won't be using it. Instead, we could build something for ourselves that we would use every day.
+
+Linus Lee has a host of projects (about 120!) that he has built for himself. They're all open-source, but rarely open to contributions.
+
+*> *I think the way that I think about side projects is pretty different from the way most people like to think about side projects. My side projects are never really monetized; they’re not really for other people. I just kind of make them for me to use myself. I make them to learn about something, to understand how something works… I've built assemblers and compilers before to understand how those things work; just kind of learning tools. ... A lot of them are still running, a lot of them I use day-to-day personally, as opposed to being sort of side hustles, or anything like that.
+>
+> — Linus Lee, on [The Changelog podcast episode 455](https://changelog.com/podcast/455)
+
+*###*
+
+*### *Optimize for fun
+
+If we're not enjoying the building process, you short-circuit the feedback loop and it stops working. Remember that we're building toys and as such, they should be fun. Fun to build, fun to use, and fun to fail with. Follow your curiosity and see where it leads you.
+
+*###*
+
+*### *Solve a problem that you have
+
+This one needs a little introspection. We have to look into the things we do every day and find annoyances, however small. Is there an existing solution to that problem but you're curious to know how it's built? Go build it. Re-implementing existing tools gives us a better understanding of why those tools are the way they are.
+
+One of my favorite examples of a breakable toy that re-implemented an existing solution is this "little-known" operating system called Linux. In his first post about Linux, Linus Torvalds said this:
+
+*> *Hello everybody out there using minix -
+>
+> I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones. This has been brewing since april, and is starting to get ready. I'd like any feedback on things people like/dislike in minix, as my OS resembles it somewhat (same physical layout of the file-system (due to practical reasons) among other things).
+>
+> I've currently ported [bash(1.08)](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>) and gcc(1.40), and things seem to work. This implies that I'll get something practical within a few months, and I'd like to know what features most people would want. Any suggestions are welcome, but I won't promise I'll implement them :-)
+>
+> Linus ([torvalds@kruuna.helsinki.fi](mailto:torvalds@kruuna.helsinki.fi))
+>
+> PS. Yes - it's free of any minix code, and it has a multi-threaded fs. It is NOT portable (uses 386 task switching etc), and it probably never will support anything other than AT-harddisks, as that's all I have :-(.
+>
+> — Linus Torvalds
+
+*###*
+
+*### *Fail often and forward
+
+We are going to run into roadblocks. A lot of them. There'll be things that we won't know how to implement, or how to fix a certain error. The key here is to not lose motivation when we're stuck. Learning this way is much better because, you get instant feedback but more importantly, you care about the problem.
+
+When I'm stuck, what works for me, is usually spending some time away from the problem. In "A Mind for Numbers", Barbara Oakley defines two modes of thinking — focused and diffused. Focused is the active problem-solving mode. Diffused mode only activates when we're relaxed and is subconscious. In diffused mode, our subconscious mind is still processing the problem and often that's where we find the solution.
+
+If you're still stuck, ask for help. Ask questions on Stack Overflow, join any Discord servers and ask there.
+
+*###*
+
+*### *Learn and build in public
+
+This is something I'm trying to be better at. Almost all our typical learning and practicing happens in isolation. Try and do that in public. Post on your blog, create a public notebook on Notion, or create a [til (Today I Learned) repository on Github](*https://github.com/ilangorajagopal/til*) like I did.
+
+Getting into the practice of documenting what we learned and worked on is one of the crucial skills we will build as a developer. Over time, this becomes a personal knowledge base.
+
+*###*
+
+*### *Naive implementation first, then optimize
+
+If you're already a programmer who has had a few years under your belt, there'll be an overwhelming temptation to write good code right away. When we're learning a new language or technology, this is impossible. We don't know enough to get the most out of code. Every language or technology has subtleties that we won't be aware of till we get some experience using them.
+
+This is another situation where we can connect with the community and ask for help after we've done the naive implementation.
+
+*###*
+
+*### *Keep the scope small, at first
+
+When re-implementing an existing tool, it's nearly impossible to code all the features the tool has by ourselves. So we have to tighten the scope. Start small or even a tiny part of one feature.
+
+For example, one of my breakable toy ideas, for learning Rust, is a Spotlight clone for Linux. Spotlight on macOS is one of the coolest pieces of functionality I've seen. It has a system-wide search, web search, calculator, and more. There are solutions for Linux but they're usually lacking something.
+
+Spotlight was built by a team of expert engineers. I cannot build a clone on my own while learning. So I have to ruthlessly prioritize what I'll be building. I'll start with web search since it's easier to get something working fast. Then I'll learn how to implement file indexing, full-text search, and so on.
+
+---
+
+These are the guidelines for building a breakable toy. Like the toy itself, feel free to break these guidelines if necessary. Adapt it to your liking. The topic of breakable toys is something I've been thinking about for a while. I usually write about web development here but I'll be sharing more of general programming stuff, learning, and growing as a software engineer. I hope you find them useful or at least find them fun to read.

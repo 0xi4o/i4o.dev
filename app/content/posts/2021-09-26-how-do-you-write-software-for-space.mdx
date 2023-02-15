@@ -1,0 +1,69 @@
+---
+title: How do you write software for space?
+slug: how-do-you-write-software-for-space
+date_published: 2021-09-26T11:00:00.000Z
+date_updated: 2021-10-20T14:17:10.000Z
+tags: Software Engineering
+excerpt: I was curious about how software is written for space travel. Here are a series of stories answering the questions I had about the process, testing, conventions and more about software for space.
+---
+
+As web and mobile developers, it's easy to assume that resources available to our applications are unlimited. And to an extent they are. Our application probably won't exhaust the RAM in a user's computer (even when they're using Chrome) or on their phones, unless it's bloated with tons of memory leaks. Our applications probably won't use up entire CPU cores.
+
+Computers and mobile devices are incredibly efficient in multithreading and memory management today. So for most of us, we don't have to worry about constraints. Constraints in memory, fail-safety, redundancy, reliability, and performance. But some devices run software that does have those constraints — IoT, industrial, medical, and the topic that piqued my curiosity, space.
+
+As a comparison of computing power, the Apollo 11 (which put the first humans on the moon) had less processing power compared to the first iPhone (released in 2007). The Apollo Guidance Computer had a frequency of 2.048 MHz (iPhone v1 had 417 MHz), limited memory, and a small instruction set.
+
+*Historical side-note: Shown in the picture below is Maggie Hamilton standing next to the software she and her team wrote for the Apollo Program. She was the Lead Flight Software Designer for the Apollo Program and one of the people who coined the term "software engineering".*
+![](__GHOST_URL__/content/images/2021/10/Margaret_Hamilton_-_restoration.jpg)
+Back to our story.
+
+A few weeks ago, I was listening to an old episode of The Stack Overflow Podcast titled "How do you make software reliable enough for space travel?". I was instantly hooked. It's pretty obvious that software is built differently for space than for the web but I had questions I wanted answers to and general curiosity of what the similarities and differences are.
+
+I found a lot of information about this in my research. NASA has written a lot about its software engineering. I also found interviews with software engineers at SpaceX who talked about their process.
+
+The following is structured in a Q&A format mainly because I was searching for answers to my questions. Most of the answers I found are from SpaceX engineers since those are fairly recent but some of the practices at SpaceX were adapted from NASA. NASA also played a role in the extensive analysis of SpaceX's software.
+
+## How fault tolerance is built into the software?
+
+If our web application crashed regardless of all the tests we write, it's totally fine. Most users are aware that refreshing would fix such issues, however rare they are. Space is different. One software bug should not bring down the whole system. Hardware failures are quite easy to handle. There are redundant copies of computer hardware, sensors, and actuators. Failures are detected and signals are routed around them. For software, it's built in a way to minimize the impact of failures. Each subsystem is isolated so a bug in one subsystem doesn't affect the others. Software is designed to isolate the effects of an error.
+
+> “We’re always checking error codes and return values. We also have the ability for operators or the crew to override different aspects of the algorithm.”
+> 
+> — Software Engineer at SpaceX
+
+## What does the testing process look like?
+
+There are Software Delivery Engineers who implement good software development and testing practices, version control, and automated and manual testing. All of them are managed in a continuous integration system.
+
+At SpaceX, they've built and maintained a CI system. It is based on HTCondor, which is open-source software used for "distributed parallelization of compute-intensive tasks". It was built at the University of Wisconsin and was built to make better use of idle computer resources, a process called cycle scavenging.
+
+SpaceX also runs a lot of HITL (hardware in the loop) simulations that mirror real-life usage. They can run thousands of these tests in parallel, thanks to their CI system. Once the software passes this stage, they move on to testing it on real hardware. This hardware test is not the actual space vehicle but instead, the onboard computer parts laid out on tables and wired together. The final stage is testing it on the actual vehicles from which they capture continuous telemetry signals which are then used to improve the test suite.
+
+The software engineers also get involved in testing each others' work. When submitting pull requests, each engineer has to find someone to review their work, make sure it passes tests and merge it. But that's not where their responsibilities end. They also have to be involved in testing and merging the subsequent pull request. This way they are ensuring that their work plays well together as a whole.
+
+## Does SpaceX use open source software?
+
+Yes. It's pretty well-known that they use Linux. They use Chromium for Crew displays. They also use Das U-boot (a bootloader), Buildroot (for creating embedded Linux distributions), and MUSL (C standard library for Linux kernel). Apart from these, all software is built in-house because they want to know the code end-to-end.
+
+## What programming languages and tools do they use?
+
+Most of the code written at SpaceX is C++. They use OOPs extensively. All their web services, like test running and build orchestration, are built with Python. They use JavaScript and Angular for the frontend along with some TypeScript.
+They use Docker to create their build environments.
+
+## What are the conventions/techniques used to write software?
+
+NASA and JPL (Jet Propulsion Lab) have published conventions and techniques used for writing safety-critical code. Here are some of them:
+
+1. The Power of 10 (Also used at SpaceX)
+2. JPL C Coding Standard
+3. Defensive Programming
+
+---
+
+These are only some of the questions I had and certainly not the end of my curiosity. There is much more to cover so I'm going to split the story into multiple parts and will dive deeper into the details.
+
+## References:
+
+[Software in Space series on The Stack Overflow Blog](https://stackoverflow.blog/tag/software-in-space/)
+[SpaceX Software Development Lead Talks Writing High-Flying Code](https://insights.dice.com/2021/05/14/spacex-software-development-lead-talks-writing-high-flying-code/)
+[SpaceX Software Engineers AMA](https://www.reddit.com/r/spacex/comments/gxb7j1/we_are_the_spacex_software_team_ask_us_anything/)

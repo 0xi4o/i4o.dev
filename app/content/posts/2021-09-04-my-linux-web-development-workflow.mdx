@@ -1,0 +1,104 @@
+---
+title: My Linux web development workflow
+slug: my-linux-web-development-workflow
+date_published: 2021-09-04T03:00:00.000Z
+date_updated: 2021-10-10T14:30:36.000Z
+tags: Linux, Web Development
+excerpt: In this article, I write about all the tools and applications I use on Linux every day to build web applications and be productive.
+---
+
+In a previous article, I wrote about [the tech stack I use for rapidly building web applications](*https://ilango.hashnode.dev/rapid-web-development-with-nextjs-chakraui-and-mongodb*). Those frameworks and libraries are only part of the picture. That tech stack doesn't exist in a vacuum and is part of a larger workflow. This article is where I cover the rest of the picture.
+
+*### *Operating System
+
+I use some flavor of Linux as my daily driver (currently Ubuntu 20.04) and have no plans to stop. I hop between different distros every few months. If you don't use Linux, I urge you to give it a shot. Start with [Ubuntu](*https://ubuntu.com/*) or [Elementary OS](*https://elementary.io/*) to get your feet wet. [Pop OS](*https://pop.system76.com/*) is also a great choice and is made for developers. There's a huge community of users and developers who would love to help you out (including me).
+
+The following tools are Linux versions, but they are available on Windows and macOS as well.
+
+*### *Browsers
+
+Well, this is obvious. I'm a web developer, so obviously, I have multiple browsers installed and use daily. My default browser is Firefox, but I use [Brave](*https://brave.com/*) as well. I still have Chromium and Chrome installed just in case I need them, but those times are rare.
+
+Whenever possible, I use browser-based tools as opposed to native tools. There are things we can do in the browser today that are very close to what native apps can do. [We can even run Node.js in the browser now](*https://ilango.hashnode.dev/running-nodejs-natively-in-the-browser*).
+
+*### *Terminal
+
+Learning to use the terminal is possibly the best time investment I ever made. I use a terminal called [Alacritty](*https://github.com/alacritty/alacritty*). It's faster than the default terminal in Linux and feels a lot smoother. It doesn't have tabs or panes so I use [tmux](*https://github.com/tmux/tmux/wiki*) for that. Tmux is a terminal multiplexer, which is a fancy way of saying that I can run multiple terminals from a single terminal window. Here's a screenshot showing off Alacritty running tmux and all the panes.
+
+![alacritty.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630744303278/LeB7v1EAb.png)
+
+*#### *Shells
+
+There are multiple types of shells available in Linux distros. The default is usually Bash, but I use Zsh. There is a third-party framework for zsh called [OhMyZsh](*https://ohmyz.sh/*) which brings in a lot of features, plugins, and customizability.
+
+I've also installed [Starship](*https://starship.rs/*), on top of all this for some more cool functionality and eye-candy. With Starship, I can instantly see right in the prompt the git branch, the state git is in, what language the project is written in, the Node.js version. If the project is a published NPM package, it shows that as well. With configuration, there are a lot of things you can show with your prompt that would normally need a command.
+
+![starship.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630744428140/DFiIZZFZu.png)
+
+All the above tools can be customized to our liking using configuration files and are available on macOS and Windows (with WSL). If you're using Linux, you can use my [dotfiles](*https://github.com/ilangorajagopal/dotfiles*) (configuration files) as a starting point.
+
+*### *IDE and Code Editors
+
+To write code, I use [WebStorm](*https://www.jetbrains.com/webstorm/*). I've tried most other popular code editors — VSCode, Atom, Brackets, and Sublime Text. I've found that WebStorm works best for me. It's not free. I pay a subscription fee. They discount the amount each year till the third year so what I pay now is a little more than half of what I started with.
+
+WebStorm comes with so much built-in functionality that would normally be available only through plugins in other code editors.
+
+I also use [Neovim](*https://neovim.io/*) (an extensible Vim-based editor) when I'm editing files in the terminal.
+
+*### *Project Management
+
+I've worked with multiple project management software over the years. Recently I tried out [Linear](*https://linear.app*), and I think I've found the perfect one. Most project management software that is "made for software teams" is not made for developers. As developers, we spend most of our time typing. So I try to use shortcuts as much as possible and create custom ones for common actions. Linear stands out from the rest of its peers because you can accomplish almost anything with keyboard shortcuts.
+
+*### *Communication
+
+Well, this is a simple one (but not really). Chances are, you're already using Slack or Microsoft Teams for communication with your team. In my opinion, Slack is a necessary (although not entirely unavoidable) evil. I've always had a problem with Slack being the antithesis of focused work. Sure, some of the problems in Slack can be mitigated by good processes but there are certain defaults that you can't change. If you have a say in what you use for team communication, try a true asynchronous one like [Twist](*https://twist.com*). I've been trying out Twist, and it's a much better alternative. It doesn't pressure you to be "always-on" and lets you do your work while not compromising communication.
+
+*### *Writing
+
+Writing is a part of being a developer. Even if you're not writing for a personal blog (which you should be doing anyway), other kinds of writing are part of our work — documentation, requirements, design, architecture, emails.
+
+For the most part, I write in markdown. I use [Mark Text](*https://marktext.app/*), which is a great markdown editor. It has a simple interface and lets me focus on writing without any distractions.
+
+*### *Productivity
+
+There are some Linux-specific tools I use that make some things easy. I'm sure there are alternatives for Windows and macOS.
+
+*#### *Linux Applications
+
+*1. *[ULauncher](*https://ulauncher.io/*) for quickly launching the applications
+*2. *[Emote](*https://snapcraft.io/emote*) for inserting emojis anywhere they're not available
+*3. *[Color Picker](*https://flathub.org/apps/details/nl.hjdskes.gcolor3*) for reading the hex code of any color on the screen.
+
+*#### *GNOME Shell extensions
+
+*1. *[Caffeine](*https://extensions.gnome.org/extension/517/caffeine/*) disables screen saver and auto-suspend, when I'm away from the keyboard but don't want to start my computer and log in again.
+*2. *[Clipboard Indicator](*https://extensions.gnome.org/extension/779/clipboard-indicator/*): Keeps a list of all the text I copied to the clipboard, so it's immediately accessible when I need them.
+*3. *[Pomodoro](*https://gnomepomodoro.org/*): It's a Pomodoro timer for doing long, focused work.
+
+*### *Websites
+
+Here are the websites that I use regularly and are part of my workflow:
+
+*-   *Note Taking: [Notion](*https://www.notion.so*) & [Obsidian](*https://obsidian.md/*)
+*-   *Design: [Figma](*https://www.figma.com/*)
+*-   *Cheatsheets: [devhints](*https://devhints.io/*)
+*-   *Courses: [Egghead](*https://egghead.io/*) & [FreeCodeCamp Youtube Channel](*https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ*)
+*-   *Coding practice: [Exercism](*https://exercism.org*)
+*-   *Communities: [Hashnode](*https://hashnode.com/*) and a few Discord servers
+
+*### *Music
+
+I'm guessing most of us listen to music while coding. There are a couple of channels on Youtube that do 24x7 music streaming for focused work, coding, or otherwise. There are a few playlists on Spotify that I use as well. Here are the playlists/channels:
+
+*[Writing Flow]*(https://open.spotify.com/playlist/62zaWgEWM3DjoXygxhksmS?si=9d402efc6ab4439f)(Made for writing but works for coding as well)
+[Lofi Hip Hop Music](*https://open.spotify.com/playlist/0vvXsWCC9xrXsKd4FyS8kM?si=76942da311c5471b*)
+[This is Max Richter](*https://open.spotify.com/playlist/37i9dQZF1DXe2SymtxlfwF?si=781ccdfc6d0e43ba*)
+[Ultimate Synthwave](*https://open.spotify.com/playlist/0L9zxrMI0y5Km1n2shto6Y?si=fe86281cb35e48cf*) (My synthwave playlist)
+[Brain Food](*https://open.spotify.com/playlist/37i9dQZF1DWXLeA8Omikj7?si=14c85b3e55764043*)
+[Atmospheric Calm](*https://open.spotify.com/playlist/37i9dQZF1DX4TnpT6vw5rE?si=fc7e95bbe868476b*)
+
+There is also a website called [musicforprogramming.net](*musicforprogramming.net*) that I use from time to time.
+
+---
+
+I've wanted to put this in writing for a long time. I'm not exactly sure how this would help anyone, but it's here in case you're looking for new tools or want to tweak your workflow. What are the tools and applications you use every day? Let me know in the comments.

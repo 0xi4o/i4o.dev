@@ -1,0 +1,57 @@
+---
+title: Exploring Remix Stacks
+slug: exploring-remix-stacks
+date_published: 2022-04-08T08:08:20.000Z
+date_updated: 2022-05-09T07:36:23.000Z
+tags: Web Development, React.js, Node.js, Cloud
+excerpt: With Remix Stacks, you can get a Remix application fully-configured and ready to deploy with one command!
+---
+
+If you're like me, you have a list of web app ideas that you want to work on. But starting a new web project has always been a pain. There are many tools and libraries that I always tend to use in each of my projects — ESLint, Prettier, TypeScript, Chakra UI, etc. Not to mention the configuration required for the production and dev environments, testing, hosting, and database. Installing the required libraries and configuring all of these is a chore.
+
+Remix has come up with an elegant solution for this problem — Remix Stacks. With Remix Stacks, you can get a Remix application fully-configured and ready to deploy with one command!
+
+Remix Stacks comes with 3 pre-built application templates, but the more powerful feature is the ability to create custom stacks. Custom stacks lets you create the perfect starter for your projects. The cherry on the cake is that it's ready to deploy to the platform of your choice. This drastically reduces the time it takes to go from idea to deployment.
+
+Here are the official Remix stacks:
+
+### [Blues Stack](https://github.com/remix-run/blues-stack)
+
+This stack is made for large apps serving millions of users. It runs a Node.js server and Postgres database that is deployed to multiple regions on Fly.io infrastructure.
+
+- Multi-region Fly.io deployment with Docker
+- Multi-region Fly.io PostgreSQL cluster
+- Email/Password Authentication
+- GitHub Actions for deployments
+- and more..
+
+### [Indie Stack](https://github.com/remix-run/indie-stack)
+
+This stack is made for small apps, minimum viable products, proof-of-concepts, and websites with dynamic content. It runs a Node.js server and a SQLite database that is deployed to a single region on Fly.io infrastructure.
+
+- Fly.io deployment with Docker
+- SQLite Database
+- Email/Password Authentication
+- Github Actions for deployments
+- and more..
+
+### [Grunge Stack](https://github.com/remix-run/grunge-stack)
+
+This stack is also made for large applications serving millions of users. It is deployed as serverless functions to AWS with a DynamoDB backend.
+
+- AWS deployment with Architect
+- DynamoDB database
+- Email/Password Authentication
+- Github Actions for deployment
+- and more..
+
+All of the above stacks are written in Typescript. For styling, they use Tailwind. The stacks have Prettier and ESLint configured and ready to go. End-to-end testing is available using Cypress and unit testing with Vitest and Testing Library.
+
+To create custom stacks, we can either start from scratch or fork any of the above and use them as starting points. Once our custom stack is ready, we can use the Remix CLI to start a new project using our custom stack.
+
+    npx create-remix@latest --template your-username/your-custom-stack
+    
+
+Remix stacks even allows us to customize the initialization of your projects. If the template has a `remix.init/index.js` file, you can do anything you'd like to your setup. This script is run after your project files are generated and the dependencies are installed. You can even define dependencies for your initialization script in `remix.init/package.json`. These dependencies are installed automatically for the duration the script is running and is cleaned up after. You can also ask questions to the developer for any additional configuration using [inquirer](https://www.npmjs.com/package/inquirer).
+
+I have already started creating my custom stack off of the Indie stack. Some of the changes I made are replacing Tailwind with Chakra UI, update the Prettier and ESLint configurations, and set up pre-commit hooks. There's still some more customizing left to do like setting up Prisma and the environment variables for services I often use. I call it [Synthwave Stack](https://github.com/ilangorajagopal/synthwave-stack), named after one of my favorite genre. Feel free to check it out or use it for your own projects. I'm constantly updating it, as changes are made to the Indie stack.

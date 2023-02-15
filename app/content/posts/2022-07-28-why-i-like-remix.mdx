@@ -1,0 +1,89 @@
+---
+title: Why I like Remix
+slug: why-i-like-remix
+date_published: 2022-07-28T07:51:29.000Z
+date_updated: 2022-07-28T07:51:29.000Z
+tags: Remix, Web Development
+excerpt: I've completely switched to using Remix for my projects. Here's why.
+---
+
+Early this year, I wrote an [article that covers my tech stack for 2022](__GHOST_URL__/my-tech-stack-has-changed-for-2022/). In that article, I wrote that I'm learning [Remix](https://remix.run/) and would choose Remix for a couple of projects. I also said that I wouldn't be dropping [Next.js](https://nextjs.org/) completely since I have to maintain the stuff I've already built with it.
+
+Well, I'm going back on that. I've completely switched to Remix. I even rewrote my main project in Remix from Next.js. Going forward, I'm going to use only Remix for my projects. The other parts of my tech stack haven't changed much, except that I've dropped [Chakra UI](https://chakra-ui.com/) in favor of [Radix Primitives](https://www.radix-ui.com/) + [Tailwind](https://tailwindcss.com/).
+
+## Why I decided to commit to Remix
+
+While I (still) like Next.js, I like Remix even more. Here are some of the reasons why:
+
+### Progressive enhancement is back
+
+It seems we, as web developers, have moved away from progressive enhancement. We ship a ton of javascript to the client, and all of our frontends rely on javascript to be functional. This has a couple of problems. 
+
+The client has to download all the JS, and on slow connections, this is going to cause a delay. While this is happening, the user is waiting for a functional interface to load so they can do what they want to do. Showing a spinner is fine as long as we can load the interface quickly. 
+
+Progressive enhancement takes the opposite approach. Load the necessary interface first, and add all the bells and whistles later. And only if the client supports them. The user sees a functional interface load almost instantly.
+
+### Web standards instead of abstractions
+
+Remix uses web standards instead of abstracting them. One glaring example of this abstraction problem is how we handle forms in modern web applications. Chances are, you use some kind of third-party npm package to handle forms in your application.
+
+NPM is filled with packages that handle forms: `formik`, `react-hook-forms`, and so on. Search for "react form" on npmjs.com and you'll know what I mean.
+![](__GHOST_URL__/content/images/2022/07/react-form-npm-search.png)
+The most popular form handlers have one thing in common: they provide an abstraction to make it easier to handle forms. I've used both `formik` and `react-hook-form`. They're great libraries and they provide a great amount of control over forms in my applications. But this has a trade-off: it introduces an unnecessary learning curve. 
+
+Remix, on the other hand, relies on web standards instead of abstracting them. Forms in Remix, therefore, are easy to handle because there's nothing new to learn. If you know how to use HTML5 forms, you're good to go. If you're stuck, you go to MDN and look up forms. Not StackOverflow, not the package docs, not the package's Github issues. Just good ol' [MDN](https://developer.mozilla.org/en-US/).
+
+If you're not familiar with a web standard, you learn the fundamentals that you can carry over anywhere. It's first-principles learning that'll help you as a web dev.
+
+### Server and client code coexist in the same file
+
+Have to fetch data for a component on load? Use a loader function. Have to save data to your database on form submit? Use an action function. But where do you put them? In the same file as your component!
+
+And because the app is server-side rendered, you can use backend code in the loader and action functions. This means you can use Prisma code, server-only libraries and code, use secrets like API keys and other environment variables, etc. 
+
+If you're using Prisma like I am, you also get type-safety from backend to frontend!
+
+Do you only need an endpoint that does some backend stuff? Skip the loader and component functions. Just write an action function.
+
+### No state management libraries required
+
+Since we use loaders and actions to load and update data, Remix is aware of our routes and data. This lets Remix automatically re-validate data that has changed somewhere else. And if a component that uses the re-validated data is mounted, it's automatically updated!
+
+So we don't need a separate state management library. Or even a fetcher library like SWR or TanStack Query. This means, less javascript shipped to the frontend.
+
+Typically, loaders and actions are associated with navigation (loaders run when navigating to a page, actions navigate away from a page). But this is not always the case in modern applications so Remix provides a useful hook called `useFetcher`. Combine the three and we won't need a dedicated state management library.
+
+### Other honorable mentions
+
+While the above features are what made me commit to Remix, there are others that should be mentioned (some that I don't use right now but might use later on)
+
+1. Real-time apps with SSE (Not using it right now but I might if a project requires it)
+2. I only use Node runtime but Remix works with Deno and even Bun.sh (which I just started experimenting with. Expect a blog post soon)! 
+3. Remix is not a React framework. It's a web framework, which means it works with Preact, Vue, Svelte, and Angular (This is still experimental but a stable release is coming soon). But I probably will stick with React.
+4. You can build a frontend-only app or a backend-only app, while still taking advantage of all the features I mentioned in this article.
+5. Building optimistic UI is easy in Remix
+6. Nested routes! This was so good that Next.js is now implementing it. This also means that the entire app doesn't have to crash if one component fails. Error boundaries are so much better with nested routes. Network requests from loaders are parallelized for nested routes so the app loads faster.
+
+### Stuff that needs improvement
+
+1. Hot Module Replacement. Next.js shines here with a fantastic HMR experience but Remix doesn't have one. It does a full refresh every time I change the code. While Remix is fast and the page reloads almost instantly, there are still things that could take advantage of HMR. Stuff that uses component state (input field values, open modals, etc) has to be redone, which can get a bit annoying. According to Kent C. Dodds, this is being worked on.
+2. Remix needs a CSS file so it can be linked to the root component or individual routes but the constraint remains. If your CSS solution doesn't compile down to a file, it won't work with Remix yet.
+3. Debugging loaders and actions is a pain since it's run on the server. I use Webstorm and assumed that Webstorm's breakpoints would work but it didn't. I eventually resorted to using `console.log` to debug, which is not bad but not great either.
+
+---
+
+So there you go. There's plenty to like about Remix but the most important for me was its philosophy to embrace web standards that have been in existence for a long time and are robust. Remix does little abstraction over web standards, and when it does, there's a reasoning behind it. 
+
+Remix is still new and I'm excited to see what they build next. I'm also still learning the ins and outs of Remix, but so far I love it enough to switch to it completely. I enjoyed using Next.js for a couple of years (and I still have to use it at work) but for personal projects, Remix is the choice for me.
+
+I even built a good Remix project starter that I call Synthwave Stack. It has all the stuff I typically use in my projects. I'm also updating it regularly by adding things I think I would need for future projects. You can check it out on Github.
+[
+
+GitHub - ilangorajagopal/synthwave-stack: Remix Stack for deploying to Vercel with remix-auth, Planetscale, Radix UI, TailwindCSS, formatting, linting etc. Written in Typescript.
+
+Remix Stack for deploying to Vercel with remix-auth, Planetscale, Radix UI, TailwindCSS, formatting, linting etc. Written in Typescript. - GitHub - ilangorajagopal/synthwave-stack: Remix Stack for ...
+
+![](https://github.com/fluidicon.png)GitHubilangorajagopal
+
+![](https://repository-images.githubusercontent.com/490372710/413f7bbb-d572-4db4-9eb1-5c42fd3603ad)
+](https://github.com/ilangorajagopal/synthwave-stack)

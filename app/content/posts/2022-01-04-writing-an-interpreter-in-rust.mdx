@@ -1,0 +1,59 @@
+---
+title: Writing an interpreter in Rust
+slug: writing-an-interpreter-in-rust
+date_published: 2022-01-04T09:12:11.000Z
+date_updated: 2022-05-09T07:36:45.000Z
+tags: Software Engineering, Rust
+excerpt: How does the compiler/interpreter know how many variables there are, how to allocate memory, and what to do about that silly mistake you made? How do you design a programming language from scratch(-ish)?
+---
+
+Have you ever wondered how programming languages work? How do the words you type on a screen end up telling the computer what to do? How does the compiler/interpreter know how many variables there are, how to allocate memory, and what to do about that silly mistake you made? How do you design a programming language from scratch(-ish)?
+
+These are interesting questions that I don't know the answers to (at least not in-depth answers). Googling the answers should be alright but not nearly enough fun. I like learning by doing so I decided to implement a small interpreter from scratch. In other words, I'm building a programming language.
+
+## Am I insane for trying to create a programming language?
+
+Absolutely. But it fascinates me. And some programmers do it. Depending on what we want it to do, there are different things you have to know or at least learn about. The second part is what I'm interested in.
+
+## But why???
+
+### Creating a programming language is hard
+![](__GHOST_URL__/content/images/2022/01/Slide-4_3---1.png)Amateurish but totally accurate representation of how hard creating a programming language is.
+It's a monumental task and is way out of my comfort zone. That's reason enough to make this attempt. Trying things outside our comfort zones is probably the best way to learn things. Time is gonna pass anyway so why not try and fail at things that we find fun.
+
+### I will learn completely new things
+
+This part excites me. Many concepts that make programming languages function the way they do are new to me. It's like peeling multiple layers of an onion (while crying, literally and figuratively).
+
+Building a programming language is a great exercise to understand data structures. But that's not all there is to learn. Static-type systems require rigorous logical reasoning.
+
+Implementing a programming language is also a test of programming skill. Think about how good it'll make you look in a resume. It'll make you an expert and all of a sudden you have a lot to talk about in an interview. Your language doesn't even need to be feature-rich. You just need to be able to accomplish basic tasks.
+
+## What is it called?
+
+Turns out, naming a programming language is hard. There are tons of programming languages. [Here's a huge list of widely used programming languages](https://en.wikipedia.org/wiki/List_of_programming_languages). There are many more domain-specific, niche languages written by programmers like you and me. So obviously, the name has to be unique.
+
+The name also has to be short and memorable. The same goes for the extension. Ideally, it has to be under 4 characters and easy to pronounce. Acronyms are fine too if the name has to be longer.
+
+The name also should not have any derogatory meaning or have negative connotations in other languages (spoken/written, not programming) and cultures. This part is crucial, even when no one else in the entire world will use this new language.
+
+Due to all these reasons, I haven't put much thought into a name yet.
+
+## How do you go about writing an interpreter?
+
+For me, as with most things, starts with a search for books on the topic. Turns out writing an interpreter/compiler was common enough that people wrote books on it. One such book is [Crafting Interpreters](https://www.craftinginterpreters.com/). It's a great book to learn about how to design programming languages by building an interpreter.
+
+Crafting Interpreters is free to read online.
+[
+
+Crafting Interpreters
+
+![](https://www.craftinginterpreters.com/image/favicon.png)number
+
+![](https://www.craftinginterpreters.com/image/header.png)
+](https://www.craftinginterpreters.com/)
+---
+
+This is a big coding project but a project, nonetheless. An interpreter is code running on your computer and is not different from the other things you code. This may seem daunting but the result is well worth the effort that goes into it. 
+
+I'll write more posts on this tedious journey with as many technical details as possible. Let's see how this goes.

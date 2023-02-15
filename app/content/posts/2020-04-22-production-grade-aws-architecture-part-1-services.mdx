@@ -1,0 +1,58 @@
+---
+title: "Production-grade AWS architecture [Part 1]: Services"
+slug: production-grade-aws-architecture-part-1-services
+date_published: 2020-04-22T10:00:00.000Z
+date_updated: 2021-10-10T14:05:04.000Z
+tags: AWS
+excerpt: Amazon Web Services is one of the largest cloud service providers in the world. Thousands of software companies around the world have hosted their products on AWS. Netflix, Twitch, Airbnb, and Lyft use AWS to serve millions of customers worldwide.
+---
+
+Amazon Web Services is one of the largest cloud service provider in the world. Thousands of software companies around the world have hosted their products on AWS. Netflix, Twitch, Airbnb and Lyft use AWS to serve millions of customers worldwide. Odds are, if you're starting a software startup, you'll end up using AWS.
+
+To date, AWS has 175 fully featured services that are available to help build your product. AWS also has a steep learning curve. There are different ways to get the same result when you build your infrastructure. Which ones do you need to get your product off the ground? What services are mandatory when you're starting out? In this series of articles, I'll explain what I'm learning while building my [side project](*https://easyauth.io*). So, here are the services you should be using:
+
+*## *CloudWatch
+
+CloudWatch is a monitoring service for your applications, AWS resources and more. It collects data from these sources into one dashboard giving you a full picture of your infrastructure. It can also alert you based on thresholds and metrics that you decide. CloudWatch should be one of the first services you setup after you create your AWS account.
+
+"But I don't have anything to monitor"
+
+Yes, you do. While signing up for a new AWS account, you would have entered your credit card details. You don't want a big AWS bill showing up in your statements. CloudWatch can keep tabs on your monthly costs and alert you when you're going over your budget. CloudWatch doesn't have the ability to notify you. Instead it uses another service — Simple Notification Service or SNS — to send emails, SMS etc.
+
+*## *Simple Notification Service (SNS)
+
+Simple Notification Service is a pub/sub messaging service. Pub/sub is a way to broadcast messages to subscribers without knowing their identities. SNS can send notifications to other AWS resources and webhooks. These notifications be push notifications on mobiles, SMS or email.
+
+You create a "topic" on SNS and attach a subscription (email, SMS) to it. Whenever a message is posted to the topic, SNS sends out notifications to all the subscribers of the topic.
+
+*## *Identity and Access Management (IAM)
+
+Access to AWS services should be carefully managed. IAM gives you fine-grained control over who or what has access to which services on AWS. IAM allows you to set permissions for your team, your applications and other AWS services you might use.
+
+IAM also enforce security policies when handling AWS resources: multi-factor authentication, password policies, roles etc.
+
+*## *Simple Storage Service (S3)
+
+As the name implies, Simple Storage Service or S3, is an object storage service. It's highly available and can handle any amount of data that you want to serve.
+
+S3 also allows you to host static websites. If you don't already, hosting your website on S3 is easy to setup and will cost you almost nothing.
+
+*## *CloudFront
+
+CloudFront is a globally available, fast and secure content delivery network. It can deliver and cache data, media, web pages, applications and more. This helps you deliver your product to your users worldwide at low latencies.
+
+*## *Route53
+
+Route53 is a DNS service. Whenever users request your website or application, Route53 knows how to route them. It routes those requests to the appropriate place like CloudFront or load balancers.
+
+*## *Elastic Cloud Compute (EC2)
+
+EC2 is one of the oldest services on AWS and will be the meat of your operations. EC2 lets you create virtual servers (called instances) to run your software applications. It also packs a myriad of functionality under one dashboard. Everything from networking to access controls to load balancing can be configured via EC2.
+
+Depending on your requirements, you can provision instances optimized for different purposes. Databases, machine learning models, gaming servers are some of the applications that EC2 can provide.
+
+---
+
+Hopefully this gives you a basic idea of what you'll be using when building applications on top of AWS. These are some of the services you'll definitely need to use when you're starting out. However, these are not hard and fast rules. There are other services like Lambda or container services you might want to use. This will depend on your application and your customer's requirements. But these services offer a good starting point for any software product.
+
+If all these services seem daunting, don't worry. Once we start putting the pieces together, we'll start developing the bigger picture. Each service on AWS serves a purpose and knowing them will make a big difference.

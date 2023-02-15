@@ -1,0 +1,68 @@
+---
+title: Running Node.js natively in the browser
+slug: running-node-js-natively-in-the-browser
+date_published: 2021-06-16T20:47:00.000Z
+date_updated: 2022-04-12T05:47:57.000Z
+tags: Node.js
+excerpt: WebContainer is a new technology that lets us run Node.js natively in the browser. Built in webassembly, it's blazing fast, secure by default and enables seamless debugging in the Chrome DevTools.
+---
+
+Browsers have come a long way in the past decade, especially in the past 5 years. Tasks that once required dedicated, memory-guzzling desktop software — graphic design, video editing, and rich document editing — are possible in browsers now. The power of WebAssembly!
+
+Case in point: Last month at Google IO, StackBlitz introduced a new technology they're calling [WebContainers](https://blog.stackblitz.com/posts/introducing-webcontainers/). It's a self-contained, WebAssembly-powered tiny operating system that can run Node.js! In your browser! It sounds insane but also, super cool! When I heard about this, I had so many questions, the first of which was:
+
+## Why do this?
+
+On their blog, StackBlitz's Founder Eric Simons wrote this:
+
+> Setting up local environments is a huge buzzkill—especially if you want to rapidly prototype a cool idea, try out a new open-source library, create a bug reproduction, or collaborate with a coworker ("hey, can you check out this branch locally really quick?" 😒). This problem is more common than ever as web development moves towards full-stack SSR and SSG toolchains like Next.js.
+
+Several advantages come with running a standalone dev environment in your browser, especially when you don't need to run a local or remote server.
+
+**No initial setup work required**: Creating a new project, even when we're using a starter or a boilerplate, takes some time to set up.
+
+**Browsers are secure environments**: We don't need to do extra work as everything we need is running inside the browser's existing security sandbox, not on remote VMs or local binaries.
+
+**Browsers are incredibly consistent**: Bugs caused due to inconsistencies between environments are common. There are other solutions to fix this problem but they all need extra setup. Browsers are already good at being consistent so we can do away with the "worked on my machine" conversations.
+
+**Debugging the Node.js server in your browser's dev tools**: WebContainers integrates with Chrome DevTools and enables native backend debugging, without any extensions.
+
+**Offline capable**: Since WebContainer doesn't need to connect to a remote server, we can work on our project in places with spotty or no connections at all. No npm installs, of course, but how often do we do that? Not very often.
+
+**It's fast**: Even when we're running a local server, API calls go through our OS's TCP stack which can cause some latency. WebContainers have built their own virtualized TCP network stack so API calls and updates are near-instant. Not to mention, browsers are fast at executing Javascript and WebAssembly.
+
+So clearly there are lots of advantages to doing this. But there are other questions as well.
+
+## What about filesystems calls?
+
+Browsers restrict filesystem access by default for security purposes. This is not a problem with running Node.js natively on your OS environment but in browsers, this creates a problem. To solve this, there's a built-in virtual file system with lazy loading capabilities.
+
+## NPM Packages?
+
+It's still a Node environment so NPM packages are still available to us, albeit with some restrictions. It's common for NPM packages to have `postinstall` scripts that are used for compiling native binaries and can sometimes run with root privileges on our machine. This poses some [security concerns](https://www.kb.cert.org/vuls/id/319816) that are still [unaddressed by NPM](https://blog.npmjs.org/post/141702881055/package-install-scripts-vulnerability.html). So WebContainers doesn't support `postinstall` scripts. You can still install the packages but WebContainers won't run `postinstall` scripts, throwing a warning instead. Private NPM packages are also a no-go, for now.
+
+## Database connections?
+
+It's common for databases to use their own connection protocols, which are usually based on native socket connections that are not supported by browsers. So we can't connect to database processes, yet. WebContainers are limited to HTTP connections only, which means WebSockets is still supported and so are other HTTP-based protocols. We can also make HTTP requests to external services that must be allowed with CORS. According to their [Github repo](https://github.com/stackblitz/webcontainer-core), SQLite support is coming soon.
+
+## Is WebContainers an open-source technology?
+
+Not yet. It's in public beta, so the only place you can try it out is on StackBlitz. When they reach General Availability, WebContainers API will be open-sourced. And if you haven't already guessed, it's only supported by Chromium-based browsers, for now.
+
+Today, you can start with the following environments:
+
+[Next.js](https://stackblitz.com/fork/nextjshttps://stackblitz.com/fork/nextjs)
+
+[GraphQL](https://stackblitz.com/fork/graphql)
+
+[Node.js HTTP Server](https://stackblitz.com/fork/http-server)
+
+[Node.js Starter](https://stackblitz.com/fork/node)
+
+I tried out Next.js and Node.js and was thoroughly impressed by how fast it was. Don't take my word for it though. Follow those links and try them out.
+
+The divide between native desktop applications and web applications is gradually but steadily decreasing. The browser is an incredibly capable piece of software that can do so many things today that native apps can do. WebContainers are a huge leap in that direction. There are some limitations, yes, but WebContainers are a new technology and we haven't yet seen the full capabilities of this technology.
+
+For developers, this is great news. We still run dev environments natively and not in the browser because the current options are not fast enough. But we're getting there. And for you non-Node.js developers out there, there's good news for you as well. Node.js is the only supported runtime for now but more runtimes like Ruby, Python will become available in your browser, depending on the WebAssembly support (there are already open source projects working on this).
+
+WebContainers is such a fascinating new technology that's pushing the web forward. As web development is moving towards a full-stack approach, it becomes that much easier for developers to work in a unified environment with no external native dependencies. I, for one, am super excited to see it come to fruition.

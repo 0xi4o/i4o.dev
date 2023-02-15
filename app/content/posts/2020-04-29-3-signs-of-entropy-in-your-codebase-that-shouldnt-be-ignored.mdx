@@ -1,0 +1,53 @@
+---
+title: 3 signs of entropy in your codebase that shouldn't be ignored
+slug: 3-signs-of-entropy-in-your-codebase-that-shouldnt-be-ignored
+date_published: 2020-04-29T12:35:00.000Z
+date_updated: 2021-10-10T14:13:35.000Z
+tags: Software Engineering
+excerpt: Do you know what I think the coolest law of physics is? It's the second law of thermodynamics — entropy. In this article, I talk about entropy in software and how to mitigate it.
+---
+
+Do you know what I think the coolest law of physics is? It's the second law of thermodynamics.
+
+*> *The total entropy of an isolated system can never decrease over time, and is constant if and only if all processes are reversible.
+
+Put in normal person words, disorder will always increase over time unless you do something about it. The laws of thermodynamics talk about heat and how it affects matter. But when it comes to the second law, entropy specifically, it's universal.
+
+Think about all the problems you've faced in life. They always seem to just show up but it takes effort to solve those problems. If you're a super lazy person like me, you know that when you're lazy for too long, life just becomes shit.
+
+This is why I think that entropy and the second law of thermodynamics is the coolest law of physics there is. Because it's not just a law. It's a mental model for solving problems. It also applies to software development.
+
+*> *Imagine that you take a box of puzzle pieces and dump them out on a table. In theory, it is possible for the pieces to fall perfectly into place and create a completed puzzle when you dump them out of the box. But in reality, that never happens. Why? Quite simply, because the odds are overwhelmingly against it.
+*> *— James Clear
+
+Imagine you're starting a software project. In the beginning you want to get features out the door as quickly as possible. You're not thinking about clean coding practices, or have future maintenance and tech debt in mind. You want to get to generating revenue fast. At this stage, your entropy is low because the system is new. Facebook even had a phrase that became quite popular:
+
+*> *Move fast and break things.
+
+Let me tell you that there is nothing wrong with this mindset. In fact, it's required for your software to get off the ground. Because your users won't care about your "zero tech debt" (is that even a thing?) or that you've obsessively organized your codebase. Your software has to work.
+
+But you won't stay in this position forever. There will come a time when you have to start thinking about code quality and start clearing out your tech debt. So why is entropy relevant here? Because as time goes on, the disorder in your codebase(s) will start to increase. This will happen when you've added features, bug and hot fixes and when more team members are contributing to the codebase.
+
+*### *What does entropy in code look like?
+
+![Entropy in software](https://cdn.hashnode.com/res/hashnode/image/upload/v1588179474565/1Add5WLug.png 'Code Entropy')
+
+When the entropy in your code is high, you'll start seeing effects of it:
+
+*1. *Making changes to your system gets harder. This happens so slowly that you will never see it coming. Eventually, new features and bug fixes will break existing ones. It starts off with one hot fix here and a workaround there. It's even possible to snowball this effect — more and more "hackish" code to fix existing ones.
+*2. *Your team will start developing "information silos". There will be specific people with absolute knowledge of parts of the system and changing it will need "their expert opinion". It'll be harder for the team to contribute because they won't know the nuances yet.
+*3. *The software breaks in unexpected places. Fixing simple issues takes valuable developer time. Because, unlike other types of engineering, software is a series of logical assertions. Once these assertions starts breaking, it'll lead to multiple interpretations of how the system functions. Some of these interpretations might even be incomplete because you don't see the full picture.
+
+And as the law states, entropy can only increase. You can never decrease entropy in a system. Note that this is different from tech debt. You can reduce tech debt but you can never reduce entropy. With effort you can keep it constant or decrease it's growth.
+
+*### *How to mitigate entropy?
+
+There are three ways that I know of.
+
+*1. *A well defined code review process. When your team members are reviewing each other's code, there are lesser chances for your assertions to break. It'll be easier for others to interpret your code the way you intended. How does this look in practice? You're having healthy discussions with your reviewers in a pull request. It's important to do this publicly so others can see it and can act as a reference in the future.
+*2. *Setting aside time for iterations and refactoring. This is easier said than done, however. Refactoring takes time and effort and will have no business impact in the short term, whatsoever. This is the reason development teams usually don't spend time refactoring. It's harder to sell the impact when effort doesn't affect revenue.
+*3. *This is by far the hardest. It takes a change in behaviour and thinking. Being mindful of your assertions and how they could be misinterpreted goes a long way. Shaping the constraints of a feature and clearly defining them also reduces the chances of misinterpretation. This will slow down development a bit, but you're saving yourself and your team future headaches. And in the long run, it actually saves time.
+
+---
+
+Entropy is not something we actively think about during development. But it plays a major role in how you build software. Although you can't decrease entropy, it's possible to reduce the growth and it's effects. What process do you follow at work to mitigate entropy? Is there a process you follow that I should know about?

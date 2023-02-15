@@ -1,0 +1,35 @@
+---
+title: Vim Adventures, Part 2
+slug: vim-adventures-part-2
+date_published: 2023-02-06T08:55:22.000Z
+date_updated: 2023-02-06T09:01:44.000Z
+tags: Learn In Public, Software Engineering, Vim
+---
+
+Time flies. The last time I wrote about my [adventures with Vim](__GHOST_URL__/vim-adventures/), was a little over 6 months ago. In my last post, I wrote about why I started using Vim keybindings in my IDE of choice, WebStorm. 
+
+It was hard at first to get used to moving around using Vim motions. Since then, I've learned so many more tricks to move around in my code. 
+
+For example, let's say we have to go a block of code that is 30 lines up, copy 5 lines (down), move to the original position, and paste it. Before learning Vim motions, this would involve moving my hand to my mouse, scrolling up, clicking and selecting the lines, Ctrl + C, and going to where I want to paste it, and then Ctrl + V.
+
+With Vim motions, I press these keys in order (in normal mode):
+
+    30 k y 5 j 30 j p
+
+Without knowing Vim motions, that might look like a random string of keys to press. But once you get used to Vim motions, you don't have to think. You just do. 
+
+If you don't know Vim motions, `30 k` moves 30 lines up. `y 5 j` copies 5 lines down, `30 j` move 30 lines down, and `p` pastes. Crazy right?! What's, even more, to like here is that I barely have to move my hand away from the home row on my keyboard. 
+
+In my last post, I said my objective to learn Vim, is to move around in my codebases at the speed of thought. And I feel like I've moved really close to this objective, in the past 6 months.
+
+So I finally did the unthinkable (what I thought was unthinkable before I started on this adventure). I stopped using WebStorm and I finally moved to Vim. Well, Neovim. Well, [LunarVim](https://lunarvim.org). It is an IDE layer for Neovim. LunarVim uses neovim under the hood and comes with a good configuration out-of-the-box. It also makes it simple to build your config on top of it. 
+
+I've been using lunarvim full-time for a few weeks now and I gotta say, although it's a new environment that I found daunting before, it now feels comfortable. I wouldn't say right at home yet but I'm getting there. There are plenty of features in Neovim that was a welcome change.
+
+One such feature is relative line numbers. My example above is something that we actually do while coding. Except, we never think in line numbers. I don't count the line numbers prior to copy-pasting. Vim tells me how many lines I have to move up or down with relative line numbers.
+![](__GHOST_URL__/content/images/2023/02/relative_line_numbers.png)The current line is highlighted (line 54).
+In this picture, I'm on line 54 of the file. But if you look above and below, it shows the line numbers relative to the current cursor position in the file. Vertical movement is so much easier now because of relative line numbers.
+
+This is just one of many features that I'm enjoying since moving to lunarvim full-time. There are a few features that I still miss from WebStorm. But one thing I can't say is that moving to lunarvim was a wrong choice. Using the IdeaVim plugin for a few months has prepared me for this move.
+
+WebStorm has served me well for many years. It's a tough goodbye, but I'm glad I made the move.

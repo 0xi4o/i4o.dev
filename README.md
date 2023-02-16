@@ -22,10 +22,10 @@ Clone the project
 
 -   [x] Add about page
 -   [x] Add projects, now, uses pages
--   [ ] Update home page
--   [ ] Add blog and blog post page
+-   [x] Update home page
+-   [x] Add blog and blog post page
+-   [x] Import blog posts from Ghost
 -   [ ] Add resume page
--   [ ] Import blog posts from Ghost
 -   [ ] RSS
 -   [ ] Sitemap and other SEO stuff
 

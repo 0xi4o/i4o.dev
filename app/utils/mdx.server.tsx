@@ -2,18 +2,20 @@ import fs from 'graceful-fs'
 import path from 'path'
 import { promisify } from 'node:util'
 import matter from 'gray-matter'
+import remarkFrontmatter from 'remark-frontmatter'
+import { compile } from '@mdx-js/mdx'
 import { BLOG_POSTS_DIR } from './constants'
-import type { GetBlogMdxItemsParams, PostGroup, Post } from './types'
+import type {
+	GetBlogMdxItemsParams,
+	PostGroup,
+	Post,
+	GetMdxFileParams,
+} from './types'
 
 const readdir = promisify(fs.readdir)
 const readFile = promisify(fs.readFile)
 
-async function getBlogMdxItems({
-	dir = BLOG_POSTS_DIR,
-	filter = 'all',
-	count = 3,
-	grouped = 'none',
-}: GetBlogMdxItemsParams) {
+async function readFilesInDir(dir: string) {
 	const files = await readdir(dir, { withFileTypes: true })
 
 	const promises = files.map(async (f) => {
@@ -24,6 +26,17 @@ async function getBlogMdxItems({
 	})
 
 	const items = await Promise.all(promises)
+
+	return items
+}
+
+async function getBlogMdxItems({
+	dir = BLOG_POSTS_DIR,
+	filter = 'all',
+	count = 3,
+	grouped = 'none',
+}: GetBlogMdxItemsParams) {
+	const items = await readFilesInDir(dir)
 
 	const posts = items.map((item) => {
 		const content = matter(item)
@@ -92,4 +105,25 @@ async function getBlogMdxItems({
 	return sortedPosts
 }
 
-export { getBlogMdxItems }
+async function getMdxFile({ dir = BLOG_POSTS_DIR, slug }: GetMdxFileParams) {
+	const items = await readFilesInDir(dir)
+
+	const posts = items.filter((item) => {
+		const content = matter(item)
+
+		return content.data.slug === slug
+	})
+
+	const frontmatter = matter(posts[0])
+	const code = String(
+		await compile(posts[0], {
+			development: false,
+			outputFormat: 'function-body',
+			remarkPlugins: [remarkFrontmatter],
+		})
+	)
+
+	return { frontmatter, code }
+}
+
+export { getBlogMdxItems, getMdxFile }

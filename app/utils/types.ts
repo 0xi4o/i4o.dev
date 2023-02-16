@@ -5,6 +5,11 @@ export interface GetBlogMdxItemsParams {
 	grouped?: 'year' | 'none'
 }
 
+export interface GetMdxFileParams {
+	dir?: string
+	slug: string
+}
+
 export interface Post {
 	title: string
 	description: string

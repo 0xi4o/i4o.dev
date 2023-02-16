@@ -13,7 +13,7 @@
         "typecheck": "tsc"
     },
     "dependencies": {
-        "@i4o-oss/catalystui": "^0.5.2",
+        "@i4o-oss/catalystui": "0.6.0",
         "@mdx-js/mdx": "^2.3.0",
         "@mdx-js/react": "^2.3.0",
         "@radix-ui/react-icons": "^1.1.1",

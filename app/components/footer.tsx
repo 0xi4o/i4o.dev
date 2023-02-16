@@ -1,4 +1,29 @@
+import { Nav } from '@i4o-oss/catalystui'
+
 function Footer() {
+	const navItems = [
+		{
+			id: 'about',
+			label: 'About',
+			href: '/about',
+		},
+		{
+			id: 'uses',
+			label: 'Uses',
+			href: '/uses',
+		},
+		{
+			id: 'twitter',
+			label: 'Twitter',
+			href: 'https://twitter.com/i4o_dev',
+		},
+		{
+			id: 'github',
+			label: 'Github',
+			href: 'https://github.com/i4o-dev',
+		},
+	]
+
 	return (
 		<div className='mt-32'>
 			<div className='flex items-center justify-center'>
@@ -9,7 +34,9 @@ function Footer() {
 								<div className='flex items-center gap-2 text-xs text-gray-900 dark:text-gray-400'>
 									<p>Ilango Rajagopal © 2023</p>
 								</div>
-								<div className='flex items-center justify-end gap-4'></div>
+								<div className='flex items-center justify-end gap-4'>
+									<Nav items={navItems} />
+								</div>
 							</div>
 						</div>
 					</div>

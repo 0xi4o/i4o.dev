@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@i4o-oss/catalystui': 0.6.0
+  '@i4o-oss/catalystui': 0.6.1
   '@mdx-js/mdx': ^2.3.0
   '@mdx-js/react': ^2.3.0
   '@radix-ui/react-icons': ^1.1.1
@@ -29,7 +29,7 @@ specifiers:
   typescript: ^4.8.4
 
 dependencies:
-  '@i4o-oss/catalystui': 0.6.0_zula6vjvt3wdocc4mwcxqa6nzi
+  '@i4o-oss/catalystui': 0.6.1_zula6vjvt3wdocc4mwcxqa6nzi
   '@mdx-js/mdx': 2.3.0
   '@mdx-js/react': 2.3.0_react@18.2.0
   '@radix-ui/react-icons': 1.1.1_react@18.2.0
@@ -1623,8 +1623,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@i4o-oss/catalystui/0.6.0_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-djxb5wsvW49cIu/0ovm9uJnM7k6qIi136wYMQjrQJWun5d6od7enORoJokvkPumgiFF+dKD2jtKRTKYaxwkejw==}
+  /@i4o-oss/catalystui/0.6.1_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-g61fm/3ZtVRncJzYc2FIRTZfStWgufubz8d1D3f1YP6E68HVdp7OJDQTzX//uUNSukMxaZtR993RWzFNTVcYQQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -1649,7 +1649,6 @@ packages:
       '@radix-ui/react-toggle-group': 1.0.1_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-toolbar': 1.0.1_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-tooltip': 1.0.2_zula6vjvt3wdocc4mwcxqa6nzi
-      '@remix-run/react': 1.7.5_biqbaboplfbrettd7655fr4n2y
       classnames: 2.3.2
       copy-to-clipboard: 3.3.3
       react: 18.2.0
@@ -2667,19 +2666,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
       use-sync-external-store: 1.2.0_react@18.2.0
-    dev: false
-
-  /@remix-run/react/1.7.5_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-KJVdTJee3muDJ3hZh8IVg3JbSfmaH4NiCpp8ewPopszf8xu+ecUH/rP/3mZ5Ge7D+AhmFOr/7eiFjgpkN8vhsQ==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-    dependencies:
-      history: 5.3.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /@remix-run/router/1.3.2:
@@ -5196,12 +5182,6 @@ packages:
   /hast-util-whitespace/2.0.1:
     resolution: {integrity: sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==}
 
-  /history/5.3.0:
-    resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
-    dependencies:
-      '@babel/runtime': 7.20.13
-    dev: false
-
   /http-cache-semantics/4.1.1:
     resolution: {integrity: sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==}
     dev: true
@@ -7207,18 +7187,6 @@ packages:
       use-sidecar: 1.1.2_pmekkgnqduwlme35zpnqhenc34
     dev: false
 
-  /react-router-dom/6.3.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-uaJj7LKytRxZNQV8+RbzJWnJ8K2nPsOOEuX7aQstlMZKQT0164C+X2w6bnkqU3sjtLvpd5ojrezAyfZ1+0sStw==}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-    dependencies:
-      history: 5.3.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-router: 6.3.0_react@18.2.0
-    dev: false
-
   /react-router-dom/6.8.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-67EXNfkQgf34P7+PSb6VlBuaacGhkKn3kpE51+P6zYSG2kiRoumXEL6e27zTa9+PGF2MNXbgIUHTVlleLbIcHQ==}
     engines: {node: '>=14'}
@@ -7230,15 +7198,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router: 6.8.1_react@18.2.0
-    dev: false
-
-  /react-router/6.3.0_react@18.2.0:
-    resolution: {integrity: sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ==}
-    peerDependencies:
-      react: '>=16.8'
-    dependencies:
-      history: 5.3.0
-      react: 18.2.0
     dev: false
 
   /react-router/6.8.1_react@18.2.0:

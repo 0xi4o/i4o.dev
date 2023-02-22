@@ -5,7 +5,7 @@
 -   ORM: [Prisma](https://prisma.io/)
 -   Components: [Catalyst UI](https://catalyst.i4o.dev/)
 -   Styling: [TailwindCSS](https://tailwindcss.com/)
--   Deployment: [Vercel](https://vercel.com/)
+-   Deployment: [Railway](https://railway.app/)
 
 ## Run Locally
 

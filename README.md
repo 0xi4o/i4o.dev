@@ -18,7 +18,7 @@ Clone the project
   pnpm dev
 ```
 
-## Roadmap
+## Todo
 
 -   [x] Add about page
 -   [x] Add projects, now, uses pages

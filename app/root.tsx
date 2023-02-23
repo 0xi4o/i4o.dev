@@ -15,10 +15,10 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react'
-import { Theme, ThemeHead, ThemeProvider, useTheme } from './utils/theme'
-import { getThemeSession } from './utils/theme.server'
+import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme'
+import { getThemeSession } from '~/utils/theme.server'
 import { Layout } from '~/components'
-import styles from './styles/main.css'
+import styles from '~/styles/main.css'
 import cuiStyles from '@i4o-oss/catalystui/main.css'
 
 export const links: LinksFunction = () => [

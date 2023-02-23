@@ -1,5 +1,10 @@
 import type { ReactNode } from 'react'
-import type { LoaderArgs, LinksFunction, MetaFunction } from '@remix-run/node'
+import type {
+	LoaderArgs,
+	LinksFunction,
+	MetaFunction,
+	SerializeFrom,
+} from '@remix-run/node'
 import { json } from '@remix-run/node'
 import {
 	Links,
@@ -66,18 +71,14 @@ export const meta: MetaFunction = () => ({
 	'twitter:image': '',
 })
 
-export type LoaderData = {
-	theme: Theme | null
-}
+export type LoaderData = SerializeFrom<typeof loader>
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const themeSession = await getThemeSession(request)
 
-	const data: LoaderData = {
+	return json({
 		theme: themeSession.getTheme(),
-	}
-
-	return json(data)
+	})
 }
 
 function Document({ children }: { children: ReactNode }) {

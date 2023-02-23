@@ -89,9 +89,14 @@ async function getBlogMdxItems({
 
 	if (filter === 'latest') {
 		// latest posts
-		return sortedPosts.slice(0, count)
+		return {
+			latest: sortedPosts.slice(0, count),
+		}
 	} else if (filter === 'featured') {
 		// featured posts
+		return {
+			featured: sortedPosts.filter((post) => post.featured),
+		}
 	} else if (filter === 'latest,featured') {
 		// latest and featured posts
 		const latest = sortedPosts.slice(0, count)

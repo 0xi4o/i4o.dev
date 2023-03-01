@@ -50,34 +50,34 @@ The widget I was building had multiple pages. So I needed some form of routing. 
 Here's the code:
 
 ```js
-import { createContext, createElement, h } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import { createContext, createElement, h } from 'preact'
+import { useEffect, useState } from 'preact/hooks'
 
-const DEFAULT_ROUTE = '/';
+const DEFAULT_ROUTE = '/'
 
 export const RouterContext = createContext({
-   route: DEFAULT_ROUTE,
-   setRoute: () => undefined,
-});
+	route: DEFAULT_ROUTE,
+	setRoute: () => undefined,
+})
 
 export const Router = ({ routes, onChange }) => {
-   const [route, setRoute] = useState(DEFAULT_ROUTE);
+	const [route, setRoute] = useState(DEFAULT_ROUTE)
 
-   useEffect(() => {
-      onChange?.(route);
-   }, [route]);
+	useEffect(() => {
+		onChange?.(route)
+	}, [route])
 
-   return (
-      <RouterContext.Provider value={{ route, setRoute }}>
-         {routes[route]}
-      </RouterContext.Provider>
-   );
-};
+	return (
+		<RouterContext.Provider value={{ route, setRoute }}>
+			        {routes[route]}     
+		</RouterContext.Provider>
+	)
+}
 
 export const RouteComponent = (props) => {
-   const { component, ...rest } = props;
-   return createElement(component, rest);
-};
+	const { component, ...rest } = props
+	return createElement(component, rest)
+}
 
 /**
  * Render anchor with click handler to switch route based on `href` attribute.
@@ -85,29 +85,31 @@ export const RouteComponent = (props) => {
  */
 
 export const Link = ({ href, children, ...rest }) => (
-   <RouterContext.Consumer>
-      {({ setRoute }) => (
-         <a
-            href='javascript:'
-            onClick={() => href && setRoute(href)}
-            {...rest}
-         >
-            {children}
-         </a>
-      )}
-   </RouterContext.Consumer>
-);
+	<RouterContext.Consumer>
+		     
+		{({ setRoute }) => (
+			<a
+				href='javascript:'
+				onClick={() => href && setRoute(href)}
+				{...rest}
+			>
+				           {children}       {' '}
+			</a>
+		)}
+		 {' '}
+	</RouterContext.Consumer>
+)
 ```
 
 Now I can use this Router component in the root component. There's also an `onChange` prop that I can pass a function to, for handling route changes. I'm using this to show a back button inside the widget when it's not the main page.
 
 ```js
 <Router
-   onChange={handleRouteChange}
-   routes={{
-      '/': <RouteComponent component={Main} />,
-      '/edit': <RouteComponent component={Edit} />,
-   }}
+	onChange={handleRouteChange}
+	routes={{
+		'/': <RouteComponent component={Main} />,
+		'/edit': <RouteComponent component={Edit} />,
+	}}
 />
 ```
 
@@ -118,15 +120,15 @@ Users can add this widget using a script tag, but I also wanted to pass some ini
 Instead I did this:
 
 ```js
-import { h, render } from 'preact';
-import Widget from './components/Widget';
-import './styles/global.css';
+import { h, render } from 'preact'
+import Widget from './components/Widget'
+import './styles/global.css'
 
 export function init(id, wrapper) {
-   const renderElement = document.querySelector(wrapper)
-      ? document.querySelector(wrapper)
-      : document.querySelector('body');
-   render(h(Widget, { id }), renderElement);
+	const renderElement = document.querySelector(wrapper)
+		? document.querySelector(wrapper)
+		: document.querySelector('body')
+	render(h(Widget, { id }), renderElement)
 }
 ```
 

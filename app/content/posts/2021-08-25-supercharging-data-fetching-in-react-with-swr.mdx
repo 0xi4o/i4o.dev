@@ -33,30 +33,30 @@ SWR does not replace native `fetch` or `axios`. We'll end up using them anyway b
 ```js
 // Using Fetch API
 export const fetcher = async (url, opts = {}) => {
-   const res = await fetch(url, opts);
-   if (!res.ok) {
-      throw new Error('Error completing request');
-   }
+	const res = await fetch(url, opts)
+	if (!res.ok) {
+		throw new Error('Error completing request')
+	}
 
-   return await res.json();
-};
+	return await res.json()
+}
 ```
 
 We can then use the `useSWR` hook to fetch data.
 
 ```js
-const { data, error } = useSWR(`/api/users/${userId}`, fetcher);
+const { data, error } = useSWR(`/api/users/${userId}`, fetcher)
 ```
 
 We can also configure SWR globally in our applications. We can skip passing the fetcher function if we do this:
 
 ```js
 function App({ Component, pageProps }) {
-   return (
-      <SWRConfig value={{ fetcher }}>
-         <Component {...pageProps} />
-      </SWRConfig>
-   );
+	return (
+		<SWRConfig value={{ fetcher }}>
+			        <Component {...pageProps} />     
+		</SWRConfig>
+	)
 }
 ```
 
@@ -64,12 +64,12 @@ The real power of using SWR shows when you can reuse data fetching code. When bu
 
 ```js
 export function useUser(userId) {
-   const { data, error } = useSWR(`/api/users/${userId}`, fetcher);
-   return {
-      user: data?.user,
-      isLoading: !error && !data,
-      isError: error,
-   };
+	const { data, error } = useSWR(`/api/users/${userId}`, fetcher)
+	return {
+		user: data?.user,
+		isLoading: !error && !data,
+		isError: error,
+	}
 }
 ```
 
@@ -77,18 +77,17 @@ Now we can use the `useUser` hook in our components like this:
 
 ```js
 function Profile({ userId }) {
-   const { user, isLoading, isError } = useUser(userId);
+	const { user, isLoading, isError } = useUser(userId)
 
-   if (isLoading) return <div>Loading...</div>;
-   if (isError) return <div>An error occurred...</div>;
+	if (isLoading) return <div>Loading...</div>
+	if (isError) return <div>An error occurred...</div>
 
-   return (
-      <div>
-         <img src={user.avatar} />
-         <span>{user.name}</span>
-         <span>{user.email}</span>
-      </div>
-   );
+	return (
+		<div>
+			        <img src={user.avatar} />        <span>{user.name}</span>   
+			    <span>{user.email}</span>     
+		</div>
+	)
 }
 ```
 
@@ -96,22 +95,22 @@ function Profile({ userId }) {
 
 SWR offers multiple revalidation strategies. We can use one or all of them. We can also pick and choose which of our fetch requests use which strategies. We can also globally configure revalidation strategies in `SWRConfig` provider.
 
-*-   ***Revalidation on focus****: When the tab comes into focus, SWR will revalidate. Enabled by default.
-*-   ***Revalidation on network recovery****: When our device reconnects to the internet, SWR will revalidate. Enabled by default.
-*-   ***Polling on interval****: It can automatically make fetch requests at specified intervals so our UI is always up-to-date. Disabled by default. If enabled, there are two more options that we can use to enable polling even when the browser tab is not active or when we're not connected to the internet.
+\*-   **\*Revalidation on focus\*\***: When the tab comes into focus, SWR will revalidate. Enabled by default.
+\*-   **\*Revalidation on network recovery\*\***: When our device reconnects to the internet, SWR will revalidate. Enabled by default.
+\*-   **\*Polling on interval\*\***: It can automatically make fetch requests at specified intervals so our UI is always up-to-date. Disabled by default. If enabled, there are two more options that we can use to enable polling even when the browser tab is not active or when we're not connected to the internet.
 
 *## *Mutation
 
 SWR will revalidate our data when one of the above strategies is used. We can also manually trigger revalidation using `mutate(key)`. The `key` is the URL where we fetch the data.
 
 ```js
-mutate(`/api/users/${userId}`);
+mutate(`/api/users/${userId}`)
 ```
 
 The `useSWR` hook also returns a `mutate` function that we can use which doesn't need a `key`.
 
 ```js
-const { user, mutate } = useSWR(`/api/users/${userId}`, fetcher);
+const { user, mutate } = useSWR(`/api/users/${userId}`, fetcher)
 ```
 
 *## *POST requests

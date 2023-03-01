@@ -6,7 +6,7 @@ date_updated: 2022-07-26T07:05:43.000Z
 draft: true
 ---
 
-[Aurelius](https://aurelius.ink), is the writing app of my dreams. I originally built it with [Next.js](https://nextjs.org/), but since I was learning Remix (and loving it!), I decided to rewrite Aurelius using [Remix](https://remix.run/). 
+[Aurelius](https://aurelius.ink), is the writing app of my dreams. I originally built it with [Next.js](https://nextjs.org/), but since I was learning Remix (and loving it!), I decided to rewrite Aurelius using [Remix](https://remix.run/).
 
 Now, this was probably a bad idea. But I decided to do it anyway. There are a few reasons for this. The early version of Aurelius was a simple app — no landing pages, no terms of use/privacy policy, or anything you would see in a typical SaaS. Initially, I was fine with it, but as I kept using it more and more, I felt Aurelius could be a lot more. Not just for me, but for other writers too. Aurelius v1 would be a full-featured SaaS while keeping the simplicity that I had originally envisioned for it.
 
@@ -16,7 +16,7 @@ I also used [Chakra UI](https://chakra-ui.com/) for building most of the UI. It 
 
 I thought the authentication in Remix was gonna take a lot of time when compared to Next.js. With Next.js, implementing authentication was pretty easy with next-auth. I just have to pick the auth providers I need, pass in the required API keys and secrets, and wrap our `_app` component in a `SessionProvider`, and we're done. Next Auth takes care of everything else. It even auto-generates a sign-in page but we can create our own too.
 
-In Remix, there is an auth library called remix-auth. It takes a different approach from next-auth and is heavily inspired by Passport.js. Different auth providers are added as strategies. The community has created several commonly used strategies that we just have to drop into our Remix app, and voilà, we have auth! 
+In Remix, there is an auth library called remix-auth. It takes a different approach from next-auth and is heavily inspired by Passport.js. Different auth providers are added as strategies. The community has created several commonly used strategies that we just have to drop into our Remix app, and voilà, we have auth!
 
 There's still some more work to be done in authentication but I have the basic setup up and running.
 [

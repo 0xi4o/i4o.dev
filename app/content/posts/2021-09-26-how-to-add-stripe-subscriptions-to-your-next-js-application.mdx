@@ -59,41 +59,38 @@ We need at least three endpoints — creating a customer, creating a subscriptio
 Let's create a file called `customer.ts` in the `pages/api` directory:
 
 ```ts
-import { NextApiRequest, NextApiResponse } from 'next';
-import nc from 'next-connect';
-import Stripe from 'stripe';
+import { NextApiRequest, NextApiResponse } from 'next'
+import nc from 'next-connect'
+import Stripe from 'stripe'
 
 const createCustomer = async (req: NextApiRequest, res: NextApiResponse) => {
-   try {
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-         apiVersion: '2020-08-27',
-      });
-      const { email, name } = req.body;
+	try {
+		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+			apiVersion: '2020-08-27',
+		})
+		const { email, name } = req.body
 
-      const customer = await stripe.customers.create({
-         email,
-         name,
-      });
+		const customer = await stripe.customers.create({
+			email,
+			name,
+		}) // Optional but recommended // Save the customer object or ID to your database
 
-      // Optional but recommended
-      // Save the customer object or ID to your database
+		res.status(200).json({
+			code: 'customer_created',
+			customer,
+		})
+	} catch (e) {
+		console.error(e)
+		res.status(400).json({
+			code: 'customer_creation_failed',
+			error: e,
+		})
+	}
+}
 
-      res.status(200).json({
-         code: 'customer_created',
-         customer,
-      });
-   } catch (e) {
-      console.error(e);
-      res.status(400).json({
-         code: 'customer_creation_failed',
-         error: e,
-      });
-   }
-};
+const handler = nc({ attachParams: true }).post(createCustomer)
 
-const handler = nc({ attachParams: true }).post(createCustomer);
-
-export default handler;
+export default handler
 ```
 
 *### *Create a subscription:
@@ -101,56 +98,49 @@ export default handler;
 Let's create a file under `pages/api` called `subscribe.ts`:
 
 ```ts
-import { NextApiRequest, NextApiResponse } from 'next';
-import nc from 'next-connect';
-import Stripe from 'stripe';
+import { NextApiRequest, NextApiResponse } from 'next'
+import nc from 'next-connect'
+import Stripe from 'stripe'
 
 const createSubscription = async (
-   req: NextApiRequest,
-   res: NextApiResponse
+	req: NextApiRequest,
+	res: NextApiResponse
 ) => {
-   try {
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-         apiVersion: '2020-08-27',
-      });
-      const { customerId, priceId } = req.body;
+	try {
+		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+			apiVersion: '2020-08-27',
+		})
+		const { customerId, priceId } = req.body
 
-      const subscription = await stripe.subscriptions.create({
-         customer: customer.id,
-         items: [{ price: priceId }],
-         payment_behavior: 'default_incomplete',
-         metadata: {
-            // You can save details about your user here
-            // Or any other metadata that you would want as reference.
-         },
-         expand: ['latest_invoice.payment_intent'],
-      });
+		const subscription = await stripe.subscriptions.create({
+			customer: customer.id,
+			items: [{ price: priceId }],
+			payment_behavior: 'default_incomplete',
+			metadata: {
+				// You can save details about your user here
+				// Or any other metadata that you would want as reference.
+			},
+			expand: ['latest_invoice.payment_intent'],
+		}) // Optional but recommended // Save the subscription object or ID to your database // Send the subscription ID and a client secret that the // Stripe subscription API creates. The subscription ID // and client secret will be used to // complete the payment on the frontend later.
 
-      // Optional but recommended
-      // Save the subscription object or ID to your database
+		res.status(200).json({
+			code: 'subscription_created',
+			subscriptionId: subscription.id,
+			clientSecret:
+				subscription.latest_invoice.payment_intent.client_secret,
+		})
+	} catch (e) {
+		console.error(e)
+		res.status(400).json({
+			code: 'subscription_creation_failed',
+			error: e,
+		})
+	}
+}
 
-      // Send the subscription ID and a client secret that the
-      // Stripe subscription API creates. The subscription ID
-      // and client secret will be used to
-      // complete the payment on the frontend later.
-      res.status(200).json({
-         code: 'subscription_created',
-         subscriptionId: subscription.id,
-         clientSecret:
-            subscription.latest_invoice.payment_intent.client_secret,
-      });
-   } catch (e) {
-      console.error(e);
-      res.status(400).json({
-         code: 'subscription_creation_failed',
-         error: e,
-      });
-   }
-};
+const handler = nc({ attachParams: true }).post(createSubscription)
 
-const handler = nc({ attachParams: true }).post(createSubscription);
-
-export default handler;
+export default handler
 ```
 
 *### *Cancel Subscription:
@@ -198,85 +188,62 @@ Now that we have created the endpoints, we can now focus on the webhook. Webhook
 Let's create our webhook endpoint by creating a file called `pages/api/webhooks/stripe.ts`:
 
 ```ts
-import { NextApiRequest, NextApiResponse } from 'next';
-import nc from 'next-connect';
-import Stripe from 'stripe';
+import { NextApiRequest, NextApiResponse } from 'next'
+import nc from 'next-connect'
+import Stripe from 'stripe'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-   apiVersion: '2020-08-27',
-});
+	apiVersion: '2020-08-27',
+})
 
 const handleStripeWebhook = async (
-   req: NextApiRequest,
-   res: NextApiResponse
+	req: NextApiRequest,
+	res: NextApiResponse
 ) => {
-   try {
-      const event = stripe.webhooks.constructEvent(
-         req.body,
-         req.headers['stripe-signature'],
-         process.env.STRIPE_WEBHOOK_SECRET
-      );
-   } catch (e) {
-      console.error(e);
-      res.send(400);
-   }
+	try {
+		const event = stripe.webhooks.constructEvent(
+			req.body,
+			req.headers['stripe-signature'],
+			process.env.STRIPE_WEBHOOK_SECRET
+		)
+	} catch (e) {
+		console.error(e)
+		res.send(400)
+	}
 
-   switch (event.type) {
-      case 'subscription.created': {
-         const subscription = event.data.object;
-         // You can use this to detect changes in the subscription
-         // subscription.status will return the current status of the subscription
-         //
-         // Things you can do here:
-         // 1. Send a thank you email to the user
-         // 2. Send content you've created that would enhance the user's experience/workflow
-         break;
-      }
+	switch (event.type) {
+		case 'subscription.created': {
+			const subscription = event.data.object // You can use this to detect changes in the subscription // subscription.status will return the current status of the subscription // // Things you can do here: // 1. Send a thank you email to the user // 2. Send content you've created that would enhance the user's experience/workflow
+			break
+		}
 
-      case 'customer.subscription.deleted':
-      case 'customer.subscription.updated': {
-         const subscription = event.data.object;
-         // You can use this to detect changes in the subscription
-         // subscription.status will return the current status of the subscription
-         //
-         // Things you can do here:
-         // 1. Send an email to the user notifying them about the change in subscription status
-         // 2. If the user cancelled the subscription you could trigger
-         // a email campaign to inform users of the beneits they're missing out on.
-         break;
-      }
+		case 'customer.subscription.deleted':
+		case 'customer.subscription.updated': {
+			const subscription = event.data.object // You can use this to detect changes in the subscription // subscription.status will return the current status of the subscription // // Things you can do here: // 1. Send an email to the user notifying them about the change in subscription status // 2. If the user cancelled the subscription you could trigger // a email campaign to inform users of the beneits they're missing out on.
+			break
+		}
 
-      case 'invoice.paid': {
-         const invoice = event.data.object;
-         // If you have trials, this event is triggered when the trial ended and the user was charged for continued access
-         // Things you can do:
-         // 1. Notify the user of the charge
-         // 2. Thank them for their continued belief in your product
-         // 3. Send additional content that could enable better workflows for the user
-         break;
-      }
+		case 'invoice.paid': {
+			const invoice = event.data.object // If you have trials, this event is triggered when the trial ended and the user was charged for continued access // Things you can do: // 1. Notify the user of the charge // 2. Thank them for their continued belief in your product // 3. Send additional content that could enable better workflows for the user
+			break
+		}
 
-      case 'invoice.payment_failed': {
-         const invoice = event.data.object;
-         // The payment fails or the user does not have a valid payment method
-         // The subscription is now past due
-         // You can notify the user that the payment has failed
-         // and ask them to use different payment methods
-         // or revoke their access
-         break;
-      }
+		case 'invoice.payment_failed': {
+			const invoice = event.data.object // The payment fails or the user does not have a valid payment method // The subscription is now past due // You can notify the user that the payment has failed // and ask them to use different payment methods // or revoke their access
+			break
+		}
 
-      default: {
-         console.error(`Unhandled event type: ${event.type}`);
-         break;
-      }
-   }
+		default: {
+			console.error(`Unhandled event type: ${event.type}`)
+			break
+		}
+	}
 
-   res.status(200);
-};
+	res.status(200)
+}
 
-const handler = nc({ attachParams: true }).post(handleStripeWebhook);
+const handler = nc({ attachParams: true }).post(handleStripeWebhook)
 
-export default handler;
+export default handler
 ```
 
 *## *Testing Webhooks:
@@ -298,82 +265,80 @@ Stripe's React library exposes an Element provider that you can wrap around comp
 ```tsx
 // CheckoutForm.tsx
 
-import { useState } from 'react';
+import { useState } from 'react'
 import {
-   CardElement,
-   Elements,
-   useStripe,
-   useElements,
-} from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+	CardElement,
+	Elements,
+	useStripe,
+	useElements,
+} from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
-const stripePromise = loadStripe(
-   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 interface CheckoutFormProps {
-   customerId: string;
-   priceId: string;
+	customerId: string
+	priceId: string
 }
 
 export default function CheckoutForm(props: CheckoutFormProps): JSX.Element {
-   const [error, setError] = useState(undefined);
-   const [disabled, setDisabled] = useState(false);
-   const stripe = useStripe();
-   const elements = useElements();
+	const [error, setError] = useState(undefined)
+	const [disabled, setDisabled] = useState(false)
+	const stripe = useStripe()
+	const elements = useElements()
 
-   function handleCardInputChange(event) {
-      // Listen for changes in card input
-      // and display errors, if any, to the user
-      // Also control the disabled state of the submit button
-      // if the input field is empty
-      setDisabled(event?.empty);
-      setError(event?.error?.message ?? '');
-   }
+	function handleCardInputChange(event) {
+		// Listen for changes in card input
+		// and display errors, if any, to the user
+		// Also control the disabled state of the submit button
+		// if the input field is empty
+		setDisabled(event?.empty)
+		setError(event?.error?.message ?? '')
+	}
 
-   async function handleCheckoutFormSubmit(event) {
-      event.preventDefault();
+	async function handleCheckoutFormSubmit(event) {
+		event.preventDefault()
 
-      if (!stripe || !elements) {
-         // Stripe.js has not loaded yet.
-         return;
-      }
+		if (!stripe || !elements) {
+			// Stripe.js has not loaded yet.
+			return
+		} // Call the subscribe endpoint and create a Stripe subscription // object. Returns the subscription ID and client secret
 
-      // Call the subscribe endpoint and create a Stripe subscription
-      // object. Returns the subscription ID and client secret
-      const subscriptionResponse = await fetch('/api/subscribe', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({
-            customerId: props.customerId,
-            priceId: props.priceId,
-         }),
-      });
-      const subscription = await subscriptionResponse.json();
-      const stripePayload = await stripe.confirmCardPayment(
-         subscription.clientSecret, // returned by subscribe endpoint
-         {
-            payment_method: {
-               card: elements.getElement(CardElement),
-            },
-         }
-      );
+		const subscriptionResponse = await fetch('/api/subscribe', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				customerId: props.customerId,
+				priceId: props.priceId,
+			}),
+		})
+		const subscription = await subscriptionResponse.json()
+		const stripePayload = await stripe.confirmCardPayment(
+			subscription.clientSecret, // returned by subscribe endpoint
+			{
+				payment_method: {
+					card: elements.getElement(CardElement),
+				},
+			}
+		)
 
-      if (stripePayload.error) {
-         setError(stripePayload.error.message);
-      }
-   }
+		if (stripePayload.error) {
+			setError(stripePayload.error.message)
+		}
+	}
 
-   return (
-      <Elements stripe={stripePromise}>
-         <form onSubmit={handleCheckoutFormSubmit}>
-            <CardElement onChange={handleCardInputChange} />
-            <button disabled={!stripe && disabled} type='submit'>
-               Pay Now
-            </button>
-         </form>
-      </Elements>
-   );
+	return (
+		<Elements stripe={stripePromise}>
+			       {' '}
+			<form onSubmit={handleCheckoutFormSubmit}>
+				           <CardElement onChange={handleCardInputChange} />     
+				     <button disabled={!stripe && disabled} type='submit'>
+					              Pay Now            
+				</button>       {' '}
+			</form>
+			     
+		</Elements>
+	)
 }
 ```
 
@@ -382,64 +347,60 @@ Now, let's use the checkout form on our pricing page. For convenience, I'm using
 ```tsx
 // pricing.tsx
 
-import { useState } from 'react';
+import { useState } from 'react'
 import {
-   Button,
-   Modal,
-   ModalBody,
-   ModalCloseButton,
-   ModalContent,
-   ModalOverlay,
-   Spinner,
-   useDisclosure,
-} from '@chakra-ui/react';
-import CheckoutForm from '../components/CheckoutForm';
+	Button,
+	Modal,
+	ModalBody,
+	ModalCloseButton,
+	ModalContent,
+	ModalOverlay,
+	Spinner,
+	useDisclosure,
+} from '@chakra-ui/react'
+import CheckoutForm from '../components/CheckoutForm'
 
 function PricingPage(): JSX.Element {
-   const { isOpen, onOpen, onClose } = useDisclosure();
-   const [priceId, setPriceId] = useState('');
-   const [customer, setCustomer] = useState(undefined);
+	const { isOpen, onOpen, onClose } = useDisclosure()
+	const [priceId, setPriceId] = useState('')
+	const [customer, setCustomer] = useState(undefined) // You can get the price ID from the Stripe Dashboard
 
-   // You can get the price ID from the Stripe Dashboard
-   async function handleSubscribeClick(priceId) {
-      setPriceId(priceId);
+	async function handleSubscribeClick(priceId) {
+		setPriceId(priceId) // Call the create customer endpoint with the name and email // of the authenticated user. // If the user is not authenticated, you can ask them for // the details before calling this endpoint.
 
-      // Call the create customer endpoint with the name and email
-      // of the authenticated user.
-      // If the user is not authenticated, you can ask them for
-      // the details before calling this endpoint.
-      const customerResponse = await await fetch('/api/customer', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({ email, name }),
-      });
-      const customer = await customerResponse.json();
-      setCustomer(customer);
-   }
+		const customerResponse = await await fetch('/api/customer', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email, name }),
+		})
+		const customer = await customerResponse.json()
+		setCustomer(customer)
+	}
 
-   return (
-      <>
-         <Button onClick={() => handleSubscribeClick('price_abc123')}>
-            Subscribe Now
-         </Button>
-         <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent>
-               <ModalCloseButton />
-               <ModalBody>
-                  {customer ? (
-                     <CheckoutForm
-                        customerId={customer.id}
-                        priceId={priceId}
-                     />
-                  ) : (
-                     <Spinner />
-                  )}
-               </ModalBody>
-            </ModalContent>
-         </Modal>
-      </>
-   );
+	return (
+		<>
+			       {' '}
+			<Button onClick={() => handleSubscribeClick('price_abc123')}>
+				           Subscribe Now        {' '}
+			</Button>
+			        <Modal isOpen={isOpen} onClose={onClose}>
+				           <ModalOverlay />           <ModalContent>
+					              <ModalCloseButton />              <ModalBody>
+						                 
+						{customer ? (
+							<CheckoutForm
+								customerId={customer.id}
+								priceId={priceId}
+							/>
+						) : (
+							<Spinner />
+						)}
+						             {' '}
+					</ModalBody>           
+				</ModalContent>       {' '}
+			</Modal>     
+		</>
+	)
 }
 ```
 

@@ -35,10 +35,10 @@ Doing date and time arithmetic is troublesome and prone to errors using `Date`. 
 
 ```js
 // Create a Temporal DateTime object
-const date = Temporal.PlainDateTime.from('2021-09-20T08:14:55.899Z');
+const date = Temporal.PlainDateTime.from('2021-09-20T08:14:55.899Z')
 
 // Add 5 days to given date
-date.add({ days: 5 });
+date.add({ days: 5 })
 // Temporal.PlainDateTime {_repr_: 'Temporal.PlainDateTime <2021-09-25T08:14:55.899>'}
 ```
 
@@ -46,27 +46,27 @@ In the above example, notice the `<2021-09-25T08:14:55.899>` part. It's 5 days f
 
 ```js
 // Add 5 days and 18 hours to given date
-date.add({ days: 5, hours: 18 });
+date.add({ days: 5, hours: 18 })
 // 2021-09-26T02:14:55.899
 
 // Subtract 20 minutes from given date
-date.subtract({ minutes: 20 });
+date.subtract({ minutes: 20 })
 // 2021-09-20T07:54:55.899
 
 // Define second date to calculate distance between two dates
-const secondDate = Temporal.PlainDateTime.from('2022-04-01T08:00:00.000Z');
+const secondDate = Temporal.PlainDateTime.from('2022-04-01T08:00:00.000Z')
 
 // Returns a Temporal.Duration object.
-const duration = date.until(secondDate);
+const duration = date.until(secondDate)
 // Duration {_repr_: 'Temporal.Duration <P192DT23H45M4.101S>'}
 // The important part here is the P192DT23H45M4.101S.
 
 // Days until secondDate
-duration.days;
+duration.days
 // 192
-duration.hours;
+duration.hours
 // 23
-duration.minutes;
+duration.minutes
 // 45
 ```
 
@@ -75,11 +75,11 @@ duration.minutes;
 Temporal API has first-class support for time zones as well. Normally `Date` is restricted to UTC and produces date objects in the system's time zone. There is no direct way to use other timezones. For example, using `Date`:
 
 ```js
-const date = new Date();
+const date = new Date()
 const bangaloreDate = date.toLocaleString('en-us', {
-   timeZone: 'Asia/Kolkata',
-});
-const tokyoDate = date.toLocaleString('en-us', { timeZone: 'Asia/Tokyo' });
+	timeZone: 'Asia/Kolkata',
+})
+const tokyoDate = date.toLocaleString('en-us', { timeZone: 'Asia/Tokyo' })
 ```
 
 The `toLocaleString()` returns a string so in order to do calculations we have to convert the result into a date object first.
@@ -87,10 +87,10 @@ The `toLocaleString()` returns a string so in order to do calculations we have t
 In Temporal API, things are much simpler. The following code returns a Temporal DateTime object on which we can do further arithmetic.
 
 ```js
-Temporal.Now.zonedDateTimeISO('Asia/Kolkata');
+Temporal.Now.zonedDateTimeISO('Asia/Kolkata')
 // 2021-09-20T14:13:30.295605379+05:30[Asia/Calcutta]
 
-Temporal.Now.zonedDateTimeISO('Asia/Tokyo');
+Temporal.Now.zonedDateTimeISO('Asia/Tokyo')
 // 2021-09-20T17:47:45.999410295+09:00[Asia/Tokyo]
 ```
 
@@ -101,13 +101,13 @@ Date objects created with the Date() constructor are mutable. This means we can 
 Temporal API instead returns immutable objects.
 
 ```js
-const date = Temporal.Now.plainDateISO();
+const date = Temporal.Now.plainDateISO()
 
-date;
+date
 // 2021-09-20
-date.add({ days: 5 });
+date.add({ days: 5 })
 // 2021-09-25
-date;
+date
 // 2021-09-20
 ```
 
@@ -116,10 +116,10 @@ date;
 Parsing date from strings with `Date` is prone to errors and unreliable since it returns different results because it returns UTC based time. For example:
 
 ```js
-new Date('2021-09-20').toString();
+new Date('2021-09-20').toString()
 // 'Mon Sep 20 2021 05:30:00 GMT+0530 (India Standard Time)'
 
-new Date('2021-09-20T00:00').toString();
+new Date('2021-09-20T00:00').toString()
 // 'Mon Sep 20 2021 00:00:00 GMT+0530 (India Standard Time)'
 ```
 
@@ -127,11 +127,11 @@ In the first line, I didn't specify a time but would expect midnight in my local
 
 ```js
 // Returns UTC time
-Temporal.PlainDateTime.from('2021-09-20');
+Temporal.PlainDateTime.from('2021-09-20')
 // 2021-09-20T00:00:00
 
 // Forces us to specify a timezone so it can return an appropriate value
-Temporal.ZonedDateTime.from('2021-09-20[Asia/Kolkata]');
+Temporal.ZonedDateTime.from('2021-09-20[Asia/Kolkata]')
 // 2021-09-20T00:00:00+05:30[Asia/Calcutta]
 ```
 
@@ -140,17 +140,17 @@ Temporal.ZonedDateTime.from('2021-09-20[Asia/Kolkata]');
 The Date API currently supports only ISO-8601 which is an implementation of the Gregorian Calendar along with some additions. But that's only one calendar in use today. Many countries and regions use other calendars for religious and civil purposes.
 
 ```js
-const cal = new Temporal.Calendar('indian');
+const cal = new Temporal.Calendar('indian')
 ```
 
 Once we have the `cal` object, we can call methods on it to get day, month, year and more for a given date. For example:
 
 ```js
-cal.dayOfWeek('2021-09-20T07:54:24.270Z'); // 1
-cal.month('2021-09-20T07:54:24.270Z'); // 6
-cal.monthCode('2021-09-20T07:54:24.270Z'); // M06
-cal.year('2021-09-20T07:54:24.270Z'); // 1943
-cal.era('2021-09-20T07:54:24.270Z'); // saka
+cal.dayOfWeek('2021-09-20T07:54:24.270Z') // 1
+cal.month('2021-09-20T07:54:24.270Z') // 6
+cal.monthCode('2021-09-20T07:54:24.270Z') // M06
+cal.year('2021-09-20T07:54:24.270Z') // 1943
+cal.era('2021-09-20T07:54:24.270Z') // saka
 ```
 
 Temporal API implements all the calendars supported by the [Intl.DateTimeFormat](*https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters*) object. It also supports the creation of custom calendars not in the above list. We can do this by creating a class that inherits from `Temporal.Calendar`.

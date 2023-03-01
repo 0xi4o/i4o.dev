@@ -31,18 +31,17 @@ Production branches are protected from schema changes, have automated backups, a
 ![nextjs-example-app-dev-branch-PlanetScale.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1649763415513/Jbw9diBoe.png)![nextjs-example-app-branches-PlanetScale.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1649763424687/4bt2nHzZN.png)
 Now that we have our branches, let's connect to our database from our Next.js app. To do this, we need a connection string that Planetscale automatically generates. Click on the Connect button in the Overview tab. Choose Prisma from the Connect With dropdown, copy the database URL, and save it in a safe place.
 ![nextjs-example-app-connect-PlanetScale.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1649763455464/FiBcPR4W1.png)
+
 ## Setting up the Planetscale CLI
 
 Let's authenticate the Planetscale CLI using our account. From the command line, run the following command:
 
     pscale auth login
-    
 
 This opens a browser window and asks you to login to our Planetscale account. Once you've logged in, we'll be authenticated in our CLI. Now let's connect to our dev and shadow branches.
 
     pscale connect nextjs-example-app dev --port 3309
     pscale connect nextjs-example-app shadow --port 3310
-    
 
 This will create connections to our dev and shadow branches in port 3309 and 3310.
 
@@ -51,18 +50,15 @@ This will create connections to our dev and shadow branches in port 3309 and 331
 Let's create a new Next.js project:
 
     npx create-next-app nextjs-example --typescript
-    
 
 You can skip the `--typescript` flag if you want. Go into your project directory and initialize Prisma:
 
     npx prisma init
-    
 
 This will create a prisma directory inside your project with a `schema.prisma` file inside it. Let's edit our local `.env` file and add a couple of variables.
 
     DATABASE_URL="mysql://root@127.0.0.1:3309/nextjs-example-app"
     SHADOW_DATABASE_URL="mysql://root@127.0.0.1:3310/nextjs-example-app"
-    
 
 Prisma uses a shadow database during development to generate new migrations and detect schema drift (checking if no manual changes have been made to the development database). We'll use our shadow branch for this purpose.
 
@@ -74,12 +70,12 @@ Now let's edit our `schema.prisma` file:
           shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
           referentialIntegrity = "prisma"
     }
-        
+
     generator client {
           provider = "prisma-client-js"
           previewFeatures = ["referentialIntegrity"]
     }
-        
+
     model User {
           id              String           @id @default(cuid())
           createdAt       DateTime         @default(now())
@@ -87,36 +83,30 @@ Now let's edit our `schema.prisma` file:
           password        String?
           emailVerified   DateTime?
     }
-    
 
 Referential Integrity is a property of a data set that states that all of it's references are valid. This simply means that if a record references another record, then the referenced record must exist. We've also added schema for storing users' data.
 
 Optional: You can format your Prisma schema file using the following command in your project root:
 
     npx prisma format
-    
 
 It's time to generate our Prisma migration.
 
     npx prisma migrate dev --name init
-    
 
 We should see a success message in our terminal. This command also creates a migrations directory inside the prisma directory. To merge the changes in our database schema, we'll create a "Deploy Request".
 
     pscale deploy-request create nextjs-example-app dev
-    
 
 Once we run this command, we can return to our Planetscale dashboard to see the deploy request. The deploy request also shows the schema changes that have been made. Click on the "Deploy changes" to merge the schema changes to our production branch.
 ![nextjs-example-app-Deploy-Request-1-PlanetScale.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1649763517837/UxMYEVFCK.png)
 Let's connect to our production branch and create a new user record. Close the existing planetscale connections and run the following command:
 
     pscale connect nextjs-example-app main --port 3309
-    
 
 In another terminal, run:
 
     npx prisma studio
-    
 
 This opens a web UI that shows all our database models and records in each of those tables. Select the User model, click on Add Record and enter any sample data. Once you click save, the table will refresh and show our newly added record.
 ![Prisma-Studio.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1649763563787/B8-sWTYm2.png)
@@ -124,9 +114,9 @@ Now let's connect our Next.js app to Planetscale. Create a file called `index.ts
 
     import { PrismaClient } from '@prisma/client';
     export * from '@prisma/client';
-        
+
     let prisma: PrismaClient;
-        
+
     if (process.env.NODE_ENV === 'production') {
           prisma = new PrismaClient({
                 errorFormat: 'minimal',
@@ -135,15 +125,14 @@ Now let's connect our Next.js app to Planetscale. Create a file called `index.ts
           globalThis['prisma'] = globalThis['prisma'] || new PrismaClient({ errorFormat: 'pretty' });
           prisma = globalThis['prisma'];
     }
-        
+
     export default prisma;
-    
 
 Now you can import prisma into your API routes, `getStaticProps`, and `getServerSideProps`. For example, let's fetch a list of users from our database.
 
     // pages/api/users.ts
     import prisma from '../../prisma'
-        
+
     export default async function handle(req, res) {
         switch (req.method) {
             case 'GET': {
@@ -152,7 +141,6 @@ Now you can import prisma into your API routes, `getStaticProps`, and `getServer
             }
         }
     }
-    
 
 You can now deploy your Next.js application to a host of your choice. If you use Vercel/Netlify, you have to add a `DATABASE_URL` environment variable and use the connection string you got from Planetscale dashboard. You don't need `SHADOW_DATABASE_URL` because Prisma only uses it in development and not production. The code for this tutorial is available on [Github](https://github.com/ilangorajagopal/nextjs-platnetscale-example).
 

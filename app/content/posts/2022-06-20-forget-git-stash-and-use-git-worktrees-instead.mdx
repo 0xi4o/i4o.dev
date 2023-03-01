@@ -7,9 +7,9 @@ tags: Software Engineering
 excerpt: Git worktree is a feature that lets you check out more than one branch at a time. They've been such a gamechanger for my git workflow.
 ---
 
-Here's a typical workflow in the life of a software engineer. 
+Here's a typical workflow in the life of a software engineer.
 
-You're about to start working on a feature. You create a branch off of `dev` or `main` and then you're off coding. While you're working on the feature, you're notified of a bug in production. Or your pull request has some feedback and you gotta implement those. 
+You're about to start working on a feature. You create a branch off of `dev` or `main` and then you're off coding. While you're working on the feature, you're notified of a bug in production. Or your pull request has some feedback and you gotta implement those.
 
 But you don't want to lose all the changes you made in your feature branch. Git lets us checkout only one branch at a time. So you do this:
 
@@ -19,11 +19,11 @@ You check out your PR branch or create a branch for the hotfix. You do the neces
 
     git stash pop
 
-This is usually fine when your project has a simple setup. Sometimes, you have new dependencies you have to install when switching branches. Or you have to run a build. 
+This is usually fine when your project has a simple setup. Sometimes, you have new dependencies you have to install when switching branches. Or you have to run a build.
 
-In fast-moving projects, you probably have more than one pull request open that's under review. So you're in a vicious cycle of stashing changes and popping them back. 
+In fast-moving projects, you probably have more than one pull request open that's under review. So you're in a vicious cycle of stashing changes and popping them back.
 
-Let me tell you about a better way to handle these situations. 
+Let me tell you about a better way to handle these situations.
 
 ## Meet git worktrees.
 
@@ -50,7 +50,7 @@ Git has created a directory called `feature-1`, created a new branch called `fea
 
     git worktree add <path> <branch>
 
-Note that if you don't specify a branch, git will **create a new branch** for you. If you want to create a worktree from an existing branch, you have to specify it explicitly. On a related note, you can have different worktree and branch names. 
+Note that if you don't specify a branch, git will **create a new branch** for you. If you want to create a worktree from an existing branch, you have to specify it explicitly. On a related note, you can have different worktree and branch names.
 
 In our existing repo, let's create a new branch called `hotfix` (I'm creating this branch as an example. You can use any existing branch in your repo that you want to create a worktree out of). To create a worktree from this branch, we can run:
 
@@ -58,7 +58,7 @@ In our existing repo, let's create a new branch called `hotfix` (I'm creating th
 
 Git will now create a directory called hotfix, and checkout to `hotfix` branch in the new worktree.
 ![](__GHOST_URL__/content/images/2022/06/4.png)create a new worktree from an existing branch
-Note that instead of saying "new branch '*<branch>*'", this time it says "checking out '*<branch>*'". Let's make some changes in the `hotfix` and `feature-1` worktrees. 
+Note that instead of saying "new branch '_<branch>_'", this time it says "checking out '_<branch>_'". Let's make some changes in the `hotfix` and `feature-1` worktrees.
 ![](__GHOST_URL__/content/images/2022/06/5.png)changes in worktrees stay independent of other worktrees
 As you can see, you can maintain different "branches" of work simultaneously. From the worktrees, you can rebase, pull, push, etc. All the things you normally do from a branch.
 
@@ -82,7 +82,7 @@ Note: If you have untracked files and/or changes in tracked files, git will refu
 
 There are a lot [more options that are available for git worktrees](https://git-scm.com/docs/git-worktree) on the [git](https://git-scm.com/) website.
 
-Hopefully, you can see how powerful worktrees can be and how to use them for your own projects. 
+Hopefully, you can see how powerful worktrees can be and how to use them for your own projects.
 
 ## How I use git worktrees
 
@@ -94,7 +94,7 @@ Here's what I'm talking about:
 ![](__GHOST_URL__/content/images/2022/06/8.png)git worktrees alongside my repo root
 This can work but it's an organizational nightmare when you have a lot more worktrees, especially if you treat your worktrees like your branches (like, how often do you really delete your local git branches?).
 
-To get around this, I use another git feature called [bare repositories](https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare). 
+To get around this, I use another git feature called [bare repositories](https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare).
 
 When you clone a repository, along with your project files, there's also a hidden `.git` directory in your repo root. This is where all the administrative folders and files git uses to do its operation reside.
 ![](__GHOST_URL__/content/images/2022/06/9.png)inside the .git hidden directory in your project root
@@ -110,11 +110,11 @@ After I clone a bare repository, I create a `main` worktree:
 
     git worktree add main main
 
-You don't have to do it but I like having a `main` worktree that's always available. This creates a worktree (and folder) inside my bare repo root. 
+You don't have to do it but I like having a `main` worktree that's always available. This creates a worktree (and folder) inside my bare repo root.
 
 Note that the path doesn't have the `../` part in them. This is because I want the worktree to reside inside my project root.
 
-I can create as many worktrees as I want and they will all coexist inside my project root folder. So even if I end up with a ton of worktrees, it's all inside my project folder, neatly organized. 
+I can create as many worktrees as I want and they will all coexist inside my project root folder. So even if I end up with a ton of worktrees, it's all inside my project folder, neatly organized.
 
 For example, here's the bare repository of one of my side projects, [Aurelius](https://aurelius.ink/):
 ![](__GHOST_URL__/content/images/2022/06/10.png)bare repo of one of my side projects
@@ -128,4 +128,4 @@ There are still some kinks to work out in my current workflow, especially with m
 
 Surprisingly, git worktrees are not a new feature. They've been in existence for years but haven't been widely known.
 
-This turned out to be a longer post than I intended. Hopefully, you're as blown away as I was when I learned about git worktrees. It's such a powerful feature. 
+This turned out to be a longer post than I intended. Hopefully, you're as blown away as I was when I learned about git worktrees. It's such a powerful feature.

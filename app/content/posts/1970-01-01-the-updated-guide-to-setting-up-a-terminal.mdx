@@ -8,13 +8,13 @@ draft: true
 
 Exactly a year ago, I wrote about setting up a terminal you will love to use. On Hashnode, it's my most popular [article](https://ilango.hashnode.dev/setting-up-a-terminal-you-will-love-to-use), getting over 13k views. Clearly, it's a topic of interest for many. Almost all tools, frameworks, and languages require some process running in the background, which is started from a terminal. Our IDEs and code editors come with terminal(s) built-in. Suffice it to say, terminals have become an important part of our workflow.
 
-But over the months following that article, I started exploring other tools to improve my productivity, and out of curiosity. I've made some improvements, started using alternatives, and written some custom scripts. 
+But over the months following that article, I started exploring other tools to improve my productivity, and out of curiosity. I've made some improvements, started using alternatives, and written some custom scripts.
 
 ## Things that changed
 
 ### Hello Kitty
 
-While Tabby was a good terminal, it wasn't fast enough. Plus, it was an electron app, which I'm not a fan of. I needed something faster. I've already heard of and used Alacritty, but I wanted to try something else this time. One of the commenters in that article, suggested I try [kitty](https://sw.kovidgoyal.net/kitty/). And so I did. It's now my terminal emulator of choice. 
+While Tabby was a good terminal, it wasn't fast enough. Plus, it was an electron app, which I'm not a fan of. I needed something faster. I've already heard of and used Alacritty, but I wanted to try something else this time. One of the commenters in that article, suggested I try [kitty](https://sw.kovidgoyal.net/kitty/). And so I did. It's now my terminal emulator of choice.
 
 While kitty comes with a lot of great features including tabs, a built-in multiplexer, etc, I don't use any of them. I haven't even changed any of the configurations available. I only have a single terminal window open, and this is the starting point of something really cool I've set up. But before that, a note on the shell and related tools.
 
@@ -42,15 +42,15 @@ I suggest you set up aliases for commands that you often use. But don't go overb
 
 ### Tmux
 
-Alright, let's get to the good stuff. Like I said before, Kitty has a terminal multiplexer built in but I don't use that. Instead, I use Tmux. That's because tmux has been around for a long time, it does one thing and it does it really well. The real power of tmux is unlocked when we automate what we typically do inside tmux. 
+Alright, let's get to the good stuff. Like I said before, Kitty has a terminal multiplexer built in but I don't use that. Instead, I use Tmux. That's because tmux has been around for a long time, it does one thing and it does it really well. The real power of tmux is unlocked when we automate what we typically do inside tmux.
 
-Stuff like, creating sessions, windows, and panes, changing directories, running dev servers, etc. Tmux also lets us execute commands when we create new windows and panes. 
+Stuff like, creating sessions, windows, and panes, changing directories, running dev servers, etc. Tmux also lets us execute commands when we create new windows and panes.
 
 The starting point of my tmux workflow is a keybind I set up in my `zshrc`. When I press `Ctrl + f`, zsh runs a script called `tmux-sessionizer`.
 ![](__GHOST_URL__/content/images/2023/02/tmux-sessionizer-keybind.png)
 This script does two things:
 
-It first lists all the directories that I open and work in, on a regular basis. This includes code repositories for side projects, work, open-source projects I'm interested in exploring, learning repos, etc. From this list, I can type and search for the particular directory I want to go into, using a command-line fuzzy finder called [fzf](https://github.com/junegunn/fzf). 
+It first lists all the directories that I open and work in, on a regular basis. This includes code repositories for side projects, work, open-source projects I'm interested in exploring, learning repos, etc. From this list, I can type and search for the particular directory I want to go into, using a command-line fuzzy finder called [fzf](https://github.com/junegunn/fzf).
 
 When I find the directory, I press enter. The script then checks if tmux is running, then checks if a tmux session with the name of the directory already exists. If it does, it switches to that session. If not, it creates a session with the chosen directory name.
 

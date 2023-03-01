@@ -47,7 +47,7 @@ Here's how to use optional chaining:
 ```js
 // From our previous example snippet
 
-const avatar = response?.accounts?.google?.profile?.avatar;
+const avatar = response?.accounts?.google?.profile?.avatar
 ```
 
 See how simple and convenient that was? All we have to do when chaining properties is to use `?.`, instead of `.`. It's so much easier to read this than a string of `AND` conditions.
@@ -61,7 +61,7 @@ Optional chaining can be used in a few other circumstances as well:
 Let's say we want to make sure the array exists before we read from an index:
 
 ```js
-const arrayItem = arr?.[10];
+const arrayItem = arr?.[10]
 ```
 
 *### *Calling functions or nested methods
@@ -69,9 +69,9 @@ const arrayItem = arr?.[10];
 When we're unsure if the function or method exists before calling it:
 
 ```js
-const user = new User();
+const user = new User()
 
-user.setUsername?.('quell');
+user.setUsername?.('quell')
 ```
 
 *### *Addressing dynamic property names
@@ -79,8 +79,8 @@ user.setUsername?.('quell');
 When we're using an expression to derive names of properties in objects:
 
 ```js
-const word = 'onomatopoeia';
-const meaning = dictionary?.[word];
+const word = 'onomatopoeia'
+const meaning = dictionary?.[word]
 ```
 
 *### *Usage with the null coalescing operator (`??`)
@@ -90,7 +90,7 @@ We can combine optional chaining with the null coalescing operator:
 ```js
 // If user.gender is available, assign the value to gender. If not, set it to 'Not Selected'
 
-const gender = user?.gender ?? 'Not Selected';
+const gender = user?.gender ?? 'Not Selected'
 ```
 
 *## *What we can't do with it

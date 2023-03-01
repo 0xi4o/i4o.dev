@@ -42,7 +42,7 @@ I'd also heard about [Radix UI primitives](https://www.radix-ui.com/) and loved 
 
 I also didn't want to learn another technology, so I opted for Tailwind. Having them work together was not straight forward as I thought it would be. For example, Radix exposes data attributes to keep track of components' states. There's no way for Tailwind to target those attributes, yet.
 
-*Note: With v3.1, Tailwind lets us use arbitrary variants to it's possible to target data attributes. But even then, typing out arbitrary variants for all the components seemed tedious.*
+_Note: With v3.1, Tailwind lets us use arbitrary variants to it's possible to target data attributes. But even then, typing out arbitrary variants for all the components seemed tedious._
 
 I'd have to roll out my plugin to get around this but fortunately, I found a plugin that did exactly that.
 [
@@ -57,7 +57,7 @@ Utilities and variants for styling Radix state. Contribute to ecklf/tailwindcss-
 ](https://github.com/ecklf/tailwindcss-radix)
 Now I can target Radix components' states and style them how I want them. The plugin sets default variants for different states and we can customize the prefix for the variants! Check out the above repository to learn more.
 
-Now that my UI issues are sorted, I wanted a few more things in my stack. 
+Now that my UI issues are sorted, I wanted a few more things in my stack.
 
 ### Authentication
 
@@ -90,32 +90,32 @@ Using these, I built Google, Twitter, and Magic links auth for my stack.
 With the two main parts taken care of, I went ahead and added a few more things to my stack that would drastically reduce boilerplate code and would save me time from building them for each of my projects.
 
 1. Transactional emails with SendGrid
-2. Relational database with Planetscale 
+2. Relational database with Planetscale
 3. Upload API with S3
 4. Health check API route
 5. Pre-built, themed, and composable Radix UI components styled with Tailwind
 
-For now, I'm happy with the state of my Remix Stack. All of the above-mentioned technologies were included in my stack by necessity as I was working on Aurelius. 
+For now, I'm happy with the state of my Remix Stack. All of the above-mentioned technologies were included in my stack by necessity as I was working on Aurelius.
 
 After I pushed the new changes to Synthwave Stack, I thought about what else I wanted to include that would reduce boilerplate and set up work even more. Here's the list I came up with:
 
-- [Fly.io](http://Fly.io) deployments (and moving off of Vercel)
-- Error logging with Sentry
-- Analytics (Amplitude?)
-- Docs using MDX
-- Blog (Aurelius 👀 or any headless CMS)
-- Increase upload size (currently 5MB)
-- Stripe integration
-- Cron jobs
-- Unit testing with Vitest and Testing Library
-- MSW
+-   [Fly.io](http://Fly.io) deployments (and moving off of Vercel)
+-   Error logging with Sentry
+-   Analytics (Amplitude?)
+-   Docs using MDX
+-   Blog (Aurelius 👀 or any headless CMS)
+-   Increase upload size (currently 5MB)
+-   Stripe integration
+-   Cron jobs
+-   Unit testing with Vitest and Testing Library
+-   MSW
 
 I'm not going to build them right away, because I don't need them right now. I'm starting a new project soon where I might need some of these, so when the time comes, I'll build it and add them to my stack.
 
 ### Why am I going to such lengths?
 
-Because I want to focus on building projects and not get caught up in doing the tedious setup work that goes along with any new project. I want to run one command, and start off building the project. 
+Because I want to focus on building projects and not get caught up in doing the tedious setup work that goes along with any new project. I want to run one command, and start off building the project.
 
-I'm doing that with Remix because I love this framework, its principles, and the community behind it. But it doesn't have to be Remix. Remix is a means to an end, the end being building cool shit. It could be replaced by Next.js, Gatsby, Astro, whatever. 
+I'm doing that with Remix because I love this framework, its principles, and the community behind it. But it doesn't have to be Remix. Remix is a means to an end, the end being building cool shit. It could be replaced by Next.js, Gatsby, Astro, whatever.
 
 If you're doing side projects, set up a starter with all the things you need for a project. But don't spend too much time on it because it might end up being a project on its own. Add things as and when it's necessary and optimize for building your projects.

@@ -31,17 +31,23 @@ Using Oh My Zsh, we'll not only make our terminal look much better than the defa
 
 On most Linux distros, zsh is usually available in the native package manager. On Debian/Ubuntu based distros we can install zsh using this command:
 
-    sudo apt install zsh
+```
+sudo apt install zsh
+```
 
 If you opted for Ubuntu in WSL, you can use the above command to install zsh on Windows.
 
 On MacOS, use Homebrew to install zsh.
 
-    brew install zsh
+```
+brew install zsh
+```
 
 Once installed we can change the default shell to zsh:
 
-    chsh -s $(which zsh)
+```
+chsh -s $(which zsh)
+```
 
 If you're running this command as a non-root user, you'll have to use sudo privileges to change your default shell.
 
@@ -49,7 +55,9 @@ On Windows, you can run exec zsh to switch your shell to zsh.
 
 Now that we have zsh installed, we can now install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh):
 
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
 Note: You need curl to run this command. It is most probably pre-installed in your OS but if it's not you'll have to install it. You'll also need to have git installed.
 
@@ -73,19 +81,27 @@ Starship is also comes with a configuration file that you can use to modify what
 
 To install Starship, run this command:
 
-    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+```
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+```
 
 If you're on MacOS, you can also use Homebrew to install Starship.
 
-    brew install starship
+```
+brew install starship
+```
 
 Once it's installed, add this line to your .zshrc file:
 
-    eval "$(starship init zsh)"
+```
+eval "$(starship init zsh)"
+```
 
 Close and open your terminal or run
 
-    source .zshrc
+```
+source .zshrc
+```
 
 to apply the changes. Now let's get back to our terminal and setup the panes.
 

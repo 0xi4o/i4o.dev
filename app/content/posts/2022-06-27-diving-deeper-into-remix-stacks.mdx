@@ -18,16 +18,8 @@ This includes setting up:
 5. Basic Prisma setup
 
 I called it Synthwave Stack, named after one of my favorite sub-genres. You can check it out here:
-[
+[https://github.com/ilangorajagopal/synthwave-stack](https://github.com/ilangorajagopal/synthwave-stack)
 
-GitHub - ilangorajagopal/synthwave-stack: Remix Stack for deploying to Vercel with remix-auth, Planetscale, Radix UI, TailwindCSS, formatting, linting etc. Written in Typescript.
-
-Remix Stack for deploying to Vercel with remix-auth, Planetscale, Radix UI, TailwindCSS, formatting, linting etc. Written in Typescript. - GitHub - ilangorajagopal/synthwave-stack: Remix Stack for ...
-
-![](https://github.com/fluidicon.png)GitHubilangorajagopal
-
-![](https://repository-images.githubusercontent.com/490372710/413f7bbb-d572-4db4-9eb1-5c42fd3603ad)
-](https://github.com/ilangorajagopal/synthwave-stack)
 Once I had this ready, I built a project with this stack. I decided to rewrite my writing app, [Aurelius](https://aurelius.ink), in Remix. It's originally written in [Next.js](https://nextjs.org/). While I was creating the stack I had to make some changes to my tech stack. One of the first ones to go was [Chakra UI](https://chakra-ui.com/).
 
 ### Tailwind CSS, please take me back!
@@ -45,16 +37,8 @@ I also didn't want to learn another technology, so I opted for Tailwind. Having 
 _Note: With v3.1, Tailwind lets us use arbitrary variants to it's possible to target data attributes. But even then, typing out arbitrary variants for all the components seemed tedious._
 
 I'd have to roll out my plugin to get around this but fortunately, I found a plugin that did exactly that.
-[
+[https://github.com/ecklf/tailwindcss-radix](https://github.com/ecklf/tailwindcss-radix)
 
-GitHub - ecklf/tailwindcss-radix: Utilities and variants for styling Radix state
-
-Utilities and variants for styling Radix state. Contribute to ecklf/tailwindcss-radix development by creating an account on GitHub.
-
-![](https://github.com/fluidicon.png)GitHubecklf
-
-![](https://opengraph.githubassets.com/fa15cd3c3b321b5ac86b3d0c017650d1eeb896ff0df3e56799edb5e995cbcb92/ecklf/tailwindcss-radix)
-](https://github.com/ecklf/tailwindcss-radix)
 Now I can target Radix components' states and style them how I want them. The plugin sets default variants for different states and we can customize the prefix for the variants! Check out the above repository to learn more.
 
 Now that my UI issues are sorted, I wanted a few more things in my stack.
@@ -62,27 +46,11 @@ Now that my UI issues are sorted, I wanted a few more things in my stack.
 ### Authentication
 
 Moving to Remix, I knew I had to do something about authentication and authorization. [Next-Auth](https://next-auth.js.org/) makes it so much easier to roll out auth for Next.js apps. I thought it would be hard to replicate in Remix but there's an amazing project called Remix-Auth built by a community member!
-[
+[https://github.com/sergiodxa/remix-auth/](https://github.com/sergiodxa/remix-auth/)
 
-GitHub - sergiodxa/remix-auth: Simple Authentication for Remix
-
-Simple Authentication for Remix. Contribute to sergiodxa/remix-auth development by creating an account on GitHub.
-
-![](https://github.com/fluidicon.png)GitHubsergiodxa
-
-![](https://opengraph.githubassets.com/084fc0731b383bdbfe6fd551d1d414375a2bee62e8df780070de6530e0c2267b/sergiodxa/remix-auth)
-](https://github.com/sergiodxa/remix-auth/)
 Remix-Auth is heavily inspired by Passport.js, the defacto auth library for javascript. It was written from the ground up to work with Remix and has support for strategies, like Passport. Here's a list of all currently available Remix auth strategies built by the community:
-[
+[https://github.com/sergiodxa/remix-auth/discussions/111](https://github.com/sergiodxa/remix-auth/discussions/111)
 
-Community Strategies · Discussion #111 · sergiodxa/remix-auth
-
-This discussion is to keep a list of any strategy built by the community. Reply below with the strategies you built! OAuth2Strategy FormStrategy GitHubStrategy
-
-![](https://github.com/fluidicon.png)GitHubsergiodxa
-
-![](https://opengraph.githubassets.com/c49aed9e131efb2cf945c3d9f6f3f910aff5a38ca5589e31e391d73097d625ee/sergiodxa/remix-auth/discussions/111)
-](https://github.com/sergiodxa/remix-auth/discussions/111)
 Using these, I built Google, Twitter, and Magic links auth for my stack.
 
 ### Other moving parts

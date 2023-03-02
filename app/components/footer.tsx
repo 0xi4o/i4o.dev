@@ -1,4 +1,4 @@
-import { Nav } from '@i4o-oss/catalystui'
+import { Nav } from '@i4o/catalystui'
 
 function Footer() {
 	const navItems = [

@@ -1,44 +1,44 @@
 {
-	"name": "i4o.dev",
-	"private": true,
-	"sideEffects": false,
-	"scripts": {
-		"build": "remix build",
-		"dev": "remix dev",
-		"start": "remix-serve build",
-		"typecheck": "tsc"
-	},
-	"dependencies": {
-		"@i4o-oss/catalystui": "0.6.1",
-		"@mdx-js/mdx": "^2.3.0",
-		"@mdx-js/react": "^2.3.0",
-		"@radix-ui/react-icons": "^1.1.1",
-		"@remix-run/node": "1.13.0",
-		"@remix-run/react": "1.13.0",
-		"@remix-run/serve": "1.13.0",
-		"date-fns": "^2.29.3",
-		"graceful-fs": "^4.2.10",
-		"gray-matter": "^4.0.3",
-		"micromark": "^3.1.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"remark-frontmatter": "^4.0.1"
-	},
-	"devDependencies": {
-		"@remix-run/dev": "1.13.0",
-		"@remix-run/eslint-config": "1.13.0",
-		"@tailwindcss/typography": "^0.5.9",
-		"@types/graceful-fs": "^4.1.6",
-		"@types/react": "^18.0.25",
-		"@types/react-dom": "^18.0.8",
-		"concurrently": "^7.6.0",
-		"eslint": "^8.27.0",
-		"prettier": "^2.8.4",
-		"prettier-plugin-tailwindcss": "^0.2.2",
-		"tailwindcss": "^3.2.6",
-		"typescript": "^4.8.4"
-	},
-	"engines": {
-		"node": ">=14"
-	}
+    "name": "i4o.dev",
+    "private": true,
+    "sideEffects": false,
+    "scripts": {
+        "build": "remix build",
+        "dev": "remix dev",
+        "start": "remix-serve build",
+        "typecheck": "tsc"
+    },
+    "dependencies": {
+        "@i4o/catalystui": "0.7.1",
+        "@mdx-js/mdx": "^2.3.0",
+        "@mdx-js/react": "^2.3.0",
+        "@radix-ui/react-icons": "^1.1.1",
+        "@remix-run/node": "1.13.0",
+        "@remix-run/react": "1.13.0",
+        "@remix-run/serve": "1.13.0",
+        "date-fns": "^2.29.3",
+        "graceful-fs": "^4.2.10",
+        "gray-matter": "^4.0.3",
+        "micromark": "^3.1.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "remark-frontmatter": "^4.0.1"
+    },
+    "devDependencies": {
+        "@remix-run/dev": "1.13.0",
+        "@remix-run/eslint-config": "1.13.0",
+        "@tailwindcss/typography": "^0.5.9",
+        "@types/graceful-fs": "^4.1.6",
+        "@types/react": "^18.0.25",
+        "@types/react-dom": "^18.0.8",
+        "concurrently": "^7.6.0",
+        "eslint": "^8.27.0",
+        "prettier": "^2.8.4",
+        "prettier-plugin-tailwindcss": "^0.2.2",
+        "tailwindcss": "^3.2.6",
+        "typescript": "^4.8.4"
+    },
+    "engines": {
+        "node": ">=14"
+    }
 }

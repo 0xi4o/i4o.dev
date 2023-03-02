@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@i4o-oss/catalystui': 0.6.1
+  '@i4o/catalystui': 0.7.1
   '@mdx-js/mdx': ^2.3.0
   '@mdx-js/react': ^2.3.0
   '@radix-ui/react-icons': ^1.1.1
@@ -29,7 +29,7 @@ specifiers:
   typescript: ^4.8.4
 
 dependencies:
-  '@i4o-oss/catalystui': 0.6.1_zula6vjvt3wdocc4mwcxqa6nzi
+  '@i4o/catalystui': 0.7.1_zula6vjvt3wdocc4mwcxqa6nzi
   '@mdx-js/mdx': 2.3.0
   '@mdx-js/react': 2.3.0_react@18.2.0
   '@radix-ui/react-icons': 1.1.1_react@18.2.0
@@ -1623,8 +1623,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@i4o-oss/catalystui/0.6.1_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-g61fm/3ZtVRncJzYc2FIRTZfStWgufubz8d1D3f1YP6E68HVdp7OJDQTzX//uUNSukMxaZtR993RWzFNTVcYQQ==}
+  /@i4o/catalystui/0.7.1_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-Y5hB5BCaxYGzFDaklj6+opuXzJmg7bGPKdlGKm7nGUKHUQsmFexX4bQt6TBr/uQrS7fExAeLHJ7oHdNqHDHu0A==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0

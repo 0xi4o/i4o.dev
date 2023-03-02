@@ -1,5 +1,5 @@
 import { Link } from '@remix-run/react'
-import { Nav, Switch } from '@i4o-oss/catalystui'
+import { Nav, Switch } from '@i4o/catalystui'
 import { Theme, useTheme } from '~/utils/theme'
 
 const config = {

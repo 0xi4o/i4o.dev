@@ -7,26 +7,26 @@ tags: React.js, Frontend, Next.js
 excerpt: The default way to fetch data in React applications is good. There is a better way and is super fun to use. It's called SWR.
 ---
 
-*## *What is SWR?
+## What is SWR?
 
 Typically, when we call a REST API, we use `fetch` or a third-party library like `axios`, or, god forbid, `$.ajax` and `XHR`. The browser then makes an HTTP call and accepts a response. While the call is being made, the user waits, usually staring at a loading indicator.
 
 SWR enhances data fetching with caching, revalidation, and request deduplication. The name "SWR" is derived from `stale-while-revalidate`, an HTTP cache invalidation strategy. It is back-end agnostic and supports TypeScript. It exposes React hooks that we can use for data fetching in our applications.
 
-*## *Why use SWR instead of fetch/axios?
+## Why use SWR instead of fetch/axios?
 
 When we use SWR for data fetching, it returns the data from cache (stale), then sends the request (revalidate) and returns the up-to-date data. SWR will automatically cache the response the first time we fetch it.
 
 This translates to a real-time experience for users who instantly see UI being rendered on-screen, while our application fetches the up-to-date data. SWR also has some cool features out-of-the-box:
 
-*-   *Auto revalidation
-*-   *Support for React Suspense
-*-   *Fast page navigation
-*-   *Pagination
-*-   *Scroll position recovery
-*-   *Retry on error
+-   Auto revalidation
+-   Support for React Suspense
+-   Fast page navigation
+-   Pagination
+-   Scroll position recovery
+-   Retry on error
 
-*## *Why do we still need fetch/axios when using SWR
+## Why do we still need fetch/axios when using SWR
 
 SWR does not replace native `fetch` or `axios`. We'll end up using them anyway because SWR only wraps around them. One of the arguments we pass to the `useSWR` hook is a fetcher function that uses `fetch` or `axios`.
 
@@ -91,15 +91,15 @@ function Profile({ userId }) {
 }
 ```
 
-*## *Configuring revalidation
+## Configuring revalidation
 
 SWR offers multiple revalidation strategies. We can use one or all of them. We can also pick and choose which of our fetch requests use which strategies. We can also globally configure revalidation strategies in `SWRConfig` provider.
 
-\*-   **\*Revalidation on focus\*\***: When the tab comes into focus, SWR will revalidate. Enabled by default.
-\*-   **\*Revalidation on network recovery\*\***: When our device reconnects to the internet, SWR will revalidate. Enabled by default.
-\*-   **\*Polling on interval\*\***: It can automatically make fetch requests at specified intervals so our UI is always up-to-date. Disabled by default. If enabled, there are two more options that we can use to enable polling even when the browser tab is not active or when we're not connected to the internet.
+- **Revalidation on focus**: When the tab comes into focus, SWR will revalidate. Enabled by default.
+- **Revalidation on network recovery**: When our device reconnects to the internet, SWR will revalidate. Enabled by default.
+- **Polling on interval**: It can automatically make fetch requests at specified intervals so our UI is always up-to-date. Disabled by default. If enabled, there are two more options that we can use to enable polling even when the browser tab is not active or when we're not connected to the internet.
 
-*## *Mutation
+## Mutation
 
 SWR will revalidate our data when one of the above strategies is used. We can also manually trigger revalidation using `mutate(key)`. The `key` is the URL where we fetch the data.
 
@@ -113,7 +113,7 @@ The `useSWR` hook also returns a `mutate` function that we can use which doesn't
 const { user, mutate } = useSWR(`/api/users/${userId}`, fetcher)
 ```
 
-*## *POST requests
+## POST requests
 
 SWR lets us do optimistic rendering by local mutation — where we update the UI based on new data immediately — before we even update the database with POST requests.
 

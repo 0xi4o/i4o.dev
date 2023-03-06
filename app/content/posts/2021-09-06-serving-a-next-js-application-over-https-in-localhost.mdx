@@ -7,13 +7,13 @@ tags: Next.js, Express.js, React.js
 excerpt: I recently set up a Next.js application to be served over HTTPS in localhost using mkcert. This is how I did it in under 5 minutes.
 ---
 
-*## *Why HTTPS in localhost?
+## Why HTTPS in localhost?
 
 For most applications, not having HTTPS in localhost is completely fine and that is the usual way. Recently, I needed a way to set cross-site cookies. Using `express-session`, it's quite simple to do this. Set `cookie.sameSite` to `none`. But to do that, I have to set `cookie.secure` to `true` and this is possible only over HTTPS connections.
 
 I could have deployed my application to a dev server so it's served over HTTPS but that just takes way too long. So I set up HTTPS for my local server and this is how I did it.
 
-*## *Enter, mkcert
+## Enter, mkcert
 
 [mkcert](*https://mkcert.dev*) is awesome. It took me only 5 minutes to have my application served over HTTPS on my local machine.
 
@@ -39,7 +39,7 @@ mkcert localhost
 
 This will generate two `pem` (localhost.pem and localhost-key.pem) files in your `home` directory. If you've used AWS EC2 before you will already be familiar with this file type. It's a file format used to store cryptographic keys and is used for authentication and authorization.
 
-*## *Creating a custom local server for Next.js
+## Creating a custom local server for Next.js
 
 There is no way, that I know of, to change the default Next.js server, so it serves over HTTPS. So we'll create a custom server. If you're deploying to Vercel, don't worry. We're using this custom server only for local development.
 

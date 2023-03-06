@@ -38,7 +38,7 @@ const avatar = response && response.accounts && response.accounts.google && resp
 
 The deeper the properties are nested, the harder it is to write expressions like this. Not to mention, it is a pain to read and easy to get wrong.
 
-*## *Enter Optional Chaining
+## Enter Optional Chaining
 
 Optional chaining is a new feature in Javascript that solves this issue. It is easily one of my most loved new features. It is supported by the [latest versions of all modern browsers](*https://www.caniuse.com/?search=optional%20chaining*). Older ones may need a polyfill.
 
@@ -52,11 +52,11 @@ const avatar = response?.accounts?.google?.profile?.avatar
 
 See how simple and convenient that was? All we have to do when chaining properties is to use `?.`, instead of `.`. It's so much easier to read this than a string of `AND` conditions.
 
-*## *Not just for addressing object properties though
+## Not just for addressing object properties though
 
 Optional chaining can be used in a few other circumstances as well:
 
-*### *Accessing array items
+### Accessing array items
 
 Let's say we want to make sure the array exists before we read from an index:
 
@@ -64,7 +64,7 @@ Let's say we want to make sure the array exists before we read from an index:
 const arrayItem = arr?.[10]
 ```
 
-*### *Calling functions or nested methods
+### Calling functions or nested methods
 
 When we're unsure if the function or method exists before calling it:
 
@@ -74,7 +74,7 @@ const user = new User()
 user.setUsername?.('quell')
 ```
 
-*### *Addressing dynamic property names
+### Addressing dynamic property names
 
 When we're using an expression to derive names of properties in objects:
 
@@ -83,7 +83,7 @@ const word = 'onomatopoeia'
 const meaning = dictionary?.[word]
 ```
 
-*### *Usage with the null coalescing operator (`??`)
+### Usage with the null coalescing operator (`??`)
 
 We can combine optional chaining with the null coalescing operator:
 
@@ -93,7 +93,7 @@ We can combine optional chaining with the null coalescing operator:
 const gender = user?.gender ?? 'Not Selected'
 ```
 
-*## *What we can't do with it
+## What we can't do with it
 
 We can't use optional chaining for assignment:
 

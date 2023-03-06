@@ -9,17 +9,17 @@ excerpt: In this article, I talk about building a Preact widget, why I chose Pre
 
 One of the features in [Stym](*https://stym.io*) is a profile management widget that can be embedded on any website. The widget is connected to our backend and lets users manage their profile, billing, and invoices. When I started to build it, I didn't want to code in vanilla JS. I wanted to use React but as something that will be embedded in other websites, the main requirement was a small size, preferably under 50kb. So I picked Preact.
 
-*## *Why Preact?
+## Why Preact?
 
 Preact has almost the same API but it's very lightweight. How light? It's only 3kb!! 🤯 Granted, its diffing algorithm is quite simple but for my use cases, it was perfect. I also didn't need all of React's features. I just wanted composable components that are easy to write. I've never used Preact before but was excited to check it out.
 
 Since Preact has such a small size, browsers can parse the entire code fast which results in a good user experience. And because of the API, all React modules are available for use so what we can build with it is limitless.
 
-*## *Gotchas
+## Gotchas
 
 There were a few things to look out for when building this.
 
-*### *1. `h()` and `render()`
+### 1. `h()` and `render()`
 
 The `h()` and `render()` functions are the most commonly used in a Preact project. `h()` is what turns JSX into Javascript.
 
@@ -27,7 +27,7 @@ Unlike React, we don't need a separate DOM package in Preact. That is the reason
 
 Preact has a simpler `render()` which adds the UI to the DOM.
 
-*### *2. Using NPM modules made for React
+### 2. Using NPM modules made for React
 
 Preact also comes with a compatibility layer for React available under `preact/compat`. To use React modules with Preact, we have to alias `react` and `react-dom` to `preact/compat`. This is how we do it in Webpack:
 
@@ -43,7 +43,7 @@ module.exports = {
 };
 ```
 
-*### *3. Routing
+### 3. Routing
 
 The widget I was building had multiple pages. So I needed some form of routing. Preact does have a separate `preact-router` package but it would affect the routing of the parent website. And I didn't want the extra weight. So I used an in-memory router that would handle page changes within the widget without affecting the parent website.
 
@@ -113,7 +113,7 @@ Now I can use this Router component in the root component. There's also an `onCh
 />
 ```
 
-*## *Passing Props
+## Passing Props
 
 Users can add this widget using a script tag, but I also wanted to pass some initial props to it for use in backend calls. Initially, I used `preact-habitat` to render the widget components to DOM. But in the end, I removed it because passing props to the widget from the script tag on the parent weren't the way I liked it.
 

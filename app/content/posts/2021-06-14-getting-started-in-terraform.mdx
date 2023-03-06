@@ -9,19 +9,16 @@ excerpt: A complete Terraform tutorial covering fundamental topics like infrastr
 
 Terraform is an open source tool for building and managing cloud infrastructure in a safe and efficient way. It can create servers, networks and more in popular cloud service providers. But before we can dive into Terraform, we should learn what "Infrastructure as Code (IaC)" means.
 
-*## *What is Infrastructure as Code?
+## What is Infrastructure as Code?
 
 Infrastructure as Code or IaC for short, is a method to provision and manage cloud resources by writing and running code. While clicking around web consoles in AWS is fun (it's not), writing code to manage infrastructure has some key benefits.
 
-\*-   **\*No more clicking around\*\***: Provisioning resources in cloud providers via the web interface involves lots of clicks and often across many services like networking, compute, domains etc. IaC prevents all that and lets us write code that will automate these things.
+- **No more clicking around**: Provisioning resources in cloud providers via the web interface involves lots of clicks and often across many services like networking, compute, domains etc. IaC prevents all that and lets us write code that will automate these things.
+- **IaC is declarative**: Instead of managing every single details, IaC is declarative — we tell the program what we want instead of how to do it — which makes it human readable and avoids managing all the underlying API calls we have to make.
+- **Reduces time, cost and risk**: When doing a series of steps via the web interface, there's a chance of making mistakes like over-provisioning or doing a configuration wrong. It is also time consuming. IaC eliminates those risks, saves time and reduces cost in the long run.
+- **Enables DevOps**: Since infrastructure is written as code, it can be committed to source control and enables collaboration across teams.
 
-\*-   **\*IaC is declarative\*\***: Instead of managing every single details, IaC is declarative — we tell the program what we want instead of how to do it — which makes it human readable and avoids managing all the underlying API calls we have to make.
-
-\*-   **\*Reduces time, cost and risk\*\***: When doing a series of steps via the web interface, there's a chance of making mistakes like over-provisioning or doing a configuration wrong. It is also time consuming. IaC eliminates those risks, saves time and reduces cost in the long run.
-
-\*-   **\*Enables DevOps\*\***: Since infrastructure is written as code, it can be committed to source control and enables collaboration across teams.
-
-*## *Introduction to Terraform
+## Introduction to Terraform
 
 Terraform is an IaC tool built and maintained by Hashicorp. We write human-readable code that Terraform runs and changes resources on the cloud provider(s) of our choice. It does it in a predictable way that removes mistakes and saves time. Terraform also keeps track of everything we deployed.
 
@@ -31,11 +28,11 @@ Now, let's say we instead want to move the instance to a different availability 
 
 And Terraform is cloud agnostic. It works with a wide variety of cloud providers from popular ones like AWS and GCP to smaller providers like DO and Heroku. This list is also expanding as Hashicorp is adding more cloud providers. We can also deploy resources to our in-house servers or data centers (if you have one).
 
-*## *Terraform Concepts
+## Terraform Concepts
 
 Before we dive into writing Terraform code, we have to be familiar with a few Terraform concepts. Putting them together is how we work with Terraform.
 
-*### *Terraform State
+### Terraform State
 
 State is how Terraform tracks and manages cloud resources. Terraform does it using a file called the state file. By default, the state file is named `terraform.tfstate`.
 
@@ -45,7 +42,7 @@ The state file is a JSON dump of all the metadata related to our deployments and
 
 Because the state file is the source of truth for all our deployments, it should not be deleted. It's much harder to codify all the resources we've deployed with Terraform, if we deleted the file. The state file should also be secured from falling into the wrong hands as it contains sensitive information about our infrastructure. We can also backup our state file to a cloud storage service like S3. More details on how to set this up in the initialization section below.
 
-*### *Terraform Providers
+### Terraform Providers
 
 Providers are the API layer for different cloud service providers like AWS, GCP etc. This is how Terraform interacts with the cloud services and provisions the required resources. Like I mentioned, we can also write our own providers to connect to in-house servers or data centers.
 
@@ -64,7 +61,7 @@ terraform {
 
 During initialization with `terraform init` (which we'll talk about shortly), the provider code is downloaded from Terraform registry. Terraform can then communicate the cloud service. One important thing to note — providers are developed independently of Terraform so they have a different versioning system. A best practice when using providers is to version lock them in our code. If no version is specified, Terraform downloads the latest version of the provider which might break our code.
 
-*### *Resources
+### Resources
 
 Defining what resources we want to change is done through resource blocks. Using the provider we chose, Terraform makes appropriate API calls at runtime to provision resources that are defined in resource blocks.
 
@@ -79,25 +76,23 @@ resource "aws_instance" "web" {
 
 Resource blocks can take arguments define inside `{}` that defines the properties of the resource. We can also refer to resources in other areas of the code. This makes working with Terraform flexible. In the above example, we can refer to the EC2 instance using `aws_instance.web`.
 
-*### *Terraform Block
+### Terraform Block
 
 The `terraform {}` block is a special block used to configure settings that affect Terraform's behavior. Inside this block only constants are allowed and cannot refer to other named objects like resources. This block is only used once in a Terraform project. This is where we can configure our providers, provider versions, regions, state backend etc.
 
-*## *Terraform Workflow
+## Terraform Workflow
 
 Working with Terraform has three steps: Write, Plan, Apply
 
-\*-   **\*Write\*\***: We can start of with a local Terraform file or a version controlled file. Version controlling Terraform files allows collaboration across teams and allows for review and iteration.
+- **Write**: We can start of with a local Terraform file or a version controlled file. Version controlling Terraform files allows collaboration across teams and allows for review and iteration.
+- **Plan**: Terraform allows us to see ahead of time what our code will deploy. In this phase, we can review the changes and iterate on our cloud infrastructure till we reach the desired state.
+- **Apply**: Once the writing and planning phases are done, Terraform will apply those changes to our declared cloud provider(s). In the background, Terraform will make all the necessary API calls to create the cloud resources and keeps track of them in a state file.
 
-\*-   **\*Plan\*\***: Terraform allows us to see ahead of time what our code will deploy. In this phase, we can review the changes and iterate on our cloud infrastructure till we reach the desired state.
-
-\*-   **\*Apply\*\***: Once the writing and planning phases are done, Terraform will apply those changes to our declared cloud provider(s). In the background, Terraform will make all the necessary API calls to create the cloud resources and keeps track of them in a state file.
-
-*## *Terraform Commands
+## Terraform Commands
 
 There are four Terraform commands that we will use the most. `init`, `plan`, `apply` and `destroy`.
 
-*### *terraform init
+### terraform init
 
 `terraform init` initializes the current working directory. It is the first command we run in a Terraform project. The command does the following things in the background:
 
@@ -143,7 +138,7 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-*### *terraform plan
+### terraform plan
 
 `terraform plan` allows us to review the changes that Terraform is going to make on our cloud. The plan command makes API calls in the background to the providers we've mentioned but doesn't make any changes to the cloud. It allows us to review the changes to make sure that Terraform is only making the required changes.
 
@@ -230,7 +225,7 @@ Notice how Terraform says "known after apply"? These are values that we can pass
 
 For example, to provision an EC2 instance we need a VPC, a Subnet, routing table etc. AWS creates defaults for each region when we create an account, so Terraform uses those. If we had an existing VPC we can pass it's ID to the resource block. Or we can create a VPC resource block and use it's ID in our "aws_instance" resource block using the dot notation. Terraform is flexible in letting us create the infrastructure that we need.
 
-*### *terraform apply and terraform destroy
+### terraform apply and terraform destroy
 
 The `terraform apply` command does exactly what it says it will. It applies all the changes it showed us in the plan phase and creates/modifies the resources in our cloud environment. It is during this phase that the state file is also created. Before we execute `apply` we should make sure to review the plan by ourselves or with our team.
 

@@ -16,7 +16,11 @@ Rust, however, deals with this problem in an entirely different way. Rust has a 
 ## What is ownership?
 
 Memory in Rust is managed through a system that keeps track of who owns which piece of the memory. It comes with a set of rules that Rust can check at compile time rather than at run-time. This means that any potential memory management mistakes we're likely to make, are caught at compile time. While Rust does this on a general level and not just for memory management, combining ownership and compile-time checks saves the programmer a lot of headaches by simply eliminating mistakes.
-![](https://media.giphy.com/media/3OPTlsz4W5pkc/giphy.gif)
+
+<div className='flex justify-center text-center'>
+<img className='w-96' src='https://media.giphy.com/media/3OPTlsz4W5pkc/giphy.gif' />
+</div>
+
 The ownership rules are simple:
 
 -   Each value in Rust has an owner
@@ -41,12 +45,14 @@ Now that we know how data is stored, let's look at a few code samples and see ho
 
 Let's take the following snippet of code:
 
-    let a = 1;
-    {
-      let b = 2;
-      println!("{}", b); // Prints value of b
-    }
-    println!("{}", b); // Throws an error because the scope of b ends with the closing curly brace
+```
+let a = 1;
+{
+    let b = 2;
+    println!("{}", b); // Prints value of b
+}
+println!("{}", b); // Throws an error because the scope of b ends with the closing curly brace
+```
 
 The result is fairly intuitive. Since the scope of `b` ends with the closing curly brace, we can no longer access it. When a variable does out of scope, Rust will call an in-built `drop` function that will destroy the variable and reclaim the memory.
 
@@ -54,11 +60,13 @@ The result is fairly intuitive. Since the scope of `b` ends with the closing cur
 
 Let's try something a bit different from the above snippet.
 
-    let a = "I love Rust";
-    let b = a;
+```
+let a = "I love Rust";
+let b = a;
 
-    println!("{}", a);
-    println!("{}", b);
+println!("{}", a);
+println!("{}", b);
+```
 
 What do you think the output will be? If you guessed that both will print "I love Rust" you are correct. But let's take a closer look at what's happening here. When we say `let b = a`, we're telling Rust to assign the value of a to b. Internally, Rust is making a shallow copy of `a` and assigning the copy to `b`. It's also worth noting that "I love Rust" is a string literal. Since variables in Rust are immutable by default, this value cannot be changed at run-time and their size is known at compile-time. That is why the values here are stored in a stack. This copying behavior only applies to values stored in the stack.
 
@@ -66,11 +74,13 @@ What do you think the output will be? If you guessed that both will print "I lov
 
 Consider this code:
 
-    let a = String::from("I love Rust");
-    let b = a;
+```
+let a = String::from("I love Rust");
+let b = a;
 
-    println!("{}", a);
-    println!("{}", b);
+println!("{}", a);
+println!("{}", b);
+```
 
 This looks very similar to the previous snippet but behaves in a very different way. The key here is the `String::from("I love Rust")` part. Instead of the stack, this makes Rust store the value in the heap. It's still immutable but how the value is stored is different. `a` instead of holding the value "I love Rust" now holds a pointer to the heap of memory holding the string.
 
@@ -78,25 +88,27 @@ Another interesting this to note here is that this snippet will throw an error. 
 
 As a side note, let's take a look at the error Rust throws:
 
-    $ cargo run
-       Compiling ownership v0.1.0 (file:///projects/ownership)
-    error[E0382]: borrow of moved value: `a`
-     --> src/main.rs:5:28
-      |
-    2 |     let a = String::from("I love Rust");
-      |         -- move occurs because `a` has type `String`, which does not implement the `Copy` trait
-    3 |     let b = a;
-      |             -- value moved here
-    4 |
-    5 |     println!("{}, world!", a);
-      |                            ^^ value borrowed here after move
+```
+$ cargo run
+Compiling ownership v0.1.0 (file:///projects/ownership)
+error[E0382]: borrow of moved value: `a`
+--> src/main.rs:5:28
+  |
+2 |     let a = String::from("I love Rust");
+  |         -- move occurs because `a` has type `String`, which does not implement the `Copy` trait
+3 |     let b = a;
+  |             -- value moved here
+4 |
+5 |     println!("{}, world!", a);
+  |                            ^^ value borrowed here after move
 
-    error: aborting due to previous error
+error: aborting due to previous error
 
-    For more information about this error, try `rustc --explain E0382`.
-    error: could not compile `ownership`
+For more information about this error, try `rustc --explain E0382`.
+error: could not compile `ownership`
 
-    To learn more, run the command again with --verbose.
+To learn more, run the command again with --verbose.
+```
 
 See how helpful the error messages are? It clearly states that the `value moved here` when we assign `a` to `b`. The message also tells us that the type `String` does not implement a `Copy` trait. This `Copy` trait is what allows values in stack memory to be copied. Data types which store values in the stack implement this trait but types using the heap don't. These helpful messages are one of the reasons I'm loving Rust so much.
 
@@ -104,11 +116,13 @@ See how helpful the error messages are? It clearly states that the `value moved 
 
 Let's say in the previous code we did want to copy the value to `b`. Rust lets us make a copy of the value stored in the heap by using the `clone` method.
 
-    let a = String::from("I love Rust");
-    let b = a.clone();
+```
+let a = String::from("I love Rust");
+let b = a.clone();
 
-    println!("{}", a);
-    println!("{}", b);
+println!("{}", a);
+println!("{}", b);
+```
 
 This snippet won't throw an error. Instead, it'll create another piece on the heap, store the "I love Rust" string in it, and return the pointer. This way, Rust forces us to be conscious of our memory use by explicitly stating that we're making a deep copy.
 
@@ -126,54 +140,59 @@ Data types that implement the `Copy` trait will let us copy values that are stor
 
 Let's take a look at functions and how they handle ownership. For the most part, functions will behave like variables. Values in stacks will be copied when passed as arguments to functions.
 
-    fn main() {
-      let a = 10;
+```
+fn main() {
+    let a = 10;
 
-      makes_a_copy(a);
+    makes_a_copy(a);
+    println!("{}", a); // Will print the value of a
+}
 
-      println!("{}", a); // Will print the value of a
-    }
-
-    fn makes_a_copy(some_int: u32) {
-      // Will print the value of some_int which is a copy of the value passed to this function.
-      println!("{}", some_int);
-    }
+fn makes_a_copy(some_int: u32) {
+    // Will print the value of some_int which is a copy of the value passed to this function.
+    println!("{}", some_int);
+}
+```
 
 Ownership of values in the heap will be moved to the called function:
 
-    fn main() {
-      let a = String::from("I am Ferris, your Rust spirit guide");
+```
+fn main() {
+    let a = String::from("I am Ferris, your Rust spirit guide");
+    
+    moves_here(a);
+    
+    println!("{}", a);
+    // Throws an error because ownership moved to moves_here
+    // function and a is no longer accessible
+}
 
-      moves_here(a);
-
-      println!("{}", a);
-      // Throws an error because ownership moved to moves_here
-      // function and a is no longer accessible
-    }
-
-    fn moves_here(some_str: String) {
-      println!("{}", some_str); // Prints: I am Ferris, your Rust spirit guide.
-    } // Rust will call drop here and the memory will be reclaimed.
+fn moves_here(some_str: String) {
+    println!("{}", some_str); // Prints: I am Ferris, your Rust spirit guide.
+} // Rust will call drop here and the memory will be reclaimed.
+```
 
 ## Return Values
 
 You can return values from functions that works just like passing arguments to functions. Ownership of the return values follows the same rules as function arguments.
 
-    fn main() {
-      let a = String::from("I am Ferris, your Rust spirit guide");
+```
+fn main() {
+    let a = String::from("I am Ferris, your Rust spirit guide");
 
-      let b = moves_here(a);
+    let b = moves_here(a);
 
-      println!("{}", b);
-      // a is no longer accessible but the same value
-      // is now stored in b which can be accessed
-    }
+    println!("{}", b);
+    // a is no longer accessible but the same value
+    // is now stored in b which can be accessed
+}
 
-    fn moves_here(my_string: String) -> String {
-      println!("{}", my_string); // Prints: I am Ferris, your Rust spirit guide.
+fn moves_here(my_string: String) -> String {
+    println!("{}", my_string); // Prints: I am Ferris, your Rust spirit guide.
 
-      my_string
-    }
+    my_string
+}
+```
 
 This will work for some cases but becomes tedious when we want to keep using the value even after passing it to a function? Passing and returning becomes tedious and leads to a lot of boilerplate code. What if we want to pass a value to a function but not transfer ownership? Rust lets us reference a piece of memory without transferring ownership. If you've learned C before, this is similar to passing arguments by reference. But it does come with a few rules.
 
@@ -181,58 +200,64 @@ This will work for some cases but becomes tedious when we want to keep using the
 
 Let's modify our previous code snippet so we can keep using our value after passing it to another function.
 
-    fn main() {
-      let a = String::from("I am Ferris, your Rust spirit guide");
+```
+fn main() {
+    let a = String::from("I am Ferris, your Rust spirit guide");
 
-      borrows_here(&a);
+    borrows_here(&a);
 
-      println!("{}", a);
-      // a is still accessible because we didn't transfer ownership.
-      // We only passed a reference to a.
-    }
+    println!("{}", a);
+    // a is still accessible because we didn't transfer ownership.
+    // We only passed a reference to a.
+}
 
-    fn borrows_here(my_string: &String) {
-      println!("{}", my_string); // Prints: I am Ferris, your Rust spirit guide.
-    }
-    // Scope of my_string ends here but the value
-    // it points to is still in memory because
-    // my_string is only a reference to that piece of memory
+fn borrows_here(my_string: &String) {
+    println!("{}", my_string); // Prints: I am Ferris, your Rust spirit guide.
+}
+// Scope of my_string ends here but the value
+// it points to is still in memory because
+// my_string is only a reference to that piece of memory
+```
 
 When we pass a reference to a function, the pointer to the value is stored in the argument. Remember that pointers can be stored in stacks. In the above snippet, `my_string` stores the pointer to our original variable `a`. When `borrows_here` finishes execution, `my_string` will be dropped but the value it pointed to is still in memory. This is known as borrowing.
 
 This leads to a question: Can we mutate/change a value that's been borrowed? The answer is no. Rust will throw and error when we try to mutate a borrowed value even when the original variable is mutable.
 
-    fn main() {
-      let mut a = String::from("I am Ferris");
+```
+fn main() {
+    let mut a = String::from("I am Ferris");
 
-      borrows_here(&a);
+    borrows_here(&a);
+    
+    println!("{}", a);
+    // a is still accessible because we didn't transfer ownership.
+    // We only passed a reference to a.
+}
 
-      println!("{}", a);
-      // a is still accessible because we didn't transfer ownership.
-      // We only passed a reference to a.
-    }
-
-    fn borrows_here(my_string: &String) {
-      my_string.push_str(", your Rust spirit guide.");
-      // This will throw an error
-    }
+fn borrows_here(my_string: &String) {
+    my_string.push_str(", your Rust spirit guide.");
+    // This will throw an error
+}
+```
 
 We can let Rust know that a reference is mutable by making a small change to our code.
 
-    fn main() {
-      let mut a = String::from("I am Ferris");
+```
+fn main() {
+    let mut a = String::from("I am Ferris");
+    
+    borrows_here(&mut a);
 
-      borrows_here(&mut a);
+    println!("{}", a);
+    // a is still accessible because we didn't transfer ownership.
+    // We only passed a reference to a.
+}
 
-      println!("{}", a);
-      // a is still accessible because we didn't transfer ownership.
-      // We only passed a reference to a.
-    }
-
-    fn borrows_here(my_string: &String) {
-      my_string.push_str(", your Rust spirit guide.");
-      // This will work
-    }
+fn borrows_here(my_string: &String) {
+    my_string.push_str(", your Rust spirit guide.");
+    // This will work
+}
+```
 
 This is called a mutable reference and let's us change borrowed values.
 
@@ -248,13 +273,15 @@ Similarly, when you're using an immutable reference along side a mutable one, we
 
 Another mistake Rust prevents us from making is to catch dangling pointers at compile-time. A dangling pointer is a pointer that references a value that doesn't exist anymore.
 
-    fn dangling_pointer() -> &String {
-      let a = String::from("I won't exist beyond the scope of this function");
+```
+fn dangling_pointer() -> &String {
+    let a = String::from("I won't exist beyond the scope of this function");
 
-      &a
-      // We're trying to return a reference to a but after this line,
-      // a will be dropped. Rust will throw an error here.
-    }
+    &a
+    // We're trying to return a reference to a but after this line,
+    // a will be dropped. Rust will throw an error here.
+}
+```
 
 ---
 

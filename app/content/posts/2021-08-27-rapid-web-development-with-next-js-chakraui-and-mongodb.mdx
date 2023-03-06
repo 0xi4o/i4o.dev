@@ -9,7 +9,7 @@ excerpt: Next.js when combined with Chakra UI and MongoDB is a great way to buil
 
 When working on multiple projects, I try to save as much time as I can and move as fast as possible without getting stuck. I'd rather spend time writing logic and moving the product forward than fighting the frameworks that I use. The following are the tools and techniques I've been using and they're working really well for me. It's completely changed the way I used to do web development. It's a simple setup, it's flexible enough to scale with the needs of the application, and developing with this setup allows me to ship fast.
 
-*## *Next.js FTW
+## Next.js FTW
 
 God, I love Next.js! It just brings the best parts of building web applications all in one easy-to-use package. I started using Next.js early last year. I loved how easy it was to start coding a React application with zero configuration. I used it only for the front-end at first. Coming from writing back-end with Express.js, API routes felt a little weird to me.
 
@@ -17,7 +17,7 @@ Even when I started using it, I missed a lot of things that were available to Ex
 
 I've been using Next.js exclusively for the past few months. As a React developer, Next.js is all we need to build full-stack web applications.
 
-*## *Next.js API Routes with `next-connect`
+## Next.js API Routes with `next-connect`
 
 Normally when we write API routes in Next.js, we export a `handler` function with conditional blocks to handle different methods.
 
@@ -53,7 +53,7 @@ export default nc({ attachParams: true })
    .post(user);
 ```
 
-*## *Using middleware with `next-connect`
+## Using middleware with `next-connect`
 
 Like I previously mentioned, `next-connect` lets us use connect-style middleware. This means any middleware that we use with expressjs can be used in Next.js API routes. We can also write custom middleware.
 
@@ -71,7 +71,7 @@ export default nc({ attachParams: true })
    .post(user);
 ```
 
-*## *Connecting to MongoDB
+## Connecting to MongoDB
 
 My database of choice, for the time being, is MongoDB. I usually host an instance on AWS EC2 but MongoDB Atlas is a good choice as well. Connecting to a MongoDB instance from Next.js is a little different from the traditional method.
 
@@ -93,20 +93,20 @@ After some exploration, I found [ChakraUI](*https://chakra-ui.com*). It's not as
 
 There is a bit of a learning curve but once you start seeing the patterns, building UI becomes so easy and intuitive.
 
-*## *Other tools and libraries that make life easier
+## Other tools and libraries that make life easier
 
-_1. _[ESLint](*https://eslint.org/*): Identifies issues in the javascript and typescript files I write, enforces rules for syntax and patterns.
-_2. _[Prettier](*https://prettier.io/*): Enforces a global code-style no matter how the code is formatted while writing.
-_3. _`husky` + `lint-staged`: Runs eslint and prettier every time I try to commit to source control. This makes sure that the code I push to Github is properly formatted and doesn't have any syntactical problems or anti-patterns. I don't write tests (*\_*gasps*\_*) but if I did, this is where we can run our tests as well.
-_4. _[SWR](*https://swr.vercel.app/*): React hooks for data fetching that is super fun to use and [supercharges how we make API calls](*https://ilango.hashnode.dev/supercharging-data-fetching-in-react-with-swr*) in our applications.
-_5. _[Formik](*https://formik.org*): Formik makes working with forms incredibly easy by keeping track of changes in values, errors, visited fields. This way, we spend a lot less time handling these things.
-_6. _[Yup](*https://github.com/jquense/yup*): Formik does not do data validation in forms. We're free to write our own, but in the interest of moving fast, I use Yup (recommended by Formik). It's fast and quite easy to use.
+1. [ESLint](*https://eslint.org/*): Identifies issues in the javascript and typescript files I write, enforces rules for syntax and patterns.
+2. [Prettier](*https://prettier.io/*): Enforces a global code-style no matter how the code is formatted while writing.
+3. `husky` + `lint-staged`: Runs eslint and prettier every time I try to commit to source control. This makes sure that the code I push to Github is properly formatted and doesn't have any syntactical problems or anti-patterns. I don't write tests (*\_*gasps*\_*) but if I did, this is where we can run our tests as well.
+4. [SWR](*https://swr.vercel.app/*): React hooks for data fetching that is super fun to use and [supercharges how we make API calls](*https://ilango.hashnode.dev/supercharging-data-fetching-in-react-with-swr*) in our applications.
+5. [Formik](*https://formik.org*): Formik makes working with forms incredibly easy by keeping track of changes in values, errors, visited fields. This way, we spend a lot less time handling these things.
+6. [Yup](*https://github.com/jquense/yup*): Formik does not do data validation in forms. We're free to write our own, but in the interest of moving fast, I use Yup (recommended by Formik). It's fast and quite easy to use.
 
-*## *Emails
+## Emails
 
 Most web applications send some form of transactional email — account signups, password recovery, payments, etc. I usually use `nodemailer` in combination with [Mailgun](*https://www.mailgun.com*) or [SendGrid](*https://sendgrid.com*). Both those services have great SDKs and APIs for Node.js. I've found Mailgun documentation to be outdated, but their Github issues usually had a solution. AWS SES is also a great option.
 
-*## *Deploying the web application
+## Deploying the web application
 
 This one's pretty easy. I use the [Vercel](*https://vercel.com*) platform for deploying my Next.js applications and websites. I've also used [Netlify](*https://www.netlify.com*). Both are great options. Both platforms come with continuous deployment built-in that saves a ton of time. If there is something custom I require, like cron jobs, I use Github Actions.
 

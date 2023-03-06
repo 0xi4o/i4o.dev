@@ -29,6 +29,12 @@ Clone the project
 -   [ ] Add resume page
 -   [ ] RSS
 -   [ ] Sitemap and other SEO stuff
+-   [ ] show icons in blog post list page for the language/framework the post is talking about.
+-   [ ] Support article series
+-   [ ] Detect reading time and show in post list and post page
+-   [ ] Display now playing from Spotify
+-   [ ] Search
+-   [ ] Newsletter in MDX
 
 ## License
 

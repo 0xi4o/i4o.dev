@@ -25,7 +25,7 @@ Clone the project
 -   [x] Update home page
 -   [x] Add blog and blog post page
 -   [x] Import blog posts from Ghost
--   [ ] Format all the imported blog posts properly
+-   [x] Format all the imported blog posts properly
 -   [ ] Add resume page
 -   [ ] RSS
 -   [ ] Sitemap and other SEO stuff

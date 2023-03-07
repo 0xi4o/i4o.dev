@@ -32,6 +32,7 @@ Clone the project
 -   [ ] show icons in blog post list page for the language/framework the post is talking about.
 -   [ ] Support article series
 -   [ ] Detect reading time and show in post list and post page
+-   [ ] Show reading progress
 -   [ ] Display now playing from Spotify
 -   [ ] Search
 -   [ ] Newsletter in MDX

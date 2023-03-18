@@ -19,12 +19,12 @@ When we use SWR for data fetching, it returns the data from cache (stale), then 
 
 This translates to a real-time experience for users who instantly see UI being rendered on-screen, while our application fetches the up-to-date data. SWR also has some cool features out-of-the-box:
 
--   Auto revalidation
--   Support for React Suspense
--   Fast page navigation
--   Pagination
--   Scroll position recovery
--   Retry on error
+-   Auto revalidation
+-   Support for React Suspense
+-   Fast page navigation
+-   Pagination
+-   Scroll position recovery
+-   Retry on error
 
 ## Why do we still need fetch/axios when using SWR
 
@@ -95,9 +95,9 @@ function Profile({ userId }) {
 
 SWR offers multiple revalidation strategies. We can use one or all of them. We can also pick and choose which of our fetch requests use which strategies. We can also globally configure revalidation strategies in `SWRConfig` provider.
 
-- **Revalidation on focus**: When the tab comes into focus, SWR will revalidate. Enabled by default.
-- **Revalidation on network recovery**: When our device reconnects to the internet, SWR will revalidate. Enabled by default.
-- **Polling on interval**: It can automatically make fetch requests at specified intervals so our UI is always up-to-date. Disabled by default. If enabled, there are two more options that we can use to enable polling even when the browser tab is not active or when we're not connected to the internet.
+-   **Revalidation on focus**: When the tab comes into focus, SWR will revalidate. Enabled by default.
+-   **Revalidation on network recovery**: When our device reconnects to the internet, SWR will revalidate. Enabled by default.
+-   **Polling on interval**: It can automatically make fetch requests at specified intervals so our UI is always up-to-date. Disabled by default. If enabled, there are two more options that we can use to enable polling even when the browser tab is not active or when we're not connected to the internet.
 
 ## Mutation
 

@@ -30,7 +30,7 @@ function Footer() {
 				<div className='w-full max-w-7xl lg:px-8'>
 					<div className='border-t border-zinc-100 dark:border-zinc-700/40'>
 						<div className='relative px-4 sm:px-8 lg:px-12'>
-							<div className='mx-auto flex flex-col-reverse h-24 max-w-2xl items-center justify-center gap-4 lg:max-w-5xl lg:flex-row lg:justify-between'>
+							<div className='mx-auto flex h-24 max-w-2xl flex-col-reverse items-center justify-center gap-4 lg:max-w-5xl lg:flex-row lg:justify-between'>
 								<div className='flex items-center gap-2 text-xs text-gray-900 dark:text-gray-400'>
 									<p>Ilango Rajagopal © 2023</p>
 								</div>

@@ -18,7 +18,10 @@ Rust, however, deals with this problem in an entirely different way. Rust has a 
 Memory in Rust is managed through a system that keeps track of who owns which piece of the memory. It comes with a set of rules that Rust can check at compile time rather than at run-time. This means that any potential memory management mistakes we're likely to make, are caught at compile time. While Rust does this on a general level and not just for memory management, combining ownership and compile-time checks saves the programmer a lot of headaches by simply eliminating mistakes.
 
 <div className='flex justify-center text-center'>
-<img className='w-96' src='https://media.giphy.com/media/3OPTlsz4W5pkc/giphy.gif' />
+	<img
+		className='w-96'
+		src='https://media.giphy.com/media/3OPTlsz4W5pkc/giphy.gif'
+	/>
 </div>
 
 The ownership rules are simple:
@@ -159,9 +162,9 @@ Ownership of values in the heap will be moved to the called function:
 ```
 fn main() {
     let a = String::from("I am Ferris, your Rust spirit guide");
-    
+
     moves_here(a);
-    
+
     println!("{}", a);
     // Throws an error because ownership moved to moves_here
     // function and a is no longer accessible
@@ -228,7 +231,7 @@ fn main() {
     let mut a = String::from("I am Ferris");
 
     borrows_here(&a);
-    
+
     println!("{}", a);
     // a is still accessible because we didn't transfer ownership.
     // We only passed a reference to a.
@@ -245,7 +248,7 @@ We can let Rust know that a reference is mutable by making a small change to our
 ```
 fn main() {
     let mut a = String::from("I am Ferris");
-    
+
     borrows_here(&mut a);
 
     println!("{}", a);

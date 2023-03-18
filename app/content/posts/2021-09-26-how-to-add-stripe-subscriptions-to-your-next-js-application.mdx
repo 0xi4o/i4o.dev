@@ -332,9 +332,11 @@ export default function CheckoutForm(props: CheckoutFormProps): JSX.Element {
 			       {' '}
 			<form onSubmit={handleCheckoutFormSubmit}>
 				           <CardElement onChange={handleCardInputChange} />     
-				     <button disabled={!stripe && disabled} type='submit'>
+				     
+				<button disabled={!stripe && disabled} type='submit'>
 					              Pay Now            
-				</button>       {' '}
+				</button>
+				       {' '}
 			</form>
 			     
 		</Elements>
@@ -384,8 +386,10 @@ function PricingPage(): JSX.Element {
 				           Subscribe Now        {' '}
 			</Button>
 			        <Modal isOpen={isOpen} onClose={onClose}>
-				           <ModalOverlay />           <ModalContent>
-					              <ModalCloseButton />              <ModalBody>
+				           <ModalOverlay />           
+				<ModalContent>
+					              <ModalCloseButton />             {' '}
+					<ModalBody>
 						                 
 						{customer ? (
 							<CheckoutForm
@@ -396,8 +400,10 @@ function PricingPage(): JSX.Element {
 							<Spinner />
 						)}
 						             {' '}
-					</ModalBody>           
-				</ModalContent>       {' '}
+					</ModalBody>
+					           
+				</ModalContent>
+				       {' '}
 			</Modal>     
 		</>
 	)

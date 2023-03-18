@@ -6,7 +6,7 @@ interface Props {
 
 function Bleed(props: Props) {
 	return (
-		<div className='lg:-mx-44 flex w-full items-start justify-start'>
+		<div className='flex w-full items-start justify-start lg:-mx-44'>
 			{props.children}
 		</div>
 	)

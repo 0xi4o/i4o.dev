@@ -12,22 +12,19 @@ This time around, I wanted to do it differently — modern tooling, automation, 
 
 ## Monorepo with TurboRepo
 
-If you're building any sort of shared libraries or npm packages, using a monorepo is the easiest way to do it. I used to be scared of monorepos. I tried to learn Lerna a few times but it seemed so daunting. 
+If you're building any sort of shared libraries or npm packages, using a monorepo is the easiest way to do it. I used to be scared of monorepos. I tried to learn Lerna a few times but it seemed so daunting.
 
 Turborepo changed that and made it easy to manage monorepos. It's a build system for JS/TS codebases that takes care of running tasks like linting, testing, and building. And it does that super fast by leveraging caching, both locally and remotely. Running a build task but nothing changed from the last build? Turborepo won't do the build again. It would just return the cached version.
 
 You can configure Turborepo using a turbo.json file located in the project root. I rarely touch this file though. If you're using the create-turbo command, it generates a starter that has a turbo.json pre-configured and ready to go.
 
-In a monorepo setup you will have your website or app, shared libraries, and even shared configurations all in one repo. 
+In a monorepo setup you will have your website or app, shared libraries, and even shared configurations all in one repo.
 
 For example, I put all my shared libs and configurations in a packages folder in the project root. I then create a different directory for the website(s) or app(s). Now you just have to declare your workspaces in your root package.json file.
 
 ```json
 {
-    "workspaces": [
-        "apps/*",
-        "packages/*"
-    ]
+	"workspaces": ["apps/*", "packages/*"]
 }
 ```
 
@@ -41,8 +38,8 @@ You just have to create a pnpm-workspace.yaml file and define your packages.
 
 ```yaml
 packages:
-  - "apps/*"
-  - "packages/*"
+    - 'apps/*'
+    - 'packages/*'
 ```
 
 In a monorepo, you'll have multiple projects under one roof. Each of those will have its own dependencies and most probably, will depend on one another. Pnpm makes it easy to target specific workspaces from the project root.

@@ -13,10 +13,10 @@ Terraform is an open source tool for building and managing cloud infrastructure 
 
 Infrastructure as Code or IaC for short, is a method to provision and manage cloud resources by writing and running code. While clicking around web consoles in AWS is fun (it's not), writing code to manage infrastructure has some key benefits.
 
-- **No more clicking around**: Provisioning resources in cloud providers via the web interface involves lots of clicks and often across many services like networking, compute, domains etc. IaC prevents all that and lets us write code that will automate these things.
-- **IaC is declarative**: Instead of managing every single details, IaC is declarative — we tell the program what we want instead of how to do it — which makes it human readable and avoids managing all the underlying API calls we have to make.
-- **Reduces time, cost and risk**: When doing a series of steps via the web interface, there's a chance of making mistakes like over-provisioning or doing a configuration wrong. It is also time consuming. IaC eliminates those risks, saves time and reduces cost in the long run.
-- **Enables DevOps**: Since infrastructure is written as code, it can be committed to source control and enables collaboration across teams.
+-   **No more clicking around**: Provisioning resources in cloud providers via the web interface involves lots of clicks and often across many services like networking, compute, domains etc. IaC prevents all that and lets us write code that will automate these things.
+-   **IaC is declarative**: Instead of managing every single details, IaC is declarative — we tell the program what we want instead of how to do it — which makes it human readable and avoids managing all the underlying API calls we have to make.
+-   **Reduces time, cost and risk**: When doing a series of steps via the web interface, there's a chance of making mistakes like over-provisioning or doing a configuration wrong. It is also time consuming. IaC eliminates those risks, saves time and reduces cost in the long run.
+-   **Enables DevOps**: Since infrastructure is written as code, it can be committed to source control and enables collaboration across teams.
 
 ## Introduction to Terraform
 
@@ -84,9 +84,9 @@ The `terraform {}` block is a special block used to configure settings that affe
 
 Working with Terraform has three steps: Write, Plan, Apply
 
-- **Write**: We can start of with a local Terraform file or a version controlled file. Version controlling Terraform files allows collaboration across teams and allows for review and iteration.
-- **Plan**: Terraform allows us to see ahead of time what our code will deploy. In this phase, we can review the changes and iterate on our cloud infrastructure till we reach the desired state.
-- **Apply**: Once the writing and planning phases are done, Terraform will apply those changes to our declared cloud provider(s). In the background, Terraform will make all the necessary API calls to create the cloud resources and keeps track of them in a state file.
+-   **Write**: We can start of with a local Terraform file or a version controlled file. Version controlling Terraform files allows collaboration across teams and allows for review and iteration.
+-   **Plan**: Terraform allows us to see ahead of time what our code will deploy. In this phase, we can review the changes and iterate on our cloud infrastructure till we reach the desired state.
+-   **Apply**: Once the writing and planning phases are done, Terraform will apply those changes to our declared cloud provider(s). In the background, Terraform will make all the necessary API calls to create the cloud resources and keeps track of them in a state file.
 
 ## Terraform Commands
 

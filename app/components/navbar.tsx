@@ -41,24 +41,24 @@ function Navbar() {
 		},
 	]
 
-    const dropdownItems = [
-        {
-            label: 'About',
-            link: '/about'
-        },
-        {
-            label: 'Projects',
-            link: '/projects'
-        },
-        {
-            label: 'Blog',
-            link: '/blog'
-        },
-        {
-            label: 'Now',
-            link: '/now'
-        },
-        { type: 'separator' },
+	const dropdownItems = [
+		{
+			label: 'About',
+			link: '/about',
+		},
+		{
+			label: 'Projects',
+			link: '/projects',
+		},
+		{
+			label: 'Blog',
+			link: '/blog',
+		},
+		{
+			label: 'Now',
+			link: '/now',
+		},
+		{ type: 'separator' },
 		{
 			label: (
 				<div className='flex cursor-pointer items-center justify-between'>
@@ -72,7 +72,7 @@ function Navbar() {
 			),
 			onSelect: () => toggleTheme?.(),
 		},
-    ]
+	]
 
 	return (
 		<header className='flex h-24 w-screen flex-wrap items-center justify-center px-4 py-4 sm:px-6 lg:px-8'>
@@ -82,7 +82,7 @@ function Navbar() {
 						<img className='flex h-12' src='/logo.png' />
 					</Link>
 				</div>
-				<div className='hidden lg:flex flex-grow items-center justify-end gap-4'>
+				<div className='hidden flex-grow items-center justify-end gap-4 lg:flex'>
 					<Nav items={navItems} />
 					{config.navbar?.search && (
 						<input
@@ -96,20 +96,20 @@ function Navbar() {
 						onCheckedChange={toggleTheme}
 					/>
 				</div>
-                <div className='flex lg:hidden'>
-                    <Dropdown 
-                        items={dropdownItems}
-                        trigger={
-				<IconButton
-					bg='!bg-slate-400 dark:!bg-slate-800 hover:!bg-slate-300 hover:dark:!bg-slate-700'
-					className='h-10 w-10'
-					icon={
-						<HamburgerMenuIcon className='text-slate-800 dark:text-slate-100' />
-					}
-				/>
-			}
-                    />
-                </div>
+				<div className='flex lg:hidden'>
+					<Dropdown
+						items={dropdownItems}
+						trigger={
+							<IconButton
+								bg='!bg-slate-400 dark:!bg-slate-800 hover:!bg-slate-300 hover:dark:!bg-slate-700'
+								className='h-10 w-10'
+								icon={
+									<HamburgerMenuIcon className='text-slate-800 dark:text-slate-100' />
+								}
+							/>
+						}
+					/>
+				</div>
 			</div>
 		</header>
 	)

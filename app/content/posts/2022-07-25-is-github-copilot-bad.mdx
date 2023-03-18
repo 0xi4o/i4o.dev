@@ -16,13 +16,13 @@ After a month of use, I can now say that: Copilot writes most of my utility func
 But most times, Copilot is spot on for what I want it to do. For example, here's a utility function that Copilot wrote:
 
 ```typescript
-    const formatTimeAMPM = (date: Date) => {
-      const hours = date.getHours()
-      const minutes = date.getMinutes()
-      const ampm = hours >= 12 ? 'PM' : 'AM'
-      const hours12 = hours % 12
-      return `${hours12}:${minutes} ${ampm}`
-    }
+const formatTimeAMPM = (date: Date) => {
+	const hours = date.getHours()
+	const minutes = date.getMinutes()
+	const ampm = hours >= 12 ? 'PM' : 'AM'
+	const hours12 = hours % 12
+	return `${hours12}:${minutes} ${ampm}`
+}
 ```
 
 I only wrote the function name and Copilot filled in the rest. This is a basic function but it has written more complicated code too.

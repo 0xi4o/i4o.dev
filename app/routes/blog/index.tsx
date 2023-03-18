@@ -32,7 +32,7 @@ export default function Blog() {
 						{postsGroupedByYear[year].map(
 							(post: Post, index: number) => (
 								<div
-									className='flex items-end justify-start gap-2 text-left'
+									className='flex items-end justify-start gap-2 text-left flex-wrap'
 									key={`post${index}`}
 								>
 									<Link

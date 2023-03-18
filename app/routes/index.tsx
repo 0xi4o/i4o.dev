@@ -99,8 +99,8 @@ export default function Index() {
 					</p>
 				</div>
 			</Bleed>
-			<div className='mt-16 -ml-44 grid w-[64rem] grid-cols-5 gap-16'>
-				<div className='col-span-3 flex flex-col gap-16'>
+			<div className='mt-16 lg:-ml-44 grid lg:w-[64rem] lg:grid-cols-5 gap-16 w-full grid-cols-3'>
+				<div className='col-span-3 flex flex-col gap-16 lg:col-span-3'>
 					<div className='flex flex-col items-start gap-8'>
 						<h2 className='m-0'>Latest Posts</h2>
 						<div className='flex flex-col items-start gap-8'>
@@ -135,11 +135,11 @@ export default function Index() {
 					</div>
 					<div className='flex flex-col items-start gap-8'>
 						<h2 className='m-0'>Work</h2>
-						<div className='m-0 flex items-start gap-2'>
+						<div className='m-0 flex flex-col items-start gap-2 lg:flex-row'>
 							<h3 className='my-0 font-serif text-base font-semibold leading-6 transition-colors duration-200 group-hover:text-brand-500'>
 								Experience:
 							</h3>
-							<ul className='m-0 flex list-none gap-2 pl-0'>
+							<ul className='m-0 flex list-none gap-2 pl-0 flex-wrap'>
 								{experience.map((work, index) => (
 									<li
 										className='m-0 flex pl-0 leading-6'
@@ -161,11 +161,11 @@ export default function Index() {
 								))}
 							</ul>
 						</div>
-						<div className='m-0 flex items-start gap-2'>
+						<div className='m-0 flex flex-col items-start gap-2 lg:flex-row'>
 							<h3 className='my-0 font-serif text-base font-semibold leading-6 transition-colors duration-200 group-hover:text-brand-500'>
 								Projects:
 							</h3>
-							<ul className='m-0 flex list-none gap-2 pl-0'>
+							<ul className='m-0 flex list-none gap-2 pl-0 flex-wrap'>
 								{projects.map((project, index) => (
 									<li
 										className='m-0 flex pl-0 leading-6'
@@ -185,11 +185,11 @@ export default function Index() {
 								))}
 							</ul>
 						</div>
-						<div className='m-0 flex items-start gap-2'>
+						<div className='m-0 flex flex-col items-start gap-2 lg:flex-row'>
 							<h3 className='my-0 font-serif text-base font-semibold leading-6 transition-colors duration-200 group-hover:text-brand-500'>
 								Open Source:
 							</h3>
-							<ul className='m-0 flex list-none gap-2 pl-0'>
+							<ul className='m-0 flex list-none gap-2 pl-0 flex-wrap'>
 								{openSource.map((project, index) => (
 									<li
 										className='m-0 flex pl-0 leading-6'
@@ -209,11 +209,11 @@ export default function Index() {
 								))}
 							</ul>
 						</div>
-						<div className='m-0 flex items-start gap-2'>
+						<div className='m-0 flex flex-col items-start gap-2 lg:flex-row'>
 							<h3 className='my-0 font-serif text-base font-semibold leading-6 transition-colors duration-200 group-hover:text-brand-500'>
 								Writing:
 							</h3>
-							<ul className='m-0 flex list-none gap-2 pl-0'>
+							<ul className='m-0 flex list-none gap-2 pl-0 flex-wrap'>
 								{writing.map((project, index) => (
 									<li
 										className='m-0 flex pl-0 leading-6'
@@ -235,7 +235,7 @@ export default function Index() {
 						</div>
 					</div>
 				</div>
-				<div className='col-span-2 flex flex-col gap-4'>
+				<div className='col-span-3 flex flex-col gap-4 lg:col-span-2'>
 					<Socials />
 				</div>
 			</div>

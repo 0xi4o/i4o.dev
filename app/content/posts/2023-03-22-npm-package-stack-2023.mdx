@@ -26,10 +26,7 @@ For example, I put all my shared libs and configurations in a packages folder in
 
 ```json
 {
-    "workspaces": [
-        "apps/*",
-        "packages/*"
-    ]
+	"workspaces": ["apps/*", "packages/*"]
 }
 ```
 
@@ -43,8 +40,8 @@ I just have to create a `pnpm-workspace.yaml` file and define my packages.
 
 ```yaml
 packages:
-    - "apps/*"
-    - "packages/*"
+    - 'apps/*'
+    - 'packages/*'
 ```
 
 In a monorepo, there'll be multiple projects under one roof. Each of those will have its own dependencies and most probably, will depend on one another. Pnpm makes it easy to target specific workspaces from the project root.
@@ -62,11 +59,8 @@ This will install `react` and `react-dom` to only the workspace I defined under 
 I recommend writing library/package code in TypeScript. Even if the users of the library don't use TypeScript, writing the library in TypeScript has some benefits.
 
 1.  Editors can detect types in the library and do auto-completion
-    
 2.  It helps write a better library by giving clarity on the data it's handling
-    
 3.  If users of the library are using TypeScript, they can use the types that are exposed by the library in their codebase.
-    
 
 Coming back to [tsup](https://github.com/egoist/tsup). It is a bundler that's made for building TypeScript libraries and is built on top of [esbuild](https://github.com/evanw/esbuild). It's fast and needs no configuration to get started.
 
@@ -74,8 +68,8 @@ Just add two scripts to the library's `package.json` :
 
 ```json
 {
-    "build": "tsup",
-    "dev": "tsup --watch"
+	"build": "tsup",
+	"dev": "tsup --watch"
 }
 ```
 
@@ -121,7 +115,7 @@ jobs:
             with:
                 node-version: 16.x
                 cache: 'pnpm'
-    
+
             - run: pnpm install --frozen-lockfile
             - name: Create Release Pull Request or Publish
             id: changesets

@@ -86,7 +86,10 @@ function Document({ children }: { children: ReactNode }) {
 	const [theme] = useTheme()
 
 	return (
-		<html lang='en' className={`h-screen w-screen ${theme ?? ''}`}>
+		<html
+			lang='en'
+			className={`h-screen w-screen ${theme ?? ''} cui-${theme}`}
+		>
 			<head>
 				<Meta />
 				<Links />

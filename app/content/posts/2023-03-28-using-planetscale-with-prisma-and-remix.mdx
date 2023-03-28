@@ -1,0 +1,200 @@
+---
+title: Using Planetscale with Prisma in a Remix app
+excerpt: In this post, I'll walkthrough how I combine three of my favorite technologies - Remix, Prisma, and Planetscale - to build fullstack applications
+slug: planetscale-prisma-remix
+date_published: 2023-03-28T00:00:00.000Z
+date_updated: 2023-03-28T08:23:29.000Z
+---
+
+I can't remember the last time I set up a database or managed one manually. That's because hosted solutions are a much better choice today for a few reasons.
+
+1. They drastically reduce the time it takes to get started.
+2. There's basically no maintenance that you have to do.
+3. They play well with serverless environments.
+
+I'm a huge fan of Planetscale. And Prisma. And Remix. In this post, I'll explain the setup combining the three for building fullstack applications.
+
+I previously wrote a similar article for [setting up Planetscale and Prisma in Next.js](https://i4o.dev/blog/using-planetscale-in-a-next-js-app-with-prisma). Some of the steps are the same and haven't changed. Refer to that article for:
+
+*   Creating a Planetscale account
+    
+*   Creating a new database
+    
+*   Setting up the main and dev branches
+    
+*   Setting up the Planetscale CLI
+    
+
+_Note: There is one important difference. We DO NOT need a shadow branch anymore. We used a shadow branch before for generating new migrations. Migrations are no longer the recommended way to update our database. Instead, we'll directly push our schema changes to the dev branch with the following command:_
+
+```bash
+pnpm prisma db push
+```
+  
+Connect to your database's dev branch using the Planetscale CLI:
+
+```bash
+pscale connect remix-test dev --port 3309
+```
+
+Now that we've got the database set up, let's start a new Remix project.
+
+```bash
+pnpm create remix@latest
+```
+
+Choose "Just the basics" for the first prompt. It's enough for our little app. Choose the options you like for the rest of the prompts. I recommend using TypeScript as the language and Remix App Server or Vercel as the deployment target.
+
+Once the app is ready, navigate into the project root, and install Prisma and Prisma Client:
+
+```bash
+pnpm add -D prisma
+```
+
+```bash
+pnpm add @prisma/client
+```
+  
+Initiate Prisma:
+
+```bash
+pnpm prisma init
+```
+
+Open up your `.env` file and add the following variable:
+
+```bash
+DATABASE_URL="mysql://root@127.0.0.1:3309/remix-test"
+```
+
+Now we can start updating our schema:
+
+```bash
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+    relationMode = "prisma"
+}
+    
+generator client {
+    provider = "prisma-client-js"
+}
+    
+model User {
+    id              String           @id @default(cuid())
+    createdAt       DateTime         @default(now())
+    email           String?          @unique
+    emailVerified   DateTime?        @default(now())
+}
+```
+
+_Note: Make sure you change the_ `provider` _to_ `mysql` _(it's_ `postgresql` _by default). Set_ `relationMode` _to_ `prisma`_. If you don't have any relations between tables, you can skip the_ `relationMode` setting.
+
+Make any changes to your schema as needed. Now let's push the changes to our dev branch.
+
+```bash
+pnpm prisma db push
+```
+
+Prisma will push your schema changes to the dev branch in our Planetscale database.
+
+To read and write to your database, we have to connect the Remix app to the Planetscale database using Prisma. Create a `db.server.ts` file in the `app` directory.
+
+```bash
+import { PrismaClient } from '@prisma/client'
+    
+let prisma: PrismaClient
+    
+declare global {
+  	let __db__: PrismaClient
+}
+    
+// this is needed because in development we don't want to restart
+// the server with every change, but we want to make sure we don't
+// create a new connection to the DB with every change either.
+// in production, we'll have a single connection to the DB.
+if (process.env.NODE_ENV === 'production') {
+   	prisma = new PrismaClient()
+} else {
+   	if (!global?.__db__) {
+   		global.__db__ = new PrismaClient()
+   	}
+   	prisma = global.__db__
+   	prisma.$connect()
+}
+    
+export { prisma }
+```
+
+Now you can import and use the Prisma client into the actions and loaders in your routes. To keep things organized, I usually create a `models` directory inside `app`. Then each table in the scheme gets its own file. For example, for users, I have a `user.server.ts` file that has functions that perform CRUD operations in the `user` table.
+
+```bash
+import { prisma } from '~/db.server'
+export type { User } from '@prisma/client'
+    
+export async function getUserById(id: string) {
+   	return prisma.user.findUnique({ where: { id } })
+}
+   
+export async function findOrCreateUser(email: string, name: string) {
+   	let user = await getUserByEmail(email)
+   	if (user) {
+   		return user
+   	} else {
+   		const newUser = await createUser({ email, name })
+   		return newUser
+   	}
+}
+    
+export async function getUserByEmail(email: string) {
+   	const user = await prisma.user.findUnique({
+   		where: {
+   			email,
+   		},
+   	})
+   
+   	return user
+}
+    
+interface CreateUserParams {
+   	email: string
+   	name: string
+}
+    
+export async function createUser({ email, name }: CreateUserParams) {
+   	const user = await prisma.user.create({
+   		data: {
+   			email,
+   			name,
+   		},
+   	})
+   
+   	return user
+}
+```
+
+I can now use these functions inside my action and loader functions.
+
+Once you have built and tested your schema changes, create a deploy request to the main branch of your database. Deploy requests in Planetscale is how you merge your schema changes from the dev branch to the main branch. Planetscale automatically handles the merge for you without any downtime. Typically, deploy requests will be handled along with production deployments of the app itself.
+
+---
+
+That's how you connect your Remix app with a Planetscale database with Prisma. I hope this article was helpful for you.
+
+The code for this article was adapted from my Remix application start, Synthwave Stack. Apart from the Planetscale and Prisma integration, it has a suite of useful integrations out-of-the-box:
+
+* Authentication (magic links, Google, and Twitter)
+    
+* TypeScript
+    
+* ESLint and Prettier
+    
+* Transactional emails with SendGrid
+    
+* File uploads with AWS S3
+    
+* Radix UI and Tailwind CSS  
+
+You can check it out here: [https://github.com/i4o-oss/synthwave-stack](https://github.com/i4o-oss/synthwave-stack)
+
+Feel free to use it as is, or modify it to your liking.

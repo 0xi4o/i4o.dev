@@ -44,7 +44,9 @@ async function getBlogMdxItems({
 
 		return {
 			title: content.data.title,
+			author: content.data.author,
 			description: content.data.excerpt,
+			image: content.data.image,
 			date,
 			slug: content.data.slug,
 			draft: content.data.draft,

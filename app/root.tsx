@@ -96,14 +96,7 @@ function Document({ children }: { children: ReactNode }) {
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
 			<body className='h-full w-full bg-zinc-50 dark:bg-[#040303]'>
-				<script
-					defer
-					type='text/javascript'
-					src='https://api.pirsch.io/pirsch.js'
-					id='pirschjs'
-					data-code='S4qVPQLD8KtHGoNTQLedW7nZIEBS3Ryh'
-					data-dev={process.env.NODE_ENV === 'development'}
-				></script>
+                <script async src="https://analytics.i4o.dev/script.js" data-website-id="d5b987d6-2826-4c42-ad53-762f39501b54"></script>
 				{children}
 				<ScrollRestoration />
 				<Scripts />

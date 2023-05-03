@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type {
-	LoaderArgs,
 	LinksFunction,
+	LoaderArgs,
 	MetaFunction,
 	SerializeFrom,
 } from '@remix-run/node'
@@ -96,7 +96,13 @@ function Document({ children }: { children: ReactNode }) {
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
 			<body className='h-full w-full bg-zinc-50 dark:bg-[#040303]'>
-                <script async src="https://analytics.i4o.dev/script.js" data-website-id="d5b987d6-2826-4c42-ad53-762f39501b54"></script>
+				{process.env.NODE_ENV === 'production' ? (
+					<script
+						async
+						src='https://analytics.i4o.dev/script.js'
+						data-website-id='a23700f3-870e-47f9-8912-52e806ef4d43'
+					></script>
+				) : null}
 				{children}
 				<ScrollRestoration />
 				<Scripts />

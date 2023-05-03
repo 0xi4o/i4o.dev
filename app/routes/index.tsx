@@ -13,6 +13,7 @@ export async function loader() {
 export default function Index() {
 	const data = useLoaderData<typeof loader>()
 	const { posts } = data
+	// @ts-ignore
 	const { latest } = posts
 
 	const experience = [
@@ -93,8 +94,8 @@ export default function Index() {
 					</h1>
 					<p>
 						Hey, I'm Ilango. I'm a software engineer based in
-						Bangalore, India. I build open-source web apps mostly
-						using TypeScript. I write about web development,
+						Bangalore, India. I build open-source web apps and tools
+						in TypeScript and Rust. I write about web development,
 						indiehacking, learning and personal growth.
 					</p>
 				</div>

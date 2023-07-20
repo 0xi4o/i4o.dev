@@ -18,7 +18,7 @@ import {
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme'
 import { getThemeSession } from '~/utils/theme.server'
 import { Layout } from '~/components'
-import styles from '~/styles/main.css'
+import styles from '~/main.css'
 import cuiStyles from '@i4o/catalystui/main.css'
 
 export const links: LinksFunction = () => [

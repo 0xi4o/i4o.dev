@@ -1,19 +1,17 @@
 # i4o.dev
 
 -   Framework: [Remix](https://remix.run/)
--   Database: [Planetscale](https://planetscale.com/)
--   ORM: [Prisma](https://prisma.io/)
 -   Components: [Catalyst UI](https://catalyst.i4o.dev/)
 -   Styling: [TailwindCSS](https://tailwindcss.com/)
--   Deployment: [Railway](https://railway.app/)
+-   Deployment: [Railway](https://vercel.com/)
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/i4o-dev/i4o.dev
-  cd i4o.dev
+  git clone https://github.com/0xi4o/i4o.dev.remix
+  cd i4o.dev.remix
   pnpm install
   pnpm dev
 ```
@@ -26,6 +24,7 @@ Clone the project
 -   [x] Add blog and blog post page
 -   [x] Import blog posts from Ghost
 -   [x] Format all the imported blog posts properly
+-   [x] Display now playing from Spotify
 -   [ ] Add resume page
 -   [ ] RSS
 -   [ ] Sitemap and other SEO stuff
@@ -33,7 +32,6 @@ Clone the project
 -   [ ] Support article series
 -   [ ] Detect reading time and show in post list and post page
 -   [ ] Show reading progress
--   [ ] Display now playing from Spotify
 -   [ ] Search
 -   [ ] Newsletter in MDX
 

@@ -16,21 +16,17 @@ I'm a huge fan of Planetscale. And Prisma. And Remix. In this post, I'll explain
 
 I previously wrote a similar article for [setting up Planetscale and Prisma in Next.js](https://i4o.dev/blog/using-planetscale-in-a-next-js-app-with-prisma). Some of the steps are the same and haven't changed. Refer to that article for:
 
-*   Creating a Planetscale account
-    
-*   Creating a new database
-    
-*   Setting up the main and dev branches
-    
-*   Setting up the Planetscale CLI
-    
+-   Creating a Planetscale account
+-   Creating a new database
+-   Setting up the main and dev branches
+-   Setting up the Planetscale CLI
 
 _Note: There is one important difference. We DO NOT need a shadow branch anymore. We used a shadow branch before for generating new migrations. Migrations are no longer the recommended way to update our database. Instead, we'll directly push our schema changes to the dev branch with the following command:_
 
 ```bash
 pnpm prisma db push
 ```
-  
+
 Connect to your database's dev branch using the Planetscale CLI:
 
 ```bash
@@ -54,7 +50,7 @@ pnpm add -D prisma
 ```bash
 pnpm add @prisma/client
 ```
-  
+
 Initiate Prisma:
 
 ```bash
@@ -75,11 +71,11 @@ datasource db {
     url      = env("DATABASE_URL")
     relationMode = "prisma"
 }
-    
+
 generator client {
     provider = "prisma-client-js"
 }
-    
+
 model User {
     id              String           @id @default(cuid())
     createdAt       DateTime         @default(now())
@@ -102,13 +98,13 @@ To read and write to your database, we have to connect the Remix app to the Plan
 
 ```bash
 import { PrismaClient } from '@prisma/client'
-    
+
 let prisma: PrismaClient
-    
+
 declare global {
   	let __db__: PrismaClient
 }
-    
+
 // this is needed because in development we don't want to restart
 // the server with every change, but we want to make sure we don't
 // create a new connection to the DB with every change either.
@@ -122,7 +118,7 @@ if (process.env.NODE_ENV === 'production') {
    	prisma = global.__db__
    	prisma.$connect()
 }
-    
+
 export { prisma }
 ```
 
@@ -131,11 +127,11 @@ Now you can import and use the Prisma client into the actions and loaders in you
 ```bash
 import { prisma } from '~/db.server'
 export type { User } from '@prisma/client'
-    
+
 export async function getUserById(id: string) {
    	return prisma.user.findUnique({ where: { id } })
 }
-   
+
 export async function findOrCreateUser(email: string, name: string) {
    	let user = await getUserByEmail(email)
    	if (user) {
@@ -145,22 +141,22 @@ export async function findOrCreateUser(email: string, name: string) {
    		return newUser
    	}
 }
-    
+
 export async function getUserByEmail(email: string) {
    	const user = await prisma.user.findUnique({
    		where: {
    			email,
    		},
    	})
-   
+
    	return user
 }
-    
+
 interface CreateUserParams {
    	email: string
    	name: string
 }
-    
+
 export async function createUser({ email, name }: CreateUserParams) {
    	const user = await prisma.user.create({
    		data: {
@@ -168,7 +164,7 @@ export async function createUser({ email, name }: CreateUserParams) {
    			name,
    		},
    	})
-   
+
    	return user
 }
 ```
@@ -183,17 +179,12 @@ That's how you connect your Remix app with a Planetscale database with Prisma. I
 
 The code for this article was adapted from my Remix application start, Synthwave Stack. Apart from the Planetscale and Prisma integration, it has a suite of useful integrations out-of-the-box:
 
-* Authentication (magic links, Google, and Twitter)
-    
-* TypeScript
-    
-* ESLint and Prettier
-    
-* Transactional emails with SendGrid
-    
-* File uploads with AWS S3
-    
-* Radix UI and Tailwind CSS  
+-   Authentication (magic links, Google, and Twitter)
+-   TypeScript
+-   ESLint and Prettier
+-   Transactional emails with SendGrid
+-   File uploads with AWS S3
+-   Radix UI and Tailwind CSS
 
 You can check it out here: [https://github.com/i4o-oss/synthwave-stack](https://github.com/i4o-oss/synthwave-stack)
 

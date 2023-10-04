@@ -44,7 +44,7 @@ export default function BlogPost() {
 			<span className='text-xs font-semibold uppercase'>
 				{format(new Date(frontmatter.data.date_published), 'PP')}
 			</span>
-			<h1 className='mt-4 mb-2'>{frontmatter.data.title}</h1>
+			<h1 className='mb-2 mt-4'>{frontmatter.data.title}</h1>
 			<p className='mt-0 text-base italic'>{`by ${frontmatter.data.author}`}</p>
 			<PostContent />
 		</>

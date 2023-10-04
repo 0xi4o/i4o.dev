@@ -1,4 +1,5 @@
 import SpotifyNowPlaying from './SpotifyNowPlaying'
+import { Link } from '@remix-run/react'
 
 export default function Navbar({
 	data,
@@ -12,30 +13,30 @@ export default function Navbar({
 			<nav className='flex items-center' role='navigation'>
 				<ul role='list' className='flex flex-row gap-2'>
 					<li>
-						<a
-							href='/'
+						<Link
+							to='/'
 							className={`${
 								pathname === '/' ? 'text-neutral-100' : ''
 							} hover:text-neutral-100`}
 						>
 							Home
-						</a>
+						</Link>
 					</li>
 					<li>/</li>
 					<li>
-						<a
-							href='/blog'
+						<Link
+							to='/blog'
 							className={`${
 								pathname === '/blog' ? 'text-neutral-100' : ''
 							} hover:text-neutral-100`}
 						>
 							Blog
-						</a>
+						</Link>
 					</li>
 					<li>/</li>
 					<li>
-						<a
-							href='/projects'
+						<Link
+							to='/projects'
 							className={`${
 								pathname === '/projects'
 									? 'text-neutral-100'
@@ -43,18 +44,18 @@ export default function Navbar({
 							} hover:text-neutral-100`}
 						>
 							Projects
-						</a>
+						</Link>
 					</li>
 					<li>/</li>
 					<li>
-						<a
-							href='/about'
+						<Link
+							to='/about'
 							className={`${
 								pathname === '/about' ? 'text-neutral-100' : ''
 							} hover:text-neutral-100`}
 						>
 							About
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</nav>

@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import presentation from '~/data/presentation'
-import { Link } from '@remix-run/react'
 
 export default function SocialLinks() {
 	return (
@@ -8,7 +7,14 @@ export default function SocialLinks() {
 			{presentation.socials.map((social, index) => (
 				<Fragment key={`link-${index}`}>
 					<li>
-						<Link to={social.link}>{social.label}</Link>
+						<a
+							className='no-underline'
+							href={social.link}
+							rel='noopener noreferrer'
+							target='_blank'
+						>
+							{social.label}
+						</a>
 					</li>
 
 					{presentation.socials.length - 1 !== index && <li>/</li>}
@@ -16,9 +22,7 @@ export default function SocialLinks() {
 			))}
 			<li>/</li>
 			<li>
-				<Link to={`mailto:${presentation.mail}`}>
-					{presentation.mail}
-				</Link>
+				<a href={`mailto:${presentation.mail}`}>{presentation.mail}</a>
 			</li>
 		</ul>
 	)

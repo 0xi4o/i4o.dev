@@ -14,17 +14,14 @@ import {
 	Scripts,
 	ScrollRestoration,
 	useLoaderData,
-	useLocation,
 } from '@remix-run/react'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme'
 import { getThemeSession } from '~/utils/theme.server'
 import styles from '~/main.css'
 import cuiStyles from '@i4o/catalystui/main.css'
-import Navbar from './components/Navbar'
+import { getCurrentTrack } from '~/utils/helpers'
 import BlurCircle from '~/components/BlurCircle'
 import theme from '~/data/theme'
-import Footer from './components/Footer'
-import { getCurrentTrack } from '~/utils/helpers'
 
 export const links: LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -156,7 +153,7 @@ function Document({ children }: { children: ReactNode }) {
 				<Links />
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
-			<body className='mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-neutral-950 px-10 py-8 font-sans text-sm text-neutral-400 md:gap-20 md:py-16'>
+			<body className='bg-neutral-950'>
 				{process.env.NODE_ENV === 'production' ? (
 					<>
 						<script
@@ -195,16 +192,11 @@ function Document({ children }: { children: ReactNode }) {
 }
 
 function App() {
-	const data = useLoaderData<LoaderData>()
-	const location = useLocation()
-
 	return (
 		<Document>
-			<Navbar data={data.spotify} pathname={location.pathname} />
 			<BlurCircle position='top' color={theme.colors.blur.top} />
 			<BlurCircle position='bottom' color={theme.colors.blur.bottom} />
 			<Outlet />
-			<Footer />
 		</Document>
 	)
 }

@@ -1,5 +1,10 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
+	browserNodeBuiltinsPolyfill: {
+		modules: {
+			punycode: true,
+		},
+	},
 	postcss: true,
 	tailwind: true,
 	ignoredRouteFiles: ['**/.*'],

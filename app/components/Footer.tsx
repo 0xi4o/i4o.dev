@@ -11,7 +11,7 @@ function Footer() {
 					<nav className='flex items-center' role='navigation'>
 						<ul role='list' className='flex flex-row gap-2'>
 							<li>
-								<Link to='/rss.xml'>RSS</Link>
+								<Link to='/rss'>RSS</Link>
 							</li>
 						</ul>
 					</nav>

@@ -42,7 +42,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Rescribe',
-		description: 'Docs and blog generator for Remix',
+		description: 'Content Management for Remix codebases',
 		// tech: ['React', 'Remix', 'MDX', 'TailwindCSS'],
 		link: 'https://rescribe.site/',
 	},

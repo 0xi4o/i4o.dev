@@ -11,6 +11,8 @@ import type {
 	Post,
 	GetMdxFileParams,
 } from './types'
+import remarkReadingTime from '~/utils/readingTime'
+import calculateReadingTime from '~/utils/readingTime'
 
 const readdir = promisify(fs.readdir)
 const readFile = promisify(fs.readFile)
@@ -121,7 +123,11 @@ async function getMdxFile({ dir = BLOG_POSTS_DIR, slug }: GetMdxFileParams) {
 		return content.data.slug === slug
 	})
 
-	const frontmatter = matter(posts[0])
+	const { content, data } = matter(posts[0])
+	const frontmatter = {
+		...data,
+		readingTime: calculateReadingTime(content),
+	}
 	const code = String(
 		await compile(posts[0], {
 			development: false,

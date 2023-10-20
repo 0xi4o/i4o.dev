@@ -17,9 +17,9 @@ export default function LatestPosts({ posts }: { posts: any[] }) {
 						.map((post) => (
 							<PostCard
 								key={post.slug}
-								publishedAt={post.data.date_published}
-								title={post.data.title}
-								description={post.data.excerpt}
+								publishedAt={post.date}
+								title={post.title}
+								description={post.excerpt}
 								slug={post.slug}
 							/>
 						))}

@@ -33,7 +33,7 @@ async function readFilesInDir(dir: string) {
 async function getBlogMdxItems({
 	dir = BLOG_POSTS_DIR,
 	filter = 'all',
-	count = 3,
+	count = 2,
 	grouped = 'none',
 }: GetBlogMdxItemsParams) {
 	const items = await readFilesInDir(dir)

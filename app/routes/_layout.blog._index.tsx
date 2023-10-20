@@ -19,36 +19,42 @@ export default function Blog() {
 
 	return (
 		<>
-			<h1 className='mb-8 font-serif'>Blog</h1>
+			<h1 className='mb-8 font-serif text-3xl'>Blog</h1>
 			{sortedYears.map((year) => (
 				<div
 					className='mb-4 flex flex-col items-start gap-8'
 					key={`year${year}`}
 				>
 					{currentYear !== Number(year) ? (
-						<h2 className='m-0 mt-8'>{year}</h2>
+						<h2 className='m-0 mt-8 font-serif text-2xl'>{year}</h2>
 					) : null}
-					<div className='flex flex-col items-start gap-6'>
-						{postsGroupedByYear[year].map(
-							(post: Post, index: number) => (
-								<div
-									className='flex flex-wrap items-end justify-start gap-2 text-left'
-									key={`post${index}`}
-								>
-									<Link
-										className='no-underline'
-										to={`/blog/${post.slug}`}
+					<div className='flex flex-col items-start gap-4'>
+						{
+							// @ts-ignore
+							postsGroupedByYear[year].map(
+								(post: Post, index: number) => (
+									<div
+										className='flex flex-wrap items-end justify-start gap-2 text-left'
+										key={`post${index}`}
 									>
-										<h3 className='m-0 font-serif text-base font-medium leading-6'>
-											{post.title}
-										</h3>
-									</Link>
-									<span className='text-sm italic leading-6'>
-										{format(new Date(post.date), 'MMM dd')}
-									</span>
-								</div>
+										<Link
+											className='no-underline'
+											to={`/blog/${post.slug}`}
+										>
+											<h3 className='m-0 font-sans text-base leading-6 hover:text-neutral-100'>
+												{post.title}
+											</h3>
+										</Link>
+										<span className='text-xs italic'>
+											{format(
+												new Date(post.date),
+												'MMM dd'
+											)}
+										</span>
+									</div>
+								)
 							)
-						)}
+						}
 					</div>
 				</div>
 			))}

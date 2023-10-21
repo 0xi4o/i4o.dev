@@ -26,13 +26,13 @@ Clone the project
 -   [x] Format all the imported blog posts properly
 -   [x] Display now playing from Spotify
 -   [x] RSS
--   [ ] Detect reading time and show in post list and post page
--   [ ] Show reading progress
--   [ ] Add resume page
+-   [x] Detect reading time and show in post list and post page
+-   [x] Show reading progress
 -   [ ] Sitemap and other SEO stuff
--   [ ] show icons in blog post list page for the language/framework the post is talking about.
 -   [ ] Support article series
 -   [ ] Search
+-   [ ] Add resume page
+-   [ ] Show icons in blog post list page for the language/framework the post is talking about.
 -   [ ] Newsletter in MDX
 
 ## License

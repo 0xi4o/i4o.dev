@@ -11,7 +11,6 @@ import type {
 	Post,
 	GetMdxFileParams,
 } from './types'
-import remarkReadingTime from '~/utils/readingTime'
 import calculateReadingTime from '~/utils/readingTime'
 
 const readdir = promisify(fs.readdir)

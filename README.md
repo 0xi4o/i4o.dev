@@ -28,7 +28,8 @@ Clone the project
 -   [x] RSS
 -   [x] Detect reading time and show in post list and post page
 -   [x] Show reading progress
--   [ ] Sitemap and other SEO stuff
+-   [x] Sitemap
+-   [ ] SEO stuff
 -   [ ] Support article series
 -   [ ] Search
 -   [ ] Add resume page

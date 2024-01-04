@@ -18,18 +18,18 @@ export default function SpotifyNowPlaying({ data }: { data: any }) {
 	return (
 		<div
 			id='spotify'
-			className='duration-400 group flex w-fit items-center justify-center transition-all'
+			className='duration-400 group flex w-fit max-w-[50%] items-center justify-center transition-all'
 		>
 			{data.isPlaying ? (
 				<a
-					className='rounded-full border border-brand transition-all duration-200 group-hover:bg-brand'
+					className='w-full rounded-full border border-brand transition-all duration-200 group-hover:bg-brand'
 					href={data.url}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
-					<div className='inline-flex items-center gap-2 px-3 py-2'>
-						<SpotifyIcon className='h-5 w-5 animate-spin text-brand group-hover:text-neutral-700' />
-						<p className='leading-none group-hover:text-neutral-700'>
+					<div className='inline-flex w-full items-center gap-2 px-3 py-2'>
+						<SpotifyIcon className='flex h-5 w-5 flex-shrink-0 animate-spin text-brand group-hover:text-neutral-700' />
+						<p className='truncate text-ellipsis leading-none group-hover:text-neutral-700'>
 							{data.title} - {data.artist}
 						</p>
 					</div>

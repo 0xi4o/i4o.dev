@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-const { fontFamily } = require('tailwindcss/defaultTheme')
+import { fontFamily } from 'tailwindcss/defaultTheme'
+import typography from '@tailwindcss/typography'
 
-module.exports = {
+export default {
 	content: ['./app/**/*.{js,jsx,ts,tsx,md,mdx}'],
 	darkMode: 'class',
 	theme: {
@@ -48,11 +49,13 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)', ...fontFamily.sans],
+				serif: ['var(--font-serif)', ...fontFamily.serif],
+				mono: ['var(--font-mono)', ...fontFamily.mono],
 			},
 			boxShadow: {
 				glow: '0 0 1rem -0.35rem var(--brand)',
 			},
 		},
 	},
-	plugins: [require('@tailwindcss/typography')],
+	plugins: [typography],
 }

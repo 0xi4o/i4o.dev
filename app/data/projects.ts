@@ -1,8 +1,3 @@
-export type ProjectPresentation = {
-	title: string
-	description: string
-}
-
 export type Project = {
 	title: string
 	description: string
@@ -10,12 +5,6 @@ export type Project = {
 	isComingSoon?: boolean
 	isBackburner?: boolean
 	isFeatured?: boolean
-}
-
-export const data: ProjectPresentation = {
-	title: 'Projects',
-	description:
-		"I build small web applications and tools that solve problems that I have. Each project uses at least one technology that I'm trying to learn. All of my projects are <a class='underline decoration-dashed underline-offset-8' href='https://i4o.dev/blog/learning-by-building-breakable-toys' target='_self'>breakable toys</a>. They're all *open-source* (or will be open-sourced).",
 }
 
 export const projects: Project[] = [
@@ -60,6 +49,13 @@ export const projects: Project[] = [
 		link: 'https://github.com/i4o-dev/cargo-use',
 	},
 	{
+		title: 'Tmux Sessionizer',
+		description: 'CLI tool to manage tmux sessions for your projects',
+		// tech: ['Rust', 'clap.rs'],
+		link: '',
+		isComingSoon: true,
+	},
+	{
 		title: 'Zilean',
 		description: 'Pomodoro CLI app written in Rust',
 		// tech: ['Rust', 'clap.rs'],
@@ -69,7 +65,7 @@ export const projects: Project[] = [
 	{
 		title: 'Herald',
 		description:
-			'Manage changelogs, roadmap, and banners from one dashboard',
+			'Manage changelogs, roadmap, banners, and more from one dashboard',
 		// tech: ['React', 'Remix', 'MDX', 'TailwindCSS'],
 		link: 'https://rescribe.site/',
 		isComingSoon: true,

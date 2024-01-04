@@ -1,5 +1,4 @@
-import { data, projects } from '~/data/projects'
-import { convertAsteriskToStrongTag } from '~/utils/helpers'
+import { projects } from '~/data/projects'
 import { ProjectCard } from '~/components'
 
 export default function Projects() {
@@ -7,20 +6,29 @@ export default function Projects() {
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
 				<h1 className='font-serif text-3xl text-neutral-100'>
-					{data.title}
+					Projects
 				</h1>
-				<p
-					className='prose prose-invert max-w-[60ch] leading-6'
-					dangerouslySetInnerHTML={{
-						__html: convertAsteriskToStrongTag(data.description),
-					}}
-				/>
+				<p className='prose prose-invert max-w-[60ch] leading-6'>
+					I build small web applications and tools that solve problems
+					that I have. Each project uses at least one technology that
+					I'm trying to learn. All of my projects are{' '}
+					<a
+						className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+						href='https://i4o.dev/blog/learning-by-building-breakable-toys'
+						target='_self'
+					>
+						breakable toys
+					</a>
+					. They're all <strong>open-source software</strong>.
+				</p>
 			</article>
 
 			<article className='flex flex-col gap-4'>
 				<section className='flex flex-col gap-4'>
 					{projects.length !== 0 &&
-						projects.map((project) => <ProjectCard {...project} />)}
+						projects.map((project, index) => (
+							<ProjectCard key={index} {...project} />
+						))}
 				</section>
 			</article>
 		</main>

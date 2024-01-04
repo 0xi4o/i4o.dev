@@ -10,11 +10,11 @@ export default function Now() {
 						What I'm working on right now?
 					</h3>
 
-					<p>I'm shipping Herald and Rescribe.</p>
+					<p>I'm shipping Herald.</p>
 
 					<p>I write on this blog.</p>
 
-					<p>I'm working on getting better at TypeScript and Rust.</p>
+					<p>I'm learning Elixir, Docker, and Rust.</p>
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
@@ -23,47 +23,10 @@ export default function Now() {
 						months?
 					</h3>
 
-					{/*<p>*/}
-					{/*	<del>*/}
-					{/*		I'm planning to launch 3 projects I've been working*/}
-					{/*		this year by the end of March/April. I've been*/}
-					{/*		working on a project a month in 2023, and while I*/}
-					{/*		managed to finish 2 at the time of writing (Mar 1),*/}
-					{/*		I'll be fine tuning them and get them ready for*/}
-					{/*		launch soon.*/}
-					{/*	</del>*/}
-					{/*</p>*/}
-
-					{/*<p>*/}
-					{/*	<em>*/}
-					{/*		Update: Well, I didn't launch them as planned. TBH,*/}
-					{/*		I was scared to release them. But I recently found*/}
-					{/*		out that even without me talking about them online,*/}
-					{/*		people are somehow finding out about Catalyst UI*/}
-					{/*		(it's currently at 70 stars on Github). I want to*/}
-					{/*		use this tiny momentum and get it ready for launch*/}
-					{/*		soon.*/}
-					{/*	</em>*/}
-					{/*</p>*/}
-
-					{/*<p>*/}
-					{/*	<em>*/}
-					{/*		Update: I found out how and why people were*/}
-					{/*		discovering Catalyst organically. Turns out,*/}
-					{/*		Tailwind announced a UI kit also called Catalyst at*/}
-					{/*		Tailwind Connect 2023.*/}
-					{/*	</em>*/}
-					{/*</p>*/}
-
-					<p>
-						I want to launch other projects that are in various
-						stages of completion:
-					</p>
-
 					<ul>
-						<li>Aurelius</li>
-						<li>Rescribe</li>
 						<li>Herald</li>
+						<li>Aurelius</li>
+						<li>and a few small open-source tools</li>
 					</ul>
 				</section>
 
@@ -72,7 +35,7 @@ export default function Now() {
 						What is my current short-term goal?
 					</h3>
 
-					<p>$1k MRR by the end of the year from my projects.</p>
+					<p>$5k MRR by the end of 2024 from my projects.</p>
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
@@ -98,8 +61,8 @@ export default function Now() {
 						playing:
 					</p>
 					<ul>
-						<li>Death Stranding</li>
-						<li>Counter Strike 2</li>
+						<li>Cyberpunk 2077</li>
+						<li>The Finals</li>
 					</ul>
 				</section>
 
@@ -109,7 +72,7 @@ export default function Now() {
 					</h3>
 
 					<ul>
-						<li>Bleach</li>
+						<li>Jack Reacher</li>
 					</ul>
 				</section>
 			</article>

@@ -13,7 +13,13 @@ export default function About() {
 					</p>
 					<p>
 						In my free time, I work on{' '}
-						<Link to='/projects'>side projects</Link>.
+						<Link
+							className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+							to='/projects'
+						>
+							side projects
+						</Link>
+						.
 					</p>
 					<p>
 						My main programming language is JavaScript/TypeScript
@@ -24,15 +30,33 @@ export default function About() {
 					<p>
 						When not working on side projects, I regularly read and
 						occasionally play video games. Check out what I'm
-						reading and playing <Link to='/now'>right now</Link>.
-						You can also check out the{' '}
-						<Link to='/uses'>tools and devices</Link> I use to get
-						my work done.
+						reading and playing{' '}
+						<Link
+							className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+							to='/now'
+						>
+							right now
+						</Link>
+						. You can also check out the{' '}
+						<Link
+							className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+							to='/uses'
+						>
+							tools and devices
+						</Link>{' '}
+						I use to get my work done.
 					</p>
 					<p>
 						Since you're here, I'd appreciate it if you checked out
-						some of my <Link to='/blog'>blog posts</Link>. And if
-						you happen to like what you read, let me know :)
+						some of my{' '}
+						<Link
+							className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+							to='/blog'
+						>
+							blog posts
+						</Link>
+						. And if you happen to like what you read, let me know
+						:)
 					</p>
 				</section>
 				<SocialLinks />

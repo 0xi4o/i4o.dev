@@ -1,6 +1,4 @@
 import Navbar from '../components/Navbar'
-import BlurCircle from '~/components/BlurCircle'
-import theme from '~/data/theme'
 import Footer from '../components/Footer'
 import { Outlet, useLoaderData, useLocation } from '@remix-run/react'
 import { json, SerializeFrom } from '@remix-run/node'

@@ -26,10 +26,6 @@ const presentation: Presentation = {
 			label: 'Github',
 			link: 'https://github.com/0xi4o',
 		},
-		{
-			label: 'Substack',
-			link: 'https://ilango.substack.com',
-		},
 	],
 }
 

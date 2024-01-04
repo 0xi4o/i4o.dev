@@ -1,27 +1,56 @@
 /** @type {import('tailwindcss').Config} */
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
 	content: ['./app/**/*.{js,jsx,ts,tsx,md,mdx}'],
 	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				background: 'hsl(var(--background))',
 				brand: {
-					DEFAULT: '#2CB67D',
-					50: '#AEEBD2',
-					100: '#9EE7C9',
-					200: '#7DE0B7',
-					300: '#5CD8A5',
-					400: '#3BD092',
-					500: '#2CB67D',
-					600: '#21895E',
-					700: '#165C3F',
-					800: '#0B2E20',
-					900: '#000101',
+					DEFAULT: 'hsl(var(--brand))',
+					states: 'hsl(var(--brand-states))',
+					foreground: 'hsl(var(--brand-foreground))',
+				},
+				foreground: {
+					DEFAULT: 'hsl(var(--foreground))',
+					subtle: 'hsl(var(--foreground-subtle))',
+				},
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))',
+				},
+				muted: {
+					DEFAULT: 'hsl(var(--muted))',
+					foreground: 'hsl(var(--muted-foreground))',
+				},
+				accent: {
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))',
+				},
+				popover: {
+					DEFAULT: 'hsl(var(--popover))',
+					foreground: 'hsl(var(--popover-foreground))',
+				},
+				card: {
+					DEFAULT: 'hsl(var(--card))',
+					foreground: 'hsl(var(--card-foreground))',
 				},
 			},
+			borderRadius: {
+				lg: `var(--radius)`,
+				md: `calc(var(--radius) - 2px)`,
+				sm: 'calc(var(--radius) - 4px)',
+			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				serif: ['Merriweather', 'serif'],
+				sans: ['var(--font-sans)', ...fontFamily.sans],
+			},
+			boxShadow: {
+				glow: '0 0 1rem -0.35rem var(--brand)',
 			},
 		},
 	},

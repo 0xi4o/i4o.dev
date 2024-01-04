@@ -1,5 +1,5 @@
 import { ORIGIN, staticPages } from '~/utils/constants'
-import { toXmlSitemap } from '~/utils/helpers'
+import { toXmlSitemap } from '~/utils/helpers.server'
 import { getBlogMdxItems } from '~/utils/mdx.server'
 
 // code from: https://ericnish.io/blog/sitemap-xml-with-remix

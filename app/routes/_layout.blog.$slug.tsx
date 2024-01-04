@@ -9,6 +9,7 @@ import { format } from 'date-fns'
 import title from 'title'
 import { SITE_URL } from '~/data/site'
 import ReadingProgress from '~/components/ReadingProgress'
+import PageTitle from '~/components/PageTitle'
 
 export async function loader({ params }: LoaderFunctionArgs) {
 	const { frontmatter, code } = await getMdxFile({
@@ -25,7 +26,9 @@ function PostContent() {
 	const Content = mdxModule ? mdxModule?.default : Fragment
 
 	useEffect(() => {
+		// eslint-disable-next-line
 		;(async () => {
+			// @ts-ignore
 			setMdxModule(await run(code, runtime))
 		})()
 	}, [code])
@@ -72,7 +75,7 @@ ${frontmatter.title} 👇`
 				</Link>
 				<div className='post mx-auto flex w-full max-w-none flex-col gap-12'>
 					<header role='presentation'>
-						<div className='flex items-center gap-2'>
+						<div className='mb-4 flex items-center gap-2'>
 							<span className='text-xs font-semibold uppercase'>
 								{format(
 									new Date(frontmatter.date_published),
@@ -84,11 +87,9 @@ ${frontmatter.title} 👇`
 								{frontmatter.readingTime}
 							</span>
 						</div>
-						<h1 className='mt-4 font-serif text-3xl text-neutral-100'>
-							{title(frontmatter.title)}
-						</h1>
+						<PageTitle>{title(frontmatter.title)}</PageTitle>
 					</header>
-					<article className='prose prose-lg prose-invert max-w-none prose-blockquote:rounded-md prose-blockquote:border-none prose-blockquote:bg-brand-500/10 prose-blockquote:p-4 prose-blockquote:font-normal'>
+					<article className='prose-blockquote:bg-brand-500/10 prose prose-lg prose-invert max-w-none prose-blockquote:rounded-md prose-blockquote:border-none prose-blockquote:p-4 prose-blockquote:font-normal'>
 						<PostContent />
 					</article>
 					{/*<div className='mt-2 flex flex-col items-start gap-2'>*/}

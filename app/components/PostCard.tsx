@@ -14,8 +14,8 @@ export default function PostCard({ title, publishedAt, slug }: Props) {
 			className='group flex w-full cursor-pointer items-center justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:border-brand'
 			to={`/blog/${slug}`}
 		>
-			<div className='flex w-full flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
-				<div className='flex items-center'>
+			<div className='flex max-w-[70%] flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
+				<div className='flex max-w-full items-center'>
 					<p className='truncate text-neutral-100'>{title}</p>
 				</div>
 				<span className='flex flex-shrink-0 flex-row items-center gap-4 text-xs italic leading-6'>
@@ -24,11 +24,9 @@ export default function PostCard({ title, publishedAt, slug }: Props) {
 			</div>
 
 			<svg
-				width='18'
-				height='18'
 				viewBox='0 0 18 18'
 				fill='none'
-				className='transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand'
+				className='h-4 w-4 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand'
 			>
 				<path
 					d='M5.25 12.75L12.75 5.25'

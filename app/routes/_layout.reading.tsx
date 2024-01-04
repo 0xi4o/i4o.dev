@@ -1,14 +1,13 @@
 import { Books } from '~/components'
 import Content from '~/content/reading/reading.mdx'
 import { Link } from '@remix-run/react'
+import PageTitle from '~/components/PageTitle'
 
 export default function Reading() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
-				<h1 className='font-serif text-3xl text-neutral-100'>
-					Reading
-				</h1>
+				<PageTitle>Reading</PageTitle>
 				<p className='prose prose-invert max-w-[60ch] leading-6'>
 					I read books regularly. I'm always reading two books at any
 					time — one fiction and one non-fiction. I've grouped the

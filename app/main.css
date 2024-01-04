@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Space+Mono:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,6 +41,10 @@
         --ring: 215 20.2% 65.1%;
 
         --radius: 0.5rem;
+
+        --font-sans: 'Inter', sans-serif;
+        --font-serif: 'Merriweather', serif;
+        --font-mono: 'Space Mono', monospace;
     }
 
     .dark {

@@ -1,5 +1,5 @@
 import type { TailwindColor } from '~/utils/types'
-import { MAP_COLOR_VARIANT_TO_BG } from '~/utils/helpers'
+import { MAP_COLOR_VARIANT_TO_BG } from '~/utils/constants'
 import clsx from 'clsx'
 
 type Props = {

@@ -3,6 +3,7 @@ import { json } from '@remix-run/node'
 import { getBlogMdxItems } from '~/utils/mdx.server'
 import type { Post } from '~/utils/types'
 import { format } from 'date-fns'
+import PageTitle from '~/components/PageTitle'
 
 export async function loader() {
 	const posts = await getBlogMdxItems({ grouped: 'year' })
@@ -20,7 +21,7 @@ export default function Blog() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
-				<h1 className='font-serif text-3xl text-neutral-100'>Blog</h1>
+				<PageTitle>Blog</PageTitle>
 				<p className='prose prose-invert max-w-[60ch] leading-6'>
 					I usually write about software engineering, indie-hacking,
 					and personal growth. Blogging, for me, is a way to keep
@@ -44,9 +45,7 @@ export default function Blog() {
 							key={`year${year}`}
 						>
 							{currentYear !== Number(year) ? (
-								<h2 className='m-0 font-serif text-2xl'>
-									{year}
-								</h2>
+								<h2 className='m-0 text-2xl'>{year}</h2>
 							) : null}
 							<div className='mb-8 flex w-full flex-col items-start gap-4'>
 								{
@@ -60,7 +59,7 @@ export default function Blog() {
 											>
 												<div className='flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
 													<div className='flex items-center'>
-														<h3 className='m-0 truncate font-sans text-base leading-6 text-neutral-100 group-hover:text-brand'>
+														<h3 className='m-0 truncate text-base leading-6 text-neutral-100 group-hover:text-brand'>
 															{post.title}
 														</h3>
 													</div>

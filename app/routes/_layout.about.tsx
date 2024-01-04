@@ -1,11 +1,12 @@
 import { Link } from '@remix-run/react'
 import { SocialLinks } from '~/components'
+import PageTitle from '~/components/PageTitle'
 
 export default function About() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
-				<h1 className='font-serif text-3xl text-neutral-100'>About</h1>
+				<PageTitle>About</PageTitle>
 				<section className='prose prose-invert flex flex-col prose-p:my-4 first:prose-p:mt-0'>
 					<p>
 						Hi! I'm a software engineer residing in Bangalore,

@@ -4,7 +4,7 @@ import type {
 	LoaderFunctionArgs,
 	MetaFunction,
 	SerializeFrom,
-} from '@remix-run/node'
+} from '@vercel/remix'
 import { json } from '@remix-run/node'
 import {
 	Links,
@@ -13,25 +13,14 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
-	useLoaderData,
 } from '@remix-run/react'
-import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme'
-import { getThemeSession } from '~/utils/theme.server'
-import styles from '~/main.css'
-import cuiStyles from '@i4o/catalystui/main.css'
-import { getCurrentTrack } from '~/utils/helpers'
+import { Analytics } from '@vercel/analytics/react'
+import { getCurrentTrack } from '~/utils/helpers.server'
 import BlurCircle from '~/components/BlurCircle'
 import theme from '~/data/theme'
+import '~/main.css'
 
 export const links: LinksFunction = () => [
-	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-	{ rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-	{
-		rel: 'stylesheet',
-		href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
-	},
-	{ rel: 'stylesheet', href: styles },
-	{ rel: 'stylesheet', href: cuiStyles },
 	{ rel: 'manifest', href: '/site.webmanifest' },
 	{
 		rel: 'apple-touch-icon',
@@ -131,29 +120,23 @@ export type LoaderData = SerializeFrom<typeof loader>
 export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const nowPlayingTrack = await getCurrentTrack()
 	const data = await nowPlayingTrack.json()
-	const themeSession = await getThemeSession(request)
+	// const themeSession = await getThemeSession(request)
 
 	return json({
 		spotify: data,
-		theme: themeSession.getTheme(),
+		// theme: themeSession.getTheme(),
 	})
 }
 
 function Document({ children }: { children: ReactNode }) {
-	const data = useLoaderData<LoaderData>()
-	const [theme] = useTheme()
-
 	return (
-		<html
-			lang='en'
-			className={`h-screen w-screen ${theme ?? ''} cui-${theme}`}
-		>
+		<html lang='en' className={`h-screen w-screen`}>
 			<head>
 				<Meta />
 				<Links />
-				<ThemeHead ssrTheme={Boolean(data.theme)} />
+				{/*<ThemeHead ssrTheme={Boolean(data.theme)} />*/}
 			</head>
-			<body className='bg-neutral-950'>
+			<body className='bg-neutral-950 font-mono'>
 				{process.env.NODE_ENV === 'production' ? (
 					<>
 						<script
@@ -186,27 +169,18 @@ function Document({ children }: { children: ReactNode }) {
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
+				<Analytics />
 			</body>
 		</html>
 	)
 }
 
-function App() {
+export default function App() {
 	return (
 		<Document>
 			<BlurCircle position='top' color={theme.colors.blur.top} />
 			<BlurCircle position='bottom' color={theme.colors.blur.bottom} />
 			<Outlet />
 		</Document>
-	)
-}
-
-export default function AppWithProviders() {
-	const data = useLoaderData<LoaderData>()
-
-	return (
-		<ThemeProvider specifiedTheme={data.theme}>
-			<App />
-		</ThemeProvider>
 	)
 }

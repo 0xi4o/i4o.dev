@@ -1,10 +1,11 @@
 import { Link } from '@remix-run/react'
+import PageTitle from '~/components/PageTitle'
 
 export default function Now() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
-				<h1 className='font-serif text-3xl text-neutral-100'>Now</h1>
+				<PageTitle>Now</PageTitle>
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
 					<h3 className='text-lg text-neutral-100'>
 						What I'm working on right now?

@@ -1,11 +1,10 @@
 import Content from '~/content/uses/uses.mdx'
+import PageTitle from '~/components/PageTitle'
 export default function Uses() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
-				<h1 className='font-serif text-3xl text-neutral-100'>
-					Devices, Tools, and Tech Stack
-				</h1>
+				<PageTitle>Devices, Tools, and Tech Stack</PageTitle>
 				<section className='prose prose-invert flex flex-col prose-p:my-4 first:prose-p:mt-0'>
 					<p>
 						This is a complete list of the tools, apps, services and

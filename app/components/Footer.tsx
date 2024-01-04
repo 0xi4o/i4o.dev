@@ -5,7 +5,7 @@ function Footer() {
 		<footer className='mt-24'>
 			<div className='z-40 flex w-full flex-col items-center gap-2 md:flex-row md:justify-between'>
 				<div className='flex items-center gap-2'>
-					<p>2024 © Ilango Rajagopal</p>
+					<p>2024 &copy; Ilango Rajagopal</p>
 				</div>
 				<div className='flex items-center justify-end gap-4'>
 					<nav className='flex items-center' role='navigation'>

@@ -1,13 +1,12 @@
 import { projects } from '~/data/projects'
 import { ProjectCard } from '~/components'
+import PageTitle from '~/components/PageTitle'
 
 export default function Projects() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
-				<h1 className='font-serif text-3xl text-neutral-100'>
-					Projects
-				</h1>
+				<PageTitle>Projects</PageTitle>
 				<p className='prose prose-invert max-w-[60ch] leading-6'>
 					I build small web applications and tools that solve problems
 					that I have. Each project uses at least one technology that

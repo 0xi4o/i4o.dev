@@ -35,11 +35,9 @@ export default function ProjectCard({
 					</div>
 
 					<svg
-						width='18'
-						height='18'
 						viewBox='0 0 18 18'
 						fill='none'
-						className='transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand'
+						className='h-4 w-4 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand'
 					>
 						<path
 							d='M5.25 12.75L12.75 5.25'

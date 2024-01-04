@@ -1,21 +1,25 @@
-export type BookPresentation = {
-	title: string
-	description: string
-}
-
 export type Book = {
 	title: string
 	author: string
 	cover?: string
 }
 
-export const data: BookPresentation = {
-	title: 'Reading',
-	description:
-		"I read books regularly. I'm always reading two books at any time — one fiction and one non-fiction. I've grouped the books in the following categories: currently reading, on my reading list, and read in the past. Do you have a book recommendation? Let me know on <a class='underline decoration-dashed underline-offset-8' href='https://twitter.com/0xi4o' target='_blank'>Twitter</a>.<br /><br />I recently started taking notes of some of the books I'm reading. I'm publishing them here on my site. You can check them out on the <a class='underline decoration-dashed underline-offset-8' href='/book-notes' target='_self'>book notes</a>.",
-}
-
 export const currentlyReading: Book[] = [
+	{
+		title: 'Writing for Software Developers',
+		author: 'Philip Kiely',
+		cover: '/images/book-covers/wfsd.png',
+	},
+	{
+		title: 'Designing Data-Intensive Applications',
+		author: 'Martin Kleppman',
+		cover: '/images/book-covers/ddia.jpeg',
+	},
+]
+
+export const readThisYear: Book[] = []
+
+export const read2023: Book[] = [
 	{
 		title: 'The Bullet Journal Method',
 		author: 'Ryder Carroll',
@@ -26,9 +30,6 @@ export const currentlyReading: Book[] = [
 		author: 'James S. A. Corey',
 		cover: '/images/book-covers/persepolis-rising.jpg',
 	},
-]
-
-export const readThisYear: Book[] = [
 	{
 		title: "Abaddon's Gate",
 		author: 'James S. A. Corey',
@@ -171,6 +172,31 @@ export const allTimeFavorites: Book[] = [
 
 export const onMyRadar: Book[] = [
 	{
+		title: "Poor Charlie's Almanack",
+		author: 'Charles T. Munger',
+		cover: '/images/book-covers/poor-charlies-almanack.jpg',
+	},
+	{
+		title: 'How Adam Smith Can Change Your Life',
+		author: 'Russ Roberts',
+		cover: '/images/book-covers/hasccyl.jpg',
+	},
+	{
+		title: 'Bird by Bird',
+		author: 'Anne Lamott',
+		cover: '/images/book-covers/bird-by-bird.jpg',
+	},
+	{
+		title: "A supposedly fun thing I'll never do",
+		author: 'David Foster Wallace',
+		cover: '/images/book-covers/supposedly-fun.jpg',
+	},
+	{
+		title: 'Four Thousand Weeks',
+		author: 'Oliver Burkeman',
+		cover: '/images/book-covers/4000-weeks.jpg',
+	},
+	{
 		title: 'Zero to Production in Rust',
 		author: 'Luca Palmieri',
 		cover: '/images/book-covers/z2p.png',
@@ -231,14 +257,9 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/online-writing.jpg',
 	},
 	{
-		title: 'The Iliad',
-		author: 'Homer',
-		cover: '/images/book-covers/iliad.jpeg',
-	},
-	{
-		title: 'The Odyssey',
-		author: 'Homer',
-		cover: '/images/book-covers/odyssey.jpg',
+		title: 'Essentialism',
+		author: 'Greg Mckeown',
+		cover: '/images/book-covers/essentialism.jpg',
 	},
 	{
 		title: 'How to Think like a Roman Emperor',
@@ -248,6 +269,16 @@ export const onMyRadar: Book[] = [
 ]
 
 export const toRead: Book[] = [
+	{
+		title: 'The Iliad',
+		author: 'Homer',
+		cover: '/images/book-covers/iliad.jpeg',
+	},
+	{
+		title: 'The Odyssey',
+		author: 'Homer',
+		cover: '/images/book-covers/odyssey.jpg',
+	},
 	{
 		title: "Tess of the d'Urbervilles",
 		author: 'Thomas Hardy',
@@ -272,16 +303,6 @@ export const toRead: Book[] = [
 		title: 'The Count of Monte Cristo',
 		author: 'Alexandre Dumas',
 		cover: '/images/book-covers/monte-cristo.jpg',
-	},
-	{
-		title: "A supposedly fun thing I'll never do",
-		author: 'David Foster Wallace',
-		cover: '/images/book-covers/supposedly-fun.jpg',
-	},
-	{
-		title: 'Four Thousand Weeks',
-		author: 'Oliver Burkeman',
-		cover: '/images/book-covers/4000-weeks.jpg',
 	},
 	{
 		title: 'Leonardo Da Vinci',

@@ -2,6 +2,7 @@ import {
 	allTimeFavorites,
 	currentlyReading,
 	onMyRadar,
+	read2023,
 	readThisYear,
 	toRead,
 } from '~/data/books'
@@ -26,12 +27,15 @@ export default function Books() {
 				</div>
 			</section>
 			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100'>2023</h2>
-				<div className='w-full columns-3 gap-8'>
-					{readThisYear.length !== 0 &&
+				<h2 className='text-xl font-medium text-neutral-100'>2024</h2>
+				<div className='prose prose-invert w-full columns-3 gap-8'>
+					{readThisYear.length !== 0 ? (
 						readThisYear.map((book, index) => (
 							<BookCard {...book} key={`readThisYear${index}`} />
-						))}
+						))
+					) : (
+						<span>Check back soon</span>
+					)}
 				</div>
 			</section>
 			<section className='flex flex-col gap-8'>
@@ -47,6 +51,15 @@ export default function Books() {
 					{onMyRadar.length !== 0 &&
 						onMyRadar.map((book, index) => (
 							<BookCard {...book} key={`onMyRadar${index}`} />
+						))}
+				</div>
+			</section>
+			<section className='flex flex-col gap-8'>
+				<h2 className='text-xl font-medium text-neutral-100'>2023</h2>
+				<div className='w-full columns-3 gap-8'>
+					{read2023.length !== 0 &&
+						read2023.map((book, index) => (
+							<BookCard {...book} key={`read2023${index}`} />
 						))}
 				</div>
 			</section>

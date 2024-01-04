@@ -1,8 +1,8 @@
 import { Link, useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/node'
 import { getBlogMdxItems } from '~/utils/mdx.server'
-import { format } from 'date-fns'
 import type { Post } from '~/utils/types'
+import { format } from 'date-fns'
 
 export async function loader() {
 	const posts = await getBlogMdxItems({ grouped: 'year' })
@@ -21,6 +21,20 @@ export default function Blog() {
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
 				<h1 className='font-serif text-3xl text-neutral-100'>Blog</h1>
+				<p className='prose prose-invert max-w-[60ch] leading-6'>
+					I usually write about software engineering, indie-hacking,
+					and personal growth. Blogging, for me, is a way to keep
+					track of stuff — learning, projects, thoughts, etc. If you
+					find something useful here, do let me know on{' '}
+					<a
+						className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+						href='https://x.com/0xi4o'
+						target='_blank'
+					>
+						Twitter
+					</a>
+					.
+				</p>
 			</article>
 			<article className='flex flex-col gap-4'>
 				<section className='flex flex-col gap-4'>
@@ -30,34 +44,55 @@ export default function Blog() {
 							key={`year${year}`}
 						>
 							{currentYear !== Number(year) ? (
-								<h2 className='m-0 mt-8 font-serif text-2xl'>
+								<h2 className='m-0 font-serif text-2xl'>
 									{year}
 								</h2>
 							) : null}
-							<div className='flex flex-col items-start gap-4'>
+							<div className='mb-8 flex w-full flex-col items-start gap-4'>
 								{
 									// @ts-ignore
 									postsGroupedByYear[year].map(
 										(post: Post, index: number) => (
-											<div
-												className='flex flex-wrap items-end justify-start gap-2 text-left'
+											<Link
+												className='group flex w-full cursor-pointer items-center justify-start gap-2 rounded-md transition-all duration-200'
 												key={`post${index}`}
+												to={`/blog/${post.slug}`}
 											>
-												<Link
-													className='no-underline'
-													to={`/blog/${post.slug}`}
+												<div className='flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
+													<div className='flex items-center'>
+														<h3 className='m-0 truncate font-sans text-base leading-6 text-neutral-100 group-hover:text-brand'>
+															{post.title}
+														</h3>
+													</div>
+													<span className='text-xs italic'>
+														{format(
+															new Date(post.date),
+															'MMM dd'
+														)}
+													</span>
+												</div>
+
+												<svg
+													width='18'
+													height='18'
+													viewBox='0 0 18 18'
+													fill='none'
+													className='hidden transition-all duration-300 group-hover:flex'
 												>
-													<h3 className='m-0 font-sans text-base leading-6 hover:text-neutral-100'>
-														{post.title}
-													</h3>
-												</Link>
-												<span className='text-xs italic'>
-													{format(
-														new Date(post.date),
-														'MMM dd'
-													)}
-												</span>
-											</div>
+													<path
+														d='M5.25 12.75L12.75 5.25'
+														stroke='currentColor'
+														strokeLinecap='round'
+														strokeLinejoin='round'
+													/>
+													<path
+														d='M5.25 5.25H12.75V12.75'
+														stroke='currentColor'
+														strokeLinecap='round'
+														strokeLinejoin='round'
+													/>
+												</svg>
+											</Link>
 										)
 									)
 								}

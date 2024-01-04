@@ -1,11 +1,5 @@
 import { Outlet } from '@remix-run/react'
 
 export default function Blog() {
-	return (
-		<>
-			<div>
-				<Outlet />
-			</div>
-		</>
-	)
+	return <Outlet />
 }

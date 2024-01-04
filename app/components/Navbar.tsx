@@ -16,8 +16,8 @@ export default function Navbar({
 						<Link
 							to='/'
 							className={`${
-								pathname === '/' ? 'text-neutral-100' : ''
-							} hover:text-neutral-100`}
+								pathname === '/' ? 'text-brand' : ''
+							} transition-colors duration-200 hover:text-brand`}
 						>
 							Home
 						</Link>
@@ -27,8 +27,8 @@ export default function Navbar({
 						<Link
 							to='/blog'
 							className={`${
-								pathname === '/blog' ? 'text-neutral-100' : ''
-							} hover:text-neutral-100`}
+								pathname === '/blog' ? 'text-brand' : ''
+							} transition-colors duration-200 hover:text-brand`}
 						>
 							Blog
 						</Link>
@@ -38,10 +38,8 @@ export default function Navbar({
 						<Link
 							to='/projects'
 							className={`${
-								pathname === '/projects'
-									? 'text-neutral-100'
-									: ''
-							} hover:text-neutral-100`}
+								pathname === '/projects' ? 'text-brand' : ''
+							} transition-colors duration-200 hover:text-brand`}
 						>
 							Projects
 						</Link>
@@ -51,8 +49,8 @@ export default function Navbar({
 						<Link
 							to='/about'
 							className={`${
-								pathname === '/about' ? 'text-neutral-100' : ''
-							} hover:text-neutral-100`}
+								pathname === '/about' ? 'text-brand' : ''
+							} transition-colors duration-200 hover:text-brand`}
 						>
 							About
 						</Link>

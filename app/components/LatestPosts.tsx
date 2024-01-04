@@ -6,7 +6,12 @@ export default function LatestPosts({ posts }: { posts: any[] }) {
 		<article className='flex flex-col gap-8'>
 			<header className='flex w-full flex-row justify-between gap-2'>
 				<h2 className='text-xl text-neutral-100'>Latest Posts</h2>
-				<Link to='/blog'>See all posts</Link>
+				<Link
+					className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+					to='/blog'
+				>
+					See all posts
+				</Link>
 			</header>
 			{posts.length === 0 && <p>Soon, stay connected 👀...</p>}
 

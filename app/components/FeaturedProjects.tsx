@@ -12,7 +12,7 @@ export default function FeaturedProjects({
 			<header className='flex w-full flex-row justify-between gap-2'>
 				<h2 className='text-xl text-neutral-100'>Featured Projects</h2>
 				<Link
-					className='cursor-pointer underline decoration-dashed underline-offset-8 hover:text-neutral-100'
+					className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 					to='/projects'
 				>
 					See all projects

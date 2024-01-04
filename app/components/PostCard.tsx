@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { Link } from '@remix-run/react'
 
 type Props = {
 	title: string
@@ -9,9 +10,9 @@ type Props = {
 
 export default function PostCard({ title, publishedAt, slug }: Props) {
 	return (
-		<a
-			className='group flex max-w-sm cursor-pointer flex-col gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:border-neutral-400'
-			href={`/blog/${slug}`}
+		<Link
+			className='group flex max-w-sm cursor-pointer flex-col gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:border-brand'
+			to={`/blog/${slug}`}
 		>
 			<div className='flex w-full flex-col justify-between gap-2 md:flex-row md:items-center md:justify-between'>
 				<div className='flex flex-grow items-center'>
@@ -21,6 +22,6 @@ export default function PostCard({ title, publishedAt, slug }: Props) {
 					{format(new Date(publishedAt), 'MMM dd')}
 				</span>
 			</div>
-		</a>
+		</Link>
 	)
 }

@@ -8,10 +8,7 @@ interface Props {
 
 function MyLink(props: Props) {
 	return (
-		<Link
-			className='font-semibold text-brand-500 no-underline'
-			to={props.to}
-		>
+		<Link className='font-semibold text-brand no-underline' to={props.to}>
 			{props.children}
 		</Link>
 	)

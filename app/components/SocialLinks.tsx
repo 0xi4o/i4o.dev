@@ -8,7 +8,7 @@ export default function SocialLinks() {
 				<Fragment key={`link-${index}`}>
 					<li>
 						<a
-							className='no-underline'
+							className='cursor-pointer no-underline transition-colors duration-200 hover:text-brand'
 							href={social.link}
 							rel='noopener noreferrer'
 							target='_blank'
@@ -22,7 +22,12 @@ export default function SocialLinks() {
 			))}
 			<li>/</li>
 			<li>
-				<a href={`mailto:${presentation.mail}`}>{presentation.mail}</a>
+				<a
+					className='cursor-pointer no-underline transition-colors duration-200 hover:text-brand'
+					href={`mailto:${presentation.mail}`}
+				>
+					{presentation.mail}
+				</a>
 			</li>
 		</ul>
 	)

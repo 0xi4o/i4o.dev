@@ -18,12 +18,17 @@ export default function SpotifyNowPlaying({ data }: { data: any }) {
 	return (
 		<div
 			id='spotify'
-			className='group flex w-fit items-center justify-center rounded-full border border-neutral-700 transition-all duration-200 hover:border-brand-500 hover:bg-brand-500'
+			className='duration-400 group flex w-fit items-center justify-center transition-all'
 		>
 			{data.isPlaying ? (
-				<a href={data.url} target='_blank' rel='noreferrer noopener'>
+				<a
+					className='rounded-full border border-brand transition-all duration-200 group-hover:bg-brand'
+					href={data.url}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
 					<div className='inline-flex items-center gap-2 px-3 py-2'>
-						<SpotifyIcon className='h-5 w-5 animate-spin text-green-500 group-hover:text-neutral-700' />
+						<SpotifyIcon className='h-5 w-5 animate-spin text-brand group-hover:text-neutral-700' />
 						<p className='leading-none group-hover:text-neutral-700'>
 							{data.title} - {data.artist}
 						</p>
@@ -31,12 +36,13 @@ export default function SpotifyNowPlaying({ data }: { data: any }) {
 				</a>
 			) : (
 				<a
+					className='rounded-full border border-neutral-700 transition-all duration-200 group-hover:border-brand group-hover:bg-brand'
 					href='https://open.spotify.com/user/ilangorajagopal?si=3c10aad3653b42ea'
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					<div className='inline-flex items-center gap-2 px-3 py-2'>
-						<SpotifyIcon className='h-5 w-5 text-green-500 group-hover:text-neutral-700' />
+						<SpotifyIcon className='h-5 w-5 text-brand group-hover:text-neutral-700' />
 						<p className='leading-none group-hover:text-neutral-700'>
 							Offline
 						</p>

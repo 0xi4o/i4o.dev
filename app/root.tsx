@@ -135,7 +135,7 @@ function Document({ children }: { children: ReactNode }) {
 				<Links />
 				{/*<ThemeHead ssrTheme={Boolean(data.theme)} />*/}
 			</head>
-			<body className='bg-neutral-950 font-mono'>
+			<body className='bg-neutral-950 font-sans'>
 				{process.env.NODE_ENV === 'production' ? (
 					<>
 						<script

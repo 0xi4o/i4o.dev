@@ -212,6 +212,11 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/saas-playbook.jpg',
 	},
 	{
+		title: 'Start Small, Stay Small',
+		author: 'Rob Walling',
+		cover: '/images/book-covers/ssss.jpg',
+	},
+	{
 		title: 'The Boron Letters',
 		author: 'Gary Halbert',
 		cover: '/images/book-covers/boron-letters.jpg',

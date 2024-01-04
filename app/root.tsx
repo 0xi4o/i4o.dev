@@ -4,7 +4,7 @@ import type {
 	LoaderFunctionArgs,
 	MetaFunction,
 	SerializeFrom,
-} from '@vercel/remix'
+} from '@remix-run/node'
 import { json } from '@remix-run/node'
 import {
 	Links,
@@ -14,7 +14,6 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react'
-import { Analytics } from '@vercel/analytics/react'
 import { getCurrentTrack } from '~/utils/helpers.server'
 import BlurCircle from '~/components/BlurCircle'
 import theme from '~/data/theme'
@@ -169,7 +168,6 @@ function Document({ children }: { children: ReactNode }) {
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
-				<Analytics />
 			</body>
 		</html>
 	)

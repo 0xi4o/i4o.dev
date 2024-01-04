@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
-import type { LoaderFunctionArgs } from '@vercel/remix'
-import { json } from '@vercel/remix'
+import type { LoaderFunctionArgs } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { run } from '@mdx-js/mdx'
 import { MDXProvider } from '@mdx-js/react'

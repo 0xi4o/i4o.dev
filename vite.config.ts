@@ -4,7 +4,7 @@ import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import tsconfigPaths from 'vite-tsconfig-paths'
-import { unstable_vitePlugin as remix } from '@vercel/remix-run-dev'
+import { unstable_vitePlugin as remix } from '@remix-run/dev'
 
 installGlobals()
 

@@ -67,7 +67,7 @@ export const meta: MetaFunction = () => [
 	},
 	{
 		property: 'og:image',
-		content: '',
+		content: '/og.png',
 	},
 	{
 		name: 'theme-color',

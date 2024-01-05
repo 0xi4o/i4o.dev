@@ -137,13 +137,11 @@ function Document({ children }: { children: ReactNode }) {
 			</head>
 			<body className='bg-neutral-950 font-sans'>
 				{process.env.NODE_ENV === 'production' ? (
-					<>
-						<script
-							async
-							src='https://analytics.i4o.dev/script.js'
-							data-website-id='a23700f3-870e-47f9-8912-52e806ef4d43'
-						></script>
-					</>
+					<script
+						defer
+						src='https://plausible.i4o.dev/js/script.js'
+						data-domain='i4o.dev'
+					/>
 				) : null}
 				<script
 					dangerouslySetInnerHTML={{

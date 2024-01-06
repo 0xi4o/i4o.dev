@@ -19,162 +19,21 @@ export const currentlyReading: Book[] = [
 
 export const readThisYear: Book[] = []
 
-export const read2023: Book[] = [
-	{
-		title: 'The Bullet Journal Method',
-		author: 'Ryder Carroll',
-		cover: '/images/book-covers/bullet-journal-method.jpg',
-	},
-	{
-		title: 'Persepolis Rising',
-		author: 'James S. A. Corey',
-		cover: '/images/book-covers/persepolis-rising.jpg',
-	},
-	{
-		title: "Abaddon's Gate",
-		author: 'James S. A. Corey',
-		cover: '/images/book-covers/abaddons-gate.jpg',
-	},
-	{
-		title: 'Cibola Burn',
-		author: 'James S. A. Corey',
-		cover: '/images/book-covers/cibola-burn.jpg',
-	},
-	{
-		title: 'Nemesis Games',
-		author: 'James S. A. Corey',
-		cover: '/images/book-covers/nemesis-games.jpg',
-	},
-	{
-		title: "Babylon's Ashes",
-		author: 'James S. A. Corey',
-		cover: '/images/book-covers/babylons-ashes.jpg',
-	},
-	{
-		title: 'Show Your Work',
-		author: 'Austin Kleon',
-		cover: '/images/book-covers/show-your-work.jpg',
-	},
-	{
-		title: 'Building a Second Brain',
-		author: 'Tiago Forte',
-		cover: '/images/book-covers/basb.jpg',
-	},
-	{
-		title: 'Lives of the Stoics',
-		author: 'Ryan Holiday',
-		cover: '/images/book-covers/lives-of-the-stoics.jpg',
-	},
-	{
-		title: 'Demon Slayer: Kimetsu no Yaiba',
-		author: 'Koyoharu Gotouge',
-		cover: '/images/book-covers/demon-slayer.webp',
-	},
-	{
-		title: 'Attack on Titans: Shingeki no Kyojin',
-		author: 'Hajime Isayama',
-		cover: '/images/book-covers/aot.jpeg',
-	},
-	{
-		title: 'The Sandman: Preludes & Nocturnes',
-		author: 'Neil Gaiman',
-		cover: '/images/book-covers/preludes-and-nocturnes.jpeg',
-	},
-	{
-		title: "The Sandman: The Doll's House",
-		author: 'Neil Gaiman',
-		cover: '/images/book-covers/dolls-house.jpg',
-	},
-	{
-		title: 'The Sandman: Dream Country',
-		author: 'Neil Gaiman',
-		cover: '/images/book-covers/dream-country.jpg',
-	},
-]
-
-export const allTimeFavorites: Book[] = [
-	{
-		title: 'Dune Trilogy',
-		author: 'Frank Herbert',
-		cover: '/images/book-covers/dune.jpg',
-	},
-	{
-		title: 'Three Body Problem Trilogy',
-		author: 'Cixin Liu',
-		cover: '/images/book-covers/three-body-problem.jpg',
-	},
-	{
-		title: '1984',
-		author: 'George Orwell',
-		cover: '/images/book-covers/1984.jpg',
-	},
-	{
-		title: 'Snow Crash',
-		author: 'Neal Stephenson',
-		cover: '/images/book-covers/snow-crash.jpg',
-	},
-	{
-		title: 'Lord of the Rings',
-		author: 'J. R. R. Tolkien',
-		cover: '/images/book-covers/lord-of-the-rings.jpg',
-	},
-	{
-		title: 'The Adventures of Sherlock Holmes',
-		author: 'Arthur Conan Doyle',
-		cover: '/images/book-covers/sherlock-holmes.jpg',
-	},
-	{
-		title: 'The Ocean at the End of the Lane',
-		author: 'Neil Gaiman',
-		cover: '/images/book-covers/ocean.webp',
-	},
-	{
-		title: 'Dark Nights Metal',
-		author: 'Scott Snyder',
-		cover: '/images/book-covers/dark-nights-metal.jpg',
-	},
-	{
-		title: 'House of X & Power of X',
-		author: 'Jonathan Hickman',
-		cover: '/images/book-covers/house-powers-of-x.jpg',
-	},
-	{
-		title: 'Atomic Habits',
-		author: 'James Clear',
-		cover: '/images/book-covers/atomic-habits.jpg',
-	},
-	{
-		title: 'Ego is the Enemy',
-		author: 'Ryan Holiday',
-		cover: '/images/book-covers/ego-is-the-enemy.jpg',
-	},
-	{
-		title: 'Lives of the Stoics',
-		author: 'Ryan Holiday',
-		cover: '/images/book-covers/lives-of-the-stoics.jpg',
-	},
-	{
-		title: 'The Subtle Art of not Giving a Fuck',
-		author: 'Mark Manson',
-		cover: '/images/book-covers/subtle-art.jpg',
-	},
-	{
-		title: 'The War of Art',
-		author: 'Steven Pressfield',
-		cover: '/images/book-covers/the-war-of-art.jpg',
-	},
-	{
-		title: "Surely You're Joking, Mr. Feynman!",
-		author: 'Richard Feynman',
-		cover: '/images/book-covers/surely-youre-joking.jpg',
-	},
-]
-
 export const onMyRadar: Book[] = [
 	{
 		title: "Poor Charlie's Almanack",
 		author: 'Charles T. Munger',
 		cover: '/images/book-covers/poor-charlies-almanack.jpg',
+	},
+	{
+		title: 'Engineering Management for the Rest of Us',
+		author: 'Sarah Drasner',
+		cover: '/images/book-covers/emftrou.jpg',
+	},
+	{
+		title: "The Software Engineer's Guidebook",
+		author: 'Gergely Orosz',
+		cover: '/images/book-covers/tsegb.jpg',
 	},
 	{
 		title: 'How Adam Smith Can Change Your Life',
@@ -348,5 +207,156 @@ export const toRead: Book[] = [
 		title: 'Keep Going',
 		author: 'Austin Kleon',
 		cover: '/images/book-covers/keep-going.jpg',
+	},
+]
+
+export const read2023: Book[] = [
+	{
+		title: 'The Bullet Journal Method',
+		author: 'Ryder Carroll',
+		cover: '/images/book-covers/bullet-journal-method.jpg',
+	},
+	{
+		title: 'Persepolis Rising',
+		author: 'James S. A. Corey',
+		cover: '/images/book-covers/persepolis-rising.jpg',
+	},
+	{
+		title: "Abaddon's Gate",
+		author: 'James S. A. Corey',
+		cover: '/images/book-covers/abaddons-gate.jpg',
+	},
+	{
+		title: 'Cibola Burn',
+		author: 'James S. A. Corey',
+		cover: '/images/book-covers/cibola-burn.jpg',
+	},
+	{
+		title: 'Nemesis Games',
+		author: 'James S. A. Corey',
+		cover: '/images/book-covers/nemesis-games.jpg',
+	},
+	{
+		title: "Babylon's Ashes",
+		author: 'James S. A. Corey',
+		cover: '/images/book-covers/babylons-ashes.jpg',
+	},
+	{
+		title: 'Show Your Work',
+		author: 'Austin Kleon',
+		cover: '/images/book-covers/show-your-work.jpg',
+	},
+	{
+		title: 'Building a Second Brain',
+		author: 'Tiago Forte',
+		cover: '/images/book-covers/basb.jpg',
+	},
+	{
+		title: 'Lives of the Stoics',
+		author: 'Ryan Holiday',
+		cover: '/images/book-covers/lives-of-the-stoics.jpg',
+	},
+	{
+		title: 'Demon Slayer: Kimetsu no Yaiba',
+		author: 'Koyoharu Gotouge',
+		cover: '/images/book-covers/demon-slayer.webp',
+	},
+	{
+		title: 'Attack on Titans: Shingeki no Kyojin',
+		author: 'Hajime Isayama',
+		cover: '/images/book-covers/aot.jpeg',
+	},
+	{
+		title: 'The Sandman: Preludes & Nocturnes',
+		author: 'Neil Gaiman',
+		cover: '/images/book-covers/preludes-and-nocturnes.jpeg',
+	},
+	{
+		title: "The Sandman: The Doll's House",
+		author: 'Neil Gaiman',
+		cover: '/images/book-covers/dolls-house.jpg',
+	},
+	{
+		title: 'The Sandman: Dream Country',
+		author: 'Neil Gaiman',
+		cover: '/images/book-covers/dream-country.jpg',
+	},
+]
+
+export const allTimeFavorites: Book[] = [
+	{
+		title: 'Dune Trilogy',
+		author: 'Frank Herbert',
+		cover: '/images/book-covers/dune.jpg',
+	},
+	{
+		title: 'Three Body Problem Trilogy',
+		author: 'Cixin Liu',
+		cover: '/images/book-covers/three-body-problem.jpg',
+	},
+	{
+		title: '1984',
+		author: 'George Orwell',
+		cover: '/images/book-covers/1984.jpg',
+	},
+	{
+		title: 'Snow Crash',
+		author: 'Neal Stephenson',
+		cover: '/images/book-covers/snow-crash.jpg',
+	},
+	{
+		title: 'Lord of the Rings',
+		author: 'J. R. R. Tolkien',
+		cover: '/images/book-covers/lord-of-the-rings.jpg',
+	},
+	{
+		title: 'The Adventures of Sherlock Holmes',
+		author: 'Arthur Conan Doyle',
+		cover: '/images/book-covers/sherlock-holmes.jpg',
+	},
+	{
+		title: 'The Ocean at the End of the Lane',
+		author: 'Neil Gaiman',
+		cover: '/images/book-covers/ocean.webp',
+	},
+	{
+		title: 'Dark Nights Metal',
+		author: 'Scott Snyder',
+		cover: '/images/book-covers/dark-nights-metal.jpg',
+	},
+	{
+		title: 'House of X & Power of X',
+		author: 'Jonathan Hickman',
+		cover: '/images/book-covers/house-powers-of-x.jpg',
+	},
+	{
+		title: 'Atomic Habits',
+		author: 'James Clear',
+		cover: '/images/book-covers/atomic-habits.jpg',
+	},
+	{
+		title: 'Ego is the Enemy',
+		author: 'Ryan Holiday',
+		cover: '/images/book-covers/ego-is-the-enemy.jpg',
+	},
+	{
+		title: 'Lives of the Stoics',
+		author: 'Ryan Holiday',
+		cover: '/images/book-covers/lives-of-the-stoics.jpg',
+	},
+	{
+		title: 'The Subtle Art of not Giving a Fuck',
+		author: 'Mark Manson',
+		cover: '/images/book-covers/subtle-art.jpg',
+	},
+	{
+		title: 'The War of Art',
+		author: 'Steven Pressfield',
+		cover: '/images/book-covers/the-war-of-art.jpg',
+	},
+	{
+		title: "Surely You're Joking, Mr. Feynman!",
+		author: 'Richard Feynman',
+		cover: '/images/book-covers/surely-youre-joking.jpg',
 	},
 ]

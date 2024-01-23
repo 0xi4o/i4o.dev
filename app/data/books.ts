@@ -6,20 +6,25 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
+		title: 'Anna Karenina',
+		author: 'Leo Tolstoy',
+		cover: '/images/book-covers/anna-karenina.jpg',
+	},
+	{
 		title: 'Writing for Software Developers',
 		author: 'Philip Kiely',
 		cover: '/images/book-covers/wfsd.png',
-	},
-	{
-		title: 'Designing Data-Intensive Applications',
-		author: 'Martin Kleppman',
-		cover: '/images/book-covers/ddia.jpeg',
 	},
 ]
 
 export const readThisYear: Book[] = []
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'Designing Data-Intensive Applications',
+		author: 'Martin Kleppman',
+		cover: '/images/book-covers/ddia.jpeg',
+	},
 	{
 		title: "Poor Charlie's Almanack",
 		author: 'Charles T. Munger',

@@ -18,6 +18,7 @@ export default function Reading() {
 						className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 						href='https://twitter.com/0xi4o'
 						target='_blank'
+						rel='noreferrer'
 					>
 						Twitter
 					</a>

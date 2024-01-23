@@ -89,7 +89,7 @@ ${frontmatter.title} 👇`
 						</div>
 						<PageTitle>{title(frontmatter.title)}</PageTitle>
 					</header>
-					<article className='prose-blockquote:bg-brand-500/10 prose prose-lg prose-invert max-w-none prose-blockquote:rounded-md prose-blockquote:border-none prose-blockquote:p-4 prose-blockquote:font-normal'>
+					<article className='prose prose-lg prose-invert max-w-none prose-blockquote:rounded-md prose-blockquote:border-none prose-blockquote:bg-brand/10 prose-blockquote:p-4 prose-blockquote:font-normal'>
 						<PostContent />
 					</article>
 					{/*<div className='mt-2 flex flex-col items-start gap-2'>*/}

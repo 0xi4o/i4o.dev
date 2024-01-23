@@ -85,7 +85,11 @@
     }
 
     body {
-        overflow-x: hidden;
+        @apply overflow-x-hidden;
+    }
+
+    article blockquote > p {
+        @apply !m-0;
     }
 }
 

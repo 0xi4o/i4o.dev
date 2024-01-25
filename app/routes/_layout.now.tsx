@@ -63,6 +63,7 @@ export default function Now() {
 					</p>
 					<ul>
 						<li>Cyberpunk 2077</li>
+						<li>Ghost Recon: Breakpoint</li>
 						<li>The Finals</li>
 					</ul>
 				</section>
@@ -73,7 +74,7 @@ export default function Now() {
 					</h3>
 
 					<ul>
-						<li>Jack Reacher</li>
+						<li>Reacher</li>
 					</ul>
 				</section>
 			</article>

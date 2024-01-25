@@ -15,6 +15,11 @@ export const currentlyReading: Book[] = [
 		author: 'Philip Kiely',
 		cover: '/images/book-covers/wfsd.png',
 	},
+	{
+		title: 'The SaaS Playbook',
+		author: 'Rob Walling',
+		cover: '/images/book-covers/saas-playbook.jpg',
+	},
 ]
 
 export const readThisYear: Book[] = []
@@ -69,11 +74,6 @@ export const onMyRadar: Book[] = [
 		title: 'Meditations',
 		author: 'Marcus Aurelius (Translated by Gregory Hays)',
 		cover: '/images/book-covers/meditations.jpeg',
-	},
-	{
-		title: 'The SaaS Playbook',
-		author: 'Rob Walling',
-		cover: '/images/book-covers/saas-playbook.jpg',
 	},
 	{
 		title: 'Start Small, Stay Small',

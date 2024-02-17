@@ -1,6 +1,5 @@
-import fs from 'graceful-fs'
-import path from 'path'
-import { promisify } from 'node:util'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 import matter from 'gray-matter'
 import remarkFrontmatter from 'remark-frontmatter'
 import { compile } from '@mdx-js/mdx'
@@ -13,15 +12,12 @@ import type {
 } from './types'
 import calculateReadingTime from '~/utils/readingTime'
 
-const readdir = promisify(fs.readdir)
-const readFile = promisify(fs.readFile)
-
 async function readFilesInDir(dir: string) {
-	const files = await readdir(dir, { withFileTypes: true })
+	const files = await fs.readdir(dir, { withFileTypes: true })
 
 	const promises = files.map(async (f) => {
 		const filePath = path.join(dir, f.name)
-		const file = await readFile(filePath, 'utf8')
+		const file = await fs.readFile(filePath, 'utf8')
 
 		return file
 	})

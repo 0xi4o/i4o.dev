@@ -1,55 +1,34 @@
-import { Fragment, useEffect, useState } from 'react'
-import { json, LoaderFunctionArgs } from '@remix-run/cloudflare'
+import type { LoaderFunctionArgs } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
-import { run } from '@mdx-js/mdx'
-import { MDXProvider } from '@mdx-js/react'
-import * as runtime from 'react/jsx-runtime'
-import { getMdxFile } from '~/utils/mdx.server'
 import { format } from 'date-fns'
 import title from 'title'
 import { SITE_URL } from '~/data/site'
 import ReadingProgress from '~/components/ReadingProgress'
 import PageTitle from '~/components/PageTitle'
 
+import keystaticConfig from '../../keystatic.config'
+import { createReader } from '@keystatic/core/reader'
+import { DocumentRenderer } from '@keystatic/core/renderer'
+
 export async function loader({ params }: LoaderFunctionArgs) {
-	const { frontmatter, code } = await getMdxFile({
-		slug: params.slug as string,
+	const reader = createReader(process.cwd(), keystaticConfig)
+	const slug = params.slug as string
+	const post = await reader.collections.posts.read(slug, {
+		resolveLinkedFiles: true,
 	})
-	return json({ frontmatter, code })
-}
 
-function PostContent() {
-	const data = useLoaderData<typeof loader>()
-	const { code } = data
-	const [mdxModule, setMdxModule] = useState()
-	// @ts-ignore
-	const Content = mdxModule ? mdxModule?.default : Fragment
+	if (!post) throw json('Not Found', { status: 404 })
 
-	useEffect(() => {
-		// eslint-disable-next-line
-		;(async () => {
-			// @ts-ignore
-			setMdxModule(await run(code, runtime))
-		})()
-	}, [code])
-
-	return (
-		<MDXProvider>
-			<Content />
-		</MDXProvider>
-	)
+	return json({ post })
 }
 
 export default function BlogPost() {
-	const data = useLoaderData<typeof loader>()
-	const { frontmatter: fm } = data
-	const frontmatter = JSON.parse(JSON.stringify(fm))
-	const permalink = `${SITE_URL}/blog/${frontmatter.slug}`
+	const { post } = useLoaderData<typeof loader>()
+	const permalink = `${SITE_URL}/blog/${post.slug}`
 	const tweetMessage = `I just read this awesome post! Check it out: 
 	
-${frontmatter.title} 👇`
-
-	console.log(frontmatter)
+${post.title} 👇`
 
 	return (
 		<>
@@ -80,19 +59,27 @@ ${frontmatter.title} 👇`
 						<div className='mb-4 flex items-center gap-2'>
 							<span className='text-xs font-semibold uppercase'>
 								{format(
-									new Date(frontmatter.date_published),
+									new Date(post.date_published as string),
 									'PP'
 								)}
 							</span>
 							<span>·</span>
-							<span className='text-xs font-semibold uppercase'>
-								{`${frontmatter.readingTime.minutes} min read`}
-							</span>
+							{/* <span className='text-xs font-semibold uppercase'>
+								{`${post.readingTime.minutes} min read`}
+							</span> */}
 						</div>
-						<PageTitle>{title(frontmatter.title)}</PageTitle>
+						<PageTitle>
+							{
+								// @ts-ignore
+								title(post.title)
+							}
+						</PageTitle>
 					</header>
 					<article className='prose prose-lg prose-invert max-w-none prose-blockquote:rounded-md prose-blockquote:border-none prose-blockquote:bg-brand/10 prose-blockquote:p-4 prose-blockquote:font-normal'>
-						<PostContent />
+						<DocumentRenderer
+							// @ts-ignore
+							document={post.content}
+						/>
 					</article>
 					{/*<div className='mt-2 flex flex-col items-start gap-2'>*/}
 					{/*	<span className='text-sm font-normal'>*/}

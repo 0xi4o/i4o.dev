@@ -1,4 +1,5 @@
-import { getBlogMdxItems } from '~/utils/mdx.server'
+import keystaticConfig from '../../keystatic.config'
+import { createReader } from '@keystatic/core/reader'
 
 type RssEntry = {
 	title: string
@@ -46,7 +47,8 @@ function generateRss({
 }
 
 export async function loader() {
-	const posts = await getBlogMdxItems({})
+	const reader = createReader(process.cwd(), keystaticConfig)
+	const posts = await reader.collections.posts.all()
 
 	const feed = generateRss({
 		description: 'Software Engineer, Maker, Writer',
@@ -54,9 +56,9 @@ export async function loader() {
 		link: 'https://i4o.dev/blog',
 		// @ts-ignore
 		entries: posts.map((post) => ({
-			title: post.title,
-			description: post.description,
-			date: post.date,
+			title: post.entry.title,
+			description: post.entry.excerpt,
+			date: post.entry.date_published,
 			link: `https://i4o.dev/blog/${post.slug}`,
 			guid: `https://i4o.dev/blog/${post.slug}`,
 		})),

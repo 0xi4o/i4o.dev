@@ -1,16 +1,17 @@
 import { ORIGIN, staticPages } from '~/utils/constants'
 import { toXmlSitemap } from '~/utils/helpers.server'
-import { getBlogMdxItems } from '~/utils/mdx.server'
+import keystaticConfig from '../../keystatic.config'
+import { createReader } from '@keystatic/core/reader'
 
 // code from: https://ericnish.io/blog/sitemap-xml-with-remix
 export const loader = async () => {
 	try {
-		const posts = await getBlogMdxItems({})
+		const reader = createReader(process.cwd(), keystaticConfig)
+		const posts = await reader.collections.posts.all()
 		const sitemap = toXmlSitemap([
 			...staticPages
 				.filter(({ to }) => to !== '/')
 				.map(({ to }) => `${ORIGIN}${to}`),
-			// @ts-ignore
 			...posts.map(
 				({ slug }: { slug: string }) => `${ORIGIN}/blog/${slug}`
 			),

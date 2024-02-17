@@ -1,12 +1,15 @@
 import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/cloudflare'
-import { getBlogMdxItems } from '~/utils/mdx.server'
+import { json } from '@remix-run/node'
 import type { Post } from '~/utils/types'
 import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
+import { createReader } from '@keystatic/core/reader'
+
+import keystaticConfig from '../../keystatic.config'
 
 export async function loader() {
-	const posts = await getBlogMdxItems({ grouped: 'year' })
+	const reader = createReader(process.cwd(), keystaticConfig)
+	const posts = await reader.collections.posts.all()
 	return json({ posts })
 }
 
@@ -31,6 +34,7 @@ export default function Blog() {
 						className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 						href='https://x.com/0xi4o'
 						target='_blank'
+						rel='noreferrer'
 					>
 						Twitter
 					</a>

@@ -1,19 +1,18 @@
 import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/cloudflare'
-import { getBlogMdxItems } from '~/utils/mdx.server'
+import { json } from '@remix-run/node'
 import { format } from 'date-fns'
-import type { Post } from '~/utils/types'
-import { BOOK_NOTES_DIR } from '~/utils/constants'
 import PageTitle from '~/components/PageTitle'
+import keystaticConfig from '../../keystatic.config'
+import { createReader } from '@keystatic/core/reader'
 
 export async function loader() {
-	const posts = await getBlogMdxItems({ dir: BOOK_NOTES_DIR })
+	const reader = createReader(process.cwd(), keystaticConfig)
+	const posts = await reader.collections.bookNotes.all()
 	return json({ posts })
 }
 
 export default function Blog() {
-	const data = useLoaderData<typeof loader>()
-	const { posts } = data
+	const { posts } = useLoaderData<typeof loader>()
 
 	return (
 		<>
@@ -21,7 +20,7 @@ export default function Blog() {
 			<div className='mt-8 flex flex-col items-start gap-6'>
 				{
 					// @ts-ignore
-					posts.map((post: Post, index: number) => (
+					posts.map((post, index) => (
 						<div
 							className='flex flex-wrap items-end justify-start gap-2 text-left'
 							key={`post${index}`}
@@ -31,11 +30,16 @@ export default function Blog() {
 								to={`/book-notes/${post.slug}`}
 							>
 								<h3 className='m-0 font-serif text-base font-medium leading-6'>
-									{post.title}
+									{post.entry.title.name}
 								</h3>
 							</Link>
 							<span className='text-sm italic leading-6'>
-								{format(new Date(post.date), 'MMM dd')}
+								{format(
+									new Date(
+										post.entry.date_published as string
+									),
+									'MMM dd'
+								)}
 							</span>
 						</div>
 					))

@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Outlet, useLoaderData, useLocation } from '@remix-run/react'
-import { json, SerializeFrom } from '@remix-run/cloudflare'
+import { json, SerializeFrom } from '@remix-run/node'
 import { getCurrentTrack } from '~/utils/helpers.server'
 
 type LoaderData = SerializeFrom<typeof loader>

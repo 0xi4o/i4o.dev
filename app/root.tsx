@@ -4,8 +4,8 @@ import type {
 	LoaderFunctionArgs,
 	MetaFunction,
 	SerializeFrom,
-} from '@remix-run/cloudflare'
-import { json } from '@remix-run/cloudflare'
+} from '@remix-run/node'
+import { json } from '@remix-run/node'
 import {
 	Links,
 	LiveReload,

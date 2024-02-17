@@ -17,9 +17,10 @@ import {
 import { getCurrentTrack } from '~/utils/helpers.server'
 import BlurCircle from '~/components/BlurCircle'
 import theme from '~/data/theme'
-import '~/main.css'
+import styles from '~/main.css'
 
 export const links: LinksFunction = () => [
+	{ rel: 'stylesheet', href: styles },
 	{ rel: 'manifest', href: '/site.webmanifest' },
 	{
 		rel: 'apple-touch-icon',

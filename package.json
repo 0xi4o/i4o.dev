@@ -8,7 +8,7 @@
 		"deploy": "fly deploy --remote-only",
 		"dev": "remix dev",
 		"format": "prettier --write .",
-		"start": "remix-serve ./build/server/index.js",
+		"start": "remix-serve ./build/index.js",
 		"typecheck": "tsc"
 	},
 	"dependencies": {

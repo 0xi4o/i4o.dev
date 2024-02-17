@@ -7,7 +7,7 @@ export default config({
 	collections: {
 		posts: collection({
 			label: 'Posts',
-			slugField: 'slug',
+			slugField: 'title',
 			path: 'app/content/posts/*',
 			format: { contentField: 'content' },
 			schema: {
@@ -19,7 +19,6 @@ export default config({
 					links: true,
 					images: true,
 				}),
-				slug: fields.slug({ name: { label: 'URL' } }),
 				excerpt: fields.text({ label: 'Excerpt', multiline: true }),
 				date_published: fields.date({ label: 'Published Date' }),
 				date_updated: fields.date({ label: 'Published Date' }),

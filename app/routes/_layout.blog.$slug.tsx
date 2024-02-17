@@ -49,6 +49,8 @@ export default function BlogPost() {
 	
 ${frontmatter.title} 👇`
 
+	console.log(frontmatter)
+
 	return (
 		<>
 			<ReadingProgress />
@@ -84,7 +86,7 @@ ${frontmatter.title} 👇`
 							</span>
 							<span>·</span>
 							<span className='text-xs font-semibold uppercase'>
-								{frontmatter.readingTime}
+								{`${frontmatter.readingTime.minutes} min read`}
 							</span>
 						</div>
 						<PageTitle>{title(frontmatter.title)}</PageTitle>

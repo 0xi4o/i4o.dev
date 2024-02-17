@@ -56,3 +56,22 @@ export type NowPlayingTrackResponse = {
 	url: string
 	img: string
 }
+
+// https://github.com/ngryman/reading-time/blob/master/src/types.ts
+export interface Options {
+	wordBound?: (char: string) => boolean
+	wordsPerMinute?: number
+}
+
+export interface ReadingTimeStats {
+	time: number
+	minutes: number
+}
+
+export interface WordCountStats {
+	total: number
+}
+
+export interface ReadingTimeResult extends ReadingTimeStats {
+	words: WordCountStats
+}

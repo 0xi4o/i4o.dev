@@ -27,7 +27,6 @@
 		"miniflare": "^3.20240129.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"reading-time": "^1.5.0",
 		"remark-frontmatter": "^5.0.0",
 		"remark-mdx-frontmatter": "^4.0.0",
 		"title": "^3.5.3"

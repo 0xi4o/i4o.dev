@@ -1,4 +1,4 @@
-import { promises as fs } from 'node:fs'
+import { promises as fs } from 'fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import remarkFrontmatter from 'remark-frontmatter'

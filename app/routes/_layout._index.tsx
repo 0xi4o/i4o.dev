@@ -10,7 +10,16 @@ export async function loader() {
 	const reader = createReader(process.cwd(), keystaticConfig)
 	// TODO: check if there are other ways to filter instead of fetching everything and then slicing.
 	const posts = await reader.collections.posts.all()
-	return json({ posts: posts.slice(0, 3) })
+	const publishedPosts = posts.filter((post) => !post.entry.draft)
+	const sortedPublishedPosts = publishedPosts.sort(
+		// @ts-ignore
+		(a, b) =>
+			// @ts-ignore
+			new Date(b.entry.date_published).valueOf() -
+			// @ts-ignore
+			new Date(a.entry.date_published).valueOf()
+	)
+	return json({ posts: sortedPublishedPosts })
 }
 
 function LatestPosts({ posts }) {

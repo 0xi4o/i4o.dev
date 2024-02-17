@@ -29,8 +29,8 @@ export default function Blog() {
 								className='no-underline'
 								to={`/book-notes/${post.slug}`}
 							>
-								<h3 className='m-0 font-serif text-base font-medium leading-6'>
-									{post.entry.title.name}
+								<h3 className='m-0 truncate text-base leading-6 text-neutral-100 group-hover:text-brand'>
+									{post.entry.title}
 								</h3>
 							</Link>
 							<span className='text-sm italic leading-6'>

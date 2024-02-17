@@ -1,21 +1,22 @@
 import { Link, useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/node'
-import type { Post } from '~/utils/types'
 import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
 import { createReader } from '@keystatic/core/reader'
 
 import keystaticConfig from '../../keystatic.config'
+import { groupPostsByYear } from '~/utils/helpers.server'
 
 export async function loader() {
 	const reader = createReader(process.cwd(), keystaticConfig)
 	const posts = await reader.collections.posts.all()
-	console.log(posts)
-	return json({ posts })
+	const publishedPosts = posts.filter((post) => !post.entry.draft)
+	const postsGroupedByYear = groupPostsByYear(publishedPosts)
+	return json({ posts: postsGroupedByYear })
 }
 
 export default function Blog() {
-	const { posts } = useLoaderData<typeof loader>()
+	const data = useLoaderData<typeof loader>()
 	const { posts: postsGroupedByYear } = data
 	const currentYear = new Date().getFullYear()
 	const sortedYears = Object.keys(postsGroupedByYear).sort(
@@ -56,7 +57,8 @@ export default function Blog() {
 								{
 									// @ts-ignore
 									postsGroupedByYear[year].map(
-										(post: Post, index: number) => (
+										// @ts-ignore
+										(post, index) => (
 											<Link
 												className='group flex w-full cursor-pointer items-center justify-start gap-2 rounded-md transition-all duration-200'
 												key={`post${index}`}
@@ -65,12 +67,15 @@ export default function Blog() {
 												<div className='flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
 													<div className='flex items-center'>
 														<h3 className='m-0 truncate text-base leading-6 text-neutral-100 group-hover:text-brand'>
-															{post.title}
+															{post.entry.title}
 														</h3>
 													</div>
 													<span className='text-xs italic'>
 														{format(
-															new Date(post.date),
+															new Date(
+																// @ts-ignore
+																post.entry.date_published
+															),
 															'MMM dd'
 														)}
 													</span>

@@ -20,12 +20,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 	if (!post) throw json('Not Found', { status: 404 })
 
-	return json({ post })
+	return json({ post, slug })
 }
 
 export default function BlogPost() {
-	const { post } = useLoaderData<typeof loader>()
-	const permalink = `${SITE_URL}/blog/${post.slug}`
+	const { post, slug } = useLoaderData<typeof loader>()
+	const permalink = `${SITE_URL}/blog/${slug}`
 	const tweetMessage = `I just read this awesome post! Check it out: 
 	
 ${post.title} 👇`
@@ -63,8 +63,8 @@ ${post.title} 👇`
 									'PP'
 								)}
 							</span>
-							<span>·</span>
-							{/* <span className='text-xs font-semibold uppercase'>
+							{/* <span>·</span>
+							<span className='text-xs font-semibold uppercase'>
 								{`${post.readingTime.minutes} min read`}
 							</span> */}
 						</div>

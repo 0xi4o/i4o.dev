@@ -103,3 +103,17 @@ export const toXmlSitemap = (urls: any[]) => {
       ${urlsAsXml}
     </urlset>`
 }
+
+export const groupPostsByYear = (posts: any[]) => {
+	return posts.reduce((groups, post) => {
+		const year = post.entry.date_published.toString().split('-')[0]
+
+		if (!groups[year]) {
+			groups[year] = []
+		}
+
+		groups[year].push(post)
+
+		return groups
+	}, {})
+}

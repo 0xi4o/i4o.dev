@@ -34,9 +34,9 @@ function LatestPosts({ posts }) {
 						.map((post) => (
 							<PostCard
 								key={post.slug}
-								publishedAt={post.date}
-								title={post.title}
-								description={post.excerpt}
+								publishedAt={post.entry.date_published}
+								title={post.entry.title}
+								description={post.entry.excerpt}
 								slug={post.slug}
 							/>
 						))}

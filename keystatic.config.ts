@@ -12,6 +12,11 @@ export default config({
 			format: { contentField: 'content' },
 			schema: {
 				title: fields.slug({ name: { label: 'Title' } }),
+				excerpt: fields.text({ label: 'Excerpt', multiline: true }),
+				date_published: fields.date({ label: 'Published Date' }),
+				date_updated: fields.date({ label: 'Published Date' }),
+				draft: fields.checkbox({ label: 'Draft' }),
+				featured: fields.checkbox({ label: 'Feature this post?' }),
 				content: fields.document({
 					label: 'Content',
 					formatting: true,
@@ -19,11 +24,6 @@ export default config({
 					links: true,
 					images: true,
 				}),
-				excerpt: fields.text({ label: 'Excerpt', multiline: true }),
-				date_published: fields.date({ label: 'Published Date' }),
-				date_updated: fields.date({ label: 'Published Date' }),
-				draft: fields.checkbox({ label: 'Draft' }),
-				featured: fields.checkbox({ label: 'Feature this post?' }),
 			},
 		}),
 		bookNotes: collection({

@@ -10,11 +10,12 @@ import keystaticConfig from '../../keystatic.config'
 export async function loader() {
 	const reader = createReader(process.cwd(), keystaticConfig)
 	const posts = await reader.collections.posts.all()
+	console.log(posts)
 	return json({ posts })
 }
 
 export default function Blog() {
-	const data = useLoaderData<typeof loader>()
+	const { posts } = useLoaderData<typeof loader>()
 	const { posts: postsGroupedByYear } = data
 	const currentYear = new Date().getFullYear()
 	const sortedYears = Object.keys(postsGroupedByYear).sort(

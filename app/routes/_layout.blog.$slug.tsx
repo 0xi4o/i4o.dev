@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
-import { json, LoaderFunctionArgs } from '@remix-run/node'
+import { json, LoaderFunctionArgs } from '@remix-run/cloudflare'
 import { Link, useLoaderData } from '@remix-run/react'
 import { run } from '@mdx-js/mdx'
 import { MDXProvider } from '@mdx-js/react'

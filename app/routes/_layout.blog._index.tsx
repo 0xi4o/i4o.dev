@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import { json } from '@remix-run/cloudflare'
 import { getBlogMdxItems } from '~/utils/mdx.server'
 import type { Post } from '~/utils/types'
 import { format } from 'date-fns'

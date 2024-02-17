@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-/// <reference types="@remix-run/node" />
+/// <reference types="@remix-run/cloudflare" />
 
 declare module '*.mdx' {
 	let MDXComponent: (props: any) => JSX.Element

@@ -1,5 +1,5 @@
 import { useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import { json } from '@remix-run/cloudflare'
 import { FeaturedProjects, Hero, LatestPosts } from '~/components'
 import { getBlogMdxItems } from '~/utils/mdx.server'
 import { projects } from '~/data/projects'

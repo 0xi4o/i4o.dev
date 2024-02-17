@@ -8,7 +8,7 @@ interface Props {
 function Anchor(props: Props) {
 	return (
 		<a
-			className='font-semibold text-brand-500 no-underline'
+			className='text-brand-500 font-semibold no-underline'
 			href={props.href}
 			rel='noreferrer noopener'
 			target='_blank'

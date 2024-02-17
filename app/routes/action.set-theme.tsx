@@ -1,5 +1,5 @@
-import { json, redirect } from '@remix-run/node'
-import type { ActionFunction, LoaderFunction } from '@remix-run/node'
+import { json, redirect } from '@remix-run/cloudflare'
+import type { ActionFunction, LoaderFunction } from '@remix-run/cloudflare'
 
 import { getThemeSession } from '~/utils/theme.server'
 import { isTheme } from '~/utils/theme'

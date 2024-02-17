@@ -5,91 +5,90 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --ui: 0 0% 94.6%;
-        --ui-hover: 0 0% 92%;
-        --ui-states: 0 0% 89.5%;
+	:root {
+		--ui: 0 0% 94.6%;
+		--ui-hover: 0 0% 92%;
+		--ui-states: 0 0% 89.5%;
 
-        --foreground: 0 0% 12.5%;
-        --foreground-subtle: 0 0% 39.3%;
+		--foreground: 0 0% 12.5%;
+		--foreground-subtle: 0 0% 39.3%;
 
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
 
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 47.4% 11.2%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 47.4% 11.2%;
 
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
 
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 47.4% 11.2%;
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 47.4% 11.2%;
 
-        --brand: 155 61% 44%;
-        --brand-states: 156 63.1% 39.7%;
-        --brand-foreground: 0 0% 100%;
+		--brand: 155 61% 44%;
+		--brand-states: 156 63.1% 39.7%;
+		--brand-foreground: 0 0% 100%;
 
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
 
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
 
-        --destructive: 0 100% 50%;
-        --destructive-foreground: 210 40% 98%;
+		--destructive: 0 100% 50%;
+		--destructive-foreground: 210 40% 98%;
 
-        --ring: 215 20.2% 65.1%;
+		--ring: 215 20.2% 65.1%;
 
-        --radius: 0.5rem;
+		--radius: 0.5rem;
 
-        --font-sans: 'Inter', sans-serif;
-        --font-serif: 'Merriweather', serif;
-        --font-mono: 'Space Mono', monospace;
-    }
+		--font-sans: 'Inter', sans-serif;
+		--font-serif: 'Merriweather', serif;
+		--font-mono: 'Space Mono', monospace;
+	}
 
-    .dark {
-        --ui: 0 0% 15.8%;
-        --ui-hover: 0 0% 18.9%;
-        --ui-states: 0 0% 21.7%;
+	.dark {
+		--ui: 0 0% 15.8%;
+		--ui-hover: 0 0% 18.9%;
+		--ui-states: 0 0% 21.7%;
 
-        --foreground: 0 0% 93.5%;
-        --foreground-subtle: 0 0% 69.5%;
+		--foreground: 0 0% 93.5%;
+		--foreground-subtle: 0 0% 69.5%;
 
-        --muted: 223 47% 11%;
-        --muted-foreground: 215.4 16.3% 56.9%;
+		--muted: 223 47% 11%;
+		--muted-foreground: 215.4 16.3% 56.9%;
 
-        --accent: 216 34% 17%;
-        --accent-foreground: 210 40% 98%;
+		--accent: 216 34% 17%;
+		--accent-foreground: 210 40% 98%;
 
-        --popover: 224 71% 4%;
-        --popover-foreground: 215 20.2% 65.1%;
+		--popover: 224 71% 4%;
+		--popover-foreground: 215 20.2% 65.1%;
 
-        --border: 216 34% 17%;
-        --input: 216 34% 17%;
+		--border: 216 34% 17%;
+		--input: 216 34% 17%;
 
-        --card: 224 71% 4%;
-        --card-foreground: 213 31% 91%;
+		--card: 224 71% 4%;
+		--card-foreground: 213 31% 91%;
 
-        --primary: 210 40% 98%;
-        --primary-foreground: 222.2 47.4% 1.2%;
+		--primary: 210 40% 98%;
+		--primary-foreground: 222.2 47.4% 1.2%;
 
-        --secondary: 222.2 47.4% 11.2%;
-        --secondary-foreground: 210 40% 98%;
+		--secondary: 222.2 47.4% 11.2%;
+		--secondary-foreground: 210 40% 98%;
 
-        --destructive: 0 63% 31%;
-        --destructive-foreground: 210 40% 98%;
+		--destructive: 0 63% 31%;
+		--destructive-foreground: 210 40% 98%;
 
-        --ring: 216 34% 17%;
+		--ring: 216 34% 17%;
 
-        --radius: 0.5rem;
-    }
+		--radius: 0.5rem;
+	}
 
-    body {
-        @apply overflow-x-hidden;
-    }
+	body {
+		@apply overflow-x-hidden;
+	}
 
-    article blockquote > p {
-        @apply !m-0;
-    }
+	article blockquote > p {
+		@apply !m-0;
+	}
 }
-

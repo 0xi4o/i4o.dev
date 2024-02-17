@@ -1,1 +1,2 @@
 name = "0xi4o-website"
+compatibility_flags = [ "nodejs_compat" ]

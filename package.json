@@ -4,12 +4,13 @@
 	"type": "module",
 	"sideEffects": false,
 	"scripts": {
-		"build": "remix build",
-		"deploy": "fly deploy --remote-only",
-		"dev": "remix dev",
-		"format": "prettier --write .",
-		"start": "remix-serve ./build/index.js",
-		"typecheck": "tsc"
+		"build": "moon :build",
+		"deploy": "moon :deploy",
+		"dev": "moon :dev",
+		"format": "moon :format",
+		"lint": "moon :lint",
+		"start": "moon :start",
+		"typecheck": "moon :typecheck"
 	},
 	"dependencies": {
 		"@keystatic/core": "^0.3.19",
@@ -48,6 +49,7 @@
 		"tailwindcss": "^3.4.1"
 	},
 	"engines": {
-		"node": ">=20"
-	}
+		"node": "~20"
+	},
+	"packageManager": "pnpm@8.15.3"
 }

@@ -9,7 +9,7 @@
 		"dev": "moon :dev",
 		"format": "moon :format",
 		"lint": "moon :lint",
-		"start": "moon :start",
+		"start": "remix-serve ./build/index.js",
 		"typecheck": "moon :typecheck"
 	},
 	"dependencies": {

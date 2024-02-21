@@ -1,14 +1,12 @@
-import { config, fields, collection } from '@keystatic/core'
+import { config, fields, collection, singleton } from '@keystatic/core'
 
 export default config({
-	storage: {
-		kind: 'local',
-	},
 	collections: {
 		posts: collection({
 			label: 'Posts',
 			slugField: 'title',
 			path: 'app/content/posts/*',
+			entryLayout: 'content',
 			format: { contentField: 'content' },
 			schema: {
 				title: fields.slug({ name: { label: 'Title' } }),
@@ -30,6 +28,7 @@ export default config({
 			label: 'Book Notes',
 			slugField: 'title',
 			path: 'app/content/book-notes/*',
+			entryLayout: 'content',
 			format: { contentField: 'content' },
 			schema: {
 				title: fields.slug({ name: { label: 'Title' } }),
@@ -47,5 +46,82 @@ export default config({
 				}),
 			},
 		}),
+	},
+	singletons: {
+		// ------------------------------
+		// Books
+		// ------------------------------
+		books: singleton({
+			label: 'Books',
+			path: 'app/content/books',
+			format: { data: 'json' },
+			schema: {
+				read: fields.array(
+					fields.object({
+						groupName: fields.text({ label: 'Group Name' }),
+						items: fields.array(
+							fields.object({
+								label: fields.text({
+									label: 'Book Title',
+								}),
+								author: fields.text({
+									label: 'Author',
+								}),
+								cover: fields.file({
+									label: 'Book Cover',
+								}),
+								genre: fields.select({
+									label: 'Genre',
+									options: [
+										{
+											label: 'Anthropology',
+											value: 'anthropology',
+										},
+										{
+											label: 'Business & Startups',
+											value: 'business-startups',
+										},
+										{ label: 'Classic', value: 'classic' },
+										{
+											label: 'Comics & Graphic Novels',
+											value: 'comics-graphic-novels',
+										},
+										{ label: 'Fantasy', value: 'fantasy' },
+										{
+											label: 'History',
+											value: 'history',
+										},
+										{
+											label: 'Philosophy',
+											value: 'philosophy',
+										},
+										{
+											label: 'Productivity',
+											value: 'productivity',
+										},
+										{ label: 'SciFi', value: 'scifi' },
+										{
+											label: 'Self Help',
+											value: 'selfhelp',
+										},
+									],
+									defaultValue: 'scifi',
+								}),
+							}),
+							{
+								itemLabel: (props) => props.fields.label.value,
+							}
+						),
+					}),
+					{
+						label: 'Group Name',
+						itemLabel: (props) => props.fields.groupName.value,
+					}
+				),
+			},
+		}),
+	},
+	storage: {
+		kind: 'local',
 	},
 })

@@ -1,0 +1,169 @@
+{
+  "read": [
+    {
+      "groupName": "Fiction",
+      "items": [
+        {
+          "label": "The Adventures of Sherlock Holmes",
+          "author": "Arthur Conan Doyla",
+          "genre": "classic"
+        },
+        {
+          "label": "To Kill a Mockingbird",
+          "author": "Harper Lee",
+          "genre": "classic"
+        },
+        {
+          "label": "Ocean at the End of the Lane",
+          "author": "Neil Gaiman",
+          "genre": "fantasy"
+        }
+      ]
+    },
+    {
+      "groupName": "Science Fiction",
+      "items": [
+        {
+          "label": "Dune",
+          "author": "Frank Herbert",
+          "genre": "scifi"
+        },
+        {
+          "label": "Dune Messiah",
+          "author": "Frank Herbert",
+          "genre": "scifi"
+        },
+        {
+          "label": "Children of Dune",
+          "author": "Frank Herbert",
+          "genre": "scifi"
+        },
+        {
+          "label": "Snow Crash",
+          "author": "Neal Stephenson",
+          "genre": "scifi"
+        },
+        {
+          "label": "Three Body Problem",
+          "author": "Cixin Liu",
+          "genre": "scifi"
+        },
+        {
+          "label": "The Dark Forest",
+          "author": "Cixin Liu",
+          "genre": "scifi"
+        },
+        {
+          "label": "Death's End",
+          "author": "Cixin Liu",
+          "genre": "scifi"
+        },
+        {
+          "label": "1984",
+          "author": "George Orwell",
+          "genre": "scifi"
+        },
+        {
+          "label": "Leviathan Wakes",
+          "author": "James S. A. Corey",
+          "genre": "scifi"
+        },
+        {
+          "label": "Caliban's War",
+          "author": "James S. A. Corey",
+          "genre": "scifi"
+        },
+        {
+          "label": "Abaddon's Gate",
+          "author": "James S. A. Corey",
+          "genre": "scifi"
+        },
+        {
+          "label": "Cibola Burn",
+          "author": "James S. A. Corey",
+          "genre": "scifi"
+        },
+        {
+          "label": "Nemesis Games",
+          "author": "James S. A. Corey",
+          "genre": "scifi"
+        }
+      ]
+    },
+    {
+      "groupName": "Fantasy",
+      "items": [
+        {
+          "label": "The Hobbit",
+          "author": "J. R. R. Tolkien",
+          "genre": "scifi"
+        },
+        {
+          "label": "Lord of the Rings",
+          "author": "J. R. R. Tolkien",
+          "genre": "fantasy"
+        }
+      ]
+    },
+    {
+      "groupName": "Comics & Graphic Novels",
+      "items": [
+        {
+          "label": "The Sandman",
+          "author": "Neil Gaiman",
+          "genre": "fantasy"
+        },
+        {
+          "label": "Dark Nights: Metal",
+          "genre": "fantasy"
+        },
+        {
+          "label": "House of X & Powers of X",
+          "genre": "fantasy"
+        },
+        {
+          "label": "Green Lantern: Blackest Night",
+          "genre": "fantasy"
+        },
+        {
+          "label": "Flashpoint",
+          "genre": "fantasy"
+        },
+        {
+          "label": "Crisis on Infinite Earths",
+          "genre": "fantasy"
+        }
+      ]
+    },
+    {
+      "groupName": "Non Fiction",
+      "items": [
+        {
+          "label": "Show Your Work",
+          "author": "Austin Kleon",
+          "genre": "selfhelp"
+        },
+        {
+          "label": "Anything You Want",
+          "author": "Derek Sivers",
+          "genre": "selfhelp"
+        },
+        {
+          "label": "Atomic Habits",
+          "author": "James Clear",
+          "genre": "selfhelp"
+        },
+        {
+          "label": "Grit",
+          "author": "Angela Duckworth",
+          "genre": "selfhelp"
+        },
+        {
+          "label": "The Hard Thing About Hard Things",
+          "author": "Ben Horowitz",
+          "genre": "selfhelp"
+        }
+      ]
+    }
+  ]
+}

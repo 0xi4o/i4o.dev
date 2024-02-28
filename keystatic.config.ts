@@ -8,11 +8,12 @@ export default config({
 			path: 'app/content/posts/*',
 			entryLayout: 'content',
 			format: { contentField: 'content' },
+			columns: ['draft', 'date_updated', 'date_published'],
 			schema: {
 				title: fields.slug({ name: { label: 'Title' } }),
 				excerpt: fields.text({ label: 'Excerpt', multiline: true }),
 				date_published: fields.date({ label: 'Published Date' }),
-				date_updated: fields.date({ label: 'Published Date' }),
+				date_updated: fields.date({ label: 'Updated Date' }),
 				draft: fields.checkbox({ label: 'Draft' }),
 				featured: fields.checkbox({ label: 'Feature this post?' }),
 				content: fields.document({
@@ -34,7 +35,7 @@ export default config({
 				title: fields.slug({ name: { label: 'Title' } }),
 				author: fields.text({ label: 'Author' }),
 				date_published: fields.date({ label: 'Published Date' }),
-				date_updated: fields.date({ label: 'Published Date' }),
+				date_updated: fields.date({ label: 'Updated Date' }),
 				draft: fields.checkbox({ label: 'Draft' }),
 				featured: fields.checkbox({ label: 'Feature this book note?' }),
 				content: fields.document({

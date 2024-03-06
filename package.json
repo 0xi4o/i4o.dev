@@ -4,7 +4,7 @@
 	"type": "module",
 	"sideEffects": false,
 	"scripts": {
-		"build": "moon :build",
+		"build": "remix build",
 		"deploy": "moon :deploy",
 		"dev": "moon :dev",
 		"format": "moon :format",

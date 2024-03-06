@@ -5,8 +5,6 @@ project:
     description: 'Personal Website'
 
 tasks:
-    build:
-        command: 'remix build'
     dev:
         command: 'remix dev'
     deploy:

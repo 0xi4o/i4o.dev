@@ -1,10 +1,23 @@
 ---
-title: The Serverless Argument
+title: Just use a server
 date_published: '2024-03-10'
 date_updated: '2024-03-10'
 draft: true
 featured: false
 ---
-In the past few weeks, there's been a lot of discourse over serverless vs monolithic applications. It's kinda an argument that never ends but this time it seems to be caused by the enormous Netflix bill that was shared on Reddit and subsequently on HackerNews.
+In the past few weeks, there's been a lot of discourse over serverless applications. It's kinda an argument that never ends but this time it seems to be caused by the enormous Netflix bill that was shared on Reddit and subsequently on HackerNews.
 
-When I started this blog, I wrote an article on the same topic: monolithic vs serverless.
+When I started this blog, I wrote an article where I recommended deploying to VMs/servers. And I stand by that even today. There are two, compelling reasons for that:
+
+1. Servers are easy to deploy to and maintain
+1. Servers are simple.
+
+In serverless there are many areas where things can go wrong. A lot of those places are not in your control and are abstracted away from you in the name of developer experience. Don't get me wrong, I love platform with good developer experience. I love not having to think about CI/CD. I love when all I have to do is "git push". And most of what I build is deployed using a serverless platform like Vercel, Netlify, or Cloudflare. But those are simple websites. Anything more than that I always choose to deploy to a server or with docker like Fly or Railway.
+
+But what about scale? Oh, the serverless people love to use this argument. Serverless scales infinitely. Sure, so does your bill.
+
+An app deployed in a VM will take you a long way. A very long way. At one of the startups I worked at, we ran the business for over 3 years on a single EC2 instance. Then we added more instances and put them behind a load balancer. Only then we started to split of small pieces of functionality and moved them to Lambda functions. The primary business still runs on VMs.
+
+I think all the praise for serverless is the result of really good marketing.
+
+So just use a server. Split off small features and move them to serverless when you see drops in performance.

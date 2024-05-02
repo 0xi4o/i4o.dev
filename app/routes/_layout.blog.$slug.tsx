@@ -8,11 +8,14 @@ import ReadingProgress from '~/components/ReadingProgress'
 import PageTitle from '~/components/PageTitle'
 
 import keystaticConfig from '../../keystatic.config'
-import { createReader } from '@keystatic/core/reader'
+import { createGitHubReader } from '@keystatic/core/reader/github'
 import { DocumentRenderer } from '@keystatic/core/renderer'
 
 export async function loader({ params }: LoaderFunctionArgs) {
-	const reader = createReader(process.cwd(), keystaticConfig)
+	const reader = createGitHubReader(keystaticConfig, {
+		repo: '0xi4o/i4o.dev',
+		token: process.env.GITHUB_PAT,
+	})
 	const slug = params.slug as string
 	const post = await reader.collections.posts.read(slug, {
 		resolveLinkedFiles: true,

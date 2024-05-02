@@ -2,16 +2,26 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/node'
 import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
-import { createReader } from '@keystatic/core/reader'
+import { createGitHubReader } from '@keystatic/core/reader/github'
 
 import keystaticConfig from '../../keystatic.config'
 import { groupPostsByYear } from '~/utils/helpers.server'
 
 export async function loader() {
-	const reader = createReader(process.cwd(), keystaticConfig)
+	const reader = createGitHubReader(keystaticConfig, {
+		repo: '0xi4o/i4o.dev',
+		token: process.env.GITHUB_PAT,
+	})
 	const posts = await reader.collections.posts.all()
 	const publishedPosts = posts.filter((post) => !post.entry.draft)
-	const postsGroupedByYear = groupPostsByYear(publishedPosts)
+	const sortedPublishedPosts = publishedPosts.sort(
+		(a, b) =>
+			// @ts-ignore
+			new Date(b.entry.date_published).getTime() -
+			// @ts-ignore
+			new Date(a.entry.date_published).getTime()
+	)
+	const postsGroupedByYear = groupPostsByYear(sortedPublishedPosts)
 	return json({ posts: postsGroupedByYear })
 }
 

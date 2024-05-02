@@ -6,6 +6,16 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
+		title: 'Small Things Like These',
+		author: 'Claire Keegan',
+		cover: '/images/book-covers/small-things-like-these.jpg',
+	},
+]
+
+export const readThisYear: Book[] = []
+
+export const onMyRadar: Book[] = [
+	{
 		title: 'Anna Karenina',
 		author: 'Leo Tolstoy',
 		cover: '/images/book-covers/anna-karenina.jpg',
@@ -20,11 +30,6 @@ export const currentlyReading: Book[] = [
 		author: 'Rob Walling',
 		cover: '/images/book-covers/saas-playbook.jpg',
 	},
-]
-
-export const readThisYear: Book[] = []
-
-export const onMyRadar: Book[] = [
 	{
 		title: 'Designing Data-Intensive Applications',
 		author: 'Martin Kleppman',

@@ -1,8 +1,11 @@
 ---
 title: Just use a server
+excerpt: >-
+  The server vs serverless argument is seemingly never ending but I haven't
+  changed my stance. Just use a server. It's not that hard.
 date_published: '2024-03-10'
 date_updated: '2024-03-10'
-draft: false
+draft: true
 featured: false
 ---
 In the past couple of months, there's been a lot of discourse over serverless applications. It's kinda an argument that never ends but this time it seems to be caused by Vercel changing their billing. A few users have complained about their bills being increased multiple times. A few weeks before that there was another incident where a Netlify user shared their enormous Netflix bill on Reddit and subsequently on HackerNews.
@@ -18,9 +21,7 @@ But what about scale? Oh, the serverless people love to use this argument. Serve
 
 At one of the startups I worked at, we ran the business for over 3 years on a single EC2 instance. Then we added more instances and put them behind a load balancer. Only then we started to split of small pieces of functionality and moved them to Lambda functions. The primary business still runs on VMs.
 
-Platforms like Vercel have empowered frontend engineers to quickly and easily deploy their apps. There are also some great companies that have built great products that are deployed on serverless platforms. You might even like to not think about how your apps are deployed and you just want to build stuff. That's great.
-
-But VMs are not hard. Docker is not hard. And you only have to learn them once.
+I think all the praise for serverless is the result of really good marketing. Platforms like Vercel have empowered frontend engineers to deploy their apps. There are some great companies that have built great products that are deployed on serverless platforms. You might even like to not think about how your apps are deployed and you just want to build stuff. That's great.
 
 So just use a server. Split off small features and move them to serverless when you see drops in performance. Or when you're building stuff adjacent to your primary product.
 

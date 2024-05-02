@@ -11,11 +11,18 @@ export default function Now() {
 						What I'm working on right now?
 					</h3>
 
-					<p>I'm shipping Herald.</p>
+					<p>
+						I'm currently working as a Founding Engineer at
+						FlowiseAI.
+					</p>
+
+					<p>I'm shipping Herald in my free time.</p>
 
 					<p>I write on this blog.</p>
 
-					<p>I'm learning Elixir, Docker, and Rust.</p>
+					<p>I'm learning Docker and Rust.</p>
+
+					<p>I'm also learning to play a guitar.</p>
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
@@ -62,9 +69,8 @@ export default function Now() {
 						playing:
 					</p>
 					<ul>
-						<li>Cyberpunk 2077</li>
-						<li>Ghost Recon: Breakpoint</li>
-						<li>The Finals</li>
+						<li>Diablo IV</li>
+						<li>League of Legends</li>
 					</ul>
 				</section>
 
@@ -74,7 +80,7 @@ export default function Now() {
 					</h3>
 
 					<ul>
-						<li>Reacher</li>
+						<li>Vinland Saga</li>
 					</ul>
 				</section>
 			</article>

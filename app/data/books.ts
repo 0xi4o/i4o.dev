@@ -6,15 +6,31 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
+		title: 'To The Lighthouse',
+		author: 'Virginia Woolf',
+		cover: '/images/book-covers/to-the-lighthouse.jpg',
+	},
+	{
+		title: 'The Nicomachean Ethics',
+		author: 'Aristotle',
+		cover: '/images/book-covers/nicomachean-ethics.jpg',
+	},
+]
+
+export const readThisYear: Book[] = [
+	{
 		title: 'Small Things Like These',
 		author: 'Claire Keegan',
 		cover: '/images/book-covers/small-things-like-these.jpg',
 	},
 ]
 
-export const readThisYear: Book[] = []
-
 export const onMyRadar: Book[] = [
+	{
+		title: 'Don Quixote',
+		author: 'Miguel de Cervantes',
+		cover: '/images/book-covers/don-quixote.jpg',
+	},
 	{
 		title: 'Anna Karenina',
 		author: 'Leo Tolstoy',
@@ -192,16 +208,6 @@ export const toRead: Book[] = [
 		title: 'The Great Mental Models',
 		author: 'Farnam Street',
 		cover: '/images/book-covers/great-mental-models.jpg',
-	},
-	{
-		title: 'Anna Karenina',
-		author: 'Leo Tolstoy',
-		cover: '/images/book-covers/anna-karenina.webp',
-	},
-	{
-		title: 'Don Quixote',
-		author: 'Miguel de Cervantes',
-		cover: '/images/book-covers/don-quixote.jpg',
 	},
 	{
 		title: 'Moby Dick',

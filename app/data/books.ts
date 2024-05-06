@@ -27,6 +27,11 @@ export const readThisYear: Book[] = [
 
 export const onMyRadar: Book[] = [
 	{
+		title: 'Now Go: On Grief and Studio Ghibli',
+		author: 'Karl Thomas Smith',
+		cover: '/images/book-covers/now-go.jpg',
+	},
+	{
 		title: 'Don Quixote',
 		author: 'Miguel de Cervantes',
 		cover: '/images/book-covers/don-quixote.jpg',

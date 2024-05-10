@@ -6,14 +6,14 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
+		title: 'Plato: Five Dialogues',
+		author: 'Plato, G. M. A. Grube (Translator), John M. Cooper (Editor)',
+		cover: '/images/book-covers/plato-five-dialogues.jpg',
+	},
+	{
 		title: 'To The Lighthouse',
 		author: 'Virginia Woolf',
 		cover: '/images/book-covers/to-the-lighthouse.jpg',
-	},
-	{
-		title: 'The Nicomachean Ethics',
-		author: 'Aristotle',
-		cover: '/images/book-covers/nicomachean-ethics.jpg',
 	},
 ]
 
@@ -26,6 +26,21 @@ export const readThisYear: Book[] = [
 ]
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'The Problems of Philosophy',
+		author: 'Bertrand Russell',
+		cover: '/images/book-covers/problems-of-philosophy.jpg',
+	},
+	{
+		title: 'Think',
+		author: 'Simon Blackburn',
+		cover: '/images/book-covers/think.jpg',
+	},
+	{
+		title: 'The Nicomachean Ethics',
+		author: 'Aristotle',
+		cover: '/images/book-covers/nicomachean-ethics.jpg',
+	},
 	{
 		title: 'Now Go: On Grief and Studio Ghibli',
 		author: 'Karl Thomas Smith',
@@ -40,6 +55,36 @@ export const onMyRadar: Book[] = [
 		title: 'Anna Karenina',
 		author: 'Leo Tolstoy',
 		cover: '/images/book-covers/anna-karenina.jpg',
+	},
+	{
+		title: 'Meditations',
+		author: 'Marcus Aurelius (Translated by Gregory Hays)',
+		cover: '/images/book-covers/meditations.jpeg',
+	},
+	{
+		title: "Poor Charlie's Almanack",
+		author: 'Charles T. Munger',
+		cover: '/images/book-covers/poor-charlies-almanack.jpg',
+	},
+	{
+		title: 'Foundation',
+		author: 'Isaac Asimov',
+		cover: '/images/book-covers/foundation.jpg',
+	},
+	{
+		title: 'How to Think like a Roman Emperor',
+		author: 'Donald Robertson',
+		cover: '/images/book-covers/roman-emperor.jpg',
+	},
+	{
+		title: 'How Adam Smith Can Change Your Life',
+		author: 'Russ Roberts',
+		cover: '/images/book-covers/hasccyl.jpg',
+	},
+	{
+		title: 'Bird by Bird',
+		author: 'Anne Lamott',
+		cover: '/images/book-covers/bird-by-bird.jpg',
 	},
 	{
 		title: 'Writing for Software Developers',
@@ -57,11 +102,6 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/ddia.jpeg',
 	},
 	{
-		title: "Poor Charlie's Almanack",
-		author: 'Charles T. Munger',
-		cover: '/images/book-covers/poor-charlies-almanack.jpg',
-	},
-	{
 		title: 'Engineering Management for the Rest of Us',
 		author: 'Sarah Drasner',
 		cover: '/images/book-covers/emftrou.jpg',
@@ -70,16 +110,6 @@ export const onMyRadar: Book[] = [
 		title: "The Software Engineer's Guidebook",
 		author: 'Gergely Orosz',
 		cover: '/images/book-covers/tsegb.jpg',
-	},
-	{
-		title: 'How Adam Smith Can Change Your Life',
-		author: 'Russ Roberts',
-		cover: '/images/book-covers/hasccyl.jpg',
-	},
-	{
-		title: 'Bird by Bird',
-		author: 'Anne Lamott',
-		cover: '/images/book-covers/bird-by-bird.jpg',
 	},
 	{
 		title: "A supposedly fun thing I'll never do",
@@ -95,11 +125,6 @@ export const onMyRadar: Book[] = [
 		title: 'Zero to Production in Rust',
 		author: 'Luca Palmieri',
 		cover: '/images/book-covers/z2p.png',
-	},
-	{
-		title: 'Meditations',
-		author: 'Marcus Aurelius (Translated by Gregory Hays)',
-		cover: '/images/book-covers/meditations.jpeg',
 	},
 	{
 		title: 'Start Small, Stay Small',
@@ -132,11 +157,6 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/on-writing-well.jpg',
 	},
 	{
-		title: 'Foundation',
-		author: 'Isaac Asimov',
-		cover: '/images/book-covers/foundation.jpg',
-	},
-	{
 		title: 'Sapiens',
 		author: 'Yuval Noah Harari',
 		cover: '/images/book-covers/sapiens.jpg',
@@ -155,11 +175,6 @@ export const onMyRadar: Book[] = [
 		title: 'Essentialism',
 		author: 'Greg Mckeown',
 		cover: '/images/book-covers/essentialism.jpg',
-	},
-	{
-		title: 'How to Think like a Roman Emperor',
-		author: 'Donald Robertson',
-		cover: '/images/book-covers/roman-emperor.jpg',
 	},
 ]
 

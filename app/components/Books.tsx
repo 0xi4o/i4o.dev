@@ -28,7 +28,7 @@ export default function Books() {
 			</section>
 			<section className='flex flex-col gap-8'>
 				<h2 className='text-xl font-medium text-neutral-100'>2024</h2>
-				<div className='prose prose-invert w-full columns-3 gap-8'>
+				<div className='w-full columns-3 gap-8'>
 					{readThisYear.length !== 0 ? (
 						readThisYear.map((book, index) => (
 							<BookCard {...book} key={`readThisYear${index}`} />

@@ -11,9 +11,14 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/plato-five-dialogues.jpg',
 	},
 	{
-		title: 'To The Lighthouse',
-		author: 'Virginia Woolf',
-		cover: '/images/book-covers/to-the-lighthouse.jpg',
+		title: 'Writing for Software Developers',
+		author: 'Philip Kiely',
+		cover: '/images/book-covers/wfsd.png',
+	},
+	{
+		title: 'A Prayer for the Crown-Shy',
+		author: 'Becky Chambers',
+		cover: '/images/book-covers/prayer-for-the-crown-shy.jpg',
 	},
 ]
 
@@ -23,9 +28,19 @@ export const readThisYear: Book[] = [
 		author: 'Claire Keegan',
 		cover: '/images/book-covers/small-things-like-these.jpg',
 	},
+	{
+		title: 'A Psalm for the Wild-Built',
+		author: 'Becky Chambers',
+		cover: '/images/book-covers/psalm-for-the-wild-built.jpg',
+	},
 ]
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'To The Lighthouse',
+		author: 'Virginia Woolf',
+		cover: '/images/book-covers/to-the-lighthouse.jpg',
+	},
 	{
 		title: 'The Problems of Philosophy',
 		author: 'Bertrand Russell',
@@ -40,6 +55,16 @@ export const onMyRadar: Book[] = [
 		title: 'The Nicomachean Ethics',
 		author: 'Aristotle',
 		cover: '/images/book-covers/nicomachean-ethics.jpg',
+	},
+	{
+		title: 'Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
+	},
+	{
+		title: 'More Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
 	},
 	{
 		title: 'Now Go: On Grief and Studio Ghibli',
@@ -85,11 +110,6 @@ export const onMyRadar: Book[] = [
 		title: 'Bird by Bird',
 		author: 'Anne Lamott',
 		cover: '/images/book-covers/bird-by-bird.jpg',
-	},
-	{
-		title: 'Writing for Software Developers',
-		author: 'Philip Kiely',
-		cover: '/images/book-covers/wfsd.png',
 	},
 	{
 		title: 'The SaaS Playbook',

@@ -11,14 +11,14 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/plato-five-dialogues.jpg',
 	},
 	{
-		title: 'Writing for Software Developers',
-		author: 'Philip Kiely',
-		cover: '/images/book-covers/wfsd.png',
+		title: 'Now Go: On Grief and Studio Ghibli',
+		author: 'Karl Thomas Smith',
+		cover: '/images/book-covers/now-go.jpg',
 	},
 	{
-		title: 'A Prayer for the Crown-Shy',
-		author: 'Becky Chambers',
-		cover: '/images/book-covers/prayer-for-the-crown-shy.jpg',
+		title: 'Foundation',
+		author: 'Isaac Asimov',
+		cover: '/images/book-covers/foundation.jpg',
 	},
 ]
 
@@ -33,9 +33,19 @@ export const readThisYear: Book[] = [
 		author: 'Becky Chambers',
 		cover: '/images/book-covers/psalm-for-the-wild-built.jpg',
 	},
+	{
+		title: 'A Prayer for the Crown-Shy',
+		author: 'Becky Chambers',
+		cover: '/images/book-covers/prayer-for-the-crown-shy.jpg',
+	},
 ]
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'Writing for Software Developers',
+		author: 'Philip Kiely',
+		cover: '/images/book-covers/wfsd.png',
+	},
 	{
 		title: 'To The Lighthouse',
 		author: 'Virginia Woolf',
@@ -67,11 +77,6 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
 	},
 	{
-		title: 'Now Go: On Grief and Studio Ghibli',
-		author: 'Karl Thomas Smith',
-		cover: '/images/book-covers/now-go.jpg',
-	},
-	{
 		title: 'Don Quixote',
 		author: 'Miguel de Cervantes',
 		cover: '/images/book-covers/don-quixote.jpg',
@@ -90,11 +95,6 @@ export const onMyRadar: Book[] = [
 		title: "Poor Charlie's Almanack",
 		author: 'Charles T. Munger',
 		cover: '/images/book-covers/poor-charlies-almanack.jpg',
-	},
-	{
-		title: 'Foundation',
-		author: 'Isaac Asimov',
-		cover: '/images/book-covers/foundation.jpg',
 	},
 	{
 		title: 'How to Think like a Roman Emperor',

@@ -6,19 +6,14 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'Plato: Five Dialogues',
-		author: 'Plato, G. M. A. Grube (Translator), John M. Cooper (Editor)',
-		cover: '/images/book-covers/plato-five-dialogues.jpg',
+		title: 'Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
 	},
 	{
-		title: 'Now Go: On Grief and Studio Ghibli',
-		author: 'Karl Thomas Smith',
-		cover: '/images/book-covers/now-go.jpg',
-	},
-	{
-		title: 'Foundation',
-		author: 'Isaac Asimov',
-		cover: '/images/book-covers/foundation.jpg',
+		title: 'Structure and Interpretation of Computer Programs',
+		author: 'Harold Abelson and Gerald Jay Sussman',
+		cover: '/images/book-covers/sicp.jpg',
 	},
 ]
 
@@ -41,6 +36,31 @@ export const readThisYear: Book[] = [
 ]
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'More Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen.jpg',
+	},
+	{
+		title: 'Plato: Five Dialogues',
+		author: 'Plato, G. M. A. Grube (Translator), John M. Cooper (Editor)',
+		cover: '/images/book-covers/plato-five-dialogues.jpg',
+	},
+	{
+		title: 'Foundation',
+		author: 'Isaac Asimov',
+		cover: '/images/book-covers/foundation.jpg',
+	},
+	{
+		title: 'Now Go: On Grief and Studio Ghibli',
+		author: 'Karl Thomas Smith',
+		cover: '/images/book-covers/now-go.jpg',
+	},
 	{
 		title: 'Writing for Software Developers',
 		author: 'Philip Kiely',
@@ -65,16 +85,6 @@ export const onMyRadar: Book[] = [
 		title: 'The Nicomachean Ethics',
 		author: 'Aristotle',
 		cover: '/images/book-covers/nicomachean-ethics.jpg',
-	},
-	{
-		title: 'Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
-	},
-	{
-		title: 'More Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
 	},
 	{
 		title: 'Don Quixote',

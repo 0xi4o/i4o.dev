@@ -3,7 +3,7 @@
 -   Framework: [Remix](https://remix.run/)
 -   Components: [Catalyst UI](https://catalyst.i4o.dev/)
 -   Styling: [TailwindCSS](https://tailwindcss.com/)
--   Deployment: [Railway](https://vercel.com/)
+-   Deployment: [Fly](https://fly.io/)
 
 ## Run Locally
 

@@ -6,9 +6,9 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'Days at the Morisaki Bookshop',
+		title: 'More Days at the Morisaki Bookshop',
 		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
+		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
 	},
 	{
 		title: 'Structure and Interpretation of Computer Programs',
@@ -18,6 +18,11 @@ export const currentlyReading: Book[] = [
 ]
 
 export const readThisYear: Book[] = [
+	{
+		title: 'Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
+	},
 	{
 		title: 'Small Things Like These',
 		author: 'Claire Keegan',
@@ -36,11 +41,6 @@ export const readThisYear: Book[] = [
 ]
 
 export const onMyRadar: Book[] = [
-	{
-		title: 'More Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
-	},
 	{
 		title: 'Jujutsu Kaisen',
 		author: 'Gege Akutami',

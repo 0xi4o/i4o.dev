@@ -16,11 +16,9 @@ export default function Now() {
 						FlowiseAI.
 					</p>
 
-					<p>I'm shipping Herald in my free time.</p>
+					<p>I'm shipping Aurelius in my free time.</p>
 
-					<p>I write on this blog.</p>
-
-					<p>I'm learning Docker and Rust.</p>
+					<p>I'm learning Go.</p>
 
 					<p>I'm also learning to play a guitar.</p>
 				</section>
@@ -32,7 +30,6 @@ export default function Now() {
 					</h3>
 
 					<ul>
-						<li>Herald</li>
 						<li>Aurelius</li>
 						<li>and a few small open-source tools</li>
 					</ul>
@@ -40,10 +37,11 @@ export default function Now() {
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
 					<h3 className='text-lg text-neutral-100'>
-						What is my current short-term goal?
+						What are my current short-term goals?
 					</h3>
 
-					<p>$5k MRR by the end of 2024 from my projects.</p>
+					<p>Build and launch small open-source projects</p>
+					<p>Monetize one of the projects</p>
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
@@ -69,8 +67,8 @@ export default function Now() {
 						playing:
 					</p>
 					<ul>
-						<li>Diablo IV</li>
-						<li>League of Legends</li>
+						<li>Euro Truck Simulator 2</li>
+						<li>God of War</li>
 					</ul>
 				</section>
 
@@ -80,7 +78,7 @@ export default function Now() {
 					</h3>
 
 					<ul>
-						<li>Vinland Saga</li>
+						<li>Jujutsu Kaisen</li>
 					</ul>
 				</section>
 			</article>

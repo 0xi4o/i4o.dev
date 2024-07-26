@@ -11,9 +11,14 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
 	},
 	{
-		title: 'Structure and Interpretation of Computer Programs',
-		author: 'Harold Abelson and Gerald Jay Sussman',
-		cover: '/images/book-covers/sicp.jpg',
+		title: 'How to Solve It',
+		author: 'George Pólya',
+		cover: '/images/book-covers/how-to-solve-it.jpg',
+	},
+	{
+		title: 'Let\'s Go',
+		author: 'Alex Edwards',
+		cover: '/images/book-covers/lets-go.jpg',
 	},
 ]
 
@@ -50,6 +55,11 @@ export const onMyRadar: Book[] = [
 		title: 'Plato: Five Dialogues',
 		author: 'Plato, G. M. A. Grube (Translator), John M. Cooper (Editor)',
 		cover: '/images/book-covers/plato-five-dialogues.jpg',
+	},
+	{
+		title: 'Structure and Interpretation of Computer Programs',
+		author: 'Harold Abelson and Gerald Jay Sussman',
+		cover: '/images/book-covers/sicp.jpg',
 	},
 	{
 		title: 'Foundation',

@@ -6,9 +6,9 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'More Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
+		title: 'Circe',
+		author: 'Madeline Miller',
+		cover: '/images/book-covers/circe.jpg',
 	},
 	{
 		title: 'How to Solve It',
@@ -23,6 +23,11 @@ export const currentlyReading: Book[] = [
 ]
 
 export const readThisYear: Book[] = [
+	{
+		title: 'More Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
+	},
 	{
 		title: 'Days at the Morisaki Bookshop',
 		author: 'Satoshi Yagisawa',

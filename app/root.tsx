@@ -135,8 +135,6 @@ function Document({ children }: { children: ReactNode }) {
 				<Meta />
 				<Links />
 				{/*<ThemeHead ssrTheme={Boolean(data.theme)} />*/}
-			</head>
-			<body className='bg-neutral-950 font-sans'>
 				{process.env.NODE_ENV === 'production' ? (
 					<script
 						defer
@@ -144,6 +142,8 @@ function Document({ children }: { children: ReactNode }) {
 						data-hash
 					/>
 				) : null}
+			</head>
+			<body className='bg-neutral-950 font-sans'>
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `

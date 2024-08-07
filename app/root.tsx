@@ -140,8 +140,8 @@ function Document({ children }: { children: ReactNode }) {
 				{process.env.NODE_ENV === 'production' ? (
 					<script
 						defer
-						src='https://plausible.i4o.dev/js/script.js'
-						data-domain='i4o.dev'
+						src='https://medama.i4o.dev/script.js'
+						data-hash
 					/>
 				) : null}
 				<script

@@ -15,14 +15,14 @@ export const currentlyReading: Book[] = [
 		author: 'George Pólya',
 		cover: '/images/book-covers/how-to-solve-it.jpg',
 	},
+]
+
+export const readThisYear: Book[] = [
 	{
 		title: 'Let\'s Go',
 		author: 'Alex Edwards',
 		cover: '/images/book-covers/lets-go.jpg',
 	},
-]
-
-export const readThisYear: Book[] = [
 	{
 		title: 'More Days at the Morisaki Bookshop',
 		author: 'Satoshi Yagisawa',
@@ -51,6 +51,16 @@ export const readThisYear: Book[] = [
 ]
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'Let\'s Go Further',
+		author: 'Alex Edwards',
+		cover: '/images/book-covers/lets-go-further.png',
+	},
+	{
+		title: 'Learn Concurrent Programming with Go',
+		author: 'James Cutajar',
+		cover: '/images/book-covers/concurrent-go.jpg',
+	},
 	{
 		title: 'Jujutsu Kaisen',
 		author: 'Gege Akutami',

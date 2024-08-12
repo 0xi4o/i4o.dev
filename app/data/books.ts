@@ -6,20 +6,30 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'Circe',
-		author: 'Madeline Miller',
-		cover: '/images/book-covers/circe.jpg',
+		title: 'Jujutsu Kaisen',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen.jpg',
 	},
 	{
 		title: 'How to Solve It',
 		author: 'George Pólya',
 		cover: '/images/book-covers/how-to-solve-it.jpg',
 	},
+	{
+		title: "Let's Go Further",
+		author: 'Alex Edwards',
+		cover: '/images/book-covers/lets-go-further.png',
+	},
 ]
 
 export const readThisYear: Book[] = [
 	{
-		title: 'Let\'s Go',
+		title: 'Circe',
+		author: 'Madeline Miller',
+		cover: '/images/book-covers/circe.jpg',
+	},
+	{
+		title: "Let's Go",
 		author: 'Alex Edwards',
 		cover: '/images/book-covers/lets-go.jpg',
 	},
@@ -52,19 +62,14 @@ export const readThisYear: Book[] = [
 
 export const onMyRadar: Book[] = [
 	{
-		title: 'Let\'s Go Further',
-		author: 'Alex Edwards',
-		cover: '/images/book-covers/lets-go-further.png',
+		title: 'Foundation',
+		author: 'Isaac Asimov',
+		cover: '/images/book-covers/foundation.jpg',
 	},
 	{
 		title: 'Learn Concurrent Programming with Go',
 		author: 'James Cutajar',
 		cover: '/images/book-covers/concurrent-go.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen.jpg',
 	},
 	{
 		title: 'Plato: Five Dialogues',
@@ -75,11 +80,6 @@ export const onMyRadar: Book[] = [
 		title: 'Structure and Interpretation of Computer Programs',
 		author: 'Harold Abelson and Gerald Jay Sussman',
 		cover: '/images/book-covers/sicp.jpg',
-	},
-	{
-		title: 'Foundation',
-		author: 'Isaac Asimov',
-		cover: '/images/book-covers/foundation.jpg',
 	},
 	{
 		title: 'Now Go: On Grief and Studio Ghibli',
@@ -95,16 +95,6 @@ export const onMyRadar: Book[] = [
 		title: 'To The Lighthouse',
 		author: 'Virginia Woolf',
 		cover: '/images/book-covers/to-the-lighthouse.jpg',
-	},
-	{
-		title: 'The Problems of Philosophy',
-		author: 'Bertrand Russell',
-		cover: '/images/book-covers/problems-of-philosophy.jpg',
-	},
-	{
-		title: 'Think',
-		author: 'Simon Blackburn',
-		cover: '/images/book-covers/think.jpg',
 	},
 	{
 		title: 'The Nicomachean Ethics',
@@ -137,11 +127,6 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/roman-emperor.jpg',
 	},
 	{
-		title: 'How Adam Smith Can Change Your Life',
-		author: 'Russ Roberts',
-		cover: '/images/book-covers/hasccyl.jpg',
-	},
-	{
 		title: 'Bird by Bird',
 		author: 'Anne Lamott',
 		cover: '/images/book-covers/bird-by-bird.jpg',
@@ -170,11 +155,6 @@ export const onMyRadar: Book[] = [
 		title: "A supposedly fun thing I'll never do",
 		author: 'David Foster Wallace',
 		cover: '/images/book-covers/supposedly-fun.jpg',
-	},
-	{
-		title: 'Four Thousand Weeks',
-		author: 'Oliver Burkeman',
-		cover: '/images/book-covers/4000-weeks.jpg',
 	},
 	{
 		title: 'Zero to Production in Rust',
@@ -207,6 +187,11 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/sense-of-style.jpg',
 	},
 	{
+		title: 'Writing to Learn',
+		author: 'William Zinsser',
+		cover: '/images/book-covers/writing-to-learn.jpg',
+	},
+	{
 		title: 'On Writing Well',
 		author: 'William Zinsser',
 		cover: '/images/book-covers/on-writing-well.jpg',
@@ -217,19 +202,9 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/sapiens.jpg',
 	},
 	{
-		title: 'Writing to Learn',
-		author: 'William Zinsser',
-		cover: '/images/book-covers/writing-to-learn.jpg',
-	},
-	{
 		title: 'The Art and Business of Online Writing',
 		author: 'Nicolas Cole',
 		cover: '/images/book-covers/online-writing.jpg',
-	},
-	{
-		title: 'Essentialism',
-		author: 'Greg Mckeown',
-		cover: '/images/book-covers/essentialism.jpg',
 	},
 ]
 

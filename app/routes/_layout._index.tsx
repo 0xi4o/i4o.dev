@@ -3,14 +3,11 @@ import { json } from '@remix-run/node'
 import { FeaturedProjects, Hero } from '~/components'
 import { projects } from '~/data/projects'
 import keystaticConfig from '../../keystatic.config'
-import { createGitHubReader } from '@keystatic/core/reader/github'
+import { createReader } from '@keystatic/core/reader'
 import PostCard from '~/components/PostCard'
 
 export async function loader() {
-	const reader = createGitHubReader(keystaticConfig, {
-		repo: '0xi4o/i4o.dev',
-		token: process.env.GITHUB_PAT,
-	})
+	const reader = createReader(process.cwd(), keystaticConfig)
 	// TODO: check if there are other ways to filter instead of fetching everything and then slicing.
 	const posts = await reader.collections.posts.all()
 	const publishedPosts = posts.filter((post) => !post.entry.draft)

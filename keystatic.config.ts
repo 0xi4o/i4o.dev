@@ -123,7 +123,6 @@ export default config({
 		}),
 	},
 	storage: {
-		kind: 'github',
-		repo: '0xi4o/i4o.dev',
+		kind: 'local',
 	},
 })

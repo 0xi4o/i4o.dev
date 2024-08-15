@@ -1,0 +1,38 @@
+---
+title: Reviving Aurelius
+excerpt: >-
+  After a long time of not working on side projects, I started to miss it again
+  a few weeks back. This came almost right after realizing that all my side
+  projects were dead. So the first step was to revive my favorite project.
+date_published: '2024-08-05'
+date_updated: '2024-08-05'
+draft: false
+featured: true
+---
+After a long time of not working on side projects, I started to miss it again a few weeks back. I missed building small, cool stuff. This came almost right after realizing that&nbsp;[**all my side projects were dead**](https://i4o.dev/blog/all-my-side-projects-are-dead). I hadn't updated any of them in a long time. Not using and working on Aurelius was especially hurting. Aurelius was absolutely my favorite project and I had let it die.
+
+I wasn't writing either. That was partly due to me not having stuff to write about and partly because I didn't do anything worth writing about. It was a vicious cycle that I wanted to break.
+
+So about a month ago, I started a fresh web application project with the goal of rewriting Aurelius from scratch. That would be the third time that I've done this. But something tells me that this will be the last time. I hope. Coincidentally, right before starting the project, I'd stumbled upon (again) on a different way to build web applications. It's something I was already interested in but I'd put it off for some reason. It's called local-first and I got a renewed interest in it.
+
+## **What does local-first mean?**
+
+It means the data generated inside Aurelius, stays in your browser. There are no servers, no databases that live in a computer somewhere that you have to connect to just so you can write. Consequentially, this means that you have 100% ownership of your data when you write with Aurelius. Aurelius, and by extension, I, cannot see what you write. Ever. This also means, that you are 100% responsible for your data. I have no way to restore or recover your data if you lose it. You can however, transfer your data to a different browser or device and keep it in sync with your primary device.
+
+Well, the part about no server and no database is not exactly true. Aurelius does have a server and it only does one thing. Helps you sync your data between your devices. When syncing, your data passes through our server. But Aurelius encryptes your data (which means it'll be unrecognizable to the server) before transferring and once it reaches your other device(s), it is decrypted (changes it back to your data). The encrypted data is temporarily stored on a database. This is called end-to-end encryption. Once the transfer is complete, the data is securely deleted from the database.
+
+Using the sync feature, you can make copies of your data on different devices so you'll always have access to them.
+
+## **Why do this?**
+
+Building Aurelius as a local-first software has several advantages — for you and me.
+
+For you, who is writing with Aurelius. You get to use a writing software that doesn't track you, watch your every move, and save your data on a remote computer where it's at a risk of leaked or hacked. You get to keep all the things you write, knowing that even if the one of your device goes down, you can rest easy knowing that you won't lose all the things you write. You also can take one of your devices offline for a few days or weeks and write in Aurelius as much as you want. When you reconnect to the internet, Aurelius will sync all your data to your devices (provided they're all online and you have Aurelius open on those devices).
+
+For me, as the person building Aurelius. Local-first drastically simplifies all the things I have to set up in order to build and operate Aurelius. Not to mention, since there are very few moving parts, it incurs a drastically reduced cost to operate. That is because Aurelius doesn't need all the resources that a typical web-based writing software would need. Another thing that is interesting to me with local-first software is that even though the set up is simpler, building it is not. Local-first software have some difficult challenges, especially when it comes to syncing data across multiple devices. This is something I'm interesting in learning more about so building Aurelius also provides me with ample opportunities to become a better software engineer. And finally, I get to build something that I can use everyday. I want to be a writer. Although I don't have to build the software just so I can write, I am doing it because I want to. I want to enjoy using the tools that I use everyday. The best way I know how is to build them myself.
+
+---
+
+The current version has all the features that the previous version has. In fact it has more features now, even though the code is simpler. I'm also building a few more features in the next week before I can call this version complete. After that, I'll keep using Aurelius and keep collecting ideas for improvements. I'm not sure when I'll be building them. That'll depend on how badly I need those improvements.
+
+And that's the short story behind reviving Aurelius. If you're curious, check out&nbsp;[**Aurelius**](https://aurelius.ink/). Write with it and test out its capabilities. If you like it (or don't), let me know on&nbsp;[**X**](https://x.com/0xi4o).

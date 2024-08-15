@@ -6,9 +6,9 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'Jujutsu Kaisen',
+		title: 'Jujutsu Kaisen Vol 5',
 		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen.jpg',
+		cover: '/images/book-covers/jujutsu-kaisen-5.jpg',
 	},
 	{
 		title: 'How to Solve It',
@@ -23,6 +23,26 @@ export const currentlyReading: Book[] = [
 ]
 
 export const readThisYear: Book[] = [
+	{
+		title: 'Jujutsu Kaisen Vol 1',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 2',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-2.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 3',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-3.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 4',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-4.jpg',
+	},
 	{
 		title: 'Circe',
 		author: 'Madeline Miller',

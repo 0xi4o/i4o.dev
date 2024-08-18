@@ -6,14 +6,9 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'Jujutsu Kaisen Vol 5',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-5.jpg',
-	},
-	{
-		title: 'How to Solve It',
-		author: 'George Pólya',
-		cover: '/images/book-covers/how-to-solve-it.jpg',
+		title: 'How to Take Smart Notes',
+		author: 'Sönke Ahrens',
+		cover: '/images/book-covers/how-to-take-smart-notes.jpg',
 	},
 	{
 		title: "Let's Go Further",
@@ -42,6 +37,11 @@ export const readThisYear: Book[] = [
 		title: 'Jujutsu Kaisen Vol 4',
 		author: 'Gege Akutami',
 		cover: '/images/book-covers/jujutsu-kaisen-4.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 5',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-5.jpg',
 	},
 	{
 		title: 'Circe',
@@ -81,6 +81,11 @@ export const readThisYear: Book[] = [
 ]
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'How to Solve It',
+		author: 'George Pólya',
+		cover: '/images/book-covers/how-to-solve-it.jpg',
+	},
 	{
 		title: 'Foundation',
 		author: 'Isaac Asimov',

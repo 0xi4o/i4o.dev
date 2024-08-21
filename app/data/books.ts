@@ -6,14 +6,19 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'How to Take Smart Notes',
-		author: 'Sönke Ahrens',
-		cover: '/images/book-covers/how-to-take-smart-notes.jpg',
+		title: 'Writing to Learn',
+		author: 'William Zinsser',
+		cover: '/images/book-covers/writing-to-learn.jpg',
 	},
 	{
 		title: "Let's Go Further",
 		author: 'Alex Edwards',
 		cover: '/images/book-covers/lets-go-further.png',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 7',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-7.jpg',
 	},
 ]
 
@@ -42,6 +47,11 @@ export const readThisYear: Book[] = [
 		title: 'Jujutsu Kaisen Vol 5',
 		author: 'Gege Akutami',
 		cover: '/images/book-covers/jujutsu-kaisen-5.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 6',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-6.jpg',
 	},
 	{
 		title: 'Circe',
@@ -81,6 +91,16 @@ export const readThisYear: Book[] = [
 ]
 
 export const onMyRadar: Book[] = [
+	{
+		title: 'On Writing Well',
+		author: 'William Zinsser',
+		cover: '/images/book-covers/on-writing-well.jpg',
+	},
+	{
+		title: 'How to Take Smart Notes',
+		author: 'Sönke Ahrens',
+		cover: '/images/book-covers/how-to-take-smart-notes.jpg',
+	},
 	{
 		title: 'How to Solve It',
 		author: 'George Pólya',
@@ -210,16 +230,6 @@ export const onMyRadar: Book[] = [
 		title: 'Sense of Style',
 		author: 'Steven Pinker',
 		cover: '/images/book-covers/sense-of-style.jpg',
-	},
-	{
-		title: 'Writing to Learn',
-		author: 'William Zinsser',
-		cover: '/images/book-covers/writing-to-learn.jpg',
-	},
-	{
-		title: 'On Writing Well',
-		author: 'William Zinsser',
-		cover: '/images/book-covers/on-writing-well.jpg',
 	},
 	{
 		title: 'Sapiens',

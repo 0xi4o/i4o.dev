@@ -54,6 +54,21 @@ export const readThisYear: Book[] = [
 		cover: '/images/book-covers/jujutsu-kaisen-6.jpg',
 	},
 	{
+		title: 'Jujutsu Kaisen Vol 7',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-7.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 8',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-8.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 9',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-9.jpg',
+	},
+	{
 		title: 'Circe',
 		author: 'Madeline Miller',
 		cover: '/images/book-covers/circe.jpg',

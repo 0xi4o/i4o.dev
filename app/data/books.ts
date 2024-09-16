@@ -16,9 +16,9 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/lets-go-further.png',
 	},
 	{
-		title: 'Jujutsu Kaisen Vol 7',
+		title: 'Jujutsu Kaisen Vol 12',
 		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-7.jpg',
+		cover: '/images/book-covers/jujutsu-kaisen-12.jpg',
 	},
 ]
 
@@ -67,6 +67,16 @@ export const readThisYear: Book[] = [
 		title: 'Jujutsu Kaisen Vol 9',
 		author: 'Gege Akutami',
 		cover: '/images/book-covers/jujutsu-kaisen-9.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 10',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-10.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 11',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-11.jpg',
 	},
 	{
 		title: 'Circe',

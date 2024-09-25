@@ -16,9 +16,9 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/lets-go-further.png',
 	},
 	{
-		title: 'Jujutsu Kaisen Vol 12',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-12.jpg',
+		title: 'The Three Body Problem',
+		author: 'Cixin Liu',
+		cover: '/images/book-covers/three-body-problem.jpg',
 	},
 ]
 
@@ -77,6 +77,26 @@ export const readThisYear: Book[] = [
 		title: 'Jujutsu Kaisen Vol 11',
 		author: 'Gege Akutami',
 		cover: '/images/book-covers/jujutsu-kaisen-11.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 12',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-12.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 13',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-13.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 14',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-14.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 15',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-15.jpg',
 	},
 	{
 		title: 'Circe',

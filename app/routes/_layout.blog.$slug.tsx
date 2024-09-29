@@ -10,6 +10,7 @@ import PageTitle from '~/components/PageTitle'
 import keystaticConfig from '../../keystatic.config'
 import { createReader } from '@keystatic/core/reader'
 import { DocumentRenderer } from '@keystatic/core/renderer'
+import { TITLE_SPECIAL_CASES } from '~/utils/constants'
 
 export async function loader({ params }: LoaderFunctionArgs) {
 	const reader = createReader(process.cwd(), keystaticConfig)
@@ -71,7 +72,9 @@ ${post.title} 👇`
 						<PageTitle>
 							{
 								// @ts-ignore
-								title(post.title)
+								title(post.title, {
+									special: TITLE_SPECIAL_CASES,
+								})
 							}
 						</PageTitle>
 					</header>

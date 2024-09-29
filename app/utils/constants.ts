@@ -35,3 +35,5 @@ export const MAP_COLOR_VARIANT_TO_BG: Record<TailwindColor, string> = {
 	pink: 'bg-pink-500',
 	rose: 'bg-rose-500',
 }
+
+export const TITLE_SPECIAL_CASES = ['OpenAPI']

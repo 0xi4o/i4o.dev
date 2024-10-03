@@ -7,9 +7,9 @@ export default function ReadingProgress() {
 		const body = document.body
 		const html = document.documentElement
 
-		let scrollFromTop = html.scrollTop || body.scrollTop
-		let height = html.scrollHeight - html.clientHeight
-		let width = `${(scrollFromTop / height) * 100}%`
+		const scrollFromTop = html.scrollTop || body.scrollTop
+		const height = html.scrollHeight - html.clientHeight
+		const width = `${(scrollFromTop / height) * 100}%`
 
 		setReadingProgress(width)
 	}

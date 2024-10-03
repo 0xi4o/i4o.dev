@@ -113,7 +113,7 @@ export function readingTimeWithCount(
 	// Math.round used to resolve floating point funkiness
 	//   http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
 	const time = Math.round(minutes * 60 * 1000)
-	const displayed = Math.ceil(parseFloat(minutes.toFixed(2)))
+	const displayed = Math.ceil(Number.parseFloat(minutes.toFixed(2)))
 
 	return {
 		minutes: displayed,

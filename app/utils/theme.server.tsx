@@ -1,6 +1,6 @@
 import { createCookieSessionStorage } from '@remix-run/cloudflare'
 
-import { Theme, isTheme } from './theme'
+import { type Theme, isTheme } from './theme'
 
 const sessionSecret = process.env.SESSION_SECRET || 'I4O_DEV_SESSION_SECRET'
 if (!sessionSecret) {

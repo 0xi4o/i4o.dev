@@ -27,7 +27,7 @@ export default function Blog() {
 	const { posts: postsGroupedByYear } = data
 	const currentYear = new Date().getFullYear()
 	const sortedYears = Object.keys(postsGroupedByYear).sort(
-		(a, b) => parseInt(b, 10) - parseInt(a, 10),
+		(a, b) => Number.parseInt(b, 10) - Number.parseInt(a, 10),
 	)
 
 	return (

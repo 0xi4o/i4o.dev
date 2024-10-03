@@ -1,5 +1,5 @@
-import type { LoaderFunctionArgs } from '@remix-run/node'
-import { json } from '@remix-run/node'
+import type { LoaderFunctionArgs } from '@remix-run/cloudflare'
+import { json } from '@remix-run/cloudflare'
 import { Link, useLoaderData } from '@remix-run/react'
 import { format } from 'date-fns'
 import title from 'title'

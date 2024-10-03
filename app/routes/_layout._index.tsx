@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import { json } from '@remix-run/cloudflare'
 import { FeaturedProjects, Hero } from '~/components'
 import { projects } from '~/data/projects'
 import keystaticConfig from '../../keystatic.config'

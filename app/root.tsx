@@ -4,8 +4,8 @@ import type {
 	LoaderFunctionArgs,
 	MetaFunction,
 	SerializeFrom,
-} from '@remix-run/node'
-import { json } from '@remix-run/node'
+} from '@remix-run/cloudflare'
+import { json } from '@remix-run/cloudflare'
 import {
 	Links,
 	LiveReload,
@@ -17,10 +17,9 @@ import {
 import { getCurrentTrack } from '~/utils/helpers.server'
 import BlurCircle from '~/components/BlurCircle'
 import theme from '~/data/theme'
-import styles from '~/main.css'
+import '~/main.css'
 
 export const links: LinksFunction = () => [
-	{ rel: 'stylesheet', href: styles },
 	{ rel: 'manifest', href: '/site.webmanifest' },
 	{
 		rel: 'apple-touch-icon',

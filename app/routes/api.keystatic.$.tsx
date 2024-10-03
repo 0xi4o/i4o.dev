@@ -1,4 +1,4 @@
-import type { ActionFunction, LoaderFunction } from '@remix-run/node'
+import type { ActionFunction, LoaderFunction } from '@remix-run/cloudflare'
 import { handleLoader } from '~/utils/keystatic.server'
 import config from '../../keystatic.config'
 

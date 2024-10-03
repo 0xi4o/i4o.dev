@@ -1,2 +1,2 @@
-name = "0xi4o-website"
 compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2024-10-03"

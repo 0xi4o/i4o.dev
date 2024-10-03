@@ -52,7 +52,7 @@ export default function BlogPost() {
 							<span className='text-xs font-semibold uppercase'>
 								{format(
 									new Date(post.date_published as string),
-									'PP'
+									'PP',
 								)}
 							</span>
 							{/* <span>·</span>

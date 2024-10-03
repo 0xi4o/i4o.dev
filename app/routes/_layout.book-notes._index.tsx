@@ -36,9 +36,9 @@ export default function Blog() {
 							<span className='text-sm italic leading-6'>
 								{format(
 									new Date(
-										post.entry.date_published as string
+										post.entry.date_published as string,
 									),
-									'MMM dd'
+									'MMM dd',
 								)}
 							</span>
 						</div>

@@ -111,13 +111,13 @@ export default config({
 							}),
 							{
 								itemLabel: (props) => props.fields.label.value,
-							}
+							},
 						),
 					}),
 					{
 						label: 'Group Name',
 						itemLabel: (props) => props.fields.groupName.value,
-					}
+					},
 				),
 			},
 		}),

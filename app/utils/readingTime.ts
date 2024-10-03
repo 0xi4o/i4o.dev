@@ -10,7 +10,7 @@ type WordBoundFunction = Options['wordBound']
 function codeIsInRanges(number: number, arrayOfRanges: number[][]) {
 	return arrayOfRanges.some(
 		([lowerBound, upperBound]) =>
-			lowerBound <= number && number <= upperBound
+			lowerBound <= number && number <= upperBound,
 	)
 }
 
@@ -54,7 +54,7 @@ const isPunctuation: WordBoundFunction = (c) => {
 
 export function countWords(
 	text: string,
-	options: Options = {}
+	options: Options = {},
 ): WordCountStats {
 	let words = 0,
 		start = 0,
@@ -105,7 +105,7 @@ export function countWords(
 
 export function readingTimeWithCount(
 	words: WordCountStats,
-	options: Options = {}
+	options: Options = {},
 ): ReadingTimeStats {
 	const { wordsPerMinute = 200 } = options
 	// reading time stats
@@ -123,7 +123,7 @@ export function readingTimeWithCount(
 
 function getReadingTime(
 	text: string,
-	options: Options = {}
+	options: Options = {},
 ): ReadingTimeResult {
 	const words = countWords(text, options)
 	return {

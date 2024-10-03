@@ -8,7 +8,7 @@ export const getAccessToken = async () => {
 	const client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
 	const basic = Buffer.from(`${client_id}:${client_secret}`).toString(
-		'base64'
+		'base64',
 	)
 	const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 

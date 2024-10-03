@@ -13,7 +13,7 @@ export const loader = async () => {
 				.filter(({ to }) => to !== '/')
 				.map(({ to }) => `${ORIGIN}${to}`),
 			...posts.map(
-				({ slug }: { slug: string }) => `${ORIGIN}/blog/${slug}`
+				({ slug }: { slug: string }) => `${ORIGIN}/blog/${slug}`,
 			),
 		])
 

@@ -16,7 +16,7 @@ export async function loader() {
 			// @ts-ignore
 			new Date(b.entry.date_published).getTime() -
 			// @ts-ignore
-			new Date(a.entry.date_published).getTime()
+			new Date(a.entry.date_published).getTime(),
 	)
 	const postsGroupedByYear = groupPostsByYear(sortedPublishedPosts)
 	return json({ posts: postsGroupedByYear })
@@ -27,7 +27,7 @@ export default function Blog() {
 	const { posts: postsGroupedByYear } = data
 	const currentYear = new Date().getFullYear()
 	const sortedYears = Object.keys(postsGroupedByYear).sort(
-		(a, b) => parseInt(b, 10) - parseInt(a, 10)
+		(a, b) => parseInt(b, 10) - parseInt(a, 10),
 	)
 
 	return (
@@ -81,9 +81,10 @@ export default function Blog() {
 														{format(
 															new Date(
 																// @ts-ignore
-																post.entry.date_published
+																post.entry
+																	.date_published,
 															),
-															'MMM dd'
+															'MMM dd',
 														)}
 													</span>
 												</div>
@@ -109,7 +110,7 @@ export default function Blog() {
 													/>
 												</svg>
 											</Link>
-										)
+										),
 									)
 								}
 							</div>

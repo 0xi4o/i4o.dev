@@ -39,7 +39,7 @@ function generateRss({
         <pubDate>${entry.date}</pubDate>
         <link>${entry.link}</link>
         ${entry.guid ? `<guid isPermaLink="false">${entry.guid}</guid>` : ''}
-      </item>`
+      </item>`,
 		)
 		.join('')}
   </channel>

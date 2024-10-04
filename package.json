@@ -7,10 +7,11 @@
 		"build": "remix vite:build",
 		"deploy": "fly deploy --remote-only",
 		"dev": "remix vite:dev",
-		"format": "prettier --write .",
-		"lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+		"format": "biome format --write .",
+		"lint": "biome lint --fix .",
 		"start": "wrangler pages dev ./build/client",
-		"typecheck": "tsc"
+		"typecheck": "tsc",
+		"types": "wrangler types"
 	},
 	"dependencies": {
 		"@i4o/catalystui": "1.0.0-alpha.17",

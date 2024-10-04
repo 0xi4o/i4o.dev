@@ -2,7 +2,7 @@ node_modules
 
 .idea
 .cache
-.env
+.dev.vars
 .vercel
 .output
 

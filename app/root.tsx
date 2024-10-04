@@ -116,8 +116,8 @@ export const meta: MetaFunction = () => [
 
 export type LoaderData = SerializeFrom<typeof loader>
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-	const nowPlayingTrack = await getCurrentTrack()
+export const loader = async ({ context, request }: LoaderFunctionArgs) => {
+	const nowPlayingTrack = await getCurrentTrack(context)
 	const data = await nowPlayingTrack.json()
 	// const themeSession = await getThemeSession(request)
 
@@ -129,21 +129,20 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 function Document({ children }: { children: ReactNode }) {
 	return (
-		<html lang='en' className={`h-screen w-screen`}>
+		<html lang='en' className='h-screen w-screen'>
 			<head>
 				<Meta />
 				<Links />
 				{/*<ThemeHead ssrTheme={Boolean(data.theme)} />*/}
-				{process.env.NODE_ENV === 'production' ? (
-					<script
-						defer
-						src='https://medama.i4o.dev/script.js'
-						data-hash
-					/>
-				) : null}
+				<script
+					defer
+					src='https://medama.i4o.dev/script.js'
+					data-hash
+				/>
 			</head>
 			<body className='bg-neutral-950 font-sans'>
 				<script
+					// biome-ignore lint: it's fine
 					dangerouslySetInnerHTML={{
 						__html: `
         	                window.CustomSubstackWidget = {

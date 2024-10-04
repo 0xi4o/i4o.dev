@@ -1,13 +1,17 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Outlet, useLoaderData, useLocation } from '@remix-run/react'
-import { json, type SerializeFrom } from '@remix-run/cloudflare'
+import {
+	json,
+	type LoaderFunctionArgs,
+	type SerializeFrom,
+} from '@remix-run/cloudflare'
 import { getCurrentTrack } from '~/utils/helpers.server'
 
 type LoaderData = SerializeFrom<typeof loader>
 
-export const loader = async () => {
-	const nowPlayingTrack = await getCurrentTrack()
+export const loader = async ({ context }: LoaderFunctionArgs) => {
+	const nowPlayingTrack = await getCurrentTrack(context)
 	const data = await nowPlayingTrack.json()
 
 	return json({

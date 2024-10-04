@@ -1,14 +1,18 @@
 import type { Artist } from './types'
+import type { AppLoadContext } from '@remix-run/cloudflare'
+import { Buffer } from 'node:buffer'
+import type { Env } from '../../worker-configuration'
 
 // code shamelessly inspired from: https://github.com/dreyfus92/astro-portfolio
-export const getAccessToken = async () => {
+export const getAccessToken = async (context: AppLoadContext) => {
+	const env = context.cloudflare.env as Env
 	// Get environment variables
-	const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
-	const client_id = process.env.SPOTIFY_CLIENT_ID
-	const client_secret = process.env.SPOTIFY_CLIENT_SECRET
+	const refresh_token = env.SPOTIFY_REFRESH_TOKEN
+	const client_id = env.SPOTIFY_CLIENT_ID
+	const client_secret = env.SPOTIFY_CLIENT_SECRET
 
 	const basic = Buffer.from(`${client_id}:${client_secret}`).toString(
-		'base64',
+		'base64'
 	)
 	const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 
@@ -27,11 +31,12 @@ export const getAccessToken = async () => {
 	return response.json()
 }
 
-export const nowPlaying = async () => {
+export const nowPlaying = async (context: AppLoadContext) => {
 	// @ts-ignore
-	const { access_token } = await getAccessToken()
+	const { access_token } = await getAccessToken(context)
 
-	const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
+	const NOW_PLAYING_ENDPOINT =
+		'https://api.spotify.com/v1/me/player/currently-playing'
 
 	return fetch(NOW_PLAYING_ENDPOINT, {
 		headers: {
@@ -40,8 +45,8 @@ export const nowPlaying = async () => {
 	})
 }
 
-export const getCurrentTrack = async () => {
-	const response = await nowPlaying()
+export const getCurrentTrack = async (context: AppLoadContext) => {
+	const response = await nowPlaying(context)
 
 	if (response.status === 204 || response.status > 400) {
 		return new Response(JSON.stringify({ isPlaying: false }), {
@@ -89,6 +94,7 @@ export const getCurrentTrack = async () => {
 // 	});
 // };
 
+// biome-ignore lint: it's fine
 export const toXmlSitemap = (urls: any[]) => {
 	const urlsAsXml = urls
 		.map((url) => `<url><loc>${url}</loc></url>`)
@@ -104,6 +110,7 @@ export const toXmlSitemap = (urls: any[]) => {
     </urlset>`
 }
 
+// biome-ignore lint: it's fine
 export const groupPostsByYear = (posts: any[]) => {
 	return posts.reduce((groups, post) => {
 		const year = post.entry.date_published.toString().split('-')[0]

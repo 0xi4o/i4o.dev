@@ -1,11 +1,13 @@
 import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/cloudflare'
+import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
 import { FeaturedProjects, Hero } from '~/components'
 import { projects } from '~/data/projects'
 import PostCard from '~/components/PostCard'
+import type { Env } from '../../worker-configuration'
 
-export async function loader() {
-	const response = await fetch(`${process.env.CMS_URL}/api/posts.json`)
+export async function loader({ context }: LoaderFunctionArgs) {
+	const env = context.cloudflare.env as Env
+	const response = await fetch(`${env.CMS_URL}/api/posts.json`)
 	const data = await response.json()
 	// @ts-ignore
 	const publishedPosts = data?.posts.filter((post) => !post.entry.draft)

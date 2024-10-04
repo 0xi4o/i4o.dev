@@ -1,3 +1,6 @@
+import type { LoaderFunctionArgs } from '@remix-run/cloudflare'
+import type { Env } from '../../worker-configuration'
+
 type RssEntry = {
 	title: string
 	link: string
@@ -43,8 +46,9 @@ function generateRss({
 </rss>`
 }
 
-export async function loader() {
-	const response = await fetch(`${process.env.CMS_URL}/api/posts.json`)
+export async function loader({ context }: LoaderFunctionArgs) {
+	const env = context.cloudflare.env as Env
+	const response = await fetch(`${env.CMS_URL}/api/posts.json`)
 	const data = await response.json()
 	// @ts-ignore
 	const publishedPosts = data?.posts.filter((post) => !post.entry.draft)

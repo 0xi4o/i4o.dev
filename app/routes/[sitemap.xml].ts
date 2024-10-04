@@ -1,10 +1,13 @@
 import { ORIGIN, staticPages } from '~/utils/constants'
 import { toXmlSitemap } from '~/utils/helpers.server'
+import type { LoaderFunctionArgs } from '@remix-run/cloudflare'
+import type { Env } from '../../worker-configuration'
 
 // code from: https://ericnish.io/blog/sitemap-xml-with-remix
-export const loader = async () => {
+export const loader = async ({ context }: LoaderFunctionArgs) => {
 	try {
-		const response = await fetch(`${process.env.CMS_URL}/api/posts.json`)
+		const env = context.cloudflare.env as Env
+		const response = await fetch(`${env.CMS_URL}/api/posts.json`)
 		const data = await response.json()
 		// @ts-ignore
 		const publishedPosts = data?.posts.filter((post) => !post.entry.draft)

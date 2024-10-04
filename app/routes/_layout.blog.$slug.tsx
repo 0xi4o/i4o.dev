@@ -10,12 +10,12 @@ import PageTitle from '~/components/PageTitle'
 import { DocumentRenderer } from '@keystatic/core/renderer'
 import { TITLE_SPECIAL_CASES } from '~/utils/constants'
 import { ChevronLeftIcon } from 'lucide-react'
+import type { Env } from '../../worker-configuration'
 
-export async function loader({ params }: LoaderFunctionArgs) {
+export async function loader({ context, params }: LoaderFunctionArgs) {
+	const env = context.cloudflare.env as Env
 	const slug = params.slug as string
-	const response = await fetch(
-		`${process.env.CMS_URL}/api/posts.${slug}.json`
-	)
+	const response = await fetch(`${env.CMS_URL}/api/posts.${slug}.json`)
 	const data = await response.json()
 
 	// @ts-ignore

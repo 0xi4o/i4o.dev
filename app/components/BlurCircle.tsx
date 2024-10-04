@@ -1,6 +1,6 @@
-import type { TailwindColor } from '~/utils/types'
-import { MAP_COLOR_VARIANT_TO_BG } from '~/utils/constants'
 import clsx from 'clsx'
+import { MAP_COLOR_VARIANT_TO_BG } from '~/utils/constants'
+import type { TailwindColor } from '~/utils/types'
 
 type Props = {
 	position: 'bottom' | 'top'
@@ -17,7 +17,7 @@ function BlurCircle(props: Props) {
 				position === 'top' ? 'left-0 top-0' : '',
 				position === 'bottom' ? 'bottom-0 right-0' : '',
 			])}
-		></div>
+		/>
 	)
 }
 

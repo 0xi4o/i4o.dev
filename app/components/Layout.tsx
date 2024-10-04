@@ -12,6 +12,7 @@ function Layout(props: Props) {
 			{props.children}
 			{props.progress ? (
 				<script
+					// biome-ignore lint: it's fine
 					dangerouslySetInnerHTML={{
 						__html: `
                     let prog = document.getElementById('progress')

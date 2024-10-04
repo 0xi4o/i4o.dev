@@ -26,7 +26,7 @@ export default async function handleRequest(
 			onError(error: unknown) {
 				// Log streaming rendering errors from inside the shell
 				console.error(error)
-				// @ts-ignore
+				// biome-ignore lint: it's fine
 				responseStatusCode = 500
 			},
 		},

@@ -56,9 +56,9 @@ export function countWords(
 	text: string,
 	options: Options = {},
 ): WordCountStats {
-	let words = 0,
-		start = 0,
-		end = text.length - 1
+	let words = 0
+	let start = 0
+	let end = text.length - 1
 	const { wordBound: isWordBound = isAnsiWordBound } = options
 
 	// fetch bounds

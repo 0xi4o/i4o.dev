@@ -1,6 +1,6 @@
+import { useFetcher } from '@remix-run/react'
 import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import type { Dispatch, ReactNode, SetStateAction } from 'react'
-import { useFetcher } from '@remix-run/react'
 
 enum Theme {
 	DARK = 'dark',
@@ -32,8 +32,6 @@ function ThemeProvider({
 		if (specifiedTheme) {
 			if (themes.includes(specifiedTheme)) {
 				return specifiedTheme
-			} else {
-				return null
 			}
 		}
 		// there's no way for us to know what the theme should be in this context
@@ -135,6 +133,7 @@ function ThemeHead({ ssrTheme }: { ssrTheme: boolean }) {
                 to do fancy tricks prior to hydration to make things match.
             */}
 			{ssrTheme ? null : (
+				// biome-ignore lint: it's fine
 				<script dangerouslySetInnerHTML={{ __html: clientThemeCode }} />
 			)}
 		</>

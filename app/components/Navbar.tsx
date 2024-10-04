@@ -5,6 +5,7 @@ export default function Navbar({
 	data,
 	pathname,
 }: {
+	// biome-ignore lint: it's fine
 	data: any
 	pathname: string
 }) {

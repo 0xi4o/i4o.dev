@@ -1,6 +1,5 @@
 import type { Artist } from './types'
 import type { AppLoadContext } from '@remix-run/cloudflare'
-import { Buffer } from 'node:buffer'
 import type { Env } from '../../worker-configuration'
 
 // code shamelessly inspired from: https://github.com/dreyfus92/astro-portfolio

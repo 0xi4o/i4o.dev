@@ -6,23 +6,53 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
-		title: 'Writing to Learn',
+		title: 'On Writing Well',
 		author: 'William Zinsser',
-		cover: '/images/book-covers/writing-to-learn.jpg',
+		cover: '/images/book-covers/on-writing-well.jpg',
 	},
 	{
-		title: "Let's Go Further",
-		author: 'Alex Edwards',
-		cover: '/images/book-covers/lets-go-further.png',
+		title: 'Jujutsu Kaisen Vol 20',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-20.jpg',
 	},
 	{
-		title: 'The Three Body Problem',
-		author: 'Cixin Liu',
-		cover: '/images/book-covers/three-body-problem.jpg',
+		title: 'Grokking Algorithms',
+		author: 'Aditya Bhargava',
+		cover: '/images/book-covers/grokking-algorithms.jpg',
 	},
 ]
 
 export const readThisYear: Book[] = [
+	{
+		title: 'Small Things Like These',
+		author: 'Claire Keegan',
+		cover: '/images/book-covers/small-things-like-these.jpg',
+	},
+	{
+		title: 'A Psalm for the Wild-Built',
+		author: 'Becky Chambers',
+		cover: '/images/book-covers/psalm-for-the-wild-built.jpg',
+	},
+	{
+		title: 'A Prayer for the Crown-Shy',
+		author: 'Becky Chambers',
+		cover: '/images/book-covers/prayer-for-the-crown-shy.jpg',
+	},
+	{
+		title: 'Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
+	},
+	{
+		title: 'More Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
+	},
+	{
+		title: 'Circe',
+		author: 'Madeline Miller',
+		cover: '/images/book-covers/circe.jpg',
+	},
 	{
 		title: 'Jujutsu Kaisen Vol 1',
 		author: 'Gege Akutami',
@@ -99,9 +129,24 @@ export const readThisYear: Book[] = [
 		cover: '/images/book-covers/jujutsu-kaisen-15.jpg',
 	},
 	{
-		title: 'Circe',
-		author: 'Madeline Miller',
-		cover: '/images/book-covers/circe.jpg',
+		title: 'Jujutsu Kaisen Vol 16',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-16.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 17',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-17.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 18',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-18.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 19',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-19.jpg',
 	},
 	{
 		title: "Let's Go",
@@ -109,47 +154,47 @@ export const readThisYear: Book[] = [
 		cover: '/images/book-covers/lets-go.jpg',
 	},
 	{
-		title: 'More Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
-	},
-	{
-		title: 'Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
-	},
-	{
-		title: 'Small Things Like These',
-		author: 'Claire Keegan',
-		cover: '/images/book-covers/small-things-like-these.jpg',
-	},
-	{
-		title: 'A Psalm for the Wild-Built',
-		author: 'Becky Chambers',
-		cover: '/images/book-covers/psalm-for-the-wild-built.jpg',
-	},
-	{
-		title: 'A Prayer for the Crown-Shy',
-		author: 'Becky Chambers',
-		cover: '/images/book-covers/prayer-for-the-crown-shy.jpg',
+		title: "Let's Go Further",
+		author: 'Alex Edwards',
+		cover: '/images/book-covers/lets-go-further.png',
 	},
 ]
 
 export const onMyRadar: Book[] = [
-	{
-		title: 'On Writing Well',
-		author: 'William Zinsser',
-		cover: '/images/book-covers/on-writing-well.jpg',
-	},
 	{
 		title: 'How to Take Smart Notes',
 		author: 'Sönke Ahrens',
 		cover: '/images/book-covers/how-to-take-smart-notes.jpg',
 	},
 	{
+		title: 'Writing to Learn',
+		author: 'William Zinsser',
+		cover: '/images/book-covers/writing-to-learn.jpg',
+	},
+	{
 		title: 'How to Solve It',
 		author: 'George Pólya',
 		cover: '/images/book-covers/how-to-solve-it.jpg',
+	},
+	{
+		title: 'Writing for Software Developers',
+		author: 'Philip Kiely',
+		cover: '/images/book-covers/wfsd.png',
+	},
+	{
+		title: 'Designing Data-Intensive Applications',
+		author: 'Martin Kleppman',
+		cover: '/images/book-covers/ddia.jpeg',
+	},
+	{
+		title: 'Structure and Interpretation of Computer Programs',
+		author: 'Harold Abelson and Gerald Jay Sussman',
+		cover: '/images/book-covers/sicp.jpg',
+	},
+	{
+		title: 'Start Small, Stay Small',
+		author: 'Rob Walling',
+		cover: '/images/book-covers/ssss.jpg',
 	},
 	{
 		title: 'Foundation',
@@ -167,19 +212,9 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/plato-five-dialogues.jpg',
 	},
 	{
-		title: 'Structure and Interpretation of Computer Programs',
-		author: 'Harold Abelson and Gerald Jay Sussman',
-		cover: '/images/book-covers/sicp.jpg',
-	},
-	{
 		title: 'Now Go: On Grief and Studio Ghibli',
 		author: 'Karl Thomas Smith',
 		cover: '/images/book-covers/now-go.jpg',
-	},
-	{
-		title: 'Writing for Software Developers',
-		author: 'Philip Kiely',
-		cover: '/images/book-covers/wfsd.png',
 	},
 	{
 		title: 'To The Lighthouse',
@@ -227,11 +262,6 @@ export const onMyRadar: Book[] = [
 		cover: '/images/book-covers/saas-playbook.jpg',
 	},
 	{
-		title: 'Designing Data-Intensive Applications',
-		author: 'Martin Kleppman',
-		cover: '/images/book-covers/ddia.jpeg',
-	},
-	{
 		title: 'Engineering Management for the Rest of Us',
 		author: 'Sarah Drasner',
 		cover: '/images/book-covers/emftrou.jpg',
@@ -250,11 +280,6 @@ export const onMyRadar: Book[] = [
 		title: 'Zero to Production in Rust',
 		author: 'Luca Palmieri',
 		cover: '/images/book-covers/z2p.png',
-	},
-	{
-		title: 'Start Small, Stay Small',
-		author: 'Rob Walling',
-		cover: '/images/book-covers/ssss.jpg',
 	},
 	{
 		title: 'The Boron Letters',
@@ -286,9 +311,6 @@ export const onMyRadar: Book[] = [
 		author: 'Nicolas Cole',
 		cover: '/images/book-covers/online-writing.jpg',
 	},
-]
-
-export const toRead: Book[] = [
 	{
 		title: 'The Iliad',
 		author: 'Homer',

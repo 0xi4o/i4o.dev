@@ -1,13 +1,12 @@
+import { motion } from 'framer-motion'
 import {
 	allTimeFavorites,
 	currentlyReading,
 	onMyRadar,
 	read2023,
 	readThisYear,
-	toRead,
 } from '~/data/books'
 import BookCard from './BookCard'
-import { motion } from 'framer-motion'
 
 export default function Books() {
 	return (
@@ -21,6 +20,7 @@ export default function Books() {
 						currentlyReading.map((book, index) => (
 							<BookCard
 								{...book}
+								// biome-ignore lint: it's fine
 								key={`currentlyReading${index}`}
 							/>
 						))}
@@ -31,11 +31,22 @@ export default function Books() {
 				<div className='w-full columns-3 gap-8'>
 					{readThisYear.length !== 0 ? (
 						readThisYear.map((book, index) => (
+							// biome-ignore lint: it's fine
 							<BookCard {...book} key={`readThisYear${index}`} />
 						))
 					) : (
 						<span>Check back soon</span>
 					)}
+				</div>
+			</section>
+			<section className='flex flex-col gap-8'>
+				<h2 className='text-xl font-medium text-neutral-100'>2023</h2>
+				<div className='w-full columns-3 gap-8'>
+					{read2023.length !== 0 &&
+						read2023.map((book, index) => (
+							// biome-ignore lint: it's fine
+							<BookCard {...book} key={`read2023${index}`} />
+						))}
 				</div>
 			</section>
 			<section className='flex flex-col gap-8'>
@@ -50,32 +61,8 @@ export default function Books() {
 				<div className='w-full columns-3 gap-8'>
 					{onMyRadar.length !== 0 &&
 						onMyRadar.map((book, index) => (
+							// biome-ignore lint: it's fine
 							<BookCard {...book} key={`onMyRadar${index}`} />
-						))}
-				</div>
-			</section>
-			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100'>2023</h2>
-				<div className='w-full columns-3 gap-8'>
-					{read2023.length !== 0 &&
-						read2023.map((book, index) => (
-							<BookCard {...book} key={`read2023${index}`} />
-						))}
-				</div>
-			</section>
-			<section className='flex flex-col gap-8'>
-				<div>
-					<h2 className='mb-2 text-xl font-medium text-neutral-100'>
-						To Read
-					</h2>
-					<span className='text-sm'>
-						I'll read these at some point
-					</span>
-				</div>
-				<div className='w-full columns-3 gap-8'>
-					{toRead.length !== 0 &&
-						toRead.map((book, index) => (
-							<BookCard {...book} key={`toRead${index}`} />
 						))}
 				</div>
 			</section>
@@ -88,6 +75,7 @@ export default function Books() {
 						allTimeFavorites.map((book, index) => (
 							<BookCard
 								{...book}
+								// biome-ignore lint: it's fine
 								key={`allTimeFavorites${index}`}
 							/>
 						))}

@@ -23,17 +23,17 @@ export default function Reading() {
 						Twitter
 					</a>
 					.<br />
-					<br />I recently started taking notes of some of the books
-					I'm reading. I'm publishing them here on my site. You can
-					check them out on the{' '}
-					<Link
-						className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
-						to='/book-notes'
-						target='_self'
-					>
-						book notes
-					</Link>
-					.
+					{/*<br />I recently started taking notes of some of the books*/}
+					{/*I'm reading. I'm publishing them here on my site. You can*/}
+					{/*check them out on the{' '}*/}
+					{/*<Link*/}
+					{/*	className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'*/}
+					{/*	to='/book-notes'*/}
+					{/*	target='_self'*/}
+					{/*>*/}
+					{/*	book notes*/}
+					{/*</Link>*/}
+					{/*.*/}
 				</p>
 			</article>
 			<Books />

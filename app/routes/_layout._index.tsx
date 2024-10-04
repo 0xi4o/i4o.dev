@@ -2,26 +2,25 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/cloudflare'
 import { FeaturedProjects, Hero } from '~/components'
 import { projects } from '~/data/projects'
-import keystaticConfig from '../../keystatic.config'
-import { createReader } from '@keystatic/core/reader'
 import PostCard from '~/components/PostCard'
 
 export async function loader() {
-	const reader = createReader(process.cwd(), keystaticConfig)
-	// TODO: check if there are other ways to filter instead of fetching everything and then slicing.
-	const posts = await reader.collections.posts.all()
-	const publishedPosts = posts.filter((post) => !post.entry.draft)
+	const response = await fetch(`${process.env.CMS_URL}/api/posts.json`)
+	const data = await response.json()
+	// @ts-ignore
+	const publishedPosts = data?.posts.filter((post) => !post.entry.draft)
 	const sortedPublishedPosts = publishedPosts.sort(
 		// @ts-ignore
 		(a, b) =>
 			// @ts-ignore
 			new Date(b.entry.date_published).valueOf() -
 			// @ts-ignore
-			new Date(a.entry.date_published).valueOf(),
+			new Date(a.entry.date_published).valueOf()
 	)
 	return json({ posts: sortedPublishedPosts })
 }
 
+// biome-ignore lint: it's fine
 function LatestPosts({ posts }: { posts: any[] }) {
 	return (
 		<article className='flex flex-col gap-8'>

@@ -4,13 +4,12 @@ import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
 
 import { groupPostsByYear } from '~/utils/helpers.server'
-import { createReader } from '@keystatic/core/reader'
-import keystaticConfig from '../../keystatic.config'
 
 export async function loader() {
-	const reader = createReader(process.cwd(), keystaticConfig)
-	const posts = await reader.collections.posts.all()
-	const publishedPosts = posts.filter((post) => !post.entry.draft)
+	const response = await fetch(`${process.env.CMS_URL}/api/posts.json`)
+	const data = await response.json()
+	// @ts-ignore
+	const publishedPosts = data?.posts.filter((post) => !post.entry.draft)
 	const sortedPublishedPosts = publishedPosts.sort(
 		// @ts-ignore
 		(a, b) =>

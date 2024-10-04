@@ -1,6 +1,3 @@
-import keystaticConfig from '../../keystatic.config'
-import { createReader } from '@keystatic/core/reader'
-
 type RssEntry = {
 	title: string
 	link: string
@@ -39,7 +36,7 @@ function generateRss({
         <pubDate>${entry.date}</pubDate>
         <link>${entry.link}</link>
         ${entry.guid ? `<guid isPermaLink="false">${entry.guid}</guid>` : ''}
-      </item>`,
+      </item>`
 		)
 		.join('')}
   </channel>
@@ -47,15 +44,17 @@ function generateRss({
 }
 
 export async function loader() {
-	const reader = createReader(process.cwd(), keystaticConfig)
-	const posts = await reader.collections.posts.all()
+	const response = await fetch(`${process.env.CMS_URL}/api/posts.json`)
+	const data = await response.json()
+	// @ts-ignore
+	const publishedPosts = data?.posts.filter((post) => !post.entry.draft)
 
 	const feed = generateRss({
 		description: 'Software Engineer, Maker, Writer',
 		title: 'Personal site and blog of Ilango Rajagopal',
 		link: 'https://i4o.dev/blog',
 		// @ts-ignore
-		entries: posts.map((post) => ({
+		entries: publishedPosts.map((post) => ({
 			title: post.entry.title,
 			description: post.entry.excerpt,
 			date: post.entry.date_published,

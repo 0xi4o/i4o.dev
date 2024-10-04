@@ -7,21 +7,22 @@ import { SITE_URL } from '~/data/site'
 import ReadingProgress from '~/components/ReadingProgress'
 import PageTitle from '~/components/PageTitle'
 
-import keystaticConfig from '../../keystatic.config'
-import { createReader } from '@keystatic/core/reader'
 import { DocumentRenderer } from '@keystatic/core/renderer'
 import { TITLE_SPECIAL_CASES } from '~/utils/constants'
+import { ChevronLeftIcon } from 'lucide-react'
 
 export async function loader({ params }: LoaderFunctionArgs) {
-	const reader = createReader(process.cwd(), keystaticConfig)
 	const slug = params.slug as string
-	const post = await reader.collections.posts.read(slug, {
-		resolveLinkedFiles: true,
-	})
+	const response = await fetch(
+		`${process.env.CMS_URL}/api/posts.${slug}.json`
+	)
+	const data = await response.json()
 
-	if (!post) throw json('Not Found', { status: 404 })
+	// @ts-ignore
+	if (!data?.post) throw json('Not Found', { status: 404 })
 
-	return json({ post, slug })
+	// @ts-ignore
+	return json({ post: data.post, slug })
 }
 
 export default function BlogPost() {
@@ -39,29 +40,16 @@ ${post.title} 👇`
 					to='/blog'
 					className='inline-flex items-center justify-start gap-2 font-medium no-underline'
 				>
-					<svg
-						width='15'
-						height='15'
-						viewBox='0 0 15 15'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'
-					>
-						<path
-							d='M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z'
-							fill='currentColor'
-							fillRule='evenodd'
-							clipRule='evenodd'
-						></path>
-					</svg>
+					<ChevronLeftIcon className='h-4 w-4' />
 					Back
 				</Link>
 				<div className='post mx-auto flex w-full max-w-none flex-col gap-12'>
-					<header role='presentation'>
+					<header>
 						<div className='mb-4 flex items-center gap-2'>
 							<span className='text-xs font-semibold uppercase'>
 								{format(
 									new Date(post.date_published as string),
-									'PP',
+									'PP'
 								)}
 							</span>
 							{/* <span>·</span>
@@ -100,7 +88,7 @@ ${post.title} 👇`
 								{
 									url: permalink,
 									text: tweetMessage,
-								},
+								}
 							)}`}
 							className='inline-flex items-center justify-start gap-2 !text-sm !font-semibold !no-underline'
 							target='_blank'

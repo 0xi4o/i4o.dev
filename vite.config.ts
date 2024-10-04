@@ -21,5 +21,6 @@ export default defineConfig({
 	],
 	ssr: {
 		noExternal: [/^@keystatic\//, 'minimatch'],
+		external: ['node:crypto', 'node:fs/promises', 'node:path'],
 	},
 })

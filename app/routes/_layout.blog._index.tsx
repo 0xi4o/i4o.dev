@@ -2,21 +2,22 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/cloudflare'
 import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
-import { createReader } from '@keystatic/core/reader'
 
-import keystaticConfig from '../../keystatic.config'
 import { groupPostsByYear } from '~/utils/helpers.server'
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from '../../keystatic.config'
 
 export async function loader() {
 	const reader = createReader(process.cwd(), keystaticConfig)
 	const posts = await reader.collections.posts.all()
 	const publishedPosts = posts.filter((post) => !post.entry.draft)
 	const sortedPublishedPosts = publishedPosts.sort(
+		// @ts-ignore
 		(a, b) =>
 			// @ts-ignore
 			new Date(b.entry.date_published).getTime() -
 			// @ts-ignore
-			new Date(a.entry.date_published).getTime(),
+			new Date(a.entry.date_published).getTime()
 	)
 	const postsGroupedByYear = groupPostsByYear(sortedPublishedPosts)
 	return json({ posts: postsGroupedByYear })
@@ -27,7 +28,7 @@ export default function Blog() {
 	const { posts: postsGroupedByYear } = data
 	const currentYear = new Date().getFullYear()
 	const sortedYears = Object.keys(postsGroupedByYear).sort(
-		(a, b) => Number.parseInt(b, 10) - Number.parseInt(a, 10),
+		(a, b) => Number.parseInt(b, 10) - Number.parseInt(a, 10)
 	)
 
 	return (
@@ -68,7 +69,7 @@ export default function Blog() {
 										(post, index) => (
 											<Link
 												className='group flex w-full cursor-pointer items-center justify-start gap-2 rounded-md transition-all duration-200'
-												key={`post${index}`}
+												key={post.slug}
 												to={`/blog/${post.slug}`}
 											>
 												<div className='flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
@@ -81,36 +82,14 @@ export default function Blog() {
 														{format(
 															new Date(
 																// @ts-ignore
-																post.entry
-																	.date_published,
+																post.entry.date_published
 															),
-															'MMM dd',
+															'MMM dd'
 														)}
 													</span>
 												</div>
-
-												<svg
-													width='18'
-													height='18'
-													viewBox='0 0 18 18'
-													fill='none'
-													className='hidden transition-all duration-300 group-hover:flex'
-												>
-													<path
-														d='M5.25 12.75L12.75 5.25'
-														stroke='currentColor'
-														strokeLinecap='round'
-														strokeLinejoin='round'
-													/>
-													<path
-														d='M5.25 5.25H12.75V12.75'
-														stroke='currentColor'
-														strokeLinecap='round'
-														strokeLinejoin='round'
-													/>
-												</svg>
 											</Link>
-										),
+										)
 									)
 								}
 							</div>

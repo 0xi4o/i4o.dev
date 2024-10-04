@@ -1,23 +1,20 @@
-import {
-	ArrowRightIcon,
-	GitHubLogoIcon,
-	TwitterLogoIcon,
-} from '@radix-ui/react-icons'
+import { ArrowRightIcon, GithubIcon, TwitterIcon } from 'lucide-react'
 
 const SOCIALS = [
 	{
 		href: 'https://twitter.com/i4o_dev',
-		icon: <TwitterLogoIcon className='h-5 w-5' />,
+		icon: <TwitterIcon className='h-4 w-4' />,
 		label: 'Follow me on Twitter',
 	},
 	{
 		href: 'https://github.com/i4o-dev',
-		icon: <GitHubLogoIcon className='h-5 w-5' />,
+		icon: <GithubIcon className='h-4 w-4' />,
 		label: 'Check out my Github profile',
 	},
 	{
 		href: 'https://poly.work/ilango',
 		icon: (
+			// biome-ignore lint: it's fine
 			<svg
 				className='h-4 w-4'
 				role='img'
@@ -34,6 +31,7 @@ const SOCIALS = [
 	{
 		href: 'https://ilango.substack.com/',
 		icon: (
+			// biome-ignore lint: it's fine
 			<svg
 				className='h-4 w-4'
 				role='img'
@@ -50,6 +48,7 @@ const SOCIALS = [
 	{
 		href: 'https://hachyderm.io/@i4o',
 		icon: (
+			// biome-ignore lint: it's fine
 			<svg
 				className='h-5 w-5'
 				role='img'
@@ -75,6 +74,7 @@ function Socials() {
 						<a
 							className='transition-color flex items-center justify-between gap-2 no-underline duration-200'
 							href={social.href}
+							// biome-ignore lint: it's fine
 							key={index}
 							rel='noreferrer noopener'
 							target='_blank'

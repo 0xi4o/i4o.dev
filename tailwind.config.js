@@ -1,6 +1,6 @@
+import typography from '@tailwindcss/typography'
 /** @type {import('tailwindcss').Config} */
 import { fontFamily } from 'tailwindcss/defaultTheme'
-import typography from '@tailwindcss/typography'
 
 export default {
 	content: ['./app/**/*.{js,jsx,ts,tsx,md,mdx}'],
@@ -43,8 +43,8 @@ export default {
 				},
 			},
 			borderRadius: {
-				lg: `var(--radius)`,
-				md: `calc(var(--radius) - 2px)`,
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
 			},
 			fontFamily: {

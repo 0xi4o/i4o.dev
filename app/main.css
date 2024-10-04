@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Space+Mono:wght@400;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: "Departure Mono";
+	src: url("/fonts/DepartureMono-Regular.woff2") format("woff2"),
+		url("/fonts/DepartureMono-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
 
 @layer base {
 	:root {
@@ -44,7 +50,8 @@
 
 		--font-sans: "Inter", sans-serif;
 		--font-serif: "Merriweather", serif;
-		--font-mono: "Space Mono", monospace;
+		--font-code: "Space Mono", monospace;
+		--font-mono: "Departure Mono", monospace;
 	}
 
 	.dark {
@@ -90,5 +97,12 @@
 
 	article blockquote > p {
 		@apply !m-0;
+	}
+
+	code,
+	kbd,
+	samp,
+	pre {
+		@apply font-code;
 	}
 }

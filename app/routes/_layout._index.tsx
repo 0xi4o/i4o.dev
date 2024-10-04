@@ -1,9 +1,10 @@
+import { type LoaderFunctionArgs, json } from '@remix-run/cloudflare'
 import { Link, useLoaderData } from '@remix-run/react'
-import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
-import { FeaturedProjects, Hero } from '~/components'
-import { projects } from '~/data/projects'
+import { Hero } from '~/components'
 import PostCard from '~/components/PostCard'
+import { type Project, projects } from '~/data/projects'
 import type { Env } from '../../worker-configuration'
+import ProjectCard from '../components/ProjectCard'
 
 export async function loader({ context }: LoaderFunctionArgs) {
 	const env = context.cloudflare.env as Env
@@ -27,7 +28,9 @@ function LatestPosts({ posts }: { posts: any[] }) {
 	return (
 		<article className='flex flex-col gap-8'>
 			<header className='flex w-full flex-row justify-between gap-2'>
-				<h2 className='text-xl text-neutral-100'>Latest Posts</h2>
+				<h2 className='text-xl text-neutral-100 font-mono'>
+					Latest Posts
+				</h2>
 				<Link
 					className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 					to='/blog'
@@ -37,10 +40,10 @@ function LatestPosts({ posts }: { posts: any[] }) {
 			</header>
 			{posts.length === 0 && <p>Soon, stay connected 👀...</p>}
 
-			<section className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+			<section className='flex flex-col gap-4'>
 				{posts.length !== 0 &&
 					posts
-						.slice(0, 2)
+						.slice(0, 3)
 						.map((post) => (
 							<PostCard
 								key={post.slug}
@@ -48,6 +51,42 @@ function LatestPosts({ posts }: { posts: any[] }) {
 								title={post.entry.title}
 								description={post.entry.excerpt}
 								slug={post.slug}
+							/>
+						))}
+			</section>
+		</article>
+	)
+}
+
+function FeaturedProjects({
+	projects,
+}: {
+	projects: Project[]
+}) {
+	return (
+		<article className='flex flex-col gap-8'>
+			<header className='flex w-full flex-row justify-between gap-2'>
+				<h2 className='text-xl text-neutral-100 font-mono'>
+					Featured Projects
+				</h2>
+				<Link
+					className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+					to='/projects'
+				>
+					See all projects
+				</Link>
+			</header>
+			{projects.length === 0 && <p>Oops, I must work^^^^^</p>}
+
+			<section className='flex flex-col gap-4'>
+				{projects.length !== 0 &&
+					projects
+						.filter((project) => project.isFeatured)
+						.map((project, index) => (
+							<ProjectCard
+								// biome-ignore lint: it's fine
+								key={`project-${index}`}
+								{...project}
 							/>
 						))}
 			</section>

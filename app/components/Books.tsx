@@ -12,7 +12,7 @@ export default function Books() {
 	return (
 		<motion.article className='flex flex-col gap-16'>
 			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100'>
+				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
 					Currently Reading
 				</h2>
 				<div className='w-full columns-3 gap-8'>
@@ -27,7 +27,9 @@ export default function Books() {
 				</div>
 			</section>
 			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100'>2024</h2>
+				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
+					2024
+				</h2>
 				<div className='w-full columns-3 gap-8'>
 					{readThisYear.length !== 0 ? (
 						readThisYear.map((book, index) => (
@@ -40,7 +42,9 @@ export default function Books() {
 				</div>
 			</section>
 			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100'>2023</h2>
+				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
+					2023
+				</h2>
 				<div className='w-full columns-3 gap-8'>
 					{read2023.length !== 0 &&
 						read2023.map((book, index) => (
@@ -51,7 +55,7 @@ export default function Books() {
 			</section>
 			<section className='flex flex-col gap-8'>
 				<div>
-					<h2 className='mb-2 text-xl font-medium text-neutral-100'>
+					<h2 className='mb-2 text-xl font-medium text-neutral-100 font-mono'>
 						On My Radar
 					</h2>
 					<span className='text-sm'>
@@ -67,7 +71,7 @@ export default function Books() {
 				</div>
 			</section>
 			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100'>
+				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
 					All Time Favorites
 				</h2>
 				<div className='w-full columns-3 gap-8'>

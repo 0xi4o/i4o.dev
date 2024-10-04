@@ -3,13 +3,13 @@ import { json } from '@remix-run/cloudflare'
 import { Link, useLoaderData } from '@remix-run/react'
 import { format } from 'date-fns'
 import title from 'title'
-import { SITE_URL } from '~/data/site'
-import ReadingProgress from '~/components/ReadingProgress'
 import PageTitle from '~/components/PageTitle'
+import ReadingProgress from '~/components/ReadingProgress'
+import { SITE_URL } from '~/data/site'
 
 import { DocumentRenderer } from '@keystatic/core/renderer'
-import { TITLE_SPECIAL_CASES } from '~/utils/constants'
 import { ChevronLeftIcon } from 'lucide-react'
+import { TITLE_SPECIAL_CASES } from '~/utils/constants'
 import type { Env } from '../../worker-configuration'
 
 export async function loader({ context, params }: LoaderFunctionArgs) {
@@ -46,7 +46,7 @@ ${post.title} 👇`
 				<div className='post mx-auto flex w-full max-w-none flex-col gap-12'>
 					<header>
 						<div className='mb-4 flex items-center gap-2'>
-							<span className='text-xs font-semibold uppercase'>
+							<span className='text-xs font-semibold uppercase font-mono'>
 								{format(
 									new Date(post.date_published as string),
 									'PP',
@@ -80,7 +80,7 @@ ${post.title} 👇`
 					{/*	<SubscribeForm />*/}
 					{/*</div>*/}
 					<div className='mt-4 flex items-center gap-2'>
-						<span className='text-sm font-semibold'>
+						<span className='text-sm font-semibold font-mono'>
 							Share this on:
 						</span>
 						<a
@@ -90,11 +90,11 @@ ${post.title} 👇`
 									text: tweetMessage,
 								},
 							)}`}
-							className='inline-flex items-center justify-start gap-2 !text-sm !font-semibold !no-underline'
+							className='inline-flex items-center justify-start gap-2 !text-sm !font-semibold !no-underline !font-mono'
 							target='_blank'
 							rel='noreferrer noopener'
 						>
-							Twitter
+							X
 						</a>
 					</div>
 				</div>

@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import type {
 	LinksFunction,
 	LoaderFunctionArgs,
@@ -14,9 +13,10 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react'
-import { getCurrentTrack } from '~/utils/helpers.server'
+import type { ReactNode } from 'react'
 import BlurCircle from '~/components/BlurCircle'
 import theme from '~/data/theme'
+import { getCurrentTrack } from '~/utils/helpers.server'
 import '~/main.css'
 
 export const links: LinksFunction = () => [
@@ -131,6 +131,11 @@ function Document({ children }: { children: ReactNode }) {
 	return (
 		<html lang='en' className='h-screen w-screen'>
 			<head>
+				<link rel='preconnect' href='https://fonts.bunny.net' />
+				<link
+					href='https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900'
+					rel='stylesheet'
+				/>
 				<Meta />
 				<Links />
 				{/*<ThemeHead ssrTheme={Boolean(data.theme)} />*/}
@@ -160,7 +165,6 @@ function Document({ children }: { children: ReactNode }) {
                        `,
 					}}
 				/>
-				<script src='https://substackapi.com/widget.js' async />
 				{children}
 				<ScrollRestoration />
 				<Scripts />

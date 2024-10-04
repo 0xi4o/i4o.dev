@@ -1,13 +1,13 @@
-import { projects } from '~/data/projects'
 import { ProjectCard } from '~/components'
 import PageTitle from '~/components/PageTitle'
+import { projects } from '~/data/projects'
 
 export default function Projects() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
 				<PageTitle>Projects</PageTitle>
-				<p className='prose prose-invert max-w-[60ch] leading-6'>
+				<p className='prose prose-invert max-w-[60ch] leading-loose'>
 					I build small web applications and tools that solve problems
 					that I have. Each project uses at least one technology that
 					I'm trying to learn. All of my projects are{' '}
@@ -26,6 +26,7 @@ export default function Projects() {
 				<section className='flex flex-col gap-4'>
 					{projects.length !== 0 &&
 						projects.map((project, index) => (
+							// biome-ignore lint: it's fine
 							<ProjectCard key={index} {...project} />
 						))}
 				</section>

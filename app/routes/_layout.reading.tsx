@@ -1,14 +1,14 @@
-import { Books } from '~/components'
-import Content from '~/content/reading/reading.mdx'
 import { Link } from '@remix-run/react'
+import { Books } from '~/components'
 import PageTitle from '~/components/PageTitle'
+import Content from '~/content/reading/reading.mdx'
 
 export default function Reading() {
 	return (
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
 				<PageTitle>Reading</PageTitle>
-				<p className='prose prose-invert max-w-[60ch] leading-6'>
+				<p className='prose prose-invert max-w-[60ch] leading-loose'>
 					I read books regularly. I'm always reading two books at any
 					time — one fiction and one non-fiction. I've grouped the
 					books in the following categories: currently reading, on my
@@ -37,7 +37,7 @@ export default function Reading() {
 				</p>
 			</article>
 			<Books />
-			<article className='mdx prose prose-invert max-w-none'>
+			<article className='mdx prose prose-invert max-w-none prose-h2:font-mono prose-h3:font-mono'>
 				<Content />
 			</article>
 		</main>

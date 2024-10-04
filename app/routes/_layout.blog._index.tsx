@@ -1,5 +1,5 @@
+import { type LoaderFunctionArgs, json } from '@remix-run/cloudflare'
 import { Link, useLoaderData } from '@remix-run/react'
-import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
 import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
 
@@ -36,7 +36,7 @@ export default function Blog() {
 		<main className='flex flex-col gap-20'>
 			<article className='flex flex-col gap-8'>
 				<PageTitle>Blog</PageTitle>
-				<p className='prose prose-invert max-w-[60ch] leading-6'>
+				<p className='prose prose-invert max-w-[60ch] leading-loose'>
 					I usually write about software engineering, indie-hacking,
 					and personal growth. Blogging, for me, is a way to keep
 					track of stuff — learning, projects, thoughts, etc. If you
@@ -47,7 +47,7 @@ export default function Blog() {
 						target='_blank'
 						rel='noreferrer'
 					>
-						Twitter
+						X
 					</a>
 					.
 				</p>
@@ -60,7 +60,9 @@ export default function Blog() {
 							key={`year${year}`}
 						>
 							{currentYear !== Number(year) ? (
-								<h2 className='m-0 text-2xl'>{year}</h2>
+								<h2 className='m-0 text-2xl font-mono'>
+									{year}
+								</h2>
 							) : null}
 							<div className='mb-8 flex w-full flex-col items-start gap-4'>
 								{
@@ -75,7 +77,7 @@ export default function Blog() {
 											>
 												<div className='flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
 													<div className='flex items-center'>
-														<h3 className='m-0 truncate text-base leading-6 text-neutral-100 group-hover:text-brand'>
+														<h3 className='m-0 truncate text-base leading-6 text-neutral-100 font-mono group-hover:text-brand'>
 															{post.entry.title}
 														</h3>
 													</div>

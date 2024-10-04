@@ -1,5 +1,5 @@
 import typography from '@tailwindcss/typography'
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
 export default {
@@ -50,6 +50,7 @@ export default {
 			fontFamily: {
 				sans: ['var(--font-sans)', ...fontFamily.sans],
 				serif: ['var(--font-serif)', ...fontFamily.serif],
+				code: ['var(--font-code)', ...fontFamily.mono],
 				mono: ['var(--font-mono)', ...fontFamily.mono],
 			},
 			boxShadow: {
@@ -58,4 +59,4 @@ export default {
 		},
 	},
 	plugins: [typography],
-}
+} as Config

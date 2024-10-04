@@ -3,12 +3,13 @@ import presentation from '~/data/presentation'
 
 export default function SocialLinks() {
 	return (
-		<ul role='list' className='flex flex-row gap-2'>
+		<ul className='flex flex-row gap-2'>
 			{presentation.socials.map((social, index) => (
+				// biome-ignore lint: it's fine
 				<Fragment key={`link-${index}`}>
 					<li>
 						<a
-							className='cursor-pointer no-underline transition-colors duration-200 hover:text-brand'
+							className='cursor-pointer no-underline font-mono transition-colors duration-200 hover:text-brand'
 							href={social.link}
 							rel='noopener noreferrer'
 							target='_blank'
@@ -23,7 +24,7 @@ export default function SocialLinks() {
 			<li>/</li>
 			<li>
 				<a
-					className='cursor-pointer no-underline transition-colors duration-200 hover:text-brand'
+					className='cursor-pointer no-underline font-mono transition-colors duration-200 hover:text-brand'
 					href={`mailto:${presentation.mail}`}
 				>
 					{presentation.mail}

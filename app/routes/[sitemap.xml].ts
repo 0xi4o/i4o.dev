@@ -16,7 +16,7 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 				.filter(({ to }) => to !== '/')
 				.map(({ to }) => `${ORIGIN}${to}`),
 			...publishedPosts.map(
-				({ slug }: { slug: string }) => `${ORIGIN}/blog/${slug}`
+				({ slug }: { slug: string }) => `${ORIGIN}/blog/${slug}`,
 			),
 		])
 

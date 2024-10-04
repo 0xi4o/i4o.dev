@@ -17,7 +17,7 @@ export async function loader({ context }: LoaderFunctionArgs) {
 			// @ts-ignore
 			new Date(b.entry.date_published).valueOf() -
 			// @ts-ignore
-			new Date(a.entry.date_published).valueOf()
+			new Date(a.entry.date_published).valueOf(),
 	)
 	return json({ posts: sortedPublishedPosts })
 }

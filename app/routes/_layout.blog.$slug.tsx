@@ -49,7 +49,7 @@ ${post.title} 👇`
 							<span className='text-xs font-semibold uppercase'>
 								{format(
 									new Date(post.date_published as string),
-									'PP'
+									'PP',
 								)}
 							</span>
 							{/* <span>·</span>
@@ -88,7 +88,7 @@ ${post.title} 👇`
 								{
 									url: permalink,
 									text: tweetMessage,
-								}
+								},
 							)}`}
 							className='inline-flex items-center justify-start gap-2 !text-sm !font-semibold !no-underline'
 							target='_blank'

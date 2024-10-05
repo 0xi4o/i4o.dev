@@ -15,7 +15,9 @@ export default function ProjectCard({
 			{isComingSoon ? (
 				<div className='t group flex w-full flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 md:flex-row md:items-center'>
 					<div className='flex flex-col gap-2 md:flex-row md:items-center md:gap-4'>
-						<p className='text-neutral-100 font-mono'>{title}</p>
+						<p className='text-neutral-100 font-mono uppercase'>
+							{title}
+						</p>
 						<p>{description}</p>
 					</div>
 
@@ -31,7 +33,9 @@ export default function ProjectCard({
 					rel='noreferrer'
 				>
 					<div className='flex flex-col gap-4 md:flex-row md:items-center'>
-						<p className='text-neutral-100 font-mono'>{title}</p>
+						<p className='text-neutral-100 font-mono uppercase'>
+							{title}
+						</p>
 						<p>{description}</p>
 					</div>
 

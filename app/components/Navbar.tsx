@@ -18,7 +18,7 @@ export default function Navbar({
 							to='/'
 							className={`${
 								pathname === '/' ? 'text-brand' : ''
-							} transition-colors font-mono duration-200 hover:text-brand`}
+							} transition-colors font-mono uppercase duration-200 hover:text-brand`}
 						>
 							Home
 						</Link>
@@ -29,7 +29,7 @@ export default function Navbar({
 							to='/blog'
 							className={`${
 								pathname === '/blog' ? 'text-brand' : ''
-							} transition-colors font-mono duration-200 hover:text-brand`}
+							} transition-colors font-mono uppercase duration-200 hover:text-brand`}
 						>
 							Blog
 						</Link>
@@ -40,7 +40,7 @@ export default function Navbar({
 							to='/projects'
 							className={`${
 								pathname === '/projects' ? 'text-brand' : ''
-							} transition-colors font-mono duration-200 hover:text-brand`}
+							} transition-colors font-mono uppercase duration-200 hover:text-brand`}
 						>
 							Projects
 						</Link>
@@ -51,7 +51,7 @@ export default function Navbar({
 							to='/about'
 							className={`${
 								pathname === '/about' ? 'text-brand' : ''
-							} transition-colors font-mono duration-200 hover:text-brand`}
+							} transition-colors font-mono uppercase duration-200 hover:text-brand`}
 						>
 							About
 						</Link>

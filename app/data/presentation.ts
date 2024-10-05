@@ -14,8 +14,8 @@ const presentation: Presentation = {
 	mail: 'hey@i4o.dev',
 	socials: [
 		{
-			label: 'Twitter',
-			link: 'https://twitter.com/0xi4o',
+			label: 'X',
+			link: 'https://x.com/0xi4o',
 		},
 		{
 			label: 'Github',

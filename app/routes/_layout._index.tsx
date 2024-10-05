@@ -28,14 +28,14 @@ function LatestPosts({ posts }: { posts: any[] }) {
 	return (
 		<article className='flex flex-col gap-8'>
 			<header className='flex w-full flex-row justify-between gap-2'>
-				<h2 className='text-xl text-neutral-100 font-mono'>
+				<h2 className='text-xl text-neutral-100 font-mono uppercase'>
 					Latest Posts
 				</h2>
 				<Link
-					className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+					className='cursor-pointer font-mono uppercase text-xs underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 					to='/blog'
 				>
-					See all posts
+					See all
 				</Link>
 			</header>
 			{posts.length === 0 && <p>Soon, stay connected 👀...</p>}
@@ -66,14 +66,14 @@ function FeaturedProjects({
 	return (
 		<article className='flex flex-col gap-8'>
 			<header className='flex w-full flex-row justify-between gap-2'>
-				<h2 className='text-xl text-neutral-100 font-mono'>
+				<h2 className='text-xl text-neutral-100 font-mono uppercase'>
 					Featured Projects
 				</h2>
 				<Link
-					className='cursor-pointer underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+					className='cursor-pointer font-mono uppercase text-xs underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 					to='/projects'
 				>
-					See all projects
+					See all
 				</Link>
 			</header>
 			{projects.length === 0 && <p>Oops, I must work^^^^^</p>}

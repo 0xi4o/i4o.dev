@@ -7,7 +7,9 @@ function Footer() {
 				<div className='flex items-center gap-2'>
 					<p>
 						<span className='font-mono'>2024</span> &copy;{' '}
-						<span className='font-mono'>Ilango Rajagopal</span>
+						<span className='font-mono uppercase'>
+							Ilango Rajagopal
+						</span>
 					</p>
 				</div>
 				<div className='flex items-center justify-end gap-4'>

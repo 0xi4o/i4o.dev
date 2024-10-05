@@ -66,7 +66,7 @@ ${post.title} 👇`
 							}
 						</PageTitle>
 					</header>
-					<article className='prose prose-lg prose-invert max-w-none prose-blockquote:rounded-md prose-blockquote:border-none prose-blockquote:bg-brand/10 prose-blockquote:p-4 prose-blockquote:font-normal'>
+					<article className='prose prose-lg prose-invert max-w-none prose-blockquote:rounded-md prose-blockquote:border-none prose-blockquote:bg-brand/10 prose-blockquote:p-4 prose-blockquote:font-normal prose-h2:font-mono prose-h3:font-mono'>
 						<DocumentRenderer
 							// @ts-ignore
 							document={post.content}

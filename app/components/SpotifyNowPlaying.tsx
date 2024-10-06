@@ -24,7 +24,7 @@ export default function SpotifyNowPlaying({ data }: { data: any }) {
 		>
 			{data.isPlaying ? (
 				<a
-					className='w-full rounded-full border border-brand transition-all duration-200 group-hover:bg-brand'
+					className='w-full rounded-md border border-brand transition-all duration-200 group-hover:bg-brand'
 					href={data.url}
 					target='_blank'
 					rel='noreferrer noopener'
@@ -38,7 +38,7 @@ export default function SpotifyNowPlaying({ data }: { data: any }) {
 				</a>
 			) : (
 				<a
-					className='rounded-full border border-neutral-700 transition-all duration-200 group-hover:border-brand group-hover:bg-brand'
+					className='rounded-md border border-neutral-700 transition-all duration-200 group-hover:border-brand group-hover:bg-brand'
 					href='https://open.spotify.com/user/ilangorajagopal?si=3c10aad3653b42ea'
 					target='_blank'
 					rel='noreferrer noopener'

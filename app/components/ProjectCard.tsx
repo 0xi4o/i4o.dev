@@ -13,12 +13,14 @@ export default function ProjectCard({
 	return (
 		<>
 			{isComingSoon ? (
-				<div className='t group flex w-full flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 md:flex-row md:items-center'>
+				<div className='group flex w-full flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 md:flex-row md:items-center hover:bg-brand'>
 					<div className='flex flex-col gap-2 md:flex-row md:items-center md:gap-4'>
-						<p className='text-neutral-100 font-mono uppercase'>
+						<p className='text-neutral-100 font-mono uppercase group-hover:text-neutral-800'>
 							{title}
 						</p>
-						<p>{description}</p>
+						<p className='group-hover:text-neutral-700'>
+							{description}
+						</p>
 					</div>
 
 					<p className='w-fit rounded-md bg-neutral-900 px-4 py-1 text-xs font-mono'>
@@ -27,19 +29,21 @@ export default function ProjectCard({
 				</div>
 			) : (
 				<a
-					className='group flex w-full cursor-pointer flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-200 hover:border-brand md:flex-row md:items-center'
+					className='group flex w-full cursor-pointer flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-200 hover:border-brand md:flex-row md:items-center hover:bg-brand'
 					href={link}
 					target='_blank'
 					rel='noreferrer'
 				>
 					<div className='flex flex-col gap-4 md:flex-row md:items-center'>
-						<p className='text-neutral-100 font-mono uppercase'>
+						<p className='text-neutral-100 font-mono uppercase group-hover:text-neutral-800'>
 							{title}
 						</p>
-						<p>{description}</p>
+						<p className='group-hover:text-neutral-700'>
+							{description}
+						</p>
 					</div>
 
-					<ExternalLinkIcon className='w-4 h-4' />
+					<ExternalLinkIcon className='w-4 h-4 group-hover:text-neutral-700' />
 				</a>
 			)}
 		</>

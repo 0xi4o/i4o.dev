@@ -3,6 +3,7 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
 
+import PostCard from '~/components/PostCard'
 import { groupPostsByYear } from '~/utils/helpers.server'
 import type { Env } from '../../worker-configuration'
 
@@ -64,7 +65,7 @@ export default function Blog() {
 									{year}
 								</h2>
 							) : null}
-							<div className='mb-8 flex w-full flex-col items-start gap-4'>
+							<div className='mb-8 flex w-full flex-col items-start gap-6'>
 								{
 									// @ts-ignore
 									postsGroupedByYear[year].map(

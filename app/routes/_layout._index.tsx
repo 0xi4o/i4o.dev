@@ -94,16 +94,43 @@ function FeaturedProjects({
 	)
 }
 
+function Work() {
+	return (
+		<article className='flex flex-col gap-8'>
+			<header className='flex w-full flex-row justify-between gap-2'>
+				<h2 className='text-xl text-neutral-100 font-mono uppercase'>
+					Work
+				</h2>
+			</header>
+			<p className='prose prose-invert max-w-none leading-loose font-sans'>
+				I'm a Software Engineer at{' '}
+				<a
+					className='text-brand no-underline'
+					href='https://flowiseai.com'
+					rel='noopener noreferrer'
+				>
+					FlowiseAI
+				</a>{' '}
+				building an open-source low-code LLM orchestration platform. I
+				write about web development, side projects, learning and
+				personal growth.
+			</p>
+		</article>
+	)
+}
+
 export default function Index() {
 	const { posts } = useLoaderData<typeof loader>()
 
 	return (
-		<main className='flex flex-col gap-20'>
+		<main className='flex flex-col gap-16'>
 			<Hero />
 
 			<LatestPosts posts={posts} />
 
 			<FeaturedProjects projects={projects} />
+
+			<Work />
 		</main>
 	)
 }

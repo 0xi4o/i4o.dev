@@ -5,12 +5,11 @@ export default function Hero() {
 	return (
 		<article className='flex flex-col gap-8'>
 			<PageTitle>Ilango Rajagopal</PageTitle>
-			<p className='prose prose-invert max-w-[60ch] leading-loose font-sans'>
-				Hey, I am Ilango Rajagopal, a <strong>software engineer</strong>{' '}
-				from Bangalore, India. I build <strong>open-source</strong> apps
-				and tools with{' '}
-				<strong>Remix, React, TypeScript, and Golang</strong>. I write
-				about web development, indie-hacking, and personal growth.
+			<p className='prose prose-invert max-w-none leading-loose font-sans'>
+				Hey. I'm a software engineer specializing in full-stack web
+				development. I build open-source apps and tools with Remix,
+				React, TypeScript, and Golang. I like building personal tools
+				and I'm passionate about building beautiful user interfaces.
 			</p>
 			<SocialLinks />
 		</article>

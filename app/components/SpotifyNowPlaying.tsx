@@ -30,8 +30,8 @@ export default function SpotifyNowPlaying({ data }: { data: any }) {
 					rel='noreferrer noopener'
 				>
 					<div className='inline-flex w-full items-center gap-2 px-3 py-2'>
-						<SpotifyIcon className='flex h-5 w-5 flex-shrink-0 animate-spin text-brand group-hover:text-neutral-700' />
-						<p className='truncate text-ellipsis leading-none font-mono uppercase group-hover:text-neutral-700'>
+						<SpotifyIcon className='flex h-4 w-4 flex-shrink-0 animate-spin text-brand group-hover:text-neutral-700' />
+						<p className='truncate text-xs text-ellipsis leading-none font-mono uppercase group-hover:text-neutral-700'>
 							{data.title} - {data.artist}
 						</p>
 					</div>
@@ -44,8 +44,8 @@ export default function SpotifyNowPlaying({ data }: { data: any }) {
 					rel='noreferrer noopener'
 				>
 					<div className='inline-flex items-center gap-2 px-3 py-2'>
-						<SpotifyIcon className='h-5 w-5 text-brand group-hover:text-neutral-700' />
-						<p className='leading-none group-hover:text-neutral-700 font-mono uppercase'>
+						<SpotifyIcon className='h-4 w-4 text-brand group-hover:text-neutral-700' />
+						<p className='leading-none text-xs group-hover:text-neutral-700 font-mono uppercase'>
 							Offline
 						</p>
 					</div>

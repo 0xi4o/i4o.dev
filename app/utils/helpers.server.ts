@@ -1,6 +1,7 @@
-import type { Artist } from './types'
+import { Buffer } from 'node:buffer'
 import type { AppLoadContext } from '@remix-run/cloudflare'
 import type { Env } from '../../worker-configuration'
+import type { Artist } from './types'
 
 // code shamelessly inspired from: https://github.com/dreyfus92/astro-portfolio
 export const getAccessToken = async (context: AppLoadContext) => {

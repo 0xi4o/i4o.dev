@@ -12,7 +12,7 @@ export default function Navbar({
 	return (
 		<header className='z-40 flex w-full flex-col gap-2 md:flex-row md:justify-between'>
 			<nav className='flex items-center'>
-				<ul className='flex flex-row gap-2'>
+				<ul className='flex flex-row gap-2 text-xs'>
 					<li>
 						<Link
 							to='/'

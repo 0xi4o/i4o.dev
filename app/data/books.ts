@@ -6,147 +6,32 @@ export type Book = {
 
 export const currentlyReading: Book[] = [
 	{
+		title: 'A Common-Sense Guide to Data Structures and Algorithms',
+		author: 'Jay Wengrow',
+		cover: '/images/book-covers/csgtdsa.jpg',
+	},
+	{
 		title: 'On Writing Well',
 		author: 'William Zinsser',
 		cover: '/images/book-covers/on-writing-well.jpg',
+	},
+	{
+		title: 'Learn Concurrent Programming with Go',
+		author: 'James Cutajar',
+		cover: '/images/book-covers/go-concurrency.jpeg',
 	},
 	{
 		title: 'Jujutsu Kaisen Vol 20',
 		author: 'Gege Akutami',
 		cover: '/images/book-covers/jujutsu-kaisen-20.jpg',
 	},
-	{
-		title: 'Grokking Algorithms',
-		author: 'Aditya Bhargava',
-		cover: '/images/book-covers/grokking-algorithms.jpg',
-	},
 ]
 
 export const readThisYear: Book[] = [
 	{
-		title: 'Small Things Like These',
-		author: 'Claire Keegan',
-		cover: '/images/book-covers/small-things-like-these.jpg',
-	},
-	{
-		title: 'A Psalm for the Wild-Built',
-		author: 'Becky Chambers',
-		cover: '/images/book-covers/psalm-for-the-wild-built.jpg',
-	},
-	{
-		title: 'A Prayer for the Crown-Shy',
-		author: 'Becky Chambers',
-		cover: '/images/book-covers/prayer-for-the-crown-shy.jpg',
-	},
-	{
-		title: 'Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
-	},
-	{
-		title: 'More Days at the Morisaki Bookshop',
-		author: 'Satoshi Yagisawa',
-		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
-	},
-	{
-		title: 'Circe',
-		author: 'Madeline Miller',
-		cover: '/images/book-covers/circe.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 1',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 2',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-2.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 3',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-3.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 4',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-4.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 5',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-5.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 6',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-6.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 7',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-7.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 8',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-8.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 9',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-9.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 10',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-10.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 11',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-11.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 12',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-12.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 13',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-13.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 14',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-14.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 15',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-15.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 16',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-16.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 17',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-17.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 18',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-18.jpg',
-	},
-	{
-		title: 'Jujutsu Kaisen Vol 19',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-19.jpg',
+		title: "Let's Go Further",
+		author: 'Alex Edwards',
+		cover: '/images/book-covers/lets-go-further.png',
 	},
 	{
 		title: "Let's Go",
@@ -154,9 +39,129 @@ export const readThisYear: Book[] = [
 		cover: '/images/book-covers/lets-go.jpg',
 	},
 	{
-		title: "Let's Go Further",
-		author: 'Alex Edwards',
-		cover: '/images/book-covers/lets-go-further.png',
+		title: 'Jujutsu Kaisen Vol 19',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-19.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 18',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-18.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 17',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-17.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 16',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-16.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 15',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-15.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 14',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-14.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 13',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-13.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 12',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-12.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 11',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-11.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 10',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-10.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 9',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-9.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 8',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-8.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 7',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-7.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 6',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-6.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 5',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-5.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 4',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-4.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 3',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-3.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 2',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-2.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 1',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen.jpg',
+	},
+	{
+		title: 'Circe',
+		author: 'Madeline Miller',
+		cover: '/images/book-covers/circe.jpg',
+	},
+	{
+		title: 'More Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/more-days-at-the-morisaki-bookshop.jpg',
+	},
+	{
+		title: 'Days at the Morisaki Bookshop',
+		author: 'Satoshi Yagisawa',
+		cover: '/images/book-covers/days-at-the-morisaki-bookshop.jpg',
+	},
+	{
+		title: 'A Prayer for the Crown-Shy',
+		author: 'Becky Chambers',
+		cover: '/images/book-covers/prayer-for-the-crown-shy.jpg',
+	},
+	{
+		title: 'A Psalm for the Wild-Built',
+		author: 'Becky Chambers',
+		cover: '/images/book-covers/psalm-for-the-wild-built.jpg',
+	},
+	{
+		title: 'Small Things Like These',
+		author: 'Claire Keegan',
+		cover: '/images/book-covers/small-things-like-these.jpg',
 	},
 ]
 

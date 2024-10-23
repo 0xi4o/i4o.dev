@@ -1,4 +1,4 @@
-import { type LoaderFunctionArgs, json } from '@remix-run/cloudflare'
+import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
 import { Link, useLoaderData } from '@remix-run/react'
 import { Hero } from '~/components'
 import PostCard from '~/components/PostCard'
@@ -105,10 +105,15 @@ function Work() {
 			<p className='prose prose-invert max-w-none leading-loose font-sans'>
 				I'm a Software Engineer at{' '}
 				<a
-					className='text-brand no-underline'
+					className='h-3 no-underline inline-flex items-center'
 					href='https://flowiseai.com'
 					rel='noopener noreferrer'
 				>
+					<img
+						alt='FlowiseAI logo'
+						className='h-3 w-3 mr-1'
+						src='/images/flowise-logo.png'
+					/>
 					FlowiseAI
 				</a>{' '}
 				building an open-source low-code LLM orchestration platform. I

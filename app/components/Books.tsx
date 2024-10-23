@@ -12,7 +12,7 @@ export default function Books() {
 	return (
 		<motion.article className='flex flex-col gap-16'>
 			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
+				<h2 className='text-xl font-medium text-neutral-100 font-mono uppercase'>
 					Currently Reading
 				</h2>
 				<div className='w-full columns-3 gap-8'>
@@ -42,20 +42,8 @@ export default function Books() {
 				</div>
 			</section>
 			<section className='flex flex-col gap-8'>
-				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
-					2023
-				</h2>
-				<div className='w-full columns-3 gap-8'>
-					{read2023.length !== 0 &&
-						read2023.map((book, index) => (
-							// biome-ignore lint: it's fine
-							<BookCard {...book} key={`read2023${index}`} />
-						))}
-				</div>
-			</section>
-			<section className='flex flex-col gap-8'>
 				<div>
-					<h2 className='mb-2 text-xl font-medium text-neutral-100 font-mono'>
+					<h2 className='mb-2 text-xl font-medium text-neutral-100 font-mono uppercase'>
 						On My Radar
 					</h2>
 					<span className='text-sm'>
@@ -72,6 +60,18 @@ export default function Books() {
 			</section>
 			<section className='flex flex-col gap-8'>
 				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
+					2023
+				</h2>
+				<div className='w-full columns-3 gap-8'>
+					{read2023.length !== 0 &&
+						read2023.map((book, index) => (
+							// biome-ignore lint: it's fine
+							<BookCard {...book} key={`read2023${index}`} />
+						))}
+				</div>
+			</section>
+			<section className='flex flex-col gap-8'>
+				<h2 className='text-xl font-medium text-neutral-100 font-mono uppercase'>
 					All Time Favorites
 				</h2>
 				<div className='w-full columns-3 gap-8'>

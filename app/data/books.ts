@@ -11,23 +11,28 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/csgtdsa.jpg',
 	},
 	{
-		title: 'On Writing Well',
-		author: 'William Zinsser',
-		cover: '/images/book-covers/on-writing-well.jpg',
-	},
-	{
-		title: 'Learn Concurrent Programming with Go',
-		author: 'James Cutajar',
-		cover: '/images/book-covers/go-concurrency.jpeg',
-	},
-	{
 		title: 'Jujutsu Kaisen Vol 20',
 		author: 'Gege Akutami',
 		cover: '/images/book-covers/jujutsu-kaisen-20.jpg',
 	},
+	{
+		title: 'Writing for Software Developers',
+		author: 'Philip Kiely',
+		cover: '/images/book-covers/wfsd.png',
+	},
+	{
+		title: 'How to Take Smart Notes',
+		author: 'Sönke Ahrens',
+		cover: '/images/book-covers/how-to-take-smart-notes.jpg',
+	},
 ]
 
 export const readThisYear: Book[] = [
+	{
+		title: 'On Writing Well',
+		author: 'William Zinsser',
+		cover: '/images/book-covers/on-writing-well.jpg',
+	},
 	{
 		title: "Let's Go Further",
 		author: 'Alex Edwards',
@@ -167,9 +172,9 @@ export const readThisYear: Book[] = [
 
 export const onMyRadar: Book[] = [
 	{
-		title: 'How to Take Smart Notes',
-		author: 'Sönke Ahrens',
-		cover: '/images/book-covers/how-to-take-smart-notes.jpg',
+		title: 'Learn Concurrent Programming with Go',
+		author: 'James Cutajar',
+		cover: '/images/book-covers/go-concurrency.jpeg',
 	},
 	{
 		title: 'Writing to Learn',
@@ -180,11 +185,6 @@ export const onMyRadar: Book[] = [
 		title: 'How to Solve It',
 		author: 'George Pólya',
 		cover: '/images/book-covers/how-to-solve-it.jpg',
-	},
-	{
-		title: 'Writing for Software Developers',
-		author: 'Philip Kiely',
-		cover: '/images/book-covers/wfsd.png',
 	},
 	{
 		title: 'Designing Data-Intensive Applications',

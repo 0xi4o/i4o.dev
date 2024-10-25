@@ -35,7 +35,7 @@ function LatestPosts({ posts }: { posts: any[] }) {
 					className='cursor-pointer font-mono uppercase text-xs underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 					to='/blog'
 				>
-					See all
+					View all
 				</Link>
 			</header>
 			{posts.length === 0 && <p>Soon, stay connected 👀...</p>}
@@ -51,6 +51,7 @@ function LatestPosts({ posts }: { posts: any[] }) {
 								title={post.entry.title}
 								description={post.entry.excerpt}
 								slug={post.slug}
+								tags={post.entry.tags}
 							/>
 						))}
 			</section>
@@ -73,7 +74,7 @@ function FeaturedProjects({
 					className='cursor-pointer font-mono uppercase text-xs underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
 					to='/projects'
 				>
-					See all
+					View all
 				</Link>
 			</header>
 			{projects.length === 0 && <p>Oops, I must work^^^^^</p>}

@@ -1,32 +1,56 @@
 import { Link } from '@remix-run/react'
 import { format } from 'date-fns'
-import { ExternalLinkIcon } from 'lucide-react'
 
 type Props = {
 	title: string
 	publishedAt: Date
 	description: string
 	slug: string
+	tags: string[]
 }
 
-export default function PostCard({ title, publishedAt, slug }: Props) {
+export default function PostCard({
+	title,
+	description,
+	publishedAt,
+	slug,
+	tags,
+}: Props) {
 	return (
-		<Link
-			className='group flex w-full cursor-pointer items-center justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:border-brand hover:bg-brand'
-			to={`/blog/${slug}`}
-		>
-			<div className='flex max-w-[80%] flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
-				<div className='flex max-w-full items-center'>
-					<p className='truncate text-neutral-100 font-mono group-hover:text-neutral-800'>
-						{title}
-					</p>
-				</div>
-				<span className='flex flex-shrink-0 flex-row items-center gap-4 text-xs italic leading-6 group-hover:text-neutral-700'>
-					{format(new Date(publishedAt), 'MMM dd')}
+		<div className='group flex flex-col w-full items-start justify-center gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:border-brand'>
+			<Link
+				className='max-w-[80%] flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'
+				to={`/blog/${slug}`}
+			>
+				<p className='text-lg text-neutral-100 font-mono group-hover:text-brand transition-colors duration-300'>
+					{title}
+				</p>
+			</Link>
+			<div className='flex items-center gap-4'>
+				<span className='flex flex-shrink-0 flex-row items-center gap-4 text-xs leading-6'>
+					{format(new Date(publishedAt), 'MMM dd, yyyy')}
 				</span>
+				{tags.length > 0 && (
+					<span className='flex items-center gap-2'>
+						{tags.map((tag) => (
+							<>
+								<span
+									key={tag}
+									className='text-xs font-mono text-neutral-100'
+								>
+									{`#${tag}`}
+								</span>
+								{tags.indexOf(tag) < tags.length - 1 && '·'}
+							</>
+						))}
+					</span>
+				)}
 			</div>
-
-			<ExternalLinkIcon className='w-4 h-4 group-hover:text-neutral-700' />
-		</Link>
+			{description && (
+				<p className='prose prose-invert max-w-[60ch] leading-loose mt-4'>
+					{description}
+				</p>
+			)}
+		</div>
 	)
 }

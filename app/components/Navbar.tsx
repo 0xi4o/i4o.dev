@@ -31,7 +31,18 @@ export default function Navbar({
 								pathname === '/blog' ? 'text-brand' : ''
 							} transition-colors font-mono uppercase duration-200 hover:text-brand`}
 						>
-							Blog
+							Articles
+						</Link>
+					</li>
+					<li>/</li>
+					<li>
+						<Link
+							to='/series'
+							className={`${
+								pathname === '/blog' ? 'text-brand' : ''
+							} transition-colors font-mono uppercase duration-200 hover:text-brand`}
+						>
+							Series
 						</Link>
 					</li>
 					<li>/</li>

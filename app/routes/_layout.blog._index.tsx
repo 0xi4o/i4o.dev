@@ -1,4 +1,4 @@
-import { type LoaderFunctionArgs, json } from '@remix-run/cloudflare'
+import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
 import { Link, useLoaderData } from '@remix-run/react'
 import { format } from 'date-fns'
 import PageTitle from '~/components/PageTitle'
@@ -71,29 +71,16 @@ export default function Blog() {
 									postsGroupedByYear[year].map(
 										// @ts-ignore
 										(post, index) => (
-											<Link
-												className='group flex w-full cursor-pointer items-center justify-start gap-2 rounded-md transition-all duration-200'
+											<PostCard
 												key={post.slug}
-												to={`/blog/${post.slug}`}
-											>
-												<div className='flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'>
-													<div className='flex items-center'>
-														<h3 className='m-0 truncate text-base leading-6 text-neutral-100 font-mono group-hover:text-brand'>
-															{post.entry.title}
-														</h3>
-													</div>
-													<span className='text-xs italic'>
-														{format(
-															new Date(
-																// @ts-ignore
-																post.entry
-																	.date_published,
-															),
-															'MMM dd',
-														)}
-													</span>
-												</div>
-											</Link>
+												title={post.entry.title}
+												description={post.entry.excerpt}
+												publishedAt={
+													post.entry.date_published
+												}
+												slug={post.slug}
+												tags={post.entry.tags}
+											/>
 										),
 									)
 								}

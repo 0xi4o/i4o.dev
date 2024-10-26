@@ -6,7 +6,7 @@ import PostCard from '~/components/PostCard'
 
 export async function loader({ context }: LoaderFunctionArgs) {
 	const env = context.cloudflare.env as Env
-	const response = await fetch(`${env.CMS_URL}/api/series.json`)
+	const response = await fetch(`${env.CMS_URL}/api/series`)
 	const data = await response.json()
 	// @ts-ignore
 	return json({ series: data.series })

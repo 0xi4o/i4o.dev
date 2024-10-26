@@ -16,7 +16,7 @@ import React, { Fragment } from 'react'
 export async function loader({ context, params }: LoaderFunctionArgs) {
 	const env = context.cloudflare.env as Env
 	const slug = params.slug as string
-	const response = await fetch(`${env.CMS_URL}/api/posts.${slug}.json`)
+	const response = await fetch(`${env.CMS_URL}/api/posts.${slug}`)
 	const data = await response.json()
 
 	// @ts-ignore

@@ -39,7 +39,7 @@ export default function Navbar({
 						<Link
 							to='/series'
 							className={`${
-								pathname === '/blog' ? 'text-brand' : ''
+								pathname === '/series' ? 'text-brand' : ''
 							} transition-colors font-mono uppercase duration-200 hover:text-brand`}
 						>
 							Series

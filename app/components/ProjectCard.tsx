@@ -29,21 +29,19 @@ export default function ProjectCard({
 				</div>
 			) : (
 				<a
-					className='group flex w-full cursor-pointer flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-200 hover:border-brand md:flex-row md:items-center hover:bg-brand'
+					className='group flex w-full cursor-pointer flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-200 hover:border-brand md:flex-row md:items-center'
 					href={link}
 					target='_blank'
 					rel='noreferrer'
 				>
 					<div className='flex flex-col gap-4 md:flex-row md:items-center'>
-						<p className='text-neutral-100 font-mono uppercase group-hover:text-neutral-800'>
+						<p className='text-neutral-100 font-mono uppercase'>
 							{title}
 						</p>
-						<p className='group-hover:text-neutral-700'>
-							{description}
-						</p>
+						<p className=''>{description}</p>
 					</div>
 
-					<ExternalLinkIcon className='w-4 h-4 group-hover:text-neutral-700' />
+					<ExternalLinkIcon className='w-4 h-4' />
 				</a>
 			)}
 		</>

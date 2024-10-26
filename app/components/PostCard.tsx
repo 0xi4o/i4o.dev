@@ -1,5 +1,6 @@
 import { Link } from '@remix-run/react'
 import { format } from 'date-fns'
+import { Fragment } from 'react/jsx-runtime'
 
 type Props = {
 	title: string
@@ -17,12 +18,12 @@ export default function PostCard({
 	tags,
 }: Props) {
 	return (
-		<div className='group flex flex-col w-full items-start justify-center gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:border-brand'>
+		<div className='flex flex-col w-full items-start justify-center gap-2 rounded-md border border-neutral-700 p-4'>
 			<Link
 				className='max-w-[80%] flex flex-col justify-between gap-2 md:flex-row md:items-center md:justify-start'
-				to={`/blog/${slug}`}
+				to={slug}
 			>
-				<p className='text-lg text-neutral-100 font-mono group-hover:text-brand transition-colors duration-300'>
+				<p className='text-lg text-neutral-100 font-mono hover:text-brand transition-colors duration-300'>
 					{title}
 				</p>
 			</Link>
@@ -31,17 +32,14 @@ export default function PostCard({
 					{format(new Date(publishedAt), 'MMM dd, yyyy')}
 				</span>
 				{tags.length > 0 && (
-					<span className='flex items-center gap-2'>
+					<span className='flex items-center gap-1'>
 						{tags.map((tag) => (
-							<>
-								<span
-									key={tag}
-									className='text-xs font-mono text-neutral-100'
-								>
+							<Fragment key={tag}>
+								<span className='text-xs font-mono text-neutral-100'>
 									{`#${tag}`}
 								</span>
 								{tags.indexOf(tag) < tags.length - 1 && '·'}
-							</>
+							</Fragment>
 						))}
 					</span>
 				)}

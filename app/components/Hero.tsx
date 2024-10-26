@@ -3,7 +3,7 @@ import SocialLinks from '~/components/SocialLinks'
 
 export default function Hero() {
 	return (
-		<article className='flex flex-col gap-8'>
+		<article className='flex flex-col gap-4'>
 			<PageTitle>Ilango Rajagopal</PageTitle>
 			<span className='prose prose-invert max-w-none font-sans'>
 				Hey. I'm a software engineer specializing in full-stack web

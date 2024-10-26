@@ -5,6 +5,7 @@ import PostCard from '~/components/PostCard'
 import { type Project, projects } from '~/data/projects'
 import type { Env } from '../../worker-configuration'
 import ProjectCard from '../components/ProjectCard'
+import { ChevronRightIcon } from 'lucide-react'
 
 export async function loader({ context }: LoaderFunctionArgs) {
 	const env = context.cloudflare.env as Env
@@ -27,15 +28,16 @@ export async function loader({ context }: LoaderFunctionArgs) {
 function LatestPosts({ posts }: { posts: any[] }) {
 	return (
 		<article className='flex flex-col gap-8'>
-			<header className='flex w-full flex-row justify-between gap-2'>
+			<header className='flex w-full items-center flex-row justify-between gap-2'>
 				<h2 className='text-xl text-neutral-100 font-mono uppercase'>
 					Latest Posts
 				</h2>
 				<Link
-					className='cursor-pointer font-mono uppercase text-xs underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+					className='flex items-center gap-1 cursor-pointer font-mono uppercase text-sm transition-colors duration-200 hover:text-brand'
 					to='/blog'
 				>
 					View all
+					<ChevronRightIcon className='h-4 w-4' />
 				</Link>
 			</header>
 			{posts.length === 0 && <p>Soon, stay connected 👀...</p>}
@@ -50,7 +52,7 @@ function LatestPosts({ posts }: { posts: any[] }) {
 								publishedAt={post.entry.date_published}
 								title={post.entry.title}
 								description={post.entry.excerpt}
-								slug={post.slug}
+								slug={`/blog/${post.slug}`}
 								tags={post.entry.tags}
 							/>
 						))}
@@ -71,10 +73,11 @@ function FeaturedProjects({
 					Featured Projects
 				</h2>
 				<Link
-					className='cursor-pointer font-mono uppercase text-xs underline decoration-dashed underline-offset-8 transition-colors duration-200 hover:text-brand'
+					className='flex items-center gap-1 cursor-pointer font-mono uppercase text-sm transition-colors duration-200 hover:text-brand'
 					to='/projects'
 				>
 					View all
+					<ChevronRightIcon className='h-4 w-4' />
 				</Link>
 			</header>
 			{projects.length === 0 && <p>Oops, I must work^^^^^</p>}

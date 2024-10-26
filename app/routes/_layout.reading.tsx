@@ -5,8 +5,8 @@ import Content from '~/content/reading/reading.mdx'
 
 export default function Reading() {
 	return (
-		<main className='flex flex-col gap-20'>
-			<article className='flex flex-col gap-8'>
+		<main className='flex flex-col gap-16'>
+			<article className='flex flex-col gap-4'>
 				<PageTitle>Reading</PageTitle>
 				<p className='prose prose-invert max-w-[60ch] leading-loose'>
 					I read books regularly. I'm always reading two books at any

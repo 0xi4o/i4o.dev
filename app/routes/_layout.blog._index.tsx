@@ -1,6 +1,5 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
-import { Link, useLoaderData } from '@remix-run/react'
-import { format } from 'date-fns'
+import { useLoaderData } from '@remix-run/react'
 import PageTitle from '~/components/PageTitle'
 
 import PostCard from '~/components/PostCard'
@@ -34,8 +33,8 @@ export default function Blog() {
 	)
 
 	return (
-		<main className='flex flex-col gap-20'>
-			<article className='flex flex-col gap-8'>
+		<main className='flex flex-col gap-16'>
+			<article className='flex flex-col gap-4'>
 				<PageTitle>Blog</PageTitle>
 				<p className='prose prose-invert max-w-[60ch] leading-loose'>
 					I usually write about software engineering, indie-hacking,
@@ -78,7 +77,7 @@ export default function Blog() {
 												publishedAt={
 													post.entry.date_published
 												}
-												slug={post.slug}
+												slug={`/blog/${post.slug}`}
 												tags={post.entry.tags}
 											/>
 										),

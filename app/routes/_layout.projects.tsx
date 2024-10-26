@@ -4,8 +4,8 @@ import { projects } from '~/data/projects'
 
 export default function Projects() {
 	return (
-		<main className='flex flex-col gap-20'>
-			<article className='flex flex-col gap-8'>
+		<main className='flex flex-col gap-16'>
+			<article className='flex flex-col gap-4'>
 				<PageTitle>Projects</PageTitle>
 				<p className='prose prose-invert max-w-[60ch] leading-loose'>
 					I build small web applications and tools that solve problems

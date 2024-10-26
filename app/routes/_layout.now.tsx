@@ -3,8 +3,8 @@ import PageTitle from '~/components/PageTitle'
 
 export default function Now() {
 	return (
-		<main className='flex flex-col gap-20'>
-			<article className='flex flex-col gap-8 leading-loose'>
+		<main className='flex flex-col gap-16'>
+			<article className='flex flex-col gap-4 leading-loose'>
 				<PageTitle>Now</PageTitle>
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
 					<h3 className='text-lg text-neutral-100 font-mono'>

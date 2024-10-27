@@ -9,7 +9,7 @@ import { ChevronRightIcon } from 'lucide-react'
 
 export async function loader({ context }: LoaderFunctionArgs) {
 	const env = context.cloudflare.env as Env
-	const response = await fetch(`${env.CMS_URL}/api/posts.json`)
+	const response = await fetch(`${env.CMS_URL}/api/posts`)
 	const data = await response.json()
 	// @ts-ignore
 	const publishedPosts = data?.posts.filter((post) => !post.entry.draft)

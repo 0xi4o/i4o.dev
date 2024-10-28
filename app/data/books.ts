@@ -11,11 +11,6 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/csgtdsa.jpg',
 	},
 	{
-		title: 'Jujutsu Kaisen Vol 20',
-		author: 'Gege Akutami',
-		cover: '/images/book-covers/jujutsu-kaisen-20.jpg',
-	},
-	{
 		title: 'Writing for Software Developers',
 		author: 'Philip Kiely',
 		cover: '/images/book-covers/wfsd.png',
@@ -28,6 +23,31 @@ export const currentlyReading: Book[] = [
 ]
 
 export const readThisYear: Book[] = [
+	{
+		title: 'Jujutsu Kaisen Vol 24',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-24.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 23',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-23.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 22',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-22.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 21',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-21.jpg',
+	},
+	{
+		title: 'Jujutsu Kaisen Vol 20',
+		author: 'Gege Akutami',
+		cover: '/images/book-covers/jujutsu-kaisen-20.jpg',
+	},
 	{
 		title: 'On Writing Well',
 		author: 'William Zinsser',

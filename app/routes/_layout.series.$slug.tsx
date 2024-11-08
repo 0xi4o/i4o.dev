@@ -31,14 +31,16 @@ export default function BlogPost() {
 	// const permalink = `${SITE_URL}/blog/${slug}`;
 
 	return (
-		<main className='flex w-full flex-col gap-16'>
-			<Link
-				to='/series'
-				className='inline-flex items-center justify-start gap-2 font-medium no-underline font-mono uppercase'
-			>
-				<ChevronLeftIcon className='h-4 w-4' />
-				All Series
-			</Link>
+		<main className='flex w-full flex-col gap-8'>
+			<div className='w-auto'>
+				<Link
+					to='/series'
+					className='inline-flex items-center justify-start gap-2 font-medium no-underline font-mono uppercase'
+				>
+					<ChevronLeftIcon className='h-4 w-4' />
+					All Series
+				</Link>
+			</div>
 			<div className='post mx-auto flex w-full max-w-none flex-col gap-12'>
 				<header>
 					<div className='mb-4 flex items-center gap-4'>

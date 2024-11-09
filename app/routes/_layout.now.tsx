@@ -1,4 +1,5 @@
 import { Link } from '@remix-run/react'
+import Employer from '~/components/Employer'
 import PageTitle from '~/components/PageTitle'
 
 export default function Now() {
@@ -12,8 +13,8 @@ export default function Now() {
 					</h3>
 
 					<p>
-						I'm currently working as a Founding Engineer at
-						FlowiseAI.
+						I'm currently working as a Founding Software Engineer at{' '}
+						<Employer />
 					</p>
 
 					<p>I'm shipping Herald in my free time.</p>
@@ -69,6 +70,7 @@ export default function Now() {
 					</p>
 					<ul>
 						<li>Red Dead Redemption 2</li>
+						<li>Risk of Rain 2</li>
 					</ul>
 				</section>
 
@@ -77,15 +79,15 @@ export default function Now() {
 						What am I watching right now?
 					</h3>
 
-					<p>
-						Not watching anything right now. I'm waiting for season
-						2 of Severance and Silo. And the next season of Jujutsu
-						Kaisen.
-					</p>
-
 					{/*<ul>*/}
 					{/*	<li>Nothing</li>*/}
 					{/*</ul>*/}
+
+					<p>Not watching anything right now except F1.</p>
+					<p>
+						I'm waiting for new seasons of Arcane, Drive to Survive,
+						Severance, Silo, and Jujutsu Kaisen.
+					</p>
 				</section>
 			</article>
 		</main>

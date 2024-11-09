@@ -6,6 +6,7 @@ import { type Project, projects } from '~/data/projects'
 import type { Env } from '../../worker-configuration'
 import ProjectCard from '../components/ProjectCard'
 import { ChevronRightIcon } from 'lucide-react'
+import Employer from '~/components/Employer'
 
 export async function loader({ context }: LoaderFunctionArgs) {
 	const env = context.cloudflare.env as Env
@@ -107,22 +108,9 @@ function Work() {
 				</h2>
 			</header>
 			<p className='prose prose-invert max-w-none leading-loose font-sans'>
-				I'm a Software Engineer at{' '}
-				<a
-					className='h-3 no-underline inline-flex items-center'
-					href='https://flowiseai.com'
-					rel='noopener noreferrer'
-				>
-					<img
-						alt='FlowiseAI logo'
-						className='h-3 w-3 mr-1'
-						src='/images/flowise-logo.png'
-					/>
-					FlowiseAI
-				</a>{' '}
-				building an open-source low-code LLM orchestration platform. I
-				write about web development, side projects, learning and
-				personal growth.
+				I'm a Software Engineer at <Employer /> building an open-source
+				low-code LLM orchestration platform. I write about web
+				development, side projects, learning and personal growth.
 			</p>
 		</article>
 	)

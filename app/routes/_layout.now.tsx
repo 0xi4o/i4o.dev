@@ -70,7 +70,7 @@ export default function Now() {
 					</p>
 					<ul>
 						<li>Red Dead Redemption 2</li>
-						<li>Risk of Rain 2</li>
+						<li>Homeworld 3</li>
 					</ul>
 				</section>
 

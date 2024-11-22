@@ -79,9 +79,10 @@ export default function Now() {
 						What am I watching right now?
 					</h3>
 
-					{/*<ul>*/}
-					{/*	<li>Nothing</li>*/}
-					{/*</ul>*/}
+					<ul>
+						<li>F1</li>
+						<li>Vinland Saga (Rewatch)</li>
+					</ul>
 
 					<p>Not watching anything right now except F1.</p>
 					<p>

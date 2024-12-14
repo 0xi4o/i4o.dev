@@ -17,11 +17,11 @@ export default function Now() {
 						<Employer />
 					</p>
 
-					<p>I'm shipping Herald in my free time.</p>
+					{/* <p>I'm shipping Herald in my free time.</p> */}
 
-					<p>I'm learning Go.</p>
+					<p>I'm learning Odin, Raylib, and Box2D.</p>
 
-					<p>I'm also learning to play a guitar.</p>
+					{/* <p>I'm also learning to play a guitar.</p> */}
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
@@ -32,7 +32,8 @@ export default function Now() {
 
 					<ul>
 						<li>Aurelius</li>
-						<li>Herald</li>
+						{/* <li>Herald</li> */}
+						<li>Untitled Video Game</li>
 						<li>and a few small open-source tools</li>
 					</ul>
 				</section>
@@ -42,8 +43,8 @@ export default function Now() {
 						What are my current short-term goals?
 					</h3>
 
-					<p>Build and launch small open-source projects</p>
-					<p>Monetize one of the projects</p>
+					<p>Build and launch a small video game on Steam</p>
+					{/* <p>Monetize one of the projects</p> */}
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
@@ -69,8 +70,8 @@ export default function Now() {
 						playing:
 					</p>
 					<ul>
-						<li>Red Dead Redemption 2</li>
-						<li>Homeworld 3</li>
+						<li>Path of Exile 2</li>
+						<li>The Outer Wilds</li>
 					</ul>
 				</section>
 
@@ -79,14 +80,14 @@ export default function Now() {
 						What am I watching right now?
 					</h3>
 
-					<ul>
-						<li>F1</li>
-						<li>Vinland Saga (Rewatch)</li>
-					</ul>
+					{/* <ul> */}
+					{/*     <li>F1</li> */}
+					{/*     <li>Vinland Saga (Rewatch)</li> */}
+					{/* </ul> */}
 
-					<p>Not watching anything right now except F1.</p>
+					<p>Not watching anything right now.</p>
 					<p>
-						I'm waiting for new seasons of Arcane, Drive to Survive,
+						I'm waiting for new seasons of Drive to Survive,
 						Severance, Silo, and Jujutsu Kaisen.
 					</p>
 				</section>

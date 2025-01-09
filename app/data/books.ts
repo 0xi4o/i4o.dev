@@ -11,13 +11,15 @@ export const currentlyReading: Book[] = [
 		cover: '/images/book-covers/csgtdsa.jpg',
 	},
 	{
-		title: 'Game Programming Patterns',
-		author: 'Robert Nystrom',
-		cover: '/images/book-covers/game-programming-patterns.jpg',
+		title: 'Wool',
+		author: 'Hugh Howey',
+		cover: '/images/book-covers/wool.jpg',
 	},
 ]
 
-export const readThisYear: Book[] = [
+export const readThisYear: Book[] = []
+
+export const read2024: Book[] = [
 	{
 		title: 'Jujutsu Kaisen Vol 24',
 		author: 'Gege Akutami',
@@ -187,11 +189,6 @@ export const readThisYear: Book[] = [
 
 export const onMyRadar: Book[] = [
 	{
-		title: 'Wool',
-		author: 'Hugh Howey',
-		cover: '/images/book-covers/wool.jpg',
-	},
-	{
 		title: 'Shift',
 		author: 'Hugh Howey',
 		cover: '/images/book-covers/shift.jpg',
@@ -210,6 +207,11 @@ export const onMyRadar: Book[] = [
 		title: 'How to Take Smart Notes',
 		author: 'Sönke Ahrens',
 		cover: '/images/book-covers/how-to-take-smart-notes.jpg',
+	},
+	{
+		title: 'Game Programming Patterns',
+		author: 'Robert Nystrom',
+		cover: '/images/book-covers/game-programming-patterns.jpg',
 	},
 	{
 		title: 'Learn Concurrent Programming with Go',

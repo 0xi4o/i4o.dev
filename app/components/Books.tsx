@@ -4,6 +4,7 @@ import {
 	currentlyReading,
 	onMyRadar,
 	read2023,
+	read2024,
 	readThisYear,
 } from '~/data/books'
 import BookCard from './BookCard'
@@ -28,11 +29,26 @@ export default function Books() {
 			</section>
 			<section className='flex flex-col gap-8'>
 				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
-					2024
+					2025
 				</h2>
 				<div className='w-full columns-3 gap-8'>
 					{readThisYear.length !== 0 ? (
 						readThisYear.map((book, index) => (
+							// biome-ignore lint: it's fine
+							<BookCard {...book} key={`readThisYear${index}`} />
+						))
+					) : (
+						<span>Check back soon</span>
+					)}
+				</div>
+			</section>
+			<section className='flex flex-col gap-8'>
+				<h2 className='text-xl font-medium text-neutral-100 font-mono'>
+					2024
+				</h2>
+				<div className='w-full columns-3 gap-8'>
+					{read2024.length !== 0 ? (
+						read2024.map((book, index) => (
 							// biome-ignore lint: it's fine
 							<BookCard {...book} key={`readThisYear${index}`} />
 						))

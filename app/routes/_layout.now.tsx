@@ -8,8 +8,8 @@ export default function Now() {
 			<article className='flex flex-col gap-4 leading-loose'>
 				<PageTitle>Now</PageTitle>
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
-					<h3 className='text-lg text-neutral-100 font-mono'>
-						What I'm working on right now?
+					<h3 className='text-lg text-neutral-100 font-mono uppercase'>
+						What am I working on right now?
 					</h3>
 
 					<p>
@@ -17,38 +17,43 @@ export default function Now() {
 						<Employer />
 					</p>
 
-					{/* <p>I'm shipping Herald in my free time.</p> */}
+					<p>I'm shipping Rescribe in my free time.</p>
 
-					<p>I'm learning Odin, Raylib, and Box2D.</p>
+					<p>
+						I'm learning Golang and Data Structures &amp;
+						Algorithms.
+					</p>
+
+					{/* <p>I'm learning Odin, Raylib, and Box2D.</p> */}
 
 					{/* <p>I'm also learning to play a guitar.</p> */}
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
-					<h3 className='text-lg text-neutral-100 font-mono'>
+					<h3 className='text-lg text-neutral-100 font-mono uppercase'>
 						What are the projects I've planned for the coming
 						months?
 					</h3>
 
 					<ul>
+						<li>Rescribe</li>
 						<li>Aurelius</li>
 						{/* <li>Herald</li> */}
-						<li>Untitled Video Game</li>
-						<li>and a few small open-source tools</li>
+						{/* <li>and a few small open-source tools</li> */}
 					</ul>
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
-					<h3 className='text-lg text-neutral-100 font-mono'>
+					<h3 className='text-lg text-neutral-100 font-mono uppercase'>
 						What are my current short-term goals?
 					</h3>
 
-					<p>Build and launch a small video game on Steam</p>
-					{/* <p>Monetize one of the projects</p> */}
+					{/* <p>Build and launch a small video game on Steam</p> */}
+					<p>Monetize one of my side projects</p>
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
-					<h3 className='text-lg text-neutral-100 font-mono'>
+					<h3 className='text-lg text-neutral-100 font-mono uppercase'>
 						What am I reading right now?
 					</h3>
 
@@ -61,7 +66,7 @@ export default function Now() {
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
-					<h3 className='text-lg text-neutral-100 font-mono'>
+					<h3 className='text-lg text-neutral-100 font-mono uppercase'>
 						What am I playing right now?
 					</h3>
 
@@ -70,20 +75,20 @@ export default function Now() {
 						playing:
 					</p>
 					<ul>
-						<li>Path of Exile 2</li>
-						<li>The Outer Wilds</li>
+						<li>Red Dead Redemption 2</li>
+						<li>League of Legends</li>
 					</ul>
 				</section>
 
 				<section className='prose prose-invert flex flex-col prose-p:my-2 first:prose-p:mt-0'>
-					<h3 className='text-lg text-neutral-100 font-mono'>
+					<h3 className='text-lg text-neutral-100 font-mono uppercase'>
 						What am I watching right now?
 					</h3>
 
-					{/* <ul> */}
-					{/*     <li>F1</li> */}
-					{/*     <li>Vinland Saga (Rewatch)</li> */}
-					{/* </ul> */}
+					<ul>
+						<li>Attack on Titans (Rewatch)</li>
+						{/* <li>Vinland Saga (Rewatch)</li> */}
+					</ul>
 
 					<p>Not watching anything right now.</p>
 					<p>

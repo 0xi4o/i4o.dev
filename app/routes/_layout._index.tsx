@@ -30,7 +30,7 @@ function LatestPosts({ posts }: { posts: any[] }) {
 	return (
 		<article className='flex flex-col gap-8'>
 			<header className='flex w-full items-center flex-row justify-between gap-2'>
-				<h2 className='text-xl text-neutral-100 font-mono uppercase'>
+				<h2 className='text-2xl text-neutral-100 font-mono uppercase'>
 					Latest Posts
 				</h2>
 				<Link
@@ -70,7 +70,7 @@ function FeaturedProjects({
 	return (
 		<article className='flex flex-col gap-8'>
 			<header className='flex w-full flex-row justify-between gap-2'>
-				<h2 className='text-xl text-neutral-100 font-mono uppercase'>
+				<h2 className='text-2xl text-neutral-100 font-mono uppercase'>
 					Featured Projects
 				</h2>
 				<Link
@@ -103,7 +103,7 @@ function Work() {
 	return (
 		<article className='flex flex-col gap-8'>
 			<header className='flex w-full flex-row justify-between gap-2'>
-				<h2 className='text-xl text-neutral-100 font-mono uppercase'>
+				<h2 className='text-2xl text-neutral-100 font-mono uppercase'>
 					Work
 				</h2>
 			</header>

@@ -1,7 +1,7 @@
 export default function Employer() {
 	return (
 		<a
-			className='h-3 no-underline inline-flex items-center'
+			className='h-3 ml-1 no-underline inline-flex items-center'
 			href='https://flowiseai.com'
 			rel='noopener noreferrer'
 		>
